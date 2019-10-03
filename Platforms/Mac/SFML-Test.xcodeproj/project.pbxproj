@@ -1,0 +1,386 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2F43569A230ED21E00A89E64 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F435699230ED21E00A89E64 /* main.cpp */; };
+		2F43569C230ED25300A89E64 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F43569B230ED22500A89E64 /* Resources */; };
+		2F4356BB230EDFA500A89E64 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B6230EDFA500A89E64 /* sfml-window.framework */; };
+		2F4356BC230EDFA500A89E64 /* sfml-graphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B7230EDFA500A89E64 /* sfml-graphics.framework */; };
+		2F4356BD230EDFA500A89E64 /* sfml-audio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B8230EDFA500A89E64 /* sfml-audio.framework */; };
+		2F4356BE230EDFA500A89E64 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B9230EDFA500A89E64 /* sfml-network.framework */; };
+		2F4356BF230EDFA500A89E64 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356BA230EDFA500A89E64 /* sfml-system.framework */; };
+		2F4356C1230EDFBE00A89E64 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356C0230EDFBE00A89E64 /* SFML.framework */; };
+		2F4356C4230EE07500A89E64 /* Principal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F4356C2230EE07500A89E64 /* Principal.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2F435678230ECF1D00A89E64 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		2F43568B230ED0F200A89E64 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				2F43569C230ED25300A89E64 /* Resources in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2F43567A230ECF1D00A89E64 /* SFML-Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SFML-Test"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F43568E230ED17600A89E64 /* libsfml-system.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-system.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F43568F230ED17600A89E64 /* libsfml-network.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-network.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F435690230ED17600A89E64 /* libsfml-audio.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-audio.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F435691230ED17600A89E64 /* libsfml-window.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-window.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F435692230ED17600A89E64 /* libsfml-graphics.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-graphics.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F435699230ED21E00A89E64 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		2F43569B230ED22500A89E64 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../../../Resources; sourceTree = "<group>"; };
+		2F43569D230ED37B00A89E64 /* libsfml-window.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.5.1.dylib"; path = "../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-window.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F43569E230ED37B00A89E64 /* libsfml-audio.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.5.1.dylib"; path = "../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-audio.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F43569F230ED37B00A89E64 /* libsfml-network.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.5.1.dylib"; path = "../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-network.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F4356A0230ED37B00A89E64 /* libsfml-system.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.5.1.dylib"; path = "../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-system.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F4356A1230ED37B00A89E64 /* libsfml-graphics.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.5.1.dylib"; path = "../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-graphics.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F4356AC230EDD4400A89E64 /* libsfml-network.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.5.1.dylib"; path = "External-Libraries/SFML/lib/libsfml-network.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F4356AD230EDD4400A89E64 /* libsfml-audio.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-audio.2.5.1.dylib"; path = "External-Libraries/SFML/lib/libsfml-audio.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F4356AE230EDD4400A89E64 /* libsfml-graphics.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-graphics.2.5.1.dylib"; path = "External-Libraries/SFML/lib/libsfml-graphics.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F4356AF230EDD4400A89E64 /* libsfml-system.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.5.1.dylib"; path = "External-Libraries/SFML/lib/libsfml-system.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F4356B0230EDD4400A89E64 /* libsfml-window.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-window.2.5.1.dylib"; path = "External-Libraries/SFML/lib/libsfml-window.2.5.1.dylib"; sourceTree = "<group>"; };
+		2F4356B6230EDFA500A89E64 /* sfml-window.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-window.framework"; path = "../../../../../../../Library/Frameworks/sfml-window.framework"; sourceTree = "<group>"; };
+		2F4356B7230EDFA500A89E64 /* sfml-graphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-graphics.framework"; path = "../../../../../../../Library/Frameworks/sfml-graphics.framework"; sourceTree = "<group>"; };
+		2F4356B8230EDFA500A89E64 /* sfml-audio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-audio.framework"; path = "../../../../../../../Library/Frameworks/sfml-audio.framework"; sourceTree = "<group>"; };
+		2F4356B9230EDFA500A89E64 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
+		2F4356BA230EDFA500A89E64 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
+		2F4356C0230EDFBE00A89E64 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
+		2F4356C2230EE07500A89E64 /* Principal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Principal.cpp; sourceTree = "<group>"; };
+		2F4356C3230EE07500A89E64 /* Principal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Principal.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2F435677230ECF1D00A89E64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F4356C1230EDFBE00A89E64 /* SFML.framework in Frameworks */,
+				2F4356BB230EDFA500A89E64 /* sfml-window.framework in Frameworks */,
+				2F4356BC230EDFA500A89E64 /* sfml-graphics.framework in Frameworks */,
+				2F4356BD230EDFA500A89E64 /* sfml-audio.framework in Frameworks */,
+				2F4356BE230EDFA500A89E64 /* sfml-network.framework in Frameworks */,
+				2F4356BF230EDFA500A89E64 /* sfml-system.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F435671230ECF1D00A89E64 = {
+			isa = PBXGroup;
+			children = (
+				2F43567C230ECF1D00A89E64 /* SFML-Test */,
+				2F43567B230ECF1D00A89E64 /* Products */,
+				2F43568D230ED17500A89E64 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2F43567B230ECF1D00A89E64 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2F43567A230ECF1D00A89E64 /* SFML-Test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2F43567C230ECF1D00A89E64 /* SFML-Test */ = {
+			isa = PBXGroup;
+			children = (
+				2F43569B230ED22500A89E64 /* Resources */,
+				2F435698230ED21E00A89E64 /* src */,
+			);
+			path = "SFML-Test";
+			sourceTree = "<group>";
+		};
+		2F43568D230ED17500A89E64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F4356C0230EDFBE00A89E64 /* SFML.framework */,
+				2F4356B8230EDFA500A89E64 /* sfml-audio.framework */,
+				2F4356B7230EDFA500A89E64 /* sfml-graphics.framework */,
+				2F4356B9230EDFA500A89E64 /* sfml-network.framework */,
+				2F4356BA230EDFA500A89E64 /* sfml-system.framework */,
+				2F4356B6230EDFA500A89E64 /* sfml-window.framework */,
+				2F4356AD230EDD4400A89E64 /* libsfml-audio.2.5.1.dylib */,
+				2F4356AE230EDD4400A89E64 /* libsfml-graphics.2.5.1.dylib */,
+				2F4356AC230EDD4400A89E64 /* libsfml-network.2.5.1.dylib */,
+				2F4356AF230EDD4400A89E64 /* libsfml-system.2.5.1.dylib */,
+				2F4356B0230EDD4400A89E64 /* libsfml-window.2.5.1.dylib */,
+				2F43569E230ED37B00A89E64 /* libsfml-audio.2.5.1.dylib */,
+				2F4356A1230ED37B00A89E64 /* libsfml-graphics.2.5.1.dylib */,
+				2F43569F230ED37B00A89E64 /* libsfml-network.2.5.1.dylib */,
+				2F4356A0230ED37B00A89E64 /* libsfml-system.2.5.1.dylib */,
+				2F43569D230ED37B00A89E64 /* libsfml-window.2.5.1.dylib */,
+				2F435690230ED17600A89E64 /* libsfml-audio.2.5.1.dylib */,
+				2F435692230ED17600A89E64 /* libsfml-graphics.2.5.1.dylib */,
+				2F43568F230ED17600A89E64 /* libsfml-network.2.5.1.dylib */,
+				2F43568E230ED17600A89E64 /* libsfml-system.2.5.1.dylib */,
+				2F435691230ED17600A89E64 /* libsfml-window.2.5.1.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2F435698230ED21E00A89E64 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				2F435699230ED21E00A89E64 /* main.cpp */,
+				2F4356C2230EE07500A89E64 /* Principal.cpp */,
+				2F4356C3230EE07500A89E64 /* Principal.hpp */,
+			);
+			name = src;
+			path = ../../../src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2F435679230ECF1D00A89E64 /* SFML-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F435681230ECF1D00A89E64 /* Build configuration list for PBXNativeTarget "SFML-Test" */;
+			buildPhases = (
+				2F435676230ECF1D00A89E64 /* Sources */,
+				2F435677230ECF1D00A89E64 /* Frameworks */,
+				2F435678230ECF1D00A89E64 /* CopyFiles */,
+				2F43568B230ED0F200A89E64 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SFML-Test";
+			productName = "SFML-Test";
+			productReference = 2F43567A230ECF1D00A89E64 /* SFML-Test */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2F435672230ECF1D00A89E64 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = "Matheus Kunnen Ledesma";
+				TargetAttributes = {
+					2F435679230ECF1D00A89E64 = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 2F435675230ECF1D00A89E64 /* Build configuration list for PBXProject "SFML-Test" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2F435671230ECF1D00A89E64;
+			productRefGroup = 2F43567B230ECF1D00A89E64 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2F435679230ECF1D00A89E64 /* SFML-Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2F435676230ECF1D00A89E64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F4356C4230EE07500A89E64 /* Principal.cpp in Sources */,
+				2F43569A230ED21E00A89E64 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		2F43567F230ECF1D00A89E64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		2F435680230ECF1D00A89E64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2F435682230ECF1D00A89E64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XH26ZYH4M3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2F435683230ECF1D00A89E64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XH26ZYH4M3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2F435675230ECF1D00A89E64 /* Build configuration list for PBXProject "SFML-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F43567F230ECF1D00A89E64 /* Debug */,
+				2F435680230ECF1D00A89E64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F435681230ECF1D00A89E64 /* Build configuration list for PBXNativeTarget "SFML-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F435682230ECF1D00A89E64 /* Debug */,
+				2F435683230ECF1D00A89E64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2F435672230ECF1D00A89E64 /* Project object */;
+}
