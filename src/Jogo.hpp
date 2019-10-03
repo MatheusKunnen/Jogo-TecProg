@@ -1,5 +1,5 @@
-#ifndef JOGO
-#define JOGO
+#ifndef Jogo_hpp
+#define Jogo_hpp
 
 namespace Game {
 

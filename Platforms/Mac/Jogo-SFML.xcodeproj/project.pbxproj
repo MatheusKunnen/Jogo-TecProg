@@ -15,7 +15,8 @@
 		2F4356BE230EDFA500A89E64 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B9230EDFA500A89E64 /* sfml-network.framework */; };
 		2F4356BF230EDFA500A89E64 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356BA230EDFA500A89E64 /* sfml-system.framework */; };
 		2F4356C1230EDFBE00A89E64 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356C0230EDFBE00A89E64 /* SFML.framework */; };
-		2F4356C4230EE07500A89E64 /* Principal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F4356C2230EE07500A89E64 /* Principal.cpp */; };
+		2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD12346BE8F00E3209D /* Jogo.cpp */; };
+		2FDA0BD62346BF5F00E3209D /* MediaEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,8 +66,11 @@
 		2F4356B9230EDFA500A89E64 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		2F4356BA230EDFA500A89E64 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
 		2F4356C0230EDFBE00A89E64 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
-		2F4356C2230EE07500A89E64 /* Principal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Principal.cpp; sourceTree = "<group>"; };
-		2F4356C3230EE07500A89E64 /* Principal.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Principal.hpp; sourceTree = "<group>"; };
+		2FDA0BD12346BE8F00E3209D /* Jogo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jogo.cpp; sourceTree = "<group>"; };
+		2FDA0BD22346BE8F00E3209D /* Jogo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Jogo.hpp; sourceTree = "<group>"; };
+		2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaEngine.cpp; sourceTree = "<group>"; };
+		2FDA0BD52346BF5F00E3209D /* MediaEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaEngine.hpp; sourceTree = "<group>"; };
+		2FDA0BD72346BFB400E3209D /* base_includes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base_includes.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +93,7 @@
 		2F435671230ECF1D00A89E64 = {
 			isa = PBXGroup;
 			children = (
-				2F43567C230ECF1D00A89E64 /* SFML-Test */,
+				2F43567C230ECF1D00A89E64 /* Jogo-SFML */,
 				2F43567B230ECF1D00A89E64 /* Products */,
 				2F43568D230ED17500A89E64 /* Frameworks */,
 			);
@@ -103,13 +107,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2F43567C230ECF1D00A89E64 /* SFML-Test */ = {
+		2F43567C230ECF1D00A89E64 /* Jogo-SFML */ = {
 			isa = PBXGroup;
 			children = (
 				2F43569B230ED22500A89E64 /* Resources */,
 				2F435698230ED21E00A89E64 /* src */,
 			);
-			path = "SFML-Test";
+			path = "Jogo-SFML";
 			sourceTree = "<group>";
 		};
 		2F43568D230ED17500A89E64 /* Frameworks */ = {
@@ -143,9 +147,12 @@
 		2F435698230ED21E00A89E64 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				2FDA0BD12346BE8F00E3209D /* Jogo.cpp */,
+				2FDA0BD22346BE8F00E3209D /* Jogo.hpp */,
 				2F435699230ED21E00A89E64 /* main.cpp */,
-				2F4356C2230EE07500A89E64 /* Principal.cpp */,
-				2F4356C3230EE07500A89E64 /* Principal.hpp */,
+				2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */,
+				2FDA0BD52346BF5F00E3209D /* MediaEngine.hpp */,
+				2FDA0BD72346BFB400E3209D /* base_includes.h */,
 			);
 			name = src;
 			path = ../../../src;
@@ -186,7 +193,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2F435675230ECF1D00A89E64 /* Build configuration list for PBXProject "SFML-Test" */;
+			buildConfigurationList = 2F435675230ECF1D00A89E64 /* Build configuration list for PBXProject "Jogo-SFML" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -208,7 +215,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2F4356C4230EE07500A89E64 /* Principal.cpp in Sources */,
+				2FDA0BD62346BF5F00E3209D /* MediaEngine.cpp in Sources */,
+				2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */,
 				2F43569A230ED21E00A89E64 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +370,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F435675230ECF1D00A89E64 /* Build configuration list for PBXProject "SFML-Test" */ = {
+		2F435675230ECF1D00A89E64 /* Build configuration list for PBXProject "Jogo-SFML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2F43567F230ECF1D00A89E64 /* Debug */,
