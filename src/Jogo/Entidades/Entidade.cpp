@@ -10,9 +10,9 @@
 namespace Game{ namespace Entidades {
 
 Entidade::Entidade():
-speed(5.f)
+speed(1.f)
 {
-    this->shape.setSize(sf::Vector2f(50.f,50.f));
+    this->shape.setSize(sf::Vector2f(150.f,150.f));
 }
 
 Entidade::~Entidade(){

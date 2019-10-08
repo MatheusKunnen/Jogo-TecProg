@@ -10,9 +10,10 @@
 
 namespace Game { namespace States {
 
-State::State(RenderWindow* render_window, map<string, int>* supported_keys):
+State::State(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack):
 render_window(render_window),
 textures(),
+states_stack(states_stack),
 supported_keys(supported_keys),
 used_keys(),
 quit(false)

@@ -9,8 +9,8 @@
 #include "GameState.hpp"
 namespace Game { namespace States {
 // Constructor & Destructor
-GameState::GameState(RenderWindow* render_window, map<string, int>* supported_keys):
-State(render_window, supported_keys)
+GameState::GameState(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack):
+State(render_window, supported_keys, states_stack)
 {
     initValidKeys();
 }
@@ -24,8 +24,8 @@ void GameState::initValidKeys(){
     try{
         this->used_keys["MOVE_LEFT"] = this->supported_keys->at("A");
         this->used_keys["MOVE_RIGHT"] = this->supported_keys->at("D");
-        this->used_keys["MOVE_UP"] = this->supported_keys->at("S");
-        this->used_keys["MOVE_DOWN"] = this->supported_keys->at("W");
+        this->used_keys["MOVE_UP"] = this->supported_keys->at("W");
+        this->used_keys["MOVE_DOWN"] = this->supported_keys->at("S");
     } catch (std::exception e) {
         cerr << "FATAL ERROR: GameState::initValidkeys: " << e.what() << endl;
     }

@@ -11,7 +11,7 @@
 
 #include "base_includes.hpp"
 #include "Button.hpp"
-#include "State.hpp"
+#include "GameState.hpp"
 
 namespace Game { namespace States {
 
@@ -21,18 +21,23 @@ using GUI::Button;
 class MainMenuState : public State{
 private:
     // Attributes
-    sf::RectangleShape background;
-    sf::Font font;
+    sf::Texture             bg_texture;
+    sf::RectangleShape      background;
+    sf::Font                font;
     
-    Button* options_button;
+    map<int, Button*>       buttons;
     
     // Init methods
     void initValidKeys();
     void initFonts();
+    void initBackground();
     void initButtons();
+    
+    // Const
+    enum used_buttons{btn_new_game, btn_config, btn_exit};
 public:
     // Contructor & Destructor
-    MainMenuState(RenderWindow* render_window, map<string, int>* supported_keys);
+    MainMenuState(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack);
     ~MainMenuState();
     // Methods
     void endState();

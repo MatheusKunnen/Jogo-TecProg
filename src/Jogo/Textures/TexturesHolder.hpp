@@ -15,7 +15,7 @@
 #include <SFML/Graphics.hpp>
 namespace Game { namespace Textures{
 
-enum ID {Land01, Land02, MalePlayer };
+enum ID {Land01, Land02, MalePlayer};
 
 class TextureHolder : public ResourceHolder<sf::Texture, Textures::ID>{
 

@@ -18,13 +18,14 @@ class State {
 protected:
     // Attributes
     RenderWindow*       render_window;
+    stack<State*>*      states_stack;
     vector<Texture>     textures;
-    Vector2i mouse_pos_screen;
-    Vector2i mouse_pos_window;
-    Vector2f mouse_pos_view;
+    Vector2i            mouse_pos_screen;
+    Vector2i            mouse_pos_window;
+    Vector2f            mouse_pos_view;
     
-    map<string, int>* supported_keys;
-    map<string, int> used_keys;
+    map<string, int>*   supported_keys;
+    map<string, int>    used_keys;
     
     bool quit;
     
@@ -32,7 +33,7 @@ protected:
     virtual void initValidKeys() = 0;
 public:
     // Constructor & Destructor
-    State(RenderWindow* render_window, map<string, int>* supported_keys);
+    State(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack);
     virtual ~State();
     // Methods
     virtual void checkQuit();

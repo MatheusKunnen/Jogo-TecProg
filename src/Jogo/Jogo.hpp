@@ -46,6 +46,7 @@ public:
     void handleEvents();
     void update();
     void render();
+    void pushState(State* state);
     // Getters & Setters
 	int getStatusCode() const;
 

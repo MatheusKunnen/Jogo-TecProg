@@ -19,7 +19,7 @@ private:
     void initValidKeys();
 public:
     // Contructor & Destructor
-    GameState(RenderWindow* render_window, map<string, int>* supported_keys);
+    GameState(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack);
     ~GameState();
     // Methods
     void endState();

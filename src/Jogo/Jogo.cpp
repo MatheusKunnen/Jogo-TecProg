@@ -22,6 +22,13 @@ status_code(0)
     this->main_mEngine = MediaEngine::getInstance();
     this->initKeys();
     this->initStates();
+
+    
+        sf::VideoMode mode = sf::VideoMode::getDesktopMode();
+        std::cout << "Mode #"  << ": "
+                  << mode.width << "x" << mode.height << " - "
+                  << mode.bitsPerPixel << " bpp" << std::endl;
+    
 }
 
 Jogo::~Jogo(){
@@ -30,7 +37,7 @@ Jogo::~Jogo(){
 
 // Init methods
 void Jogo::initStates(){
-    this->states.push(new MainMenuState(this->main_mEngine->getRenderWindow(), &this->valid_keys));
+    this->states.push(new MainMenuState(this->main_mEngine->getRenderWindow(), &this->valid_keys, &this->states));
 }
 
 void Jogo::initKeys(){
@@ -49,8 +56,8 @@ void Jogo::run() {
         updateDt();
         update();
         render();
-        sf::sleep(sf::milliseconds(5));
-
+        cout << this->dt << endl;
+        //sf::sleep(sf::milliseconds(150));
     }
     if (this->main_mEngine->getRenderWindow()->isOpen())
         this->main_mEngine->getRenderWindow()->close();
@@ -99,6 +106,10 @@ void Jogo::render(){
     if (!this->states.empty())
         this->states.top()->render();
     this->main_mEngine->getRenderWindow()->display();
+}
+
+void Jogo::pushState(State *state){
+    this->states.push(state);
 }
 
 int Jogo::getStatusCode() const {

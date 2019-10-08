@@ -14,15 +14,21 @@ namespace Game {
 const int MediaEngineParameters::DEFAULT_FRAMERATE(60);
 const int MediaEngineParameters::DEFAULT_WINDOW_HEIGHT(1080);
 const int MediaEngineParameters::DEFAULT_WINDOW_WIDTH(1920);
+const int MediaEngineParameters::DEFAULT_STYLE_NORMAL(sf::Style::Titlebar | sf::Style::Close);
+const int MediaEngineParameters::DEFAULT_STYLE_FULLSCREEN(sf::Style::Fullscreen);
 const string MediaEngineParameters::DEFAULT_WINDOW_TITLE("GAME SFML | Matheus Kunnen");
 
 // Constructor & Destructor
 MediaEngineParameters::MediaEngineParameters(string file):
-frame_rate_limit(MediaEngineParameters::DEFAULT_FRAMERATE),
 window_width(MediaEngineParameters::DEFAULT_WINDOW_WIDTH),
-window_height(MediaEngineParameters::DEFAULT_WINDOW_HEIGHT)
-,window_title(MediaEngineParameters::DEFAULT_WINDOW_TITLE)
+window_height(MediaEngineParameters::DEFAULT_WINDOW_HEIGHT),
+frame_rate_limit(MediaEngineParameters::DEFAULT_FRAMERATE),
+fullscreen(false),
+style(MediaEngineParameters::DEFAULT_STYLE_NORMAL),
+window_title(MediaEngineParameters::DEFAULT_WINDOW_TITLE),
+antialias_level(0)
 {
+    this->setStyle((fullscreen) ? MediaEngineParameters::DEFAULT_STYLE_FULLSCREEN : MediaEngineParameters::DEFAULT_STYLE_NORMAL);
     if(file != "")
         this->loadFromFile(file);
 }
@@ -41,17 +47,8 @@ bool MediaEngineParameters::saveToFile(string file){
 }
 
 // Getters & Setters
-void MediaEngineParameters::setFrameRateLimit(int frame_rate_limit){
-    this->frame_rate_limit = frame_rate_limit;
-}
-
-int MediaEngineParameters::getFrameRateLimit() const{
-    return this->frame_rate_limit;
-}
-
 void MediaEngineParameters::setWindowWidth(int window_width){
     this->window_width = window_width;
-    
 }
 
 int MediaEngineParameters::getWindowWidth() const{
@@ -66,6 +63,34 @@ int MediaEngineParameters::getWindowHeight() const{
     return this->window_height;
 }
 
+void MediaEngineParameters::setFrameRateLimit(int frame_rate_limit){
+    this->frame_rate_limit = frame_rate_limit;
+}
+
+int MediaEngineParameters::getFrameRateLimit() const{
+    return this->frame_rate_limit;
+}
+
+void MediaEngineParameters::setStyle(int style){
+    this->style = style;
+}
+
+int MediaEngineParameters::getStyle() const{
+    return this->style;
+}
+
+void MediaEngineParameters::setFullscreen(bool fullscreen){
+    this->fullscreen = fullscreen;
+    if (this->fullscreen)
+        this->setStyle(sf::Style::Fullscreen);
+    else
+        this->setStyle(MediaEngineParameters::DEFAULT_STYLE_NORMAL);
+}
+
+bool MediaEngineParameters::isFullscreen() const {
+    return this->fullscreen;
+}
+
 void MediaEngineParameters::setWindowTitle(const string window_title){
     this->window_title = window_title;
 }
@@ -73,5 +98,14 @@ void MediaEngineParameters::setWindowTitle(const string window_title){
 const string& MediaEngineParameters::getWindowTitle() const{
     return this->window_title;
 }
+
+void MediaEngineParameters::setAntialiasLevel(unsigned int antialias_level){
+    this->antialias_level = antialias_level;
+}
+
+unsigned MediaEngineParameters::getAntialiasLevel() const {
+    return this->antialias_level;
+}
+
 }
 

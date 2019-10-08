@@ -14,6 +14,7 @@
 
 using sf::RenderTarget;
 using sf::RectangleShape;
+using sf::Texture;
 using sf::Font;
 using sf::Text;
 using sf::Color;
@@ -25,17 +26,27 @@ class Button {
 private:
     //Attributes
     RectangleShape      background;
+    Texture             bg_texture;
     Font*               font;
     Text                text;
     
+    Color               disabled_color;
     Color               normal_color;
     Color               hover_color;
     Color               pressed_color;
+    Color               text_color;
     
     int8_t              state;
+    
+    // Consts
+    const static Color DEFAULT_DISABLED_COLOR;
+    const static Color DEFAULT_NORMAL_COLOR;
+    const static Color DEFAULT_HOVER_COLOR;
+    const static Color DEFAULT_PRESSED_COLOR;
+    const static Color DEFAULT_TEXT_COLOR;
 public: 
     Button(const Vector2f& back_size, const Vector2f& position, Font* font, const string& text,
-           const Color& normal_color = sf::Color::Red, const Color& hover_color = sf::Color::Blue, const Color& pressed_color = sf::Color::Yellow);
+           const Color& normal_color = Button::DEFAULT_NORMAL_COLOR, const Color& hover_color = Button::DEFAULT_HOVER_COLOR, const Color& pressed_color = Button::DEFAULT_PRESSED_COLOR);
     ~Button();
     
     // Methods
