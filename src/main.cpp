@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  SFML-Test
+//  Jogo-SFML
 //
 //  Created by Matheus Kunnen Ledesma on 8/22/19.
 //  Copyright © 2019 Matheus Kunnen Ledesma. All rights reserved.
@@ -13,10 +13,10 @@ using Game::Jogo;
 
 int main()
 {
-	Jogo* main_jogo = new Jogo();
+	Jogo* main_jogo = Game::Jogo::getInstance();
 	main_jogo->run();
 	
-	int exit_code = main_jogo->getStatus_code();
+	int exit_code = main_jogo->getStatusCode();
 	
 	delete(main_jogo);
     
