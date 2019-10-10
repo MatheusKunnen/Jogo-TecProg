@@ -20,8 +20,7 @@ using GUI::Button;
 
 class MainMenuState : public State{
 private:
-    // Attributes
-    sf::Texture             bg_texture;
+    // Attributes        
     sf::RectangleShape      background;
     sf::Font                font;
     
@@ -29,6 +28,7 @@ private:
     
     // Init methods
     void initValidKeys();
+    void initTextures();
     void initFonts();
     void initBackground();
     void initButtons();
@@ -40,7 +40,6 @@ public:
     MainMenuState(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack);
     ~MainMenuState();
     // Methods
-    void endState();
     void updateInput(const float& dt);
     void update(const float& dt);
     void render(RenderTarget* target);

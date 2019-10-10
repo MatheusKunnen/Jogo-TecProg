@@ -260,13 +260,12 @@
 				2FA6DF49234CCF5A00302427 /* GUI */,
 				2FDA0C05234BD79B00E3209D /* Entidades */,
 				2FDA0BF8234BADC100E3209D /* States */,
-				2FDA0BF0234A3D5600E3209D /* Textures */,
+				2FDA0BF0234A3D5600E3209D /* Resources */,
 				2FDA0BD12346BE8F00E3209D /* Jogo.cpp */,
 				2FDA0BD22346BE8F00E3209D /* Jogo.hpp */,
 				2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */,
 				2FDA0BD52346BF5F00E3209D /* MediaEngine.hpp */,
 				2FDA0BD72346BFB400E3209D /* base_includes.hpp */,
-				2FDA0BF7234A63C200E3209D /* ResourcesHolder.hpp */,
 				2FDA0BFF234BB3D100E3209D /* MediaEngineParameters.cpp */,
 				2FDA0C00234BB3D100E3209D /* MediaEngineParameters.hpp */,
 			);
@@ -295,13 +294,14 @@
 			path = Obstaculos;
 			sourceTree = "<group>";
 		};
-		2FDA0BF0234A3D5600E3209D /* Textures */ = {
+		2FDA0BF0234A3D5600E3209D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2FDA0BF7234A63C200E3209D /* ResourcesHolder.hpp */,
 				2FDA0BF1234A3D9B00E3209D /* TexturesHolder.cpp */,
 				2FDA0BF2234A3D9B00E3209D /* TexturesHolder.hpp */,
 			);
-			path = Textures;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		2FDA0BF8234BADC100E3209D /* States */ = {

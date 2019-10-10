@@ -93,7 +93,7 @@ void Button::setEnabled(const bool& enabled) {
         this->background.setFillColor(this->normal_color);
     } else {
         state = disabled;
-        this->background.setFillColor(this->normal_color); // Criar disabled color
+        this->background.setFillColor(this->disabled_color); 
     }
 }
 };

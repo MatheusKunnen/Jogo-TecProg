@@ -8,7 +8,25 @@
 
 #ifndef Jogador_hpp
 #define Jogador_hpp
+#include "base_includes.hpp"
+#include "Entidade.hpp"
 
-#include <stdio.h>
+namespace Game { namespace Entidades {
+
+class Jogador : public Entidade{
+private:
+    // Attributes
+    
+    // Init methods
+    void initComponents();
+public:
+    // Constructor & Destructor
+    Jogador(const Vector2f& position, Texture* texture);
+    ~Jogador();
+    // Methods
+    
+};
+
+}};
 
 #endif /* Jogador_hpp */

@@ -12,10 +12,12 @@
 #include "base_includes.hpp"
 #include <SFML/Graphics.hpp>
 
+
 // SFML usings
 using sf::RenderWindow;
 using sf::RenderTarget;
 using sf::Texture;
+using sf::Sprite;
 using sf::Vector2i;
 using sf::Vector2f;
 
@@ -24,14 +26,18 @@ namespace Game{ namespace Entidades {
 class Entidade {
 protected:
     // Attributes
-    sf::RectangleShape shape;
+    Texture*             texture;
+    sf::Sprite*          sprite;
+    
     float speed;
 public:
     // Constructor & Destructor
-    Entidade();
+    explicit Entidade(Texture* texture = nullptr);
     virtual ~Entidade();
     // Getters & Setters
-    
+    virtual void setPosition(const Vector2f& position);
+    // Component Methods
+    void create_sprite(Texture* texture);
     
     // Methods
     virtual void move(const sf::Vector2f& direction, const float& dt);

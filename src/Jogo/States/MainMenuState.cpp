@@ -19,6 +19,7 @@ buttons()
     this->background.setSize(sf::Vector2f(this->render_window->getSize()));
     this->background.setFillColor(sf::Color::White);
     initValidKeys();
+    initTextures();
     initFonts();
     initBackground();
     initButtons();
@@ -43,6 +44,10 @@ void MainMenuState::initValidKeys(){
     }
 }
 
+void MainMenuState::initTextures() {
+    this->textures.load(Textures::background_01, TextureHolder::getFilename(Textures::background_01));
+}
+
 void MainMenuState::initFonts(){
     if (!font.loadFromFile(FONT_01_DIR)){
         throw ("FATAL ERROR: MainMenuState::initFonts(): failed to load Resources/fonts/font-01.otf");
@@ -50,9 +55,9 @@ void MainMenuState::initFonts(){
 }
 
 void MainMenuState::initBackground(){
-    if (!this->bg_texture.loadFromFile("Resources/img/backgrounds/bg-main_menu.jpeg"))
-        throw ("FATAL ERROR: MainMenuState::initBackground(): failed to load Resources/img/backgrounds/bg-main_menu.jpeg");
-    this->background.setTexture(&this->bg_texture);
+    //if (!this->bg_texture.loadFromFile(Textures))
+    //    throw ("FATAL ERROR: MainMenuState::initBackground(): failed to load background textures.");
+    this->background.setTexture(&this->textures.get(Textures::background_01));
 }
 
 void MainMenuState::initButtons(){
@@ -63,14 +68,18 @@ void MainMenuState::initButtons(){
     buttons[btn_config] = new Button(btn_size, btn_pos, &this->font, "Config");
     btn_pos.y = btn_pos.y + btn_size.y *1.2;
     buttons[btn_exit] = new Button(btn_size, btn_pos, &this->font, "EXIT");
+    //buttons[btn_exit]->setEnabled(false);
 }
 
 // Methods
-void MainMenuState::endState(){
-    cout << "Ending MainMenuState" << endl;
-}
 void MainMenuState::updateInput(const float& dt){
-    this->checkQuit();
+    if (this->buttons[btn_exit]->isPressed()){
+        this->endState();
+        }
+        
+    if (this->buttons[btn_new_game]->isPressed()){
+            this->states_stack->push(new GameState(this->render_window,  this->supported_keys, this->states_stack));
+    }
 }
 
 void MainMenuState::update(const float& dt){
@@ -79,15 +88,8 @@ void MainMenuState::update(const float& dt){
     
     for(map<int, Button*>::iterator itr = this->buttons.begin(); itr != this->buttons.end(); ++itr)
         itr->second->update(this->mouse_pos_view);
-    
-    if (this->buttons[btn_exit]->isPressed()){
-        this->quit = true;
-    }
-    
-    if (this->buttons[btn_new_game]->isPressed()){
-        this->states_stack->push(new GameState(this->render_window,  this->supported_keys, this->states_stack));
-    }
 }
+    
 
 void MainMenuState::render(RenderTarget* target){
     if (target == nullptr)

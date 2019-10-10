@@ -10,19 +10,26 @@
 #define GameState_hpp
 #include "base_includes.hpp"
 #include "State.hpp"
+#include "TexturesHolder.hpp"
+#include "Jogador.hpp"
 
 namespace Game { namespace States {
 
+using Textures::TextureHolder;
+using Entidades::Jogador;
 class GameState : public State {
 private:
-    Entidades::Entidade jogador; // DEBUG
+    TextureHolder textures_used;
+    Jogador* jogador; // DEBUG
+    
+    void initTextures();
     void initValidKeys();
+    void initEntities();
 public:
     // Contructor & Destructor
     GameState(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack);
     ~GameState();
     // Methods
-    void endState();
     void updateInput(const float& dt);
     void update(const float& dt);
     void render(RenderTarget* target);

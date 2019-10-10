@@ -11,15 +11,18 @@
 
 #include "base_includes.hpp"
 #include "Entidade.hpp"
+#include "TexturesHolder.hpp"
 
 namespace Game { namespace States {
+
+using Textures::TextureHolder;
 
 class State {
 protected:
     // Attributes
     RenderWindow*       render_window;
     stack<State*>*      states_stack;
-    vector<Texture>     textures;
+    TextureHolder       textures;
     Vector2i            mouse_pos_screen;
     Vector2i            mouse_pos_window;
     Vector2f            mouse_pos_view;
@@ -36,8 +39,7 @@ public:
     State(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack);
     virtual ~State();
     // Methods
-    virtual void checkQuit();
-    virtual void endState() = 0;
+    virtual void endState();
     virtual void updateMousePos();
     virtual void updateInput(const float& dt) = 0;
     virtual void update(const float& dt) = 0;
