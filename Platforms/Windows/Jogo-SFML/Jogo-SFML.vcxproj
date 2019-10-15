@@ -19,13 +19,51 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\Jogo.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Componentes\MoveComponent.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Entidade.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Inimigo.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Jogador.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Obstaculo.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Personagem.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\GUI\Button.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Jogo.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\MediaEngine.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\MediaEngineParameters.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Resources\TexturesHolder.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\States\GameState.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\States\MainMenuState.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\States\PhaseAState.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\States\PhaseBState.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\States\PhaseCState.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\States\State.cpp" />
     <ClCompile Include="..\..\..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\Jogo.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\base_includes.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Componentes\MoveComponent.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Entidade.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Inimigo.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Jogador.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Obstaculo.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Personagem.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\base_gui_includes.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\Button.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Jogo.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\MediaEngine.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\MediaEngineParameters.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Resources\ResourcesHolder.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Resources\TexturesHolder.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\GameState.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\MainMenuState.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\PhaseAState.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\PhaseBState.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\PhaseCState.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\State.hpp" />
     <ClInclude Include="..\..\..\src\Principal.hpp" />
-    <ClInclude Include="Jogo.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\src\Jogo\.DS_Store" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

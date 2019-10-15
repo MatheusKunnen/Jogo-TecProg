@@ -45,13 +45,22 @@ void MainMenuState::initValidKeys(){
 }
 
 void MainMenuState::initTextures() {
-    this->textures.load(Textures::background_01, TextureHolder::getFilename(Textures::background_01));
+	try {
+		this->textures.load(Textures::background_01, TextureHolder::getFilename(Textures::background_01));
+	} catch (std::exception e) {
+		cerr << "MainMenuState::initTextures: ERROR Loading textutes: " << endl;
+	}
+
 }
 
 void MainMenuState::initFonts(){
-    if (!font.loadFromFile(FONT_01_DIR)){
-        throw ("FATAL ERROR: MainMenuState::initFonts(): failed to load Resources/fonts/font-01.otf");
-    }
+	try {
+		if (!font.loadFromFile(FONT_01_DIR)) {
+			throw ("FATAL ERROR: MainMenuState::initFonts(): failed to load Resources/fonts/font-01.otf");
+		}
+	}catch (std::exception e) {
+			cerr << "MainMenuState::initFonts: ERROR Loading fontd: " << endl;
+	}
 }
 
 void MainMenuState::initBackground(){
