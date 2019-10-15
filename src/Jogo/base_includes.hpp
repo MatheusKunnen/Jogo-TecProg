@@ -15,6 +15,16 @@
 #include <stack>
 #include <vector>
 
+#include <SFML/Graphics.hpp>
+
+// SFML usings
+using sf::RenderWindow;
+using sf::RenderTarget;
+using sf::Texture;
+using sf::Sprite;
+using sf::Vector2i;
+using sf::Vector2f;
+
 using std::cout;
 using std::cin;
 using std::cerr;
@@ -34,5 +44,5 @@ using std::runtime_error;
 
 
 static const bool DEBUG_MODE = true;
-static const string FONT_01_DIR = "Resources/fonts/font-01.otf";
+static const string FONT_01_DIR = "Resources/fonts/font-01.otf"; // Crear clase FontHolder
 #endif /* Base_includes */

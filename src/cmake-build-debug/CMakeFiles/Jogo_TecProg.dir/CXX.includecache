@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/Entidades/Entidade.hpp
+../base_includes.hpp
+/Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/base_includes.hpp
+
+/Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/Entidades/Personagem.cpp
+Personagem.hpp
+/Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/Entidades/Personagem.hpp
+
+/Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/Entidades/Personagem.hpp
+../base_includes.hpp
+/Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/base_includes.hpp
+Entidade.hpp
+/Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/Entidades/Entidade.hpp
+
+/Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/base_includes.hpp
+iostream
+-
+string
+-
+map
+-
+stack
+-
+vector
+-
+SFML/Graphics.hpp
+-
+

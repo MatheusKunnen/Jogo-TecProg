@@ -15,6 +15,10 @@
 		2F4356BE230EDFA500A89E64 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B9230EDFA500A89E64 /* sfml-network.framework */; };
 		2F4356BF230EDFA500A89E64 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356BA230EDFA500A89E64 /* sfml-system.framework */; };
 		2F4356C1230EDFBE00A89E64 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356C0230EDFBE00A89E64 /* SFML.framework */; };
+		2F7FBB2B2356149B00794230 /* PhaseAState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB292356149B00794230 /* PhaseAState.cpp */; };
+		2F7FBB2E235614AA00794230 /* PhaseBState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB2C235614AA00794230 /* PhaseBState.cpp */; };
+		2F7FBB31235614B700794230 /* PhaseCState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB2F235614B700794230 /* PhaseCState.cpp */; };
+		2F7FBB342356150600794230 /* Parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB322356150600794230 /* Parameters.cpp */; };
 		2FA6DF48234CC7C100302427 /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF46234CC7C100302427 /* MainMenuState.cpp */; };
 		2FA6DF4C234CCF7200302427 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF4A234CCF7200302427 /* Button.cpp */; };
 		2FA6DF4F234CDADF00302427 /* MediaEngineParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BFF234BB3D100E3209D /* MediaEngineParameters.cpp */; };
@@ -38,6 +42,7 @@
 		2FA6DF62234CDADF00302427 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B9230EDFA500A89E64 /* sfml-network.framework */; };
 		2FA6DF63234CDADF00302427 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356BA230EDFA500A89E64 /* sfml-system.framework */; };
 		2FA6DF66234CDADF00302427 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F43569B230ED22500A89E64 /* Resources */; };
+		2FA6DF6F234F940E00302427 /* MoveComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF6D234F940E00302427 /* MoveComponent.cpp */; };
 		2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD12346BE8F00E3209D /* Jogo.cpp */; };
 		2FDA0BD62346BF5F00E3209D /* MediaEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */; };
 		2FDA0BDA2349264500E3209D /* Entidade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD82349264500E3209D /* Entidade.cpp */; };
@@ -117,12 +122,22 @@
 		2F4356B9230EDFA500A89E64 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		2F4356BA230EDFA500A89E64 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
 		2F4356C0230EDFBE00A89E64 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
+		2F7FBB292356149B00794230 /* PhaseAState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseAState.cpp; sourceTree = "<group>"; };
+		2F7FBB2A2356149B00794230 /* PhaseAState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhaseAState.hpp; sourceTree = "<group>"; };
+		2F7FBB2C235614AA00794230 /* PhaseBState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseBState.cpp; sourceTree = "<group>"; };
+		2F7FBB2D235614AA00794230 /* PhaseBState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhaseBState.hpp; sourceTree = "<group>"; };
+		2F7FBB2F235614B700794230 /* PhaseCState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseCState.cpp; sourceTree = "<group>"; };
+		2F7FBB30235614B700794230 /* PhaseCState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhaseCState.hpp; sourceTree = "<group>"; };
+		2F7FBB322356150600794230 /* Parameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Parameters.cpp; sourceTree = "<group>"; };
+		2F7FBB332356150600794230 /* Parameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Parameters.hpp; sourceTree = "<group>"; };
 		2FA6DF46234CC7C100302427 /* MainMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuState.cpp; sourceTree = "<group>"; };
 		2FA6DF47234CC7C100302427 /* MainMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainMenuState.hpp; sourceTree = "<group>"; };
 		2FA6DF4A234CCF7200302427 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
 		2FA6DF4B234CCF7200302427 /* Button.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Button.hpp; sourceTree = "<group>"; };
 		2FA6DF6A234CDADF00302427 /* Jogo-SFML ORIGINAL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Jogo-SFML ORIGINAL"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA6DF6B234CDFA000302427 /* base_gui_includes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = base_gui_includes.hpp; sourceTree = "<group>"; };
+		2FA6DF6D234F940E00302427 /* MoveComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MoveComponent.cpp; sourceTree = "<group>"; };
+		2FA6DF6E234F940E00302427 /* MoveComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MoveComponent.hpp; sourceTree = "<group>"; };
 		2FDA0BD12346BE8F00E3209D /* Jogo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jogo.cpp; sourceTree = "<group>"; };
 		2FDA0BD22346BE8F00E3209D /* Jogo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Jogo.hpp; sourceTree = "<group>"; };
 		2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaEngine.cpp; sourceTree = "<group>"; };
@@ -254,6 +269,15 @@
 			path = GUI;
 			sourceTree = "<group>";
 		};
+		2FA6DF6C234F93EC00302427 /* Componentes */ = {
+			isa = PBXGroup;
+			children = (
+				2FA6DF6D234F940E00302427 /* MoveComponent.cpp */,
+				2FA6DF6E234F940E00302427 /* MoveComponent.hpp */,
+			);
+			path = Componentes;
+			sourceTree = "<group>";
+		};
 		2FDA0BE7234A3B4D00E3209D /* Jogo */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,30 +292,10 @@
 				2FDA0BD72346BFB400E3209D /* base_includes.hpp */,
 				2FDA0BFF234BB3D100E3209D /* MediaEngineParameters.cpp */,
 				2FDA0C00234BB3D100E3209D /* MediaEngineParameters.hpp */,
+				2F7FBB322356150600794230 /* Parameters.cpp */,
+				2F7FBB332356150600794230 /* Parameters.hpp */,
 			);
 			path = Jogo;
-			sourceTree = "<group>";
-		};
-		2FDA0BEB234A3C0500E3209D /* Personagens */ = {
-			isa = PBXGroup;
-			children = (
-				2FDA0BDB2349265500E3209D /* Jogador.cpp */,
-				2FDA0BDC2349265500E3209D /* Jogador.hpp */,
-				2FDA0BDE2349266200E3209D /* Inimigo.cpp */,
-				2FDA0BDF2349266200E3209D /* Inimigo.hpp */,
-				2FDA0BE423492EA600E3209D /* Personagem.cpp */,
-				2FDA0BE523492EA600E3209D /* Personagem.hpp */,
-			);
-			path = Personagens;
-			sourceTree = "<group>";
-		};
-		2FDA0BEC234A3C2B00E3209D /* Obstaculos */ = {
-			isa = PBXGroup;
-			children = (
-				2FDA0BED234A3C7900E3209D /* Obstaculo.cpp */,
-				2FDA0BEE234A3C7900E3209D /* Obstaculo.hpp */,
-			);
-			path = Obstaculos;
 			sourceTree = "<group>";
 		};
 		2FDA0BF0234A3D5600E3209D /* Resources */ = {
@@ -313,6 +317,12 @@
 				2FDA0BFD234BADE200E3209D /* GameState.hpp */,
 				2FA6DF46234CC7C100302427 /* MainMenuState.cpp */,
 				2FA6DF47234CC7C100302427 /* MainMenuState.hpp */,
+				2F7FBB292356149B00794230 /* PhaseAState.cpp */,
+				2F7FBB2A2356149B00794230 /* PhaseAState.hpp */,
+				2F7FBB2C235614AA00794230 /* PhaseBState.cpp */,
+				2F7FBB2D235614AA00794230 /* PhaseBState.hpp */,
+				2F7FBB2F235614B700794230 /* PhaseCState.cpp */,
+				2F7FBB30235614B700794230 /* PhaseCState.hpp */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -320,10 +330,17 @@
 		2FDA0C05234BD79B00E3209D /* Entidades */ = {
 			isa = PBXGroup;
 			children = (
+				2FA6DF6C234F93EC00302427 /* Componentes */,
+				2FDA0BDB2349265500E3209D /* Jogador.cpp */,
+				2FDA0BDC2349265500E3209D /* Jogador.hpp */,
+				2FDA0BDE2349266200E3209D /* Inimigo.cpp */,
+				2FDA0BDF2349266200E3209D /* Inimigo.hpp */,
+				2FDA0BE423492EA600E3209D /* Personagem.cpp */,
+				2FDA0BE523492EA600E3209D /* Personagem.hpp */,
+				2FDA0BED234A3C7900E3209D /* Obstaculo.cpp */,
+				2FDA0BEE234A3C7900E3209D /* Obstaculo.hpp */,
 				2FDA0BD82349264500E3209D /* Entidade.cpp */,
 				2FDA0BD92349264500E3209D /* Entidade.hpp */,
-				2FDA0BEC234A3C2B00E3209D /* Obstaculos */,
-				2FDA0BEB234A3C0500E3209D /* Personagens */,
 			);
 			path = Entidades;
 			sourceTree = "<group>";
@@ -405,19 +422,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FDA0C01234BB3D100E3209D /* MediaEngineParameters.cpp in Sources */,
+				2F7FBB342356150600794230 /* Parameters.cpp in Sources */,
 				2FDA0BE623492EA600E3209D /* Personagem.cpp in Sources */,
 				2FDA0BFE234BADE200E3209D /* GameState.cpp in Sources */,
+				2F7FBB2B2356149B00794230 /* PhaseAState.cpp in Sources */,
 				2FA6DF4C234CCF7200302427 /* Button.cpp in Sources */,
 				2FDA0BF3234A3D9B00E3209D /* TexturesHolder.cpp in Sources */,
 				2FDA0BFB234BADD000E3209D /* State.cpp in Sources */,
 				2FDA0BD62346BF5F00E3209D /* MediaEngine.cpp in Sources */,
 				2FDA0BDD2349265500E3209D /* Jogador.cpp in Sources */,
+				2FA6DF6F234F940E00302427 /* MoveComponent.cpp in Sources */,
 				2FDA0BEF234A3C7900E3209D /* Obstaculo.cpp in Sources */,
+				2F7FBB2E235614AA00794230 /* PhaseBState.cpp in Sources */,
 				2FDA0BE02349266200E3209D /* Inimigo.cpp in Sources */,
 				2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */,
 				2F43569A230ED21E00A89E64 /* main.cpp in Sources */,
 				2FA6DF48234CC7C100302427 /* MainMenuState.cpp in Sources */,
 				2FDA0BDA2349264500E3209D /* Entidade.cpp in Sources */,
+				2F7FBB31235614B700794230 /* PhaseCState.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

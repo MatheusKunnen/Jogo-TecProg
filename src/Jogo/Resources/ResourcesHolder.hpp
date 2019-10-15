@@ -9,7 +9,7 @@
 #ifndef ResourcesHolder_h
 #define ResourcesHolder_h
 
-#include "base_includes.hpp"
+#include "../base_includes.hpp"
 
 #include <SFML/Graphics.hpp>
 
@@ -28,8 +28,8 @@ public:
     ~ResourceHolder();
     // Methods
     void load(Id id, const string& filename);
-    template <typename Parameter>
-    void load(Id id, const string& filename, const Parameter& secondParam);
+    //template <typename Parameter>
+    //void load(Id id, const string& filename, const Parameter& secondParam);
     Resource& get(Id id);
     const Resource& get(Id id) const;
     

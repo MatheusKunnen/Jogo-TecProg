@@ -9,9 +9,9 @@
 #ifndef State_hpp
 #define State_hpp
 
-#include "base_includes.hpp"
-#include "Entidade.hpp"
-#include "TexturesHolder.hpp"
+#include "../base_includes.hpp"
+#include "../Entidades/Entidade.hpp"
+#include "../Resources/TexturesHolder.hpp"
 
 namespace Game { namespace States {
 

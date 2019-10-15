@@ -9,8 +9,8 @@
 #ifndef MainMenuState_hpp
 #define MainMenuState_hpp
 
-#include "base_includes.hpp"
-#include "Button.hpp"
+#include "../base_includes.hpp"
+#include "../GUI/Button.hpp"
 #include "GameState.hpp"
 
 namespace Game { namespace States {

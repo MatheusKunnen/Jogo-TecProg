@@ -32,7 +32,7 @@ void GameState::initValidKeys(){
     try{
         this->used_keys["MOVE_LEFT"] = this->supported_keys->at("A");
         this->used_keys["MOVE_RIGHT"] = this->supported_keys->at("D");
-        this->used_keys["MOVE_UP"] = this->supported_keys->at("W");
+        this->used_keys["JUMP"] = this->supported_keys->at("W");
         this->used_keys["MOVE_DOWN"] = this->supported_keys->at("S");
         this->used_keys["CLOSE"] = this->supported_keys->at("Escape");
     } catch (std::exception e) {
@@ -50,10 +50,10 @@ void GameState::updateInput(const float& dt){
         this->jogador->move(sf::Vector2f(-1.f,0.f), dt);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_RIGHT"])))
         this->jogador->move(sf::Vector2f(1.f,0), dt);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_UP"])))
-        this->jogador->move(sf::Vector2f(0,-1.f), dt);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_DOWN"])))
         this->jogador->move(sf::Vector2f(0,1.f), dt);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["JUMP"])))
+        this->jogador->jump(5);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["CLOSE"])))
         this->endState();
 }

@@ -13,15 +13,17 @@ namespace Game{ namespace Entidades {
 Entidade::Entidade(Texture* texture):
 texture(nullptr),
 sprite(nullptr),
-speed(1.f)
+move_comp(nullptr),
+gravity(10.f)
 {
     this->sprite = new Sprite;
-    this->create_sprite(texture);
+    this->setTexture(texture);
 }
 
 Entidade::~Entidade(){
     delete this->sprite;
     this->sprite = nullptr;
+    this->move_comp.reset();
 }
 
 // Getters & Setters
@@ -32,7 +34,7 @@ void Entidade::setPosition(const Vector2f& position){
 }
 
 // Components Methos
-void Entidade::create_sprite(Texture* texture){
+void Entidade::setTexture(Texture* texture){
     this->texture = texture;
     if (this->sprite == nullptr)
         return;
@@ -40,16 +42,21 @@ void Entidade::create_sprite(Texture* texture){
     this->sprite->setTexture(*this->texture);
 }
 
+void Entidade::createMoveComponent(const float& max_vel, const float& acceleration, const float& deceleration){
+    this->move_comp = unique_ptr<MoveComponent>(new MoveComponent(this->sprite, gravity, max_vel, acceleration, deceleration));
+}
+
 // Methods
 void Entidade::move(const sf::Vector2f& direction, const float& dt){
-    if (this->sprite == nullptr)
+    if (this->sprite == nullptr || this->move_comp == nullptr)
         return;
-    this->sprite->move(direction.x*this->speed*dt,direction.y*this->speed*dt);
+    this->move_comp->move(direction, dt);
+    
 }
 
 void Entidade::update(const float& dt){
-    
-    
+    if (this->move_comp != nullptr)
+        this->move_comp->update(dt);
 }
 
 void Entidade::render(RenderTarget* target){

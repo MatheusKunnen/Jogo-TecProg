@@ -2,8 +2,8 @@
 #define Jogo_hpp
 
 #include "base_includes.hpp"
-#include "MainMenuState.hpp"
-#include "GameState.hpp"
+#include "States/MainMenuState.hpp"
+#include "States/GameState.hpp"
 #include "MediaEngine.hpp"
 
 namespace Game {

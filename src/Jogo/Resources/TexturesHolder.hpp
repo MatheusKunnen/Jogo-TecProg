@@ -9,8 +9,8 @@
 #ifndef TexturesHolder_hpp
 #define TexturesHolder_hpp
 
-#include "base_includes.hpp"
-#include "ResourcesHolder.hpp"
+#include "../base_includes.hpp"
+#include "../Resources/ResourcesHolder.hpp"
 
 #include <SFML/Graphics.hpp>
 namespace Game { namespace Textures{

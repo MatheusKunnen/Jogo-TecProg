@@ -7,7 +7,7 @@
 //
 
 #include <iostream>
-#include "Jogo.hpp"
+#include "Jogo/Jogo.hpp"
 
 using Game::Jogo;
 

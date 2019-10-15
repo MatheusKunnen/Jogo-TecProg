@@ -47,6 +47,7 @@ void Jogo::initKeys(){
     this->valid_keys["D"] = sf::Keyboard::D;
     this->valid_keys["W"] = sf::Keyboard::W;
     this->valid_keys["S"] = sf::Keyboard::S;
+    this->valid_keys["Space"] = sf::Keyboard::Space;
 }
 // Methods
 void Jogo::run() {
@@ -56,8 +57,10 @@ void Jogo::run() {
         updateDt();
         update();
         render();
-        cout << this->dt << endl;
-        //sf::sleep(sf::milliseconds(150));
+        if (30 - this->dt > 0)
+            30;//sf::sleep(sf::milliseconds(20 - this->dt));
+        else
+            cout << this->dt << endl;
     }
     if (this->main_mEngine->getRenderWindow()->isOpen())
         this->main_mEngine->getRenderWindow()->close();
@@ -72,7 +75,7 @@ void Jogo::endGame(){
 }
 
 void Jogo::updateDt(){
-    this->dt = main_clock.restart().asMilliseconds();
+    this->dt = main_clock.restart().asSeconds();
 }
 
 void Jogo::handleEvents(){

@@ -9,27 +9,19 @@
 #ifndef Entidade_hpp
 #define Entidade_hpp
 
-#include "base_includes.hpp"
-#include <SFML/Graphics.hpp>
-
-
-// SFML usings
-using sf::RenderWindow;
-using sf::RenderTarget;
-using sf::Texture;
-using sf::Sprite;
-using sf::Vector2i;
-using sf::Vector2f;
+#include "../base_includes.hpp"
+#include "Componentes/MoveComponent.hpp"
 
 namespace Game{ namespace Entidades {
 
 class Entidade {
 protected:
     // Attributes
-    Texture*             texture;
-    sf::Sprite*          sprite;
-    
-    float speed;
+    Texture*            texture;
+    Sprite*             sprite;
+    float gravity ; //DEBUG
+    // Components
+    unique_ptr<MoveComponent>       move_comp;
 public:
     // Constructor & Destructor
     explicit Entidade(Texture* texture = nullptr);
@@ -37,7 +29,8 @@ public:
     // Getters & Setters
     virtual void setPosition(const Vector2f& position);
     // Component Methods
-    void create_sprite(Texture* texture);
+    void setTexture(Texture* texture);
+    void createMoveComponent(const float& max_vel, const float& acceleration, const float& deceleration);
     
     // Methods
     virtual void move(const sf::Vector2f& direction, const float& dt);
