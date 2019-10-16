@@ -57,9 +57,7 @@ void Jogo::run() {
         updateDt();
         update();
         render();
-        if (30 - this->dt > 0)
-            30;//sf::sleep(sf::milliseconds(20 - this->dt));
-        else
+        if (30 - this->dt < 0)
             cout << this->dt << endl;
     }
     if (this->main_mEngine->getRenderWindow()->isOpen())
