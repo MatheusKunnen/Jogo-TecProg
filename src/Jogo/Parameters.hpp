@@ -15,10 +15,15 @@ namespace Game {
 
 class Parameters {
 private:
+    // Attributes
     string filename;
 public:
-    Parameters(const string& filename);
+    // Contructors & Destructors
+    Parameters(const string& filename = "");
     ~Parameters();
+    // Methods
+    virtual bool loadFromFile(const string& filename) = 0;
+    virtual bool saveToFile(const string& filename = "") const = 0;
     // Getters & Setters
     void setFilename(const string& filename);
     const string& getFilename() const;

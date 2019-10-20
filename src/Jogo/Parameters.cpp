@@ -7,3 +7,24 @@
 //
 
 #include "Parameters.hpp"
+
+namespace Game {
+
+Parameters::Parameters(const string& filename):
+filename(filename){
+    
+}
+
+Parameters::~Parameters(){
+    this->filename.clear();
+}
+
+void Parameters::setFilename(const string &filename){
+    this->filename = filename;
+}
+
+const string& Parameters::getFilename() const {
+    return this->filename;
+}
+
+}

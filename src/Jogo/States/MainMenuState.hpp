@@ -22,9 +22,9 @@ class MainMenuState : public State{
 private:
     // Attributes        
     sf::RectangleShape      background;
-    sf::Font                font;
+    sf::Font                font; // Trocar para font holder
     
-    map<int, Button*>       buttons;
+    map<int, Button*>       buttons; // Trocar para lista de buttons
     
     // Init methods
     void initValidKeys();

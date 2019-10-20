@@ -9,9 +9,9 @@
 #ifndef State_hpp
 #define State_hpp
 
-#include "../base_includes.hpp"
 #include "../Entidades/Entidade.hpp"
 #include "../Resources/TexturesHolder.hpp"
+#include "../base_includes.hpp"
 
 namespace Game { namespace States {
 
@@ -23,7 +23,7 @@ protected:
     RenderWindow*       render_window;
     stack<State*>*      states_stack;
     TextureHolder       textures;
-    Vector2i            mouse_pos_screen;
+    Vector2i            mouse_pos_screen; // Trocar pela classe context
     Vector2i            mouse_pos_window;
     Vector2f            mouse_pos_view;
     

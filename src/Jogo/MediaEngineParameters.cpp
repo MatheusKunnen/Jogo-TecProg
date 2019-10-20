@@ -19,7 +19,8 @@ const int MediaEngineParameters::DEFAULT_STYLE_FULLSCREEN(sf::Style::Fullscreen)
 const string MediaEngineParameters::DEFAULT_WINDOW_TITLE("GAME SFML | Matheus Kunnen");
 
 // Constructor & Destructor
-MediaEngineParameters::MediaEngineParameters(string file):
+MediaEngineParameters::MediaEngineParameters(const string& file):
+Parameters(file),
 window_width(MediaEngineParameters::DEFAULT_WINDOW_WIDTH),
 window_height(MediaEngineParameters::DEFAULT_WINDOW_HEIGHT),
 frame_rate_limit(MediaEngineParameters::DEFAULT_FRAMERATE),
@@ -38,11 +39,11 @@ MediaEngineParameters::~MediaEngineParameters(){
 }
 
 // Methods
-bool MediaEngineParameters::loadFromFile(string file){
+bool MediaEngineParameters::loadFromFile(const string& file){
     return false;
 }
 
-bool MediaEngineParameters::saveToFile(string file){
+bool MediaEngineParameters::saveToFile(const string& file) const{
     return false;
 }
 
