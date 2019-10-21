@@ -17,6 +17,7 @@ jogador(nullptr)
     initTextures();
     initValidKeys();
     initEntities();
+    lvl.LoadFromFile("Resources/maps/phase-B.tmx");
 }
 
 GameState::~GameState(){
@@ -70,6 +71,10 @@ void GameState::update(const float& dt){
 void GameState::render(RenderTarget* target){
     if (target == nullptr)
         target = this->render_window;
-    this->jogador->render(target);
+    lvl.SetDrawingBounds(sf::Rect<float>(0.f, 0.f, 1920, 1024));
+    //lvl.Move(2, 2);
+    lvl.Draw(render_window);
+    //this->jogador->render(target);
+    
 }
 }};

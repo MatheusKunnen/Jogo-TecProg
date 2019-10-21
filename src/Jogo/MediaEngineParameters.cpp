@@ -12,7 +12,7 @@ namespace Game {
 
 // Const init
 const int MediaEngineParameters::DEFAULT_FRAMERATE(60);
-const int MediaEngineParameters::DEFAULT_WINDOW_HEIGHT(1080);
+const int MediaEngineParameters::DEFAULT_WINDOW_HEIGHT(1024);
 const int MediaEngineParameters::DEFAULT_WINDOW_WIDTH(1920);
 const int MediaEngineParameters::DEFAULT_STYLE_NORMAL(sf::Style::Titlebar | sf::Style::Close);
 const int MediaEngineParameters::DEFAULT_STYLE_FULLSCREEN(sf::Style::Fullscreen);

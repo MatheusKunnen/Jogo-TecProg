@@ -8,11 +8,12 @@
 
 #ifndef GameState_hpp
 #define GameState_hpp
-#include "../base_includes.hpp"
+
 #include "State.hpp"
 #include "../Resources/TexturesHolder.hpp"
 #include "../Entidades/Jogador.hpp"
-
+#include "../Entidades/level.hpp"
+#include "../base_includes.hpp"
 namespace Game { namespace States {
 
 using Textures::TextureHolder;
@@ -20,9 +21,9 @@ using Entidades::Personagens::Jogador;
 class GameState : public State {
 private:
     // Attributes
-    TextureHolder textures_used;
-    Jogador* jogador; // DEBUG
-    
+    TextureHolder       textures_used;
+    Jogador*            jogador; // DEBUG
+    Level               lvl;
     // Init methods
     void initTextures();
     void initValidKeys();

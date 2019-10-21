@@ -7,48 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3D03DFD1-B005-46E2-989F-203D888FCF0B"
+            uuid = "67ECB491-48B7-4DF8-9E1D-0ACA59A51381"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Entidades/Entidade.cpp"
+            filePath = "../../src/Jogo/level.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "Entidade::move(direction, dt)"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "Level::LoadFromFile(filename)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2BF3783F-E66B-4C1F-827B-9A11EF7ABB28"
+            uuid = "093F1B81-C837-40E4-9922-687B2F47DF72"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Entidades/Entidade.cpp"
+            filePath = "../../src/Jogo/level.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "Entidade::move(direction, dt)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4CDDAE70-7F30-4178-A2BD-722E5FF87772"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Entidades/Componentes/MoveComponent.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "MoveComponent::jump(gain)"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "Level::LoadFromFile(filename)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
