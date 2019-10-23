@@ -19,7 +19,7 @@ template<typename Resource, typename Id>
 class ResourceHolder {
 private:
     // Attribute
-    map<Id, unique_ptr<Resource>> mResourceMap;
+    map<Id, unique_ptr<Resource>> resources_map;
     // Private Methods
     void insert(Id id, unique_ptr<Resource> resource);
 public:
@@ -36,7 +36,7 @@ public:
 };
 template <typename Resource, typename Id>
 ResourceHolder<Resource, Id>::ResourceHolder():
-mResourceMap(){
+resources_map(){
     
 }
 
