@@ -57,7 +57,7 @@ void ResourceHolder<Resource, Id>::load(Id id, const string& filename) {
 
 template <typename Resource, typename Id>
 Resource& ResourceHolder<Resource, Id>::get(Id id) {
-    auto resource = this->mResourceMap.find(id); // Busca recurso no mapa
+    auto resource = this->resources_map.find(id); // Busca recurso no mapa
     return *resource->second;
 }
 
@@ -71,7 +71,7 @@ template <typename Resource, typename Id>
 void ResourceHolder<Resource, Id>::insert(Id id, std::unique_ptr<Resource> resource) {
     // Insert and check success
     //std::pair<Id, Resource> inserted = this->mResourceMap.insert(make_pair(id, move(resource)));
-    if (!this->mResourceMap.insert(make_pair(id, move(resource))).second)
+    if (!this->resources_map.insert(make_pair(id, move(resource))).second)
         throw runtime_error("ResourceHolder::insert(): error inserting ");
         
 }
