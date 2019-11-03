@@ -17,16 +17,20 @@ template<class Tipo>
 class Pilha : protected Lista<Tipo> {
 public:
     // Constructor & Destructor
-    Pilha(): Lista() { };
+    Pilha(): Lista<Tipo>() { };
     ~Pilha() { };
     // Methods
-    Tipo* top() const { return this->first; };
-    void push(Tipo& elemento) { this->addFront(elemento, false); };
+    Tipo* top() const { return this->p_first->get(); };
+    void push(Tipo* elemento, const bool& liberar = true) { this->addFront(elemento, liberar); };
     void pop() {
-        Tipo* elemento = this->first;
-        this->remove(this->first);
-    }
-}
+        this->remove(this->p_first->get());
+    };
+    void clear(){ this->clearAll(); };
+    const bool empty() const { return this->lenght <= 0; };
+    // Operators
+    void operator--() { this->pop(); };
+};
+
 }};
 
 #endif /* Pilha_hpp */

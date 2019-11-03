@@ -9,9 +9,8 @@
 #ifndef MainMenuState_hpp
 #define MainMenuState_hpp
 
-#include "../base_includes.hpp"
+#include "State.hpp"
 #include "../GUI/Button.hpp"
-#include "GameState.hpp"
 
 namespace Game { namespace States {
 
@@ -37,7 +36,7 @@ private:
     enum used_buttons{btn_new_game, btn_config, btn_exit};
 public:
     // Contructor & Destructor
-    MainMenuState(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack);
+    MainMenuState(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys);
     ~MainMenuState();
     // Methods
     void updateInput(const float& dt);

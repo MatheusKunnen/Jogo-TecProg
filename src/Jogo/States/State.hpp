@@ -9,19 +9,22 @@
 #ifndef State_hpp
 #define State_hpp
 
+#include "../MediaEngine.hpp"
 #include "../Entidades/Entidade.hpp"
 #include "../Resources/TexturesHolder.hpp"
 #include "../base_includes.hpp"
 
 namespace Game { namespace States {
+// Const
+enum states_id{main_menu, game, config, ranking, phase_a, phase_b};
 
 using Textures::TextureHolder;
+
+class StateHandler;
 
 class State {
 protected:
     // Attributes
-    RenderWindow*       render_window;
-    stack<State*>*      states_stack;
     TextureHolder       textures;
     Vector2i            mouse_pos_screen; // Trocar pela classe context
     Vector2i            mouse_pos_window;
@@ -30,13 +33,16 @@ protected:
     map<string, int>*   supported_keys;
     map<string, int>    used_keys;
     
-    bool quit;
+    MediaEngine*        g_grafico;
+    StateHandler*       handler;
+    const states_id     id;
+    bool                quit;
     
     // Methods
     virtual void initValidKeys() = 0;
 public:
     // Constructor & Destructor
-    State(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack);
+    State(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys, states_id id);
     virtual ~State();
     // Methods
     virtual void endState();
@@ -45,8 +51,6 @@ public:
     virtual void update(const float& dt) = 0;
     virtual void render(RenderTarget* target = nullptr) = 0;
     // Setters & Getters
-    void setRenderWindow(RenderWindow* render_window);
-    const RenderWindow* getRenderWindow() const;
     const bool& isQuitting() const;
 };
 

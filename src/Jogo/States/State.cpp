@@ -10,19 +10,20 @@
 
 namespace Game { namespace States {
 
-State::State(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack):
-render_window(render_window),
+State::State(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys, states_id id):
+handler(handler),
+id(id),
 textures(),
-states_stack(states_stack),
 supported_keys(supported_keys),
 used_keys(),
+g_grafico(g_grafico),
 quit(false)
 {
     
 }
 
 State::~State(){
-    this->render_window = nullptr;
+    this->g_grafico = nullptr;
 }
 
 void State::endState(){
@@ -31,17 +32,8 @@ void State::endState(){
 
 void State::updateMousePos(){
     this->mouse_pos_screen = sf::Mouse::getPosition();
-    this->mouse_pos_window = sf::Mouse::getPosition(*this->render_window);
-    this->mouse_pos_view   = this->render_window->mapPixelToCoords(this->mouse_pos_window);
-}
-
-void State::setRenderWindow(RenderWindow* render_window){
-    this->render_window = render_window;
-}
-
-const RenderWindow* State::getRenderWindow() const{
-    return this->render_window;
-    
+    this->mouse_pos_window = sf::Mouse::getPosition(*this->g_grafico->getRenderWindow());
+    this->mouse_pos_view   = this->g_grafico->getRenderWindow()->mapPixelToCoords(this->mouse_pos_window);
 }
 
 const bool& State::isQuitting() const{

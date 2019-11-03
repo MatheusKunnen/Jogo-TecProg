@@ -26,31 +26,32 @@ protected:
         bool        liberar;
     public:
         // Constructor && Destructor
-        explicit Elemento(TipoE& elemento, bool liberar = true):
-        elemento(&elemento), next(nullptr), prev(nullptr), liberar(liberar){ };
+        Elemento(TipoE* elemento, bool liberar = true):
+        elemento(elemento), next(nullptr), prev(nullptr), liberar(liberar){ };
         ~Elemento() {
-            if (liberar) // Verifica que deve-se desalocar o elemento
+            if (liberar && elemento != nullptr) // Verifica que deve-se desalocar o elemento
                 delete elemento;
-            next = prev = elemento = nullptr;
+            next = prev = nullptr;
+            elemento = nullptr;
             
         };
         // Getters & Setters
-        void setNext(const Elemento* next) {this->next = next; };
+        void setNext(Elemento* next) {this->next = next; };
         Elemento* getNext() const { return this->next; };
-        void setPrev(const Elemento* prev) {this->prev = prev; };
+        void setPrev(Elemento* prev) {this->prev = prev; };
         Elemento* getPrev() const { return this->prev; };
         void set(TipoE* elemento) { this->elemento = elemento; };
         TipoE* get() const { return this->elemento; };
         // Operators
-        Elemento* operator++() const { return this->getNext(); };
-        Elemento* operator--() const { return this->getPrev(); };
+        Elemento* operator++() const { this = this->getNext(); };
+        Elemento* operator--() const { this = this->getPrev(); };
         void operator=(TipoE& elemento) { this->set(elemento); };
         bool operator==(TipoE& elemento) { return this->elemento == elemento; };
     };
     // Attributes
-    Elemento<Tipo>*      p_first;
-    Elemento<Tipo>*      p_last;
-    int                  lenght;
+    Elemento<Tipo>*       p_first;
+    Elemento<Tipo>*       p_last;
+    int                   lenght;
 public:
     // Constructor & Destructor
     Lista(): p_first(nullptr), p_last(nullptr), lenght(0){ }
@@ -58,14 +59,19 @@ public:
     // Getters & Setters
     const int getLenght() const { return this->lenght; };
     // Methods
-    void addFront(Tipo& elemento, bool liberar = true) {
+    void addFront(Tipo* elemento, bool liberar = true) {
         this->add(elemento, liberar, true);
     }
     void addLast(Tipo& elemento, bool liberar = true) {
         this->add(elemento, liberar, false);
     }
-    void add(Tipo& elemento, bool liberar, bool front) {
-        Elemento<Tipo>* novo = new Elemento<Tipo*>(elemento, liberar);
+    void add(Tipo* elemento, bool liberar, bool front) {
+        lenght ++;
+        Elemento<Tipo>* novo = new Elemento<Tipo>(elemento, liberar);
+        if(this->p_first == nullptr){
+            this->p_first = this->p_last = novo;
+            return;
+        }
         if (front){
             novo->setNext(this->p_first);
             this->p_first->setPrev(novo);
@@ -77,18 +83,31 @@ public:
         }
             
     }
-    void remove(Tipo& elemento){
+    void remove(Tipo* elemento){
         auto itr = this->p_first;
         while (itr != nullptr){
-            if (itr == elemento){
-                if (itr->getNext() != nullptr)
-                    itr->getNext()->setPrev(itr->getPrev());
-                if (itr->getPrev() != nullptr)
-                    itr->getPrev()->setNext(itr->getNext());
+            if (itr->get() == elemento){
+                if (itr == this->p_first || itr == this->p_last){
+                    if (itr == this->p_first){
+                        this->p_first = this->p_first->getNext();
+                        if (this->p_first != nullptr)
+                            this->p_first->setPrev(nullptr);
+                    } else {
+                        this->p_last = this->p_last->getPrev();
+                        if (this->p_last != nullptr)
+                            this->p_last->setNext(nullptr);
+                    }
+                } else {
+                    if (itr->getNext() != nullptr)
+                        itr->getNext()->setPrev(itr->getPrev());
+                    if (itr->getPrev() != nullptr)
+                        itr->getPrev()->setNext(itr->getNext());
+                }
                 delete itr; // Elimina elemento
+                lenght--;
                 break;
             }
-            itr = itr++; // Navega para o seguinte elemento
+            itr = itr->getNext(); // Navega para o seguinte elemento
         }
     }
     Tipo* get(int i_elemento) const {
@@ -96,25 +115,25 @@ public:
             throw runtime_error("ERROR: get(): Index out of range");
         
         int i;
-        Elemento<Tipo> itr = this->p_first;
+        Elemento<Tipo>* itr = this->p_first;
         for (i = 0; i <= i_elemento; i++) // Busca o elemento
-            itr = itr++;
+            itr++;
         
         return itr->get(); // Retorna o solicitado
     }
     void clearAll(){ // Limpa todos os elementos
         this->lenght = 0;
         Elemento<Tipo>* aux;
-        while(this->p_first != nullptr){
+        while(this->p_first != nullptr && this->lenght > 0){
             aux = this->p_first++;
             delete this->p_first;
             this->p_first = aux;
         }
     };
     // Operators
-    virtual void operator+=(Tipo& elemento) { this->addFront(elemento); };
-    virtual void operator-=(Tipo& elemento) { this->remove(elemento); };
-    virtual Tipo& operator[](int index) { return this->get(index); };
+    virtual void operator+=(Tipo& elemento) { this->addFront(&elemento); };
+    virtual void operator-=(Tipo& elemento) { this->remove(&elemento); };
+    virtual Tipo* operator[](int index) { return this->get(index); };
 };
 }}
 

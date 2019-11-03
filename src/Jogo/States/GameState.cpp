@@ -9,8 +9,8 @@
 #include "GameState.hpp"
 namespace Game { namespace States {
 // Constructor & Destructor
-GameState::GameState(RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack):
-State(render_window, supported_keys, states_stack),
+GameState::GameState(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys):
+State(handler, g_grafico, supported_keys, states_id::game),
 textures_used(),
 jogador(nullptr)
 {
@@ -70,10 +70,10 @@ void GameState::update(const float& dt){
 
 void GameState::render(RenderTarget* target){
     if (target == nullptr)
-        target = this->render_window;
+        target = this->g_grafico->getRenderWindow();
     lvl.SetDrawingBounds(sf::Rect<float>(0.f, 0.f, 1920, 1024));
     //lvl.Move(2, 2);
-    lvl.Draw(render_window);
+    lvl.Draw((RenderWindow*)(target));
     //this->jogador->render(target);
     
 }

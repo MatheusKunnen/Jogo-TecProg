@@ -7,16 +7,16 @@
 //
 
 #include "MainMenuState.hpp"
-
+#include "StateHandler.hpp"
 namespace Game { namespace States {
 
 // Constructor & Destructor
-MainMenuState::MainMenuState(sf::RenderWindow* render_window, map<string, int>* supported_keys, stack<State*>* states_stack):
-State(render_window, supported_keys, states_stack),
+MainMenuState::MainMenuState(StateHandler* handler,MediaEngine* g_grafico, map<string, int>* supported_keys):
+State(handler, g_grafico, supported_keys, states_id::game),
 background(),
 buttons()
 {
-    this->background.setSize(sf::Vector2f(this->render_window->getSize()));
+    this->background.setSize(sf::Vector2f(this->g_grafico->getRenderWindow()->getSize()));
     this->background.setFillColor(sf::Color::White);
     initValidKeys();
     initTextures();
@@ -71,7 +71,7 @@ void MainMenuState::initBackground(){
 
 void MainMenuState::initButtons(){
     Vector2f btn_size = Vector2f(450.f, 100.f);
-    Vector2f btn_pos = Vector2f(render_window->getSize().x/2.f, render_window->getSize().y / 4.f);
+    Vector2f btn_pos = Vector2f(this->g_grafico->getRenderWindow()->getSize().x/2.f, this->g_grafico->getRenderWindow()->getSize().y / 4.f);
     buttons[btn_new_game] = new Button(btn_size, btn_pos, &this->font, "New Game");
     btn_pos.y = btn_pos.y + btn_size.y *1.2;
     buttons[btn_config] = new Button(btn_size, btn_pos, &this->font, "Config");
@@ -84,10 +84,10 @@ void MainMenuState::initButtons(){
 void MainMenuState::updateInput(const float& dt){
     if (this->buttons[btn_exit]->isPressed()){
         this->endState();
-        }
+    }
         
     if (this->buttons[btn_new_game]->isPressed()){
-            this->states_stack->push(new GameState(this->render_window,  this->supported_keys, this->states_stack));
+        this->handler->pushState(states_id::game);
     }
 }
 
@@ -102,7 +102,7 @@ void MainMenuState::update(const float& dt){
 
 void MainMenuState::render(RenderTarget* target){
     if (target == nullptr)
-        target = this->render_window;
+        target = this->g_grafico->getRenderWindow();
     target->draw(this->background);
     for(map<int, Button*>::iterator itr = this->buttons.begin(); itr != this->buttons.end(); ++itr)
         itr->second->render(target);

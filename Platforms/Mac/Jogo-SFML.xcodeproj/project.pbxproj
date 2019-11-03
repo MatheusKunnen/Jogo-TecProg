@@ -19,6 +19,8 @@
 		2F7FBB2E235614AA00794230 /* PhaseBState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB2C235614AA00794230 /* PhaseBState.cpp */; };
 		2F7FBB31235614B700794230 /* PhaseCState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB2F235614B700794230 /* PhaseCState.cpp */; };
 		2F7FBB342356150600794230 /* Parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB322356150600794230 /* Parameters.cpp */; };
+		2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FF5236F132100CDE82F /* StateStack.cpp */; };
+		2F8A5FFD236F2E4D00CDE82F /* StateHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFB236F2E4D00CDE82F /* StateHandler.cpp */; };
 		2F923774235BF7CC00747DCA /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 2F92370C235BF7CC00747DCA /* Makefile */; };
 		2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F92376C235BF7CC00747DCA /* tinystr.cpp */; };
 		2F923776235BF7CC00747DCA /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F92376D235BF7CC00747DCA /* tinyxmlparser.cpp */; };
@@ -138,6 +140,10 @@
 		2F7FBB332356150600794230 /* Parameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Parameters.hpp; sourceTree = "<group>"; };
 		2F8A5FF0236E1A8900CDE82F /* Lista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lista.hpp; sourceTree = "<group>"; };
 		2F8A5FF3236E27C900CDE82F /* Pilha.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pilha.hpp; sourceTree = "<group>"; };
+		2F8A5FF5236F132100CDE82F /* StateStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateStack.cpp; sourceTree = "<group>"; };
+		2F8A5FF6236F132100CDE82F /* StateStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StateStack.hpp; sourceTree = "<group>"; };
+		2F8A5FFB236F2E4D00CDE82F /* StateHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateHandler.cpp; sourceTree = "<group>"; };
+		2F8A5FFC236F2E4D00CDE82F /* StateHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StateHandler.hpp; sourceTree = "<group>"; };
 		2F923709235BF7CC00747DCA /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		2F92370B235BF7CC00747DCA /* tinyxml_lib.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tinyxml_lib.vcxproj; sourceTree = "<group>"; };
 		2F92370C235BF7CC00747DCA /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -378,6 +384,8 @@
 			children = (
 				2F8A5FF0236E1A8900CDE82F /* Lista.hpp */,
 				2F8A5FF3236E27C900CDE82F /* Pilha.hpp */,
+				2F8A5FF5236F132100CDE82F /* StateStack.cpp */,
+				2F8A5FF6236F132100CDE82F /* StateStack.hpp */,
 			);
 			path = TADs;
 			sourceTree = "<group>";
@@ -567,6 +575,8 @@
 				2F7FBB2D235614AA00794230 /* PhaseBState.hpp */,
 				2F7FBB2F235614B700794230 /* PhaseCState.cpp */,
 				2F7FBB30235614B700794230 /* PhaseCState.hpp */,
+				2F8A5FFB236F2E4D00CDE82F /* StateHandler.cpp */,
+				2F8A5FFC236F2E4D00CDE82F /* StateHandler.hpp */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -676,6 +686,7 @@
 				2FDA0BFE234BADE200E3209D /* GameState.cpp in Sources */,
 				2F7FBB2B2356149B00794230 /* PhaseAState.cpp in Sources */,
 				2FA6DF4C234CCF7200302427 /* Button.cpp in Sources */,
+				2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */,
 				2FDA0BF3234A3D9B00E3209D /* TexturesHolder.cpp in Sources */,
 				2FDA0BFB234BADD000E3209D /* State.cpp in Sources */,
 				2FDA0BD62346BF5F00E3209D /* MediaEngine.cpp in Sources */,
@@ -693,6 +704,7 @@
 				2FDA0BDA2349264500E3209D /* Entidade.cpp in Sources */,
 				2F92377B235BF7F300747DCA /* level.cpp in Sources */,
 				2F7FBB31235614B700794230 /* PhaseCState.cpp in Sources */,
+				2F8A5FFD236F2E4D00CDE82F /* StateHandler.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

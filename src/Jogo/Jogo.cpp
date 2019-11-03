@@ -37,7 +37,7 @@ Jogo::~Jogo(){
 
 // Init methods
 void Jogo::initStates(){
-    this->states.push(new MainMenuState(this->main_mEngine->getRenderWindow(), &this->valid_keys, &this->states));
+    this->states.push(new MainMenuState(this, MediaEngine::getInstance(), &this->valid_keys));
 }
 
 void Jogo::initKeys(){
@@ -67,7 +67,7 @@ void Jogo::run() {
 void Jogo::endGame(){
     delete this->main_mEngine;
     while(!this->states.empty()){
-        delete this->states.top();
+        //delete this->states.top();
         this->states.pop();
     }
 }
@@ -92,7 +92,6 @@ void Jogo::update(){
         this->states.top()->update(this->dt);
         if (this->states.top()->isQuitting()){
             this->states.top()->endState();
-            delete this->states.top();
             this->states.pop();
         }
     } else {
@@ -109,8 +108,20 @@ void Jogo::render(){
     this->main_mEngine->getRenderWindow()->display();
 }
 
-void Jogo::pushState(State *state){
-    this->states.push(state);
+void Jogo::pushState(States::states_id id){
+    State* state  = nullptr;
+    switch (id) {
+        case States::states_id::main_menu:
+            state = new MainMenuState(this, MediaEngine::getInstance(), &this->valid_keys);
+            break;
+        case States::states_id::game:
+            state = new GameState(this, MediaEngine::getInstance(), &this->valid_keys);
+            break;
+        default:
+            break;
+    }
+    if (state != nullptr)
+        this->states.push(state);
 }
 
 int Jogo::getStatusCode() const {
