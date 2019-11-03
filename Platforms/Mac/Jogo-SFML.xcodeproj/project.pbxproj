@@ -136,6 +136,8 @@
 		2F7FBB30235614B700794230 /* PhaseCState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhaseCState.hpp; sourceTree = "<group>"; };
 		2F7FBB322356150600794230 /* Parameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Parameters.cpp; sourceTree = "<group>"; };
 		2F7FBB332356150600794230 /* Parameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Parameters.hpp; sourceTree = "<group>"; };
+		2F8A5FF0236E1A8900CDE82F /* Lista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lista.hpp; sourceTree = "<group>"; };
+		2F8A5FF3236E27C900CDE82F /* Pilha.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pilha.hpp; sourceTree = "<group>"; };
 		2F923709235BF7CC00747DCA /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		2F92370B235BF7CC00747DCA /* tinyxml_lib.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tinyxml_lib.vcxproj; sourceTree = "<group>"; };
 		2F92370C235BF7CC00747DCA /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -371,6 +373,15 @@
 			path = ../../../src;
 			sourceTree = "<group>";
 		};
+		2F8A5FEE236E1A5D00CDE82F /* TADs */ = {
+			isa = PBXGroup;
+			children = (
+				2F8A5FF0236E1A8900CDE82F /* Lista.hpp */,
+				2F8A5FF3236E27C900CDE82F /* Pilha.hpp */,
+			);
+			path = TADs;
+			sourceTree = "<group>";
+		};
 		2F923708235BF7CC00747DCA /* tinyxml */ = {
 			isa = PBXGroup;
 			children = (
@@ -512,6 +523,7 @@
 		2FDA0BE7234A3B4D00E3209D /* Jogo */ = {
 			isa = PBXGroup;
 			children = (
+				2F8A5FEE236E1A5D00CDE82F /* TADs */,
 				2F923708235BF7CC00747DCA /* tinyxml */,
 				2FA6DF49234CCF5A00302427 /* GUI */,
 				2FDA0C05234BD79B00E3209D /* Entidades */,
