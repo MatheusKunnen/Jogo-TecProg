@@ -14,7 +14,7 @@ namespace Game { namespace TADs {
 
 template<class Tipo>
 class Lista{
-protected:
+public:
     // Nested Class
     template<class TipoE>
     class Elemento{
@@ -48,6 +48,7 @@ protected:
         void operator=(TipoE& elemento) { this->set(elemento); };
         bool operator==(TipoE& elemento) { return this->elemento == elemento; };
     };
+protected:
     // Attributes
     Elemento<Tipo>*       p_first;
     Elemento<Tipo>*       p_last;
@@ -121,6 +122,7 @@ public:
         
         return itr->get(); // Retorna o solicitado
     }
+    Elemento<Tipo>* begin() const { return this->p_first; };
     void clearAll(){ // Limpa todos os elementos
         this->lenght = 0;
         Elemento<Tipo>* aux;
