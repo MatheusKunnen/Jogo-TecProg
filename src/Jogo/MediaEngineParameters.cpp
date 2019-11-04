@@ -100,7 +100,7 @@ const string& MediaEngineParameters::getWindowTitle() const{
     return this->window_title;
 }
 
-void MediaEngineParameters::setAntialiasLevel(unsigned int antialias_level){
+void MediaEngineParameters::setAntialiasLevel(unsigned antialias_level){
     this->antialias_level = antialias_level;
 }
 

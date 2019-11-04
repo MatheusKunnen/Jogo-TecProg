@@ -28,8 +28,9 @@ buttons()
 MainMenuState::~MainMenuState(){
     for(map<int, Button*>::iterator itr = this->buttons.begin(); itr != this->buttons.end(); ++itr){
         delete itr->second;
-        buttons.erase(itr);
+        //itr = buttons.erase(itr);
     }
+	buttons.clear();
 }
 
 // Init Methods
@@ -56,7 +57,7 @@ void MainMenuState::initTextures() {
 void MainMenuState::initFonts(){
 	try {
 		if (!font.loadFromFile(FONT_01_DIR)) {
-			throw ("FATAL ERROR: MainMenuState::initFonts(): failed to load Resources/fonts/font-01.otf");
+			throw runtime_error("FATAL ERROR: MainMenuState::initFonts(): failed to load Resources/fonts/font-01.otf");
 		}
 	}catch (std::exception e) {
 			cerr << "MainMenuState::initFonts: ERROR Loading fontd: " << endl;

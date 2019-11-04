@@ -11,13 +11,13 @@
 
 using Game::Jogo;
 
-int main()
+int main(int argc, char** argv)
 {
 	Jogo* main_jogo = Game::Jogo::getInstance();
 	main_jogo->run();
 	
 	int exit_code = main_jogo->getStatusCode();
-	
+
 	delete(main_jogo);
     
 	return exit_code;

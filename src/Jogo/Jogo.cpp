@@ -60,8 +60,8 @@ void Jogo::run() {
         if (30 - this->dt < 0)
             cout << this->dt << endl;
     }
-    if (this->main_mEngine->getRenderWindow()->isOpen())
-        this->main_mEngine->getRenderWindow()->close();
+    //if (this->main_mEngine->getRenderWindow()->isOpen())
+        //this->main_mEngine->getRenderWindow()->close();
 }
 
 void Jogo::endGame(){

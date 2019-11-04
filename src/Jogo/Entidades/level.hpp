@@ -33,7 +33,7 @@ it freely, subject to the following restrictions:
 
 #include "../tinyxml/tinyxml.h"
 
-#include "base_includes.hpp"
+#include "../base_includes.hpp"
 
 //Object class. Everything is kept public in case you want to get a different type to the supported ones.
 //Also you will be able to modify things. For example doors/changing walls etc (Just give the door a static type and a unique name)
