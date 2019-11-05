@@ -6,37 +6,37 @@
 //  Copyright © 2019 Matheus Kunnen Ledesma. All rights reserved.
 //
 
-#include "MediaEngine.hpp"
+#include "GerenciadorGrafico.hpp"
 namespace Game {
 
 
 // Singleton Methods
-MediaEngine* MediaEngine::main_instance = nullptr;
+GerenciadorGrafico* GerenciadorGrafico::main_instance = nullptr;
 
-MediaEngine* MediaEngine::getInstance(){
-    if (MediaEngine::main_instance == nullptr)
-        MediaEngine::main_instance = new MediaEngine();
-    return MediaEngine::main_instance;
+GerenciadorGrafico* GerenciadorGrafico::getInstance(){
+    if (GerenciadorGrafico::main_instance == nullptr)
+        GerenciadorGrafico::main_instance = new GerenciadorGrafico();
+    return GerenciadorGrafico::main_instance;
 }
 
-void MediaEngine::deleteInstance(){
-    delete MediaEngine::main_instance;
-    MediaEngine::main_instance = nullptr;
+void GerenciadorGrafico::deleteInstance(){
+    delete GerenciadorGrafico::main_instance;
+    GerenciadorGrafico::main_instance = nullptr;
 }
 
 // Constructor & Destructor
-MediaEngine::MediaEngine(const string& parameters_file):
+GerenciadorGrafico::GerenciadorGrafico(const string& parameters_file):
 parameters(parameters_file),
 main_window()
 {
     initWindow();
 }
 
-MediaEngine::~MediaEngine(){
+GerenciadorGrafico::~GerenciadorGrafico(){
 
 }
 // Init methods
-void MediaEngine::initWindow(){
+void GerenciadorGrafico::initWindow(){
     this->main_window = new RenderWindow(sf::VideoMode(this->parameters.getWindowWidth(), this->parameters.getWindowHeight(), 32), this->parameters.getWindowTitle(), this->parameters.getStyle());
     // Set Window Size
     //this->main_window->setSize(sf::Vector2u(this->parameters.getWindowWidth(), this->parameters.getWindowHeight()));
@@ -47,7 +47,7 @@ void MediaEngine::initWindow(){
     main_window->setFramerateLimit(60);
 }
 
-RenderWindow* MediaEngine::getRenderWindow(){
+RenderWindow* GerenciadorGrafico::getRenderWindow(){
     return this->main_window;
 }
 

@@ -20,12 +20,14 @@ using sf::RenderTarget;
 using sf::Event;
 using sf::Clock;
 
+using Game::Parameters::MediaEngineParameters;
+
 namespace Game {
 
-class MediaEngine{
+class GerenciadorGrafico{
 private:
     // Singleton instance
-    static MediaEngine*         main_instance;
+    static GerenciadorGrafico*         main_instance;
     
     // SFML Attributes
     RenderWindow*               main_window;
@@ -38,10 +40,10 @@ private:
     
 public:
     // Constructor & Destructor
-    explicit MediaEngine(const string& parameters_file = "");
-    ~MediaEngine();
+    explicit GerenciadorGrafico(const string& parameters_file = "Resources/config/graphic_config.json");
+    ~GerenciadorGrafico();
     // Singleton methods
-    static MediaEngine* getInstance();
+    static GerenciadorGrafico* getInstance();
     void deleteInstance();
     // Setters & Getters
     RenderWindow* getRenderWindow();

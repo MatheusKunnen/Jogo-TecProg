@@ -22,6 +22,8 @@
 		2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FF5236F132100CDE82F /* StateStack.cpp */; };
 		2F8A5FFD236F2E4D00CDE82F /* StateHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFB236F2E4D00CDE82F /* StateHandler.cpp */; };
 		2F8A6000236FA65E00CDE82F /* ListaEntidades.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFE236FA65E00CDE82F /* ListaEntidades.cpp */; };
+		2F8A60032370F85F00CDE82F /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A60012370F85F00CDE82F /* Context.cpp */; };
+		2F8A60062370FB3900CDE82F /* Widget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A60042370FB3900CDE82F /* Widget.cpp */; };
 		2F923774235BF7CC00747DCA /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 2F92370C235BF7CC00747DCA /* Makefile */; };
 		2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F92376C235BF7CC00747DCA /* tinystr.cpp */; };
 		2F923776235BF7CC00747DCA /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F92376D235BF7CC00747DCA /* tinyxmlparser.cpp */; };
@@ -36,7 +38,7 @@
 		2FA6DF52234CDADF00302427 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF4A234CCF7200302427 /* Button.cpp */; };
 		2FA6DF53234CDADF00302427 /* TexturesHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BF1234A3D9B00E3209D /* TexturesHolder.cpp */; };
 		2FA6DF54234CDADF00302427 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BF9234BADD000E3209D /* State.cpp */; };
-		2FA6DF55234CDADF00302427 /* MediaEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */; };
+		2FA6DF55234CDADF00302427 /* GerenciadorGrafico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD42346BF5F00E3209D /* GerenciadorGrafico.cpp */; };
 		2FA6DF56234CDADF00302427 /* Jogador.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BDB2349265500E3209D /* Jogador.cpp */; };
 		2FA6DF57234CDADF00302427 /* Obstaculo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BED234A3C7900E3209D /* Obstaculo.cpp */; };
 		2FA6DF58234CDADF00302427 /* Inimigo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BDE2349266200E3209D /* Inimigo.cpp */; };
@@ -53,7 +55,7 @@
 		2FA6DF66234CDADF00302427 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F43569B230ED22500A89E64 /* Resources */; };
 		2FA6DF6F234F940E00302427 /* MoveComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF6D234F940E00302427 /* MoveComponent.cpp */; };
 		2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD12346BE8F00E3209D /* Jogo.cpp */; };
-		2FDA0BD62346BF5F00E3209D /* MediaEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */; };
+		2FDA0BD62346BF5F00E3209D /* GerenciadorGrafico.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD42346BF5F00E3209D /* GerenciadorGrafico.cpp */; };
 		2FDA0BDA2349264500E3209D /* Entidade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD82349264500E3209D /* Entidade.cpp */; };
 		2FDA0BDD2349265500E3209D /* Jogador.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BDB2349265500E3209D /* Jogador.cpp */; };
 		2FDA0BE02349266200E3209D /* Inimigo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BDE2349266200E3209D /* Inimigo.cpp */; };
@@ -147,6 +149,10 @@
 		2F8A5FFC236F2E4D00CDE82F /* StateHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StateHandler.hpp; sourceTree = "<group>"; };
 		2F8A5FFE236FA65E00CDE82F /* ListaEntidades.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListaEntidades.cpp; sourceTree = "<group>"; };
 		2F8A5FFF236FA65E00CDE82F /* ListaEntidades.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListaEntidades.hpp; sourceTree = "<group>"; };
+		2F8A60012370F85F00CDE82F /* Context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
+		2F8A60022370F85F00CDE82F /* Context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Context.hpp; sourceTree = "<group>"; };
+		2F8A60042370FB3900CDE82F /* Widget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Widget.cpp; sourceTree = "<group>"; };
+		2F8A60052370FB3900CDE82F /* Widget.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Widget.hpp; sourceTree = "<group>"; };
 		2F923709235BF7CC00747DCA /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		2F92370B235BF7CC00747DCA /* tinyxml_lib.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tinyxml_lib.vcxproj; sourceTree = "<group>"; };
 		2F92370C235BF7CC00747DCA /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -263,8 +269,8 @@
 		2FA6DF6E234F940E00302427 /* MoveComponent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MoveComponent.hpp; sourceTree = "<group>"; };
 		2FDA0BD12346BE8F00E3209D /* Jogo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jogo.cpp; sourceTree = "<group>"; };
 		2FDA0BD22346BE8F00E3209D /* Jogo.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Jogo.hpp; sourceTree = "<group>"; };
-		2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaEngine.cpp; sourceTree = "<group>"; };
-		2FDA0BD52346BF5F00E3209D /* MediaEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaEngine.hpp; sourceTree = "<group>"; };
+		2FDA0BD42346BF5F00E3209D /* GerenciadorGrafico.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GerenciadorGrafico.cpp; sourceTree = "<group>"; };
+		2FDA0BD52346BF5F00E3209D /* GerenciadorGrafico.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GerenciadorGrafico.hpp; sourceTree = "<group>"; };
 		2FDA0BD72346BFB400E3209D /* base_includes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = base_includes.hpp; sourceTree = "<group>"; };
 		2FDA0BD82349264500E3209D /* Entidade.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Entidade.cpp; sourceTree = "<group>"; };
 		2FDA0BD92349264500E3209D /* Entidade.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Entidade.hpp; sourceTree = "<group>"; };
@@ -520,6 +526,10 @@
 				2FA6DF4A234CCF7200302427 /* Button.cpp */,
 				2FA6DF4B234CCF7200302427 /* Button.hpp */,
 				2FA6DF6B234CDFA000302427 /* base_gui_includes.hpp */,
+				2F8A60012370F85F00CDE82F /* Context.cpp */,
+				2F8A60022370F85F00CDE82F /* Context.hpp */,
+				2F8A60042370FB3900CDE82F /* Widget.cpp */,
+				2F8A60052370FB3900CDE82F /* Widget.hpp */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -544,8 +554,8 @@
 				2FDA0BF0234A3D5600E3209D /* Resources */,
 				2FDA0BD12346BE8F00E3209D /* Jogo.cpp */,
 				2FDA0BD22346BE8F00E3209D /* Jogo.hpp */,
-				2FDA0BD42346BF5F00E3209D /* MediaEngine.cpp */,
-				2FDA0BD52346BF5F00E3209D /* MediaEngine.hpp */,
+				2FDA0BD42346BF5F00E3209D /* GerenciadorGrafico.cpp */,
+				2FDA0BD52346BF5F00E3209D /* GerenciadorGrafico.hpp */,
 				2FDA0BD72346BFB400E3209D /* base_includes.hpp */,
 				2FDA0BFF234BB3D100E3209D /* MediaEngineParameters.cpp */,
 				2FDA0C00234BB3D100E3209D /* MediaEngineParameters.hpp */,
@@ -687,6 +697,7 @@
 				2FDA0C01234BB3D100E3209D /* MediaEngineParameters.cpp in Sources */,
 				2F7FBB342356150600794230 /* Parameters.cpp in Sources */,
 				2F923776235BF7CC00747DCA /* tinyxmlparser.cpp in Sources */,
+				2F8A60032370F85F00CDE82F /* Context.cpp in Sources */,
 				2FDA0BE623492EA600E3209D /* Personagem.cpp in Sources */,
 				2FDA0BFE234BADE200E3209D /* GameState.cpp in Sources */,
 				2F7FBB2B2356149B00794230 /* PhaseAState.cpp in Sources */,
@@ -694,7 +705,7 @@
 				2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */,
 				2FDA0BF3234A3D9B00E3209D /* TexturesHolder.cpp in Sources */,
 				2FDA0BFB234BADD000E3209D /* State.cpp in Sources */,
-				2FDA0BD62346BF5F00E3209D /* MediaEngine.cpp in Sources */,
+				2FDA0BD62346BF5F00E3209D /* GerenciadorGrafico.cpp in Sources */,
 				2F923778235BF7CC00747DCA /* tinyxml.cpp in Sources */,
 				2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */,
 				2FDA0BDD2349265500E3209D /* Jogador.cpp in Sources */,
@@ -703,6 +714,7 @@
 				2F923774235BF7CC00747DCA /* Makefile in Sources */,
 				2F7FBB2E235614AA00794230 /* PhaseBState.cpp in Sources */,
 				2FDA0BE02349266200E3209D /* Inimigo.cpp in Sources */,
+				2F8A60062370FB3900CDE82F /* Widget.cpp in Sources */,
 				2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */,
 				2F8A6000236FA65E00CDE82F /* ListaEntidades.cpp in Sources */,
 				2F43569A230ED21E00A89E64 /* main.cpp in Sources */,
@@ -724,7 +736,7 @@
 				2FA6DF52234CDADF00302427 /* Button.cpp in Sources */,
 				2FA6DF53234CDADF00302427 /* TexturesHolder.cpp in Sources */,
 				2FA6DF54234CDADF00302427 /* State.cpp in Sources */,
-				2FA6DF55234CDADF00302427 /* MediaEngine.cpp in Sources */,
+				2FA6DF55234CDADF00302427 /* GerenciadorGrafico.cpp in Sources */,
 				2FA6DF56234CDADF00302427 /* Jogador.cpp in Sources */,
 				2FA6DF57234CDADF00302427 /* Obstaculo.cpp in Sources */,
 				2FA6DF58234CDADF00302427 /* Inimigo.cpp in Sources */,

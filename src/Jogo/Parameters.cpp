@@ -8,7 +8,7 @@
 
 #include "Parameters.hpp"
 
-namespace Game {
+namespace Game {  namespace Parameters {
 
 Parameters::Parameters(const string& filename):
 filename(filename){
@@ -27,4 +27,4 @@ const string& Parameters::getFilename() const {
     return this->filename;
 }
 
-}
+}}

@@ -91,7 +91,7 @@ bool Level::LoadFromFile(std::string filename) {
     //Tileset image
     TiXmlElement *image;
     image = tilesetElement->FirstChildElement("image");
-    std::string imagepath = "Resources/maps/tileset-2.png";//tilesetElement->Attribute("source");
+    std::string imagepath = "Resources/maps/tileset64.png";//tilesetElement->Attribute("source");
     
     //delete tilesetElement;
     

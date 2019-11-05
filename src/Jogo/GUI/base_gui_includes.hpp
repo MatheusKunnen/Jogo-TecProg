@@ -11,6 +11,9 @@
 
 #include <iostream>
 #include <string>
+
+#include <SFML/Graphics.hpp>
+
 namespace GUI {
 
 using std::cout;
@@ -21,6 +24,16 @@ using std::string;
 
 using std::runtime_error;
 
+// SFML includes
+using sf::RenderWindow;
+using sf::RenderTarget;
+using sf::RectangleShape;
+using sf::Texture;
+using sf::Font;
+using sf::Text;
+using sf::Color;
+using sf::Vector2f;
+using sf::Vector2i;
 
 static const bool DEBUG_MODE = true;
 

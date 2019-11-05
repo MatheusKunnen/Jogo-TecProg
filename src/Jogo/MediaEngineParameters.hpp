@@ -10,7 +10,9 @@
 #define MediaEngineParameters_hpp
 
 #include "Parameters.hpp"
-namespace Game {
+
+namespace Game {  namespace Parameters {
+
 class MediaEngineParameters : public Parameters{
 private:
     // Attributes
@@ -54,5 +56,5 @@ public:
     static const int        DEFAULT_STYLE_NORMAL;
     static const int        DEFAULT_STYLE_FULLSCREEN;
 };
-}
+}} 
 #endif /* MediaEngineParameters_hpp */

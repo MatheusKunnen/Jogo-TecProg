@@ -40,6 +40,7 @@ void Entidade::setTexture(Texture* texture){
         return;
     
     this->sprite->setTexture(*this->texture);
+    this->sprite->setScale(0.3f, 0.3f);
 }
 
 void Entidade::createMoveComponent(const float& max_vel, const float& acceleration, const float& deceleration){

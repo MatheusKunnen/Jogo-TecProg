@@ -47,7 +47,6 @@
     <ClCompile Include="..\..\..\src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\Jogo.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\base_includes.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Entidades\Componentes\MoveComponent.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Entidades\Entidade.hpp" />

@@ -19,7 +19,7 @@ states(),
 dt(0),
 status_code(0)
 {
-    this->main_mEngine = MediaEngine::getInstance();
+    this->main_mEngine = GerenciadorGrafico::getInstance();
     this->initKeys();
     this->initStates();
 
@@ -37,7 +37,7 @@ Jogo::~Jogo(){
 
 // Init methods
 void Jogo::initStates(){
-    this->states.push(new MainMenuState(this, MediaEngine::getInstance(), &this->valid_keys));
+    this->states.push(new MainMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys));
 }
 
 void Jogo::initKeys(){
@@ -112,10 +112,10 @@ void Jogo::pushState(States::states_id id){
     State* state  = nullptr;
     switch (id) {
         case States::states_id::main_menu:
-            state = new MainMenuState(this, MediaEngine::getInstance(), &this->valid_keys);
+            state = new MainMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::game:
-            state = new GameState(this, MediaEngine::getInstance(), &this->valid_keys);
+            state = new GameState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         default:
             break;

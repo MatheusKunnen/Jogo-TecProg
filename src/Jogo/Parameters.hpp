@@ -9,10 +9,11 @@
 #ifndef Parameters_hpp
 #define Parameters_hpp
 
+#include "json.hpp"
 #include "base_includes.hpp"
 
-namespace Game {
-
+namespace Game { namespace Parameters {
+using namespace nlohmann;
 class Parameters {
 private:
     // Attributes
@@ -30,6 +31,6 @@ public:
     
 };
 
-}
+}}
 
 #endif /* Parameters_hpp */

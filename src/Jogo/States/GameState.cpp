@@ -9,7 +9,7 @@
 #include "GameState.hpp"
 namespace Game { namespace States {
 // Constructor & Destructor
-GameState::GameState(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys):
+GameState::GameState(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
 State(handler, g_grafico, supported_keys, states_id::game),
 textures_used(),
 jogador(nullptr)
@@ -17,7 +17,7 @@ jogador(nullptr)
     initTextures();
     initValidKeys();
     initEntities();
-    lvl.LoadFromFile("Resources/maps/phase-B.tmx");
+    lvl.LoadFromFile("Resources/maps/phase-X.tmx");
 }
 
 GameState::~GameState(){
@@ -74,7 +74,7 @@ void GameState::render(RenderTarget* target){
     lvl.SetDrawingBounds(sf::Rect<float>(0.f, 0.f, 1920, 1024));
     //lvl.Move(2, 2);
     lvl.Draw((RenderWindow*)(target));
-    //this->jogador->render(target);
+    this->jogador->render(target);
     
 }
 }};

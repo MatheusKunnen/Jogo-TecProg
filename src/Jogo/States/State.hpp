@@ -9,7 +9,7 @@
 #ifndef State_hpp
 #define State_hpp
 
-#include "../MediaEngine.hpp"
+#include "../GerenciadorGrafico.hpp"
 #include "../Entidades/Entidade.hpp"
 #include "../Resources/TexturesHolder.hpp"
 #include "../base_includes.hpp"
@@ -33,16 +33,16 @@ protected:
     map<string, int>*   supported_keys;
     map<string, int>    used_keys;
     
-    MediaEngine*        g_grafico;
-    StateHandler*       handler;
-    const states_id     id;
-    bool                quit;
+    GerenciadorGrafico*         g_grafico;
+    StateHandler*               handler;
+    const states_id             id;
+    bool                        quit;
     
     // Methods
     virtual void initValidKeys() = 0;
 public:
     // Constructor & Destructor
-    State(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys, states_id id);
+    State(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, states_id id);
     virtual ~State();
     // Methods
     virtual void endState();

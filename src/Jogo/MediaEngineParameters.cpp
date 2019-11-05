@@ -8,7 +8,7 @@
 
 #include "MediaEngineParameters.hpp"
 
-namespace Game {
+namespace Game {  namespace Parameters {
 
 // Const init
 const int MediaEngineParameters::DEFAULT_FRAMERATE(60);
@@ -40,11 +40,43 @@ MediaEngineParameters::~MediaEngineParameters(){
 
 // Methods
 bool MediaEngineParameters::loadFromFile(const string& file){
-    return false;
+    bool status = true;
+    try{
+        std::ifstream i(file);
+        json j;
+        i >> j;
+        this->setWindowWidth(j["window_width"]);
+        this->setWindowHeight(j["window_height"]);
+        this->setWindowTitle(j["window_title"]);
+        this->setFullscreen(j["fullscreen"] == 1);
+        // cout << j.dump() << endl; // DEBUG
+        i.close();
+        j.clear();
+    } catch (std::exception e){
+        cerr << "ERROR: ParametrosGGrafico.loadFromFile: " << e.what() << endl;
+        status = false;
+    }
+    return status;
 }
 
 bool MediaEngineParameters::saveToFile(const string& file) const{
-    return false;
+    bool status = true;
+    try{
+        std::ofstream out(file);
+        json j;
+        j["window_width"] = this->getWindowWidth();
+        j["window_height"] = this->getWindowHeight();
+        j["window_title"] = this->getWindowTitle();
+        j["fullscreen"] = this->isFullscreen() ? 1 : 0;
+        // cout << j.dump() << endl; // DEBUG
+        out << j.dump() << endl;
+        out.close();
+        j.clear();
+    } catch (std::exception e){
+        cerr << "ERROR: ParametrosGGrafico.loadFromFile: " << e.what() << endl;
+        status = false;
+    }
+    return status;
 }
 
 // Getters & Setters
@@ -108,5 +140,5 @@ unsigned MediaEngineParameters::getAntialiasLevel() const {
     return this->antialias_level;
 }
 
-}
+}}
 

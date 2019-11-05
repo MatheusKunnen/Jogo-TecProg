@@ -6,7 +6,7 @@
 #include "States/StateHandler.hpp"
 #include "States/MainMenuState.hpp"
 #include "States/GameState.hpp"
-#include "MediaEngine.hpp"
+#include "GerenciadorGrafico.hpp"
 
 namespace Game {
 // Usings
@@ -27,7 +27,7 @@ private:
     // Attributes
     Event               event_pool;
     Clock               main_clock;
-    MediaEngine*        main_mEngine;
+    GerenciadorGrafico*        main_mEngine;
     
     StateStack          states;
     map<string, int>    valid_keys;

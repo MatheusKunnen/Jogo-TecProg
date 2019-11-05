@@ -11,10 +11,11 @@
 namespace Game { namespace States {
 
 // Constructor & Destructor
-MainMenuState::MainMenuState(StateHandler* handler,MediaEngine* g_grafico, map<string, int>* supported_keys):
+MainMenuState::MainMenuState(StateHandler* handler,GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
 State(handler, g_grafico, supported_keys, states_id::game),
 background(),
-buttons()
+buttons(),
+context(*g_grafico->getRenderWindow())
 {
     this->background.setSize(sf::Vector2f(this->g_grafico->getRenderWindow()->getSize()));
     this->background.setFillColor(sf::Color::White);
@@ -71,13 +72,14 @@ void MainMenuState::initBackground(){
 }
 
 void MainMenuState::initButtons(){
+    //const int& id, Context& context, const Vector2f& back_size, const Vector2f& position, Font& font, const string& text = ""
     Vector2f btn_size = Vector2f(450.f, 100.f);
     Vector2f btn_pos = Vector2f(this->g_grafico->getRenderWindow()->getSize().x/2.f, this->g_grafico->getRenderWindow()->getSize().y / 4.f);
-    buttons[btn_new_game] = new Button(btn_size, btn_pos, &this->font, "New Game");
+    buttons[btn_new_game] = new Button(btn_new_game, context, btn_size, btn_pos, this->font, "New Game");
     btn_pos.y = btn_pos.y + btn_size.y *1.2;
-    buttons[btn_config] = new Button(btn_size, btn_pos, &this->font, "Config");
+    buttons[btn_config] = new Button(btn_config, context, btn_size, btn_pos, this->font, "Config");
     btn_pos.y = btn_pos.y + btn_size.y *1.2;
-    buttons[btn_exit] = new Button(btn_size, btn_pos, &this->font, "EXIT");
+    buttons[btn_exit] = new Button(btn_exit, context, btn_size, btn_pos, this->font, "EXIT");
     //buttons[btn_exit]->setEnabled(false);
 }
 
@@ -95,9 +97,9 @@ void MainMenuState::updateInput(const float& dt){
 void MainMenuState::update(const float& dt){
     this->updateMousePos();
     this->updateInput(dt);
-    
+    this->context.update(dt);
     for(map<int, Button*>::iterator itr = this->buttons.begin(); itr != this->buttons.end(); ++itr)
-        itr->second->update(this->mouse_pos_view);
+        itr->second->update();
 }
     
 

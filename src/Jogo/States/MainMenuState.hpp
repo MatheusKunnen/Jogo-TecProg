@@ -24,7 +24,7 @@ private:
     sf::Font                font; // Trocar para font holder
     
     map<int, Button*>       buttons; // Trocar para lista de buttons
-    
+    GUI::Context            context;
     // Init methods
     void initValidKeys();
     void initTextures();
@@ -36,7 +36,7 @@ private:
     enum used_buttons{btn_new_game, btn_config, btn_exit};
 public:
     // Contructor & Destructor
-    MainMenuState(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys);
+    MainMenuState(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
     ~MainMenuState();
     // Methods
     void updateInput(const float& dt);

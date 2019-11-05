@@ -10,7 +10,7 @@
 
 namespace Game { namespace States {
 
-State::State(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys, states_id id):
+State::State(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, states_id id):
 handler(handler),
 id(id),
 textures(),

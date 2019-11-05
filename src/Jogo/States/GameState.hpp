@@ -30,7 +30,7 @@ private:
     void initEntities();
 public:
     // Contructor & Destructor
-    GameState(StateHandler* handler, MediaEngine* g_grafico, map<string, int>* supported_keys);
+    GameState(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
     ~GameState();
     
     // Methods
