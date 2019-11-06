@@ -13,10 +13,10 @@
 
 namespace Game { namespace States {
 
-class StateHandler {
+class StateManager {
 public:
-    StateHandler() { };
-    ~StateHandler() { };
+    StateManager() { };
+    ~StateManager() { };
     virtual void pushState(states_id id) = 0;
 };
 }};

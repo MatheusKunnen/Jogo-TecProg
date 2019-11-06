@@ -15,15 +15,16 @@
 		2F4356BE230EDFA500A89E64 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B9230EDFA500A89E64 /* sfml-network.framework */; };
 		2F4356BF230EDFA500A89E64 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356BA230EDFA500A89E64 /* sfml-system.framework */; };
 		2F4356C1230EDFBE00A89E64 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356C0230EDFBE00A89E64 /* SFML.framework */; };
-		2F7FBB2B2356149B00794230 /* PhaseAState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB292356149B00794230 /* PhaseAState.cpp */; };
-		2F7FBB2E235614AA00794230 /* PhaseBState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB2C235614AA00794230 /* PhaseBState.cpp */; };
-		2F7FBB31235614B700794230 /* PhaseCState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB2F235614B700794230 /* PhaseCState.cpp */; };
 		2F7FBB342356150600794230 /* Parameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F7FBB322356150600794230 /* Parameters.cpp */; };
 		2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FF5236F132100CDE82F /* StateStack.cpp */; };
-		2F8A5FFD236F2E4D00CDE82F /* StateHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFB236F2E4D00CDE82F /* StateHandler.cpp */; };
+		2F8A5FFD236F2E4D00CDE82F /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFB236F2E4D00CDE82F /* StateManager.cpp */; };
 		2F8A6000236FA65E00CDE82F /* ListaEntidades.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFE236FA65E00CDE82F /* ListaEntidades.cpp */; };
 		2F8A60032370F85F00CDE82F /* Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A60012370F85F00CDE82F /* Context.cpp */; };
 		2F8A60062370FB3900CDE82F /* Widget.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A60042370FB3900CDE82F /* Widget.cpp */; };
+		2F8A600A2371B03B00CDE82F /* Menu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A60082371B03B00CDE82F /* Menu.cpp */; };
+		2F8A600D2371B3E800CDE82F /* MainMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A600B2371B3E800CDE82F /* MainMenu.cpp */; };
+		2F8A60102371B80600CDE82F /* EventHandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A600E2371B80600CDE82F /* EventHandler.cpp */; };
+		2F8A60132371BEDC00CDE82F /* FontHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A60112371BEDC00CDE82F /* FontHolder.cpp */; };
 		2F923774235BF7CC00747DCA /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 2F92370C235BF7CC00747DCA /* Makefile */; };
 		2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F92376C235BF7CC00747DCA /* tinystr.cpp */; };
 		2F923776235BF7CC00747DCA /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F92376D235BF7CC00747DCA /* tinyxmlparser.cpp */; };
@@ -133,26 +134,28 @@
 		2F4356B9230EDFA500A89E64 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		2F4356BA230EDFA500A89E64 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
 		2F4356C0230EDFBE00A89E64 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
-		2F7FBB292356149B00794230 /* PhaseAState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseAState.cpp; sourceTree = "<group>"; };
-		2F7FBB2A2356149B00794230 /* PhaseAState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhaseAState.hpp; sourceTree = "<group>"; };
-		2F7FBB2C235614AA00794230 /* PhaseBState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseBState.cpp; sourceTree = "<group>"; };
-		2F7FBB2D235614AA00794230 /* PhaseBState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhaseBState.hpp; sourceTree = "<group>"; };
-		2F7FBB2F235614B700794230 /* PhaseCState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PhaseCState.cpp; sourceTree = "<group>"; };
-		2F7FBB30235614B700794230 /* PhaseCState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PhaseCState.hpp; sourceTree = "<group>"; };
 		2F7FBB322356150600794230 /* Parameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Parameters.cpp; sourceTree = "<group>"; };
 		2F7FBB332356150600794230 /* Parameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Parameters.hpp; sourceTree = "<group>"; };
 		2F8A5FF0236E1A8900CDE82F /* Lista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lista.hpp; sourceTree = "<group>"; };
 		2F8A5FF3236E27C900CDE82F /* Pilha.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pilha.hpp; sourceTree = "<group>"; };
 		2F8A5FF5236F132100CDE82F /* StateStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateStack.cpp; sourceTree = "<group>"; };
 		2F8A5FF6236F132100CDE82F /* StateStack.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StateStack.hpp; sourceTree = "<group>"; };
-		2F8A5FFB236F2E4D00CDE82F /* StateHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateHandler.cpp; sourceTree = "<group>"; };
-		2F8A5FFC236F2E4D00CDE82F /* StateHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StateHandler.hpp; sourceTree = "<group>"; };
+		2F8A5FFB236F2E4D00CDE82F /* StateManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateManager.cpp; sourceTree = "<group>"; };
+		2F8A5FFC236F2E4D00CDE82F /* StateManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = StateManager.hpp; sourceTree = "<group>"; };
 		2F8A5FFE236FA65E00CDE82F /* ListaEntidades.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListaEntidades.cpp; sourceTree = "<group>"; };
 		2F8A5FFF236FA65E00CDE82F /* ListaEntidades.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListaEntidades.hpp; sourceTree = "<group>"; };
 		2F8A60012370F85F00CDE82F /* Context.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Context.cpp; sourceTree = "<group>"; };
 		2F8A60022370F85F00CDE82F /* Context.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Context.hpp; sourceTree = "<group>"; };
 		2F8A60042370FB3900CDE82F /* Widget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Widget.cpp; sourceTree = "<group>"; };
 		2F8A60052370FB3900CDE82F /* Widget.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Widget.hpp; sourceTree = "<group>"; };
+		2F8A60082371B03B00CDE82F /* Menu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Menu.cpp; sourceTree = "<group>"; };
+		2F8A60092371B03B00CDE82F /* Menu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Menu.hpp; sourceTree = "<group>"; };
+		2F8A600B2371B3E800CDE82F /* MainMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenu.cpp; sourceTree = "<group>"; };
+		2F8A600C2371B3E800CDE82F /* MainMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainMenu.hpp; sourceTree = "<group>"; };
+		2F8A600E2371B80600CDE82F /* EventHandler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EventHandler.cpp; sourceTree = "<group>"; };
+		2F8A600F2371B80600CDE82F /* EventHandler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EventHandler.hpp; sourceTree = "<group>"; };
+		2F8A60112371BEDC00CDE82F /* FontHolder.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FontHolder.cpp; sourceTree = "<group>"; };
+		2F8A60122371BEDC00CDE82F /* FontHolder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FontHolder.hpp; sourceTree = "<group>"; };
 		2F923709235BF7CC00747DCA /* tinyxml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml.h; sourceTree = "<group>"; };
 		2F92370B235BF7CC00747DCA /* tinyxml_lib.vcxproj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = tinyxml_lib.vcxproj; sourceTree = "<group>"; };
 		2F92370C235BF7CC00747DCA /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -401,6 +404,17 @@
 			path = TADs;
 			sourceTree = "<group>";
 		};
+		2F8A60072371B00600CDE82F /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				2F8A60082371B03B00CDE82F /* Menu.cpp */,
+				2F8A60092371B03B00CDE82F /* Menu.hpp */,
+				2F8A600B2371B3E800CDE82F /* MainMenu.cpp */,
+				2F8A600C2371B3E800CDE82F /* MainMenu.hpp */,
+			);
+			path = Menus;
+			sourceTree = "<group>";
+		};
 		2F923708235BF7CC00747DCA /* tinyxml */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +544,8 @@
 				2F8A60022370F85F00CDE82F /* Context.hpp */,
 				2F8A60042370FB3900CDE82F /* Widget.cpp */,
 				2F8A60052370FB3900CDE82F /* Widget.hpp */,
+				2F8A600E2371B80600CDE82F /* EventHandler.cpp */,
+				2F8A600F2371B80600CDE82F /* EventHandler.hpp */,
 			);
 			path = GUI;
 			sourceTree = "<group>";
@@ -546,6 +562,7 @@
 		2FDA0BE7234A3B4D00E3209D /* Jogo */ = {
 			isa = PBXGroup;
 			children = (
+				2F8A60072371B00600CDE82F /* Menus */,
 				2F8A5FEE236E1A5D00CDE82F /* TADs */,
 				2F923708235BF7CC00747DCA /* tinyxml */,
 				2FA6DF49234CCF5A00302427 /* GUI */,
@@ -571,6 +588,8 @@
 				2FDA0BF7234A63C200E3209D /* ResourcesHolder.hpp */,
 				2FDA0BF1234A3D9B00E3209D /* TexturesHolder.cpp */,
 				2FDA0BF2234A3D9B00E3209D /* TexturesHolder.hpp */,
+				2F8A60112371BEDC00CDE82F /* FontHolder.cpp */,
+				2F8A60122371BEDC00CDE82F /* FontHolder.hpp */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -584,14 +603,8 @@
 				2FDA0BFD234BADE200E3209D /* GameState.hpp */,
 				2FA6DF46234CC7C100302427 /* MainMenuState.cpp */,
 				2FA6DF47234CC7C100302427 /* MainMenuState.hpp */,
-				2F7FBB292356149B00794230 /* PhaseAState.cpp */,
-				2F7FBB2A2356149B00794230 /* PhaseAState.hpp */,
-				2F7FBB2C235614AA00794230 /* PhaseBState.cpp */,
-				2F7FBB2D235614AA00794230 /* PhaseBState.hpp */,
-				2F7FBB2F235614B700794230 /* PhaseCState.cpp */,
-				2F7FBB30235614B700794230 /* PhaseCState.hpp */,
-				2F8A5FFB236F2E4D00CDE82F /* StateHandler.cpp */,
-				2F8A5FFC236F2E4D00CDE82F /* StateHandler.hpp */,
+				2F8A5FFB236F2E4D00CDE82F /* StateManager.cpp */,
+				2F8A5FFC236F2E4D00CDE82F /* StateManager.hpp */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -698,21 +711,23 @@
 				2F7FBB342356150600794230 /* Parameters.cpp in Sources */,
 				2F923776235BF7CC00747DCA /* tinyxmlparser.cpp in Sources */,
 				2F8A60032370F85F00CDE82F /* Context.cpp in Sources */,
+				2F8A60102371B80600CDE82F /* EventHandler.cpp in Sources */,
 				2FDA0BE623492EA600E3209D /* Personagem.cpp in Sources */,
 				2FDA0BFE234BADE200E3209D /* GameState.cpp in Sources */,
-				2F7FBB2B2356149B00794230 /* PhaseAState.cpp in Sources */,
 				2FA6DF4C234CCF7200302427 /* Button.cpp in Sources */,
+				2F8A60132371BEDC00CDE82F /* FontHolder.cpp in Sources */,
 				2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */,
 				2FDA0BF3234A3D9B00E3209D /* TexturesHolder.cpp in Sources */,
 				2FDA0BFB234BADD000E3209D /* State.cpp in Sources */,
 				2FDA0BD62346BF5F00E3209D /* GerenciadorGrafico.cpp in Sources */,
 				2F923778235BF7CC00747DCA /* tinyxml.cpp in Sources */,
 				2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */,
+				2F8A600D2371B3E800CDE82F /* MainMenu.cpp in Sources */,
 				2FDA0BDD2349265500E3209D /* Jogador.cpp in Sources */,
 				2FA6DF6F234F940E00302427 /* MoveComponent.cpp in Sources */,
 				2FDA0BEF234A3C7900E3209D /* Obstaculo.cpp in Sources */,
 				2F923774235BF7CC00747DCA /* Makefile in Sources */,
-				2F7FBB2E235614AA00794230 /* PhaseBState.cpp in Sources */,
+				2F8A600A2371B03B00CDE82F /* Menu.cpp in Sources */,
 				2FDA0BE02349266200E3209D /* Inimigo.cpp in Sources */,
 				2F8A60062370FB3900CDE82F /* Widget.cpp in Sources */,
 				2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */,
@@ -721,8 +736,7 @@
 				2FA6DF48234CC7C100302427 /* MainMenuState.cpp in Sources */,
 				2FDA0BDA2349264500E3209D /* Entidade.cpp in Sources */,
 				2F92377B235BF7F300747DCA /* level.cpp in Sources */,
-				2F7FBB31235614B700794230 /* PhaseCState.cpp in Sources */,
-				2F8A5FFD236F2E4D00CDE82F /* StateHandler.cpp in Sources */,
+				2F8A5FFD236F2E4D00CDE82F /* StateManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

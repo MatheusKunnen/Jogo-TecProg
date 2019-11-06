@@ -17,9 +17,10 @@ const Color Widget::DEFAULT_PRESSED_COLOR(44, 84, 51, 150);
 const Color Widget::DEFAULT_TEXT_COLOR(255, 255, 255, 255);
 
 // Cosntructor & Destructor
-Widget::Widget(const int& id, Context& context, const Font& font, const Vector2f& size, const Vector2f& pos):
+Widget::Widget(const int& id, Context& context, EventHandler& handler, const Font& font, const Vector2f& size, const Vector2f& pos):
 id(id),
 context(context),
+handler(handler),
 background(size),
 bg_texture(),
 font(font),

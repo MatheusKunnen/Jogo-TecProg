@@ -10,8 +10,8 @@
 namespace GUI {
 
 // Constructor & Destructor
-Button::Button(const int& id, Context& context, const Vector2f& size, const Vector2f& pos, Font& font, const string& text):
-Widget(id, context, font, size, pos)
+Button::Button(const int& id, Context& context, EventHandler& handler, const Vector2f& size, const Vector2f& pos, Font& font, const string& text):
+Widget(id, context, handler, font, size, pos)
 {
     this->setText(text);
 }
@@ -29,6 +29,7 @@ void Button::update(){
         if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)){
             this->state = pressed;
             this->background.setFillColor(this->pressed_color);
+            this->handler.onGuiEvent(this->id, Events::Type::CLICK);
         } else {
             this->state = hovered;
             this->background.setFillColor(this->hover_color);

@@ -16,13 +16,15 @@ class Button : public Widget{
 private:
     
 public: 
-    Button(const int& id, Context& context, const Vector2f& back_size, const Vector2f& position, Font& font, const string& text = "");
+    Button(const int& id, Context& context, EventHandler& handler, const Vector2f& back_size, const Vector2f& position, Font& font, const string& text = "");
     ~Button();
     
     // Methods
     void update();
+    void updateButtons();
     void render(RenderTarget* target);
-
+    void renderButtons(RenderTarget* target);
+    void onGuiEvent(int id, GUI::Events::Type event_id);
 };
 
 }

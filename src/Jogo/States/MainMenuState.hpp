@@ -10,40 +10,32 @@
 #define MainMenuState_hpp
 
 #include "State.hpp"
-#include "../GUI/Button.hpp"
+#include "../Menus/MainMenu.hpp"
 
 namespace Game { namespace States {
 
-// GUI usings
-using GUI::Button;
+// Usings
+using Menus::MainMenu;
 
-class MainMenuState : public State{
+class MainMenuState : public State, public MainMenu{
 private:
-    // Attributes        
-    sf::RectangleShape      background;
-    sf::Font                font; // Trocar para font holder
-    
-    map<int, Button*>       buttons; // Trocar para lista de buttons
-    GUI::Context            context;
     // Init methods
     void initValidKeys();
-    void initTextures();
-    void initFonts();
-    void initBackground();
-    void initButtons();
     
-    // Const
-    enum used_buttons{btn_new_game, btn_config, btn_exit};
 public:
     // Contructor & Destructor
-    MainMenuState(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
+    MainMenuState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
     ~MainMenuState();
     // Methods
     void updateInput(const float& dt);
     void update(const float& dt);
     void render(RenderTarget* target);
+    // Menu Methods
+    void onOpenNewGame();
+    void onOpenRanking();
+    void onOpenConfig();
+    void onExit();
 };
-
 }};
 
 #endif /* MainMenuState_hpp */

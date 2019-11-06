@@ -40,5 +40,8 @@ const Vector2f& Context::getMousePosView() const {
     return this->mouse_pos_view;
 }
 
+RenderWindow* Context::getRenderWindow() const {
+    return this->window;
+}
 
 }

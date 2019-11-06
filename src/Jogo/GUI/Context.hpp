@@ -29,6 +29,7 @@ public:
     void updateMousePos();
     // Getters && Setters
     const Vector2f& getMousePosView() const;
+    RenderWindow* getRenderWindow() const;
 };
 
 

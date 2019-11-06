@@ -9,7 +9,7 @@
 #include "GameState.hpp"
 namespace Game { namespace States {
 // Constructor & Destructor
-GameState::GameState(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
+GameState::GameState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
 State(handler, g_grafico, supported_keys, states_id::game),
 textures_used(),
 jogador(nullptr)
@@ -26,7 +26,7 @@ GameState::~GameState(){
 
 // Init Methods
 void GameState::initTextures(){
-    textures_used.load(Textures::male_player, TextureHolder::getFilename(Textures::male_player)/*"Resources/img/sprites/player/male_player.png"*/);
+    textures_used.load(Resources::Textures::male_player, TextureHolder::getFilename(Resources::Textures::male_player)/*"Resources/img/sprites/player/male_player.png"*/);
 }
 
 void GameState::initValidKeys(){
@@ -42,7 +42,7 @@ void GameState::initValidKeys(){
 }
 
 void GameState::initEntities(){
-    this->jogador = new Jogador(Vector2f(100.f, 100.f), &textures_used.get(Textures::male_player));
+    this->jogador = new Jogador(Vector2f(100.f, 100.f), &textures_used.get(Resources::Textures::male_player));
 }
 
 // Methods
@@ -60,12 +60,8 @@ void GameState::updateInput(const float& dt){
 }
 
 void GameState::update(const float& dt){
-    this->updateMousePos();
     this->updateInput(dt);
-    
     this->jogador->update(dt);
-    
-    
 }
 
 void GameState::render(RenderTarget* target){

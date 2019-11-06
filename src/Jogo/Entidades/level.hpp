@@ -32,7 +32,6 @@ it freely, subject to the following restrictions:
 #define LEVEL_H
 
 #include "../tinyxml/tinyxml.h"
-
 #include "../base_includes.hpp"
 
 //Object class. Everything is kept public in case you want to get a different type to the supported ones.

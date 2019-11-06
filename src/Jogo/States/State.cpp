@@ -10,8 +10,8 @@
 
 namespace Game { namespace States {
 
-State::State(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, states_id id):
-handler(handler),
+State::State(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, states_id id):
+manager(handler),
 id(id),
 textures(),
 supported_keys(supported_keys),
@@ -28,12 +28,6 @@ State::~State(){
 
 void State::endState(){
     this->quit = true;
-}
-
-void State::updateMousePos(){
-    this->mouse_pos_screen = sf::Mouse::getPosition();
-    this->mouse_pos_window = sf::Mouse::getPosition(*this->g_grafico->getRenderWindow());
-    this->mouse_pos_view   = this->g_grafico->getRenderWindow()->mapPixelToCoords(this->mouse_pos_window);
 }
 
 const bool& State::isQuitting() const{

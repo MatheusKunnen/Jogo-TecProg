@@ -10,6 +10,7 @@
 #define Widget_hpp
 
 #include "Context.hpp"
+#include "EventHandler.hpp"
 
 namespace GUI {
 
@@ -18,7 +19,7 @@ protected:
     // Attributes
     const int           id;
     const Context&      context;
-    
+    EventHandler&       handler;
     RectangleShape      background;
     Texture             bg_texture;
     Font                font;
@@ -43,7 +44,7 @@ protected:
     void updateTextPos();
 public:
     // Constructor & Destructor
-    Widget(const int& id, Context& context, const Font& font, const Vector2f& size, const Vector2f& pos);
+    Widget(const int& id, Context& context, EventHandler& handler, const Font& font, const Vector2f& size, const Vector2f& pos);
     ~Widget();
     // Methods
     virtual void update() = 0;

@@ -16,7 +16,7 @@
 #include "../base_includes.hpp"
 namespace Game { namespace States {
 
-using Textures::TextureHolder;
+using Resources::TextureHolder;
 using Entidades::Personagens::Jogador;
 class GameState : public State {
 private:
@@ -30,7 +30,7 @@ private:
     void initEntities();
 public:
     // Contructor & Destructor
-    GameState(StateHandler* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
+    GameState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
     ~GameState();
     
     // Methods

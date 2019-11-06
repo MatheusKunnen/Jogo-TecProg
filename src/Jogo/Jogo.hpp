@@ -3,7 +3,7 @@
 
 #include "base_includes.hpp"
 #include "TADs/StateStack.hpp"
-#include "States/StateHandler.hpp"
+#include "States/StateManager.hpp"
 #include "States/MainMenuState.hpp"
 #include "States/GameState.hpp"
 #include "GerenciadorGrafico.hpp"
@@ -14,13 +14,13 @@ using sf::Clock;
 using sf::Event;
 
 using States::State;
-using States::StateHandler;
+using States::StateManager;
 using States::MainMenuState;
 using States::GameState;
 
 using TADs::StateStack;
 
-class Jogo : public StateHandler {
+class Jogo : public StateManager {
 private:
     // Sigleton instance pointer
     static Jogo*        main_instance;
