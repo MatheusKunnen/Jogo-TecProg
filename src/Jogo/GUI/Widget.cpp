@@ -73,6 +73,10 @@ void Widget::setText(const string& text){
     this->updateTextPos();
 }
 
+void Widget::setTextColor(const Color &color){
+    this->text.setFillColor(color);
+}
+
 // Methods
 void Widget::updateTextPos(){
     this->text.setPosition(this->background.getPosition().x

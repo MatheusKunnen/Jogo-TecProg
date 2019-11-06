@@ -45,7 +45,7 @@ protected:
 public:
     // Constructor & Destructor
     Widget(const int& id, Context& context, EventHandler& handler, const Font& font, const Vector2f& size, const Vector2f& pos);
-    ~Widget();
+    virtual ~Widget();
     // Methods
     virtual void update() = 0;
     virtual void render(RenderTarget* target = nullptr) = 0;
@@ -54,6 +54,7 @@ public:
     const bool isHovered() const;
     const bool isEnabled() const;
     void setText(const string& text);
+    void setTextColor(const Color& color);
     void setEnabled(const bool& enabled);
     // Const
     enum State{disabled = -1, enabled = 0, hovered, pressed};

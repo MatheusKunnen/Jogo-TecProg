@@ -18,9 +18,7 @@ Menu(window)
 }
     
 MainMenu::~MainMenu(){
-    for(map<int, Button*>::iterator itr = this->buttons.begin(); itr != this->buttons.end(); ++itr)
-        delete itr->second;
-    this->buttons.clear();
+    this->widgets.clear();
 }
 
 
@@ -59,16 +57,16 @@ void MainMenu::initButtons(){
     Vector2f btn_size = Vector2f(450.f, 100.f);
     Vector2f btn_pos = Vector2f(this->context.getRenderWindow()->getSize().x/2.f, this->context.getRenderWindow()->getSize().y / 4.f);
     
-    buttons[btn_new_game] = new Button(btn_new_game, context, *this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "New Game");
+    this->widgets.add(btn_new_game, new Button(btn_new_game, context, *this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "New Game"));
     
     btn_pos.y = btn_pos.y + btn_size.y *1.2;
-    buttons[btn_ranking] = new Button(btn_ranking, context, *this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "Ranking");
+    this->widgets.add(btn_ranking, new Button(btn_ranking, context, *this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "Ranking"));
     
     btn_pos.y = btn_pos.y + btn_size.y *1.2;
-    buttons[btn_config] = new Button(btn_config, context, *this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "Config");
+    this->widgets.add(btn_config,  new Button(btn_config, context, *this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "Config"));
     
     btn_pos.y = btn_pos.y + btn_size.y *1.2;
-    buttons[btn_exit] = new Button(btn_exit, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "EXIT");
+    this->widgets.add(btn_exit, new Button(btn_exit, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "EXIT"));
 }
 
 void MainMenu::initBackground(){
@@ -77,17 +75,14 @@ void MainMenu::initBackground(){
 
 void MainMenu::updateMenu(const float &dt) {
     this->context.update(dt);
-    for(map<int, Button*>::iterator itr = this->buttons.begin(); itr != this->buttons.end(); ++itr)
-        itr->second->update();
+    this->widgets.update(dt);
 }
 
 
 // Methods
 void MainMenu::renderMenu(RenderTarget *target) const {
     target->draw(this->background);
-    for(auto itr = this->buttons.begin(); itr != this->buttons.end(); ++itr)
-        itr->second->render(target);
-    
+    this->widgets.render(target);    
 }
    
 void MainMenu::onGuiEvent(int id, GUI::Events::Type event_id){

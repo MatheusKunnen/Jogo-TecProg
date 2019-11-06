@@ -9,6 +9,7 @@
 #ifndef Menu_hpp
 #define Menu_hpp
 
+#include "../GUI/ListaWidgets.hpp"
 #include "../GUI/Button.hpp"
 #include "../Resources/TexturesHolder.hpp"
 #include "../Resources/FontHolder.hpp"
@@ -16,6 +17,7 @@
 
 namespace Game { namespace Menus {
 
+using GUI::ListaWidgets;
 using GUI::Button;
 using GUI::Context;
 using GUI::EventHandler;
@@ -31,7 +33,7 @@ protected:
     FontHolder              fonts;
     TextureHolder           textures;
     
-    map<int, Button*>       buttons;
+    ListaWidgets            widgets;
     
     // Init methods
     virtual void initMenu() = 0;

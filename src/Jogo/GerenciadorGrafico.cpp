@@ -44,7 +44,7 @@ void GerenciadorGrafico::initWindow(){
     /*auto desktop = sf::VideoMode::getDesktopMode();
     this->main_window->setPosition(sf::Vector2<int>(desktop.width/2 - main_window->getSize().x/2, desktop.height/2 - main_window->getSize().y/2));*/
     // Set max framerate
-    main_window->setFramerateLimit(60);
+    main_window->setFramerateLimit(this->parameters.getFrameRateLimit());
 }
 
 RenderWindow* GerenciadorGrafico::getRenderWindow(){

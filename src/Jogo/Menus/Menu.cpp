@@ -12,7 +12,7 @@ namespace Game { namespace Menus{
 
 Menu::Menu(RenderWindow& window):
 context(window),
-buttons()
+widgets()
 {
     this->background.setSize(sf::Vector2f(window.getSize()));
     this->background.setFillColor(sf::Color::White);

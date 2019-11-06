@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 
 #include <SFML/Graphics.hpp>
 
@@ -21,6 +22,7 @@ using std::cin;
 using std::cerr;
 using std::endl;
 using std::string;
+using std::map;
 
 using std::runtime_error;
 
