@@ -60,15 +60,12 @@ void Jogo::run() {
         if (30 - this->dt < 0)
             cout << this->dt << endl;
     }
-    //if (this->main_mEngine->getRenderWindow()->isOpen())
-        //this->main_mEngine->getRenderWindow()->close();
 }
 
 void Jogo::endGame(){
     delete this->main_mEngine;
     while(!this->states.empty()){
-        //delete this->states.top();
-        this->states.pop();
+        this->states.pop(); // Lista desaloca a memoria
     }
 }
 
@@ -80,7 +77,6 @@ void Jogo::handleEvents(){
     while(this->main_mEngine->getRenderWindow()->pollEvent(event_pool)){
         // Close window : exit
         if (event_pool.type == sf::Event::Closed){
-           // this->main_mEngine->getRenderWindow()->close();
             this->mRunning = false;
         }
     }
@@ -94,11 +90,8 @@ void Jogo::update(){
             this->states.top()->endState();
             this->states.pop();
         }
-    } else {
-       // this->main_mEngine->getRenderWindow()->close();
+    } else 
         this->mRunning = false;
-    }
-    
 }
 
 void Jogo::render(){
