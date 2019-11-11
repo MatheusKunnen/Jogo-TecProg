@@ -6,24 +6,25 @@
 //  Copyright © 2019 Matheus Kunnen Ledesma. All rights reserved.
 //
 
-#include "Parameters.hpp"
+#include "Parametros.hpp"
 
-namespace Game {  namespace Parameters {
+namespace Game {  namespace Parametros {
 
-Parameters::Parameters(const string& filename):
+Parametro::Parametro(const string& filename):
+g_arquivos(filename),
 filename(filename){
     
 }
 
-Parameters::~Parameters(){
+Parametro::~Parametro(){
     this->filename.clear();
 }
 
-void Parameters::setFilename(const string &filename){
+void Parametro::setFilename(const string &filename){
     this->filename = filename;
 }
 
-const string& Parameters::getFilename() const {
+const string& Parametro::getFilename() const {
     return this->filename;
 }
 

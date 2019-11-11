@@ -28,8 +28,6 @@ public:
     ~ResourceHolder();
     // Methods
     void load(Id id, const string& filename);
-    //template <typename Parameter>
-    //void load(Id id, const string& filename, const Parameter& secondParam);
     Resource& get(Id id);
     const Resource& get(Id id) const;
     
@@ -70,7 +68,6 @@ const Resource& ResourceHolder<Resource, Id>::get(Id id) const {
 template <typename Resource, typename Id>
 void ResourceHolder<Resource, Id>::insert(Id id, std::unique_ptr<Resource> resource) {
     // Insert and check success
-    //std::pair<Id, Resource> inserted = this->mResourceMap.insert(make_pair(id, move(resource)));
     if (!this->resources_map.insert(make_pair(id, move(resource))).second)
         throw runtime_error("ResourceHolder::insert(): error inserting ");
         

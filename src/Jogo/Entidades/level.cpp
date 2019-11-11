@@ -157,7 +157,7 @@ bool Level::LoadFromFile(std::string filename) {
         while (tileElement) {
             int tileGID = 21;
             try{
-            tileGID = atoi(tileElement->Attribute("gid"));
+                tileGID = atoi(tileElement->Attribute("gid"));
             } catch (std::exception e){
                 cerr << e.what() << endl;
             }
@@ -230,7 +230,6 @@ bool Level::LoadFromFile(std::string filename) {
                 if (objectType == "solid")
                     solidObjects.push_back(objectRect);
                 
-
                 object.rect = objectRect;
 
                 TiXmlElement *properties;
@@ -290,6 +289,20 @@ void Level::SetDrawingBounds(sf::Rect<float> bounds)
 }
 
 void Level::Draw(sf::RenderWindow *window)
+{
+    for (int layer = 0; layer < layers.size(); layer++)
+    {
+        for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
+        {
+            if (drawingBounds.contains(layers[layer].tiles[tile].getPosition().x, layers[layer].tiles[tile].getPosition().y))
+            
+                window->draw(layers[layer].tiles[tile]);
+            
+        }
+    }
+}
+
+void Level::Draw(sf::RenderTarget *window)
 {
     for (int layer = 0; layer < layers.size(); layer++)
     {

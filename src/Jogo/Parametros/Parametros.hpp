@@ -9,22 +9,25 @@
 #ifndef Parameters_hpp
 #define Parameters_hpp
 
-#include "json.hpp"
-#include "base_includes.hpp"
+#include "../Gerenciadores/GerenciadorArquivos.hpp"
 
-namespace Game { namespace Parameters {
+namespace Game { namespace Parametros {
+
+using Gerenciadores::GerenciadorArquivos;
 using namespace nlohmann;
-class Parameters {
-private:
+
+class Parametro {
+protected:
     // Attributes
+    GerenciadorArquivos g_arquivos;
     string filename;
 public:
     // Contructors & Destructors
-    Parameters(const string& filename = "");
-    ~Parameters();
+    Parametro(const string& filename = "");
+    ~Parametro();
     // Methods
-    virtual bool loadFromFile(const string& filename) = 0;
-    virtual bool saveToFile(const string& filename = "") const = 0;
+    virtual bool loadFromFile(const string& filename = "") = 0;
+    virtual bool saveToFile(const string& filename = "") = 0;
     // Getters & Setters
     void setFilename(const string& filename);
     const string& getFilename() const;

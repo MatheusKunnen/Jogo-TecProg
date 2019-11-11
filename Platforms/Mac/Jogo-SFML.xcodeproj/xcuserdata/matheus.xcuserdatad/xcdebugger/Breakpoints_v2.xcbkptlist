@@ -7,384 +7,144 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "67ECB491-48B7-4DF8-9E1D-0ACA59A51381"
+            uuid = "6FC54A77-E9F3-4764-8EE8-7ACDC29F1016"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/level.cpp"
+            filePath = "../../src/Jogo/States/FaseFlorestaState.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "Level::LoadFromFile(filename)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "FaseFlorestaState::updateKeyInput(dt)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "093F1B81-C837-40E4-9922-687B2F47DF72"
+            uuid = "FD27326F-C190-4B73-AECD-18574702029A"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/level.cpp"
+            filePath = "../../src/Jogo/States/FaseFlorestaState.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "Level::LoadFromFile(filename)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "FaseFlorestaState::updateKeyInput(dt)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C5455637-8890-4A46-9685-0A4AC7C6459F"
+            uuid = "B4384B8C-7A1F-4D22-81E7-1A9120467078"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/TADs/StateStack.cpp"
+            filePath = "../../src/Jogo/States/FaseFlorestaState.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "StateStack::StateStack()"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "FaseFlorestaState::updateKeyInput(dt)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "97918441-0F25-4996-B691-6C58626DF5C5"
+            uuid = "68A215AC-2CC7-4B70-B708-B37F14462436"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/TADs/Lista.hpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "clearAll()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "32A5064D-DB47-4ABC-B493-6F797A081EE1"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/States/MainMenuState.cpp"
+            filePath = "../../src/Jogo/Fases/FaseFloresta.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8AC56C70-1DE5-4F25-972E-C9E6971666E4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Jogo.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "Jogo::endGame()"
+            landmarkName = "FaseFloresta::initMapa()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FDE3BA96-1E82-4DBD-82B9-FAA24FAB4138"
+            uuid = "72041723-2040-4E36-B6B3-E7AB7FBFCA23"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Jogo.cpp"
+            filePath = "../../src/Jogo/Fases/FaseFloresta.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "Jogo::run()"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "FaseFloresta::update(dt)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "39D9626B-6DAA-450B-A67D-C5382987EDA8"
+            uuid = "148C492D-329D-4C6C-991D-B46229468777"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/TADs/Lista.hpp"
+            filePath = "../../src/Jogo/Fases/FaseFloresta.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "remove(elemento)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "39D9626B-6DAA-450B-A67D-C5382987EDA8 - 7e177d195d7afb9b"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Game::TADs::Lista&lt;Game::States::State&gt;::remove(Game::States::State*)"
-                  moduleName = "Jogo-SFML"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/TADs/Lista.hpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  uuid = "39D9626B-6DAA-450B-A67D-C5382987EDA8 - f3ae5679d964f95b"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Game::TADs::Lista&lt;Game::Entidades::Entidade&gt;::remove(Game::Entidades::Entidade*)"
-                  moduleName = "Jogo-SFML"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/TADs/Lista.hpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E4D3737D-0454-4DB7-9EA3-80EFBB58405E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/TADs/Lista.hpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "add(elemento, liberar, front)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E4D3737D-0454-4DB7-9EA3-80EFBB58405E - ee0cb36ee40a367"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Game::TADs::Lista&lt;Game::States::State&gt;::add(Game::States::State*, bool, bool)"
-                  moduleName = "Jogo-SFML"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/TADs/Lista.hpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "38">
-               </Location>
-               <Location
-                  uuid = "E4D3737D-0454-4DB7-9EA3-80EFBB58405E - d4b51bdafaa675e7"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Game::TADs::Lista&lt;Game::Entidades::Entidade&gt;::add(Game::Entidades::Entidade*, bool, bool)"
-                  moduleName = "Jogo-SFML"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/matheus/Projects/Unv/Jogo-TecProg/src/Jogo/TADs/Lista.hpp"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "38">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1005B882-4870-4EED-BC2E-F427445F22E9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Entidades/level.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "Level::LoadFromFile(filename)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "FaseFloresta::update(dt)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C62AFBC8-A8D3-4C03-ACD4-13F0D8E23467"
+            uuid = "086F353F-0246-4968-B5E7-45F6EBE3B733"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Entidades/level.cpp"
+            filePath = "../../src/Jogo/Fases/FaseFloresta.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "Level::LoadFromFile(filename)"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "FaseFloresta::render(target)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "514A4414-8798-4EF9-8518-C1BF46E6D9E7"
+            uuid = "1C512C17-5418-478D-8FF8-F38A0B80D1F3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Entidades/level.cpp"
+            filePath = "../../src/Jogo/Fases/FaseFloresta.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
-            landmarkName = "Level::LoadFromFile(filename)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "FaseFloresta::updateMapa(dt)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "040FF2F0-84EB-4BF1-9EF0-17FF7B37C904"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Entidades/level.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "Level::Draw(window)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EE9BFA67-4F16-42C1-8C1A-19CC9EBEF8D4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/MediaEngineParameters.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "MediaEngineParameters::loadFromFile(file)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "05CCBD27-79A8-45CA-A019-A901561A91F8"
+            uuid = "C7CC9954-5AF6-4765-B554-E4EB14ACF4CC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/GUI/Context.cpp"
+            filePath = "../../src/Jogo/Entidades/level.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "Context::getMousePosView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8B83F23A-7E6B-430D-A4E8-5F41D5E8C316"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Menus/MainMenu.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "77045206-B263-48B5-8A4E-EA5B481D5D82"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Menus/MainMenu.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D0D3805A-27C9-4244-A6F6-1B5C4ECE8EDB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Menus/MainMenu.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "MainMenu::initTextures()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0929DA4E-50C8-4B9C-BAC6-59ACAF8C61C2"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Menus/MainMenu.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "MainMenu::initFonts()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CD0511D2-13E6-4FE0-B1A3-DF0EEF4C08A6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../src/Jogo/Menus/MainMenu.cpp"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "MainMenu::initBackground()"
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+            landmarkName = "Level::GetObject(name)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

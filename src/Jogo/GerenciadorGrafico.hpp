@@ -12,15 +12,8 @@
 // Generic Includes
 #include "base_includes.hpp"
 #include "MediaEngineParameters.hpp"
-// SFML includes
-#include <SFML/Graphics.hpp>
 
-using sf::RenderWindow;
-using sf::RenderTarget;
-using sf::Event;
-using sf::Clock;
-
-using Game::Parameters::MediaEngineParameters;
+using Game::Parametros::MediaEngineParameters;
 
 namespace Game {
 
@@ -47,6 +40,7 @@ public:
     void deleteInstance();
     // Setters & Getters
     RenderWindow* getRenderWindow();
+    const View* getView();
 };
 
 }

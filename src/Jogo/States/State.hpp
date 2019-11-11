@@ -16,7 +16,7 @@
 
 namespace Game { namespace States {
 // Const
-enum states_id{main_menu, game, config, ranking, phase_a, phase_b};
+enum states_id{main_menu, game_menu, config, ranking, pause_menu, fase_floresta, phase_b};
 
 using Resources::TextureHolder;
 
@@ -25,7 +25,7 @@ class StateManager;
 class State {
 protected:
     // Attributes
-    TextureHolder       textures;
+    TextureHolder               textures;
     
     map<string, int>*           supported_keys;
     map<string, int>            used_keys;

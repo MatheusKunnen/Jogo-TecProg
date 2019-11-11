@@ -9,11 +9,11 @@
 #ifndef MediaEngineParameters_hpp
 #define MediaEngineParameters_hpp
 
-#include "Parameters.hpp"
+#include "Parametros.hpp"
 
-namespace Game {  namespace Parameters {
+namespace Game {  namespace Parametros {
 
-class MediaEngineParameters : public Parameters{
+class MediaEngineParameters : public Parametro{
 private:
     // Attributes
     int             window_width;
@@ -31,7 +31,7 @@ public:
     ~MediaEngineParameters();
     // Methods
     bool loadFromFile(const string& file);
-    bool saveToFile(const string& file) const;
+    bool saveToFile(const string& file);
     //Getters & Setters
     void setWindowWidth(int window_width);
     int getWindowWidth() const;

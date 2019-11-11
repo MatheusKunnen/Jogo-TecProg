@@ -51,4 +51,7 @@ RenderWindow* GerenciadorGrafico::getRenderWindow(){
     return this->main_window;
 }
 
+const View* GerenciadorGrafico::getView(){
+    return &this->main_window->getView();
+}
 }

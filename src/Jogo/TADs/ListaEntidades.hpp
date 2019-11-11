@@ -16,7 +16,7 @@ namespace Game { namespace TADs{
 using Entidades::Entidade;
 
 class ListaEntidades {
-private:
+private:                    
     // Attributes
     Lista<Entidade>                      lista_entidades;
     Lista<Entidade>::Elemento<Entidade>* itr;

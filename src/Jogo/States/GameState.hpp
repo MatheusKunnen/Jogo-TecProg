@@ -34,7 +34,7 @@ public:
     ~GameState();
     
     // Methods
-    void updateInput(const float& dt);
+    void updateKeyInput(const float& dt);
     void update(const float& dt);
     void render(RenderTarget* target);
 };

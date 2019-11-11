@@ -16,7 +16,9 @@ const string TextureHolder::DEFAULT_NOT_FILE("Resources/img/texttures/no_texture
 map<Textures::ID, string> TextureHolder::default_filenames = {
                                                 {Textures::background_01,"Resources/img/textures/backgrounds/bg-main_menu.jpeg"},
                                                 {Textures::background_02,"Resources/img/textures/sprites/player/male_player.png"},
-                                                {Textures::male_player,"Resources/img/textures/sprites/player/male_player.png"} };
+                                                {Textures::player_a,"Resources/img/textures/sprites/player/male_player.png"},
+                                                {Textures::player_b,"Resources/img/textures/sprites/player/male_player.png"}
+};
 // Constructor & Destructor
 TextureHolder::TextureHolder():
 ResourceHolder<sf::Texture, Textures::ID>()

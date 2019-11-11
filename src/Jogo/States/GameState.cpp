@@ -10,7 +10,7 @@
 namespace Game { namespace States {
 // Constructor & Destructor
 GameState::GameState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
-State(handler, g_grafico, supported_keys, states_id::game),
+State(handler, g_grafico, supported_keys, states_id::game_menu),
 textures_used(),
 jogador(nullptr)
 {
@@ -26,7 +26,7 @@ GameState::~GameState(){
 
 // Init Methods
 void GameState::initTextures(){
-    textures_used.load(Resources::Textures::male_player, TextureHolder::getFilename(Resources::Textures::male_player)/*"Resources/img/sprites/player/male_player.png"*/);
+    textures_used.load(Resources::Textures::player_a, TextureHolder::getFilename(Resources::Textures::player_a)/*"Resources/img/sprites/player/male_player.png"*/);
 }
 
 void GameState::initValidKeys(){
@@ -42,11 +42,11 @@ void GameState::initValidKeys(){
 }
 
 void GameState::initEntities(){
-    this->jogador = new Jogador(Vector2f(100.f, 100.f), &textures_used.get(Resources::Textures::male_player));
+    this->jogador = new Jogador(Vector2f(100.f, 100.f), &textures_used.get(Resources::Textures::player_a));
 }
 
 // Methods
-void GameState::updateInput(const float& dt){
+void GameState::updateKeyInput(const float& dt){
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_LEFT"])))
         this->jogador->move(sf::Vector2f(-1.f,0.f), dt);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_RIGHT"])))
@@ -60,10 +60,10 @@ void GameState::updateInput(const float& dt){
 }
 
 void GameState::update(const float& dt){
-    this->updateInput(dt);
+    this->updateKeyInput(dt);
     this->jogador->update(dt);
 }
-
+ 
 void GameState::render(RenderTarget* target){
     if (target == nullptr)
         target = this->g_grafico->getRenderWindow();

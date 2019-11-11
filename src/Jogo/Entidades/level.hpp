@@ -31,7 +31,7 @@ it freely, subject to the following restrictions:
 #ifndef LEVEL_H
 #define LEVEL_H
 
-#include "../tinyxml/tinyxml.h"
+#include "../libs/tinyxml/tinyxml.h"
 #include "../base_includes.hpp"
 
 //Object class. Everything is kept public in case you want to get a different type to the supported ones.
@@ -72,7 +72,7 @@ class Level
         void SetDrawingBounds(sf::Rect<float> bounds);
         //Draws the map to the provided window.
         void Draw(sf::RenderWindow *window);
-
+        void Draw(sf::RenderTarget *target);
     private:
         //Width(tiles), height(tiles), tile width(pixels), tile height(pixels) of the map.
         int width, height, tileWidth, tileHeight, spacing, margin;

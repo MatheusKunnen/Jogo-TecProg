@@ -12,7 +12,7 @@ namespace Game { namespace States {
 
 // Constructor & Destructor
 MainMenuState::MainMenuState(StateManager* handler,GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
-State(handler, g_grafico, supported_keys, states_id::game),
+State(handler, g_grafico, supported_keys, states_id::game_menu),
 MainMenu(*g_grafico->getRenderWindow())
 {
     initValidKeys();
@@ -46,7 +46,7 @@ void MainMenuState::render(RenderTarget* target){
 
 // Menu Methods
 void MainMenuState::onOpenNewGame(){
-    this->manager->pushState(states_id::game);
+    this->manager->pushState(states_id::game_menu);
 }
 
 void MainMenuState::onOpenRanking(){

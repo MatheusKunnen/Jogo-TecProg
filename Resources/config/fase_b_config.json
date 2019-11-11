@@ -1,0 +1,5 @@
+{
+    "arquivo_mapa":"Resources/maps/fase_b.tmx",
+    "arquivo_tileset":"Resources/maps/tileset64.png",
+    "arquivo_bg":"Resources/img/textures/backgrounds/bg_fase_b.jpeg"
+}

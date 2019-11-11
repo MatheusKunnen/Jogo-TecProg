@@ -1,5 +1,8 @@
 #include "Jogo.hpp"
+#include "FaseMontanhaState.hpp"
+#include "FaseFlorestaState.hpp"
 namespace Game {
+
 // Sigleton holder
 Jogo* Jogo::main_instance = nullptr;
 
@@ -12,23 +15,18 @@ Jogo* Jogo::getInstance() {
 
 // Constructor && Destructor
 Jogo::Jogo():
+jogador_a(nullptr),
+jogador_b(nullptr),
 event_pool(),
 main_clock(),
-main_mEngine(nullptr),
+g_grafico(nullptr),
 states(),
 dt(0),
 status_code(0)
 {
-    this->main_mEngine = GerenciadorGrafico::getInstance();
+    this->g_grafico = GerenciadorGrafico::getInstance(); // Instacia o gerenciador gradico
     this->initKeys();
     this->initStates();
-
-    
-        sf::VideoMode mode = sf::VideoMode::getDesktopMode();
-        std::cout << "Mode #"  << ": "
-                  << mode.width << "x" << mode.height << " - "
-                  << mode.bitsPerPixel << " bpp" << std::endl;
-    
 }
 
 Jogo::~Jogo(){
@@ -37,23 +35,42 @@ Jogo::~Jogo(){
 
 // Init methods
 void Jogo::initStates(){
+    // Realiza o push do state base (Menu Principal)
     this->states.push(new MainMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys));
 }
 
+void Jogo::initTextures(){
+    // Carrega texturas de jogadores
+    this->textures.load(Resources::Textures::player_a, textures.getFilename(    Resources::Textures::player_a));
+        this->textures.load(Resources::Textures::player_b, textures.getFilename(    Resources::Textures::player_b));
+}
+
+void Jogo::initJogadores(){
+    // Aloca jogadores
+    this->jogador_a = new Jogador(Vector2f(0.f,0.f), &this->textures.get(Resources::Textures::player_a));
+    this->jogador_b = new Jogador(Vector2f(0.f,0.f), &this->textures.get(Resources::Textures::player_b));
+}
+
 void Jogo::initKeys(){
+    // Inicializa keys habilidas
     this->valid_keys["Escape"] = sf::Keyboard::Escape;
-    // Move Keys
     this->valid_keys["A"] = sf::Keyboard::A;
     this->valid_keys["D"] = sf::Keyboard::D;
     this->valid_keys["W"] = sf::Keyboard::W;
     this->valid_keys["S"] = sf::Keyboard::S;
+    this->valid_keys["UP"] = sf::Keyboard::Up;
+    this->valid_keys["LEFT"] = sf::Keyboard::Left;
+    this->valid_keys["RIGHT"] = sf::Keyboard::Right;
     this->valid_keys["Space"] = sf::Keyboard::Space;
 }
 // Methods
 void Jogo::run() {
-    this->mRunning = true;
-    this->main_mEngine->getRenderWindow()->display();
-    while(this->mRunning){
+    View view = this->g_grafico->getRenderWindow()->getView();
+    view.move(1,0);
+    this->g_grafico->getRenderWindow()->setView(view);
+    this->is_running = true;
+    this->g_grafico->getRenderWindow()->display();
+    while(this->is_running){
         updateDt();
         update();
         render();
@@ -63,10 +80,15 @@ void Jogo::run() {
 }
 
 void Jogo::endGame(){
-    delete this->main_mEngine;
-    while(!this->states.empty()){
-        this->states.pop(); // Lista desaloca a memoria
-    }
+    delete this->g_grafico;
+    while(!this->states.empty())
+        this->states.pop(); // Lista desaloca a memoria ao fazer o pop
+    
+    // Desaloca jogadores
+    delete this->jogador_a;
+    delete this->jogador_b;
+    this->jogador_a = nullptr;
+    this->jogador_b = nullptr;
 }
 
 void Jogo::updateDt(){
@@ -74,31 +96,36 @@ void Jogo::updateDt(){
 }
 
 void Jogo::handleEvents(){
-    while(this->main_mEngine->getRenderWindow()->pollEvent(event_pool)){
+    while(this->g_grafico->getRenderWindow()->pollEvent(event_pool)){
         // Close window : exit
-        if (event_pool.type == sf::Event::Closed){
-            this->mRunning = false;
-        }
+        if (event_pool.type == sf::Event::Closed)
+            this->is_running = false;
     }
 }
 
 void Jogo::update(){
+    // Verifica Eventos
     this->handleEvents();
+    // Atualiza estado se existir algum
     if (!this->states.empty()){
         this->states.top()->update(this->dt);
         if (this->states.top()->isQuitting()){
             this->states.top()->endState();
             this->states.pop();
         }
-    } else 
-        this->mRunning = false;
+    } else
+        // Para execucao se a pilha se estados encontra-se vazia
+        this->is_running = false;
 }
 
 void Jogo::render(){
-    this->main_mEngine->getRenderWindow()->clear();
+    // Limpa tela
+    this->g_grafico->getRenderWindow()->clear();
+    // Renderiza estado superior se existir
     if (!this->states.empty())
         this->states.top()->render();
-    this->main_mEngine->getRenderWindow()->display();
+    // Mostra a tela
+    this->g_grafico->getRenderWindow()->display();
 }
 
 void Jogo::pushState(States::states_id id){
@@ -107,18 +134,39 @@ void Jogo::pushState(States::states_id id){
         case States::states_id::main_menu:
             state = new MainMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
-        case States::states_id::game:
+        case States::states_id::game_menu:
             state = new GameState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
+        case States::states_id::ranking:
+            state = new FaseFlorestaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            break;
+        case States::states_id::config:
+            state = new FaseMontanhaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            break;
+        case States::states_id::fase_floresta:
+            state = new FaseFlorestaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            break;
+        case States::states_id::phase_b:
+            state = new FaseMontanhaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
         default:
+            cerr << "ERROR: Jogo::pushState(): Trying to push unidentified state." << endl;
             break;
     }
     if (state != nullptr)
         this->states.push(state);
 }
 
+
+// Getters & Setters
 int Jogo::getStatusCode() const {
     return this->status_code;
 }
 
+Jogador* Jogo::getJogadorA() const {
+    return this->jogador_a;
+}
+
+Jogador* Jogo::getJogadorB() const {
+    return this->jogador_b;
+}
 }

@@ -90,6 +90,9 @@ void MainMenu::onGuiEvent(int id, GUI::Events::Type event_id){
         case btn_new_game:
             onOpenNewGame();
             break;
+        case btn_ranking:
+            onOpenRanking();
+            break;
         case btn_config:
             onOpenConfig();
             break;

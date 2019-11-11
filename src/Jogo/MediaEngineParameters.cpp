@@ -8,7 +8,7 @@
 
 #include "MediaEngineParameters.hpp"
 
-namespace Game {  namespace Parameters {
+namespace Game {  namespace Parametros {
 
 // Const init
 const int MediaEngineParameters::DEFAULT_FRAMERATE(60);
@@ -20,14 +20,14 @@ const string MediaEngineParameters::DEFAULT_WINDOW_TITLE("GAME SFML | Matheus Ku
 
 // Constructor & Destructor
 MediaEngineParameters::MediaEngineParameters(const string& file):
-Parameters(file),
-window_width(MediaEngineParameters::DEFAULT_WINDOW_WIDTH),
-window_height(MediaEngineParameters::DEFAULT_WINDOW_HEIGHT),
-frame_rate_limit(MediaEngineParameters::DEFAULT_FRAMERATE),
-fullscreen(false),
-style(MediaEngineParameters::DEFAULT_STYLE_NORMAL),
-window_title(MediaEngineParameters::DEFAULT_WINDOW_TITLE),
-antialias_level(0)
+        Parametro(file),
+        window_width(MediaEngineParameters::DEFAULT_WINDOW_WIDTH),
+        window_height(MediaEngineParameters::DEFAULT_WINDOW_HEIGHT),
+        frame_rate_limit(MediaEngineParameters::DEFAULT_FRAMERATE),
+        fullscreen(false),
+        style(MediaEngineParameters::DEFAULT_STYLE_NORMAL),
+        window_title(MediaEngineParameters::DEFAULT_WINDOW_TITLE),
+        antialias_level(0)
 {
     this->setStyle((fullscreen) ? MediaEngineParameters::DEFAULT_STYLE_FULLSCREEN : MediaEngineParameters::DEFAULT_STYLE_NORMAL);
     if(file != "")
@@ -59,7 +59,7 @@ bool MediaEngineParameters::loadFromFile(const string& file){
     return status;
 }
 
-bool MediaEngineParameters::saveToFile(const string& file) const{
+bool MediaEngineParameters::saveToFile(const string& file){
     bool status = true;
     try{
         std::ofstream out(file);
