@@ -9,7 +9,7 @@
 #ifndef MediaEngineParameters_hpp
 #define MediaEngineParameters_hpp
 
-#include "Parametros.hpp"
+#include "Parametros/Parametros.hpp"
 
 namespace Game {  namespace Parametros {
 

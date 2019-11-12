@@ -1,6 +1,6 @@
 #include "Jogo.hpp"
-#include "FaseMontanhaState.hpp"
-#include "FaseFlorestaState.hpp"
+#include "States/FaseMontanhaState.hpp"
+#include "States/FaseFlorestaState.hpp"
 namespace Game {
 
 // Sigleton holder
