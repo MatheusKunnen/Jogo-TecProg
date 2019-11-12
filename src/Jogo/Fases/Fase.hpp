@@ -17,10 +17,17 @@
 #include "../Resources/TexturesHolder.hpp"
 
 namespace Game { namespace Fases{
+
+namespace Eventos {
+    enum Tipo {M_LEFT_A, M_RIGHT_A, JUMP_A, M_LEFT_B, M_RIGHT_B, JUMP_B};
+}
+
+using Entidades::Personagens::Jogador;
+
 using TADs::ListaEntidades;
 using Resources::TextureHolder;
-using Entidades::Personagens::Jogador;
 using Parametros::ParametrosFase;
+using Entidades::Mapas::Mapa;
 class Fase {
 protected:
     // Consts
@@ -31,7 +38,7 @@ protected:
     Jogador*            jogador_a;
     Jogador*            jogador_b;
     
-    Level               mapa;
+    Mapa               mapa;
     RectangleShape      background;
     
     TextureHolder       textures;
@@ -55,6 +62,7 @@ public:
     virtual void updateJogadores(const float& dt) = 0;
     virtual void updateMapa(const float& dt) = 0;
     virtual void render(RenderTarget* target) = 0;
+    virtual void onKeyInput(Eventos::Tipo tipo) = 0;
 };
 }};
 #endif /* Fase_hpp */

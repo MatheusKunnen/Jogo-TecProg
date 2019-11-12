@@ -18,12 +18,13 @@ namespace Game { namespace States {
 
 using Resources::TextureHolder;
 using Entidades::Personagens::Jogador;
+using Entidades::Mapas::Mapa;
 class GameState : public State {
 private:
     // Attributes
     TextureHolder       textures_used;
     Jogador*            jogador; // DEBUG
-    Level               lvl;
+    Mapa               lvl;
     // Init methods
     void initTextures();
     void initValidKeys();

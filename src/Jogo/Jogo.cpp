@@ -47,8 +47,8 @@ void Jogo::initTextures(){
 
 void Jogo::initJogadores(){
     // Aloca jogadores
-    this->jogador_a = new Jogador(Vector2f(0.f,0.f), &this->textures.get(Resources::Textures::player_a));
-    this->jogador_b = new Jogador(Vector2f(0.f,0.f), &this->textures.get(Resources::Textures::player_b));
+    this->jogador_a = new Jogador(Vector2f(100.f,100.f), &this->textures.get(Resources::Textures::player_a));
+    this->jogador_b = new Jogador(Vector2f(100.f,100.f), &this->textures.get(Resources::Textures::player_b));
 }
 
 void Jogo::initKeys(){
@@ -65,6 +65,7 @@ void Jogo::initKeys(){
 }
 // Methods
 void Jogo::run() {
+    //int count = 0;
     View view = this->g_grafico->getRenderWindow()->getView();
     view.move(1,0);
     this->g_grafico->getRenderWindow()->setView(view);
@@ -74,6 +75,9 @@ void Jogo::run() {
         updateDt();
         update();
         render();
+        //g_grafico->moveView(1, 0);
+        //if (++count % 100 == 0)
+        //    g_grafico->resetDefaultView();
         if (30 - this->dt < 0)
             cout << this->dt << endl;
     }

@@ -11,13 +11,14 @@ namespace Game { namespace States {
 // Constructor & Destructor
 GameState::GameState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
 State(handler, g_grafico, supported_keys, states_id::game_menu),
+lvl(g_grafico),
 textures_used(),
 jogador(nullptr)
 {
     initTextures();
     initValidKeys();
     initEntities();
-    lvl.LoadFromFile("Resources/maps/phase-X.tmx");
+    lvl.load("Resources/maps/phase-X.tmx", "Resources/maps/tileset64.png");
 }
 
 GameState::~GameState(){
@@ -69,7 +70,7 @@ void GameState::render(RenderTarget* target){
         target = this->g_grafico->getRenderWindow();
     lvl.SetDrawingBounds(sf::Rect<float>(0.f, 0.f, 1920, 1024));
     //lvl.Move(2, 2);
-    lvl.Draw((RenderWindow*)(target));
+    lvl.render((RenderWindow*)(target));
     this->jogador->render(target);
     
 }

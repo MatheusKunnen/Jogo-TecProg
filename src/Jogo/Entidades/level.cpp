@@ -30,7 +30,7 @@ it freely, subject to the following restrictions:
 
 #include "level.hpp"
 
-
+namespace Game { namespace Entidades { namespace Mapas {
 
 int Object::GetPropertyInt(std::string name)
 {
@@ -53,21 +53,95 @@ std::string Object::GetPropertyString(std::string name)
     return properties[name];
 }
 
-Level::Level()
+// Constructor & Destructor
+Mapa::Mapa( GerenciadorGrafico* g_grafico, const string& a_tilemap, const string& a_tileset, Texture* texture):
+Entidade(texture, g_grafico),
+width(0),
+height(0),
+tileWidth(0),
+tileHeight(0),
+spacing(0),
+margin(0),
+firstTileID(-1),
+background(),
+drawingBounds(),
+tilesetImage(),
+tilesetTexture(),
+solidObjects(),
+objects(),
+layers(),
+a_tilemap(a_tilemap),
+a_tileset(a_tileset)
 {
-    //ctor
+    this->initBackground();
 }
 
-Level::~Level()
+Mapa::~Mapa()
 {
-    //dtor
+    this->g_grafico->resetDefaultView();
 }
+
+// Init Methods
+void Mapa::initBackground(){
+    this->background.setSize(Vector2f(this->g_grafico->getRenderWindow()->getSize()));
+    if (this->texture != nullptr)
+        this->background.setTexture(this->texture);
+}
+
+// Methods
+void Mapa::move(const sf::Vector2f &direction, const float &dt){
+    if (this->g_grafico->moveView(direction.x, direction.y))
+        this->background.move(direction.x, direction.y);
+}
+
+void Mapa::update(const float &dt){
+    //View view = *this->g_grafico->getView();
+    //view.move(1, 0);
+    //this->g_grafico->getRenderWindow()->setView(view);
+    sf::FloatRect rect = this->g_grafico->getRenderWindow()->getView().getViewport();
+    auto size = this->g_grafico->getRenderWindow()->getSize();
+    rect.left = this->g_grafico->getView()->getCenter().x - size.x/2;
+    rect.top = this->g_grafico->getView()->getCenter().y - size.y/2;
+    rect.width = size.x;
+    rect.height = size.y;
+    this->SetDrawingBounds(rect);
+}
+
+void Mapa::render(RenderTarget *target){
+    if (target == nullptr) // Verifica target
+        target = this->g_grafico->getRenderWindow();
+    target->draw(this->background);
+    // Desenha tiles que se encontram nos limites
+    for (int layer = 0; layer < layers.size(); layer++)
+        for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
+            if (drawingBounds.contains(layers[layer].tiles[tile].getPosition().x, layers[layer].tiles[tile].getPosition().y))
+                target->draw(layers[layer].tiles[tile]);
+        
+}
+
+// Getters & Setters
+void Mapa::setTexture(Texture *texture){
+    
+    this->background.setTexture(texture);
+}
+
+
+// TileMap Methods
+bool Mapa::load(){
+    return this->load(this->a_tilemap, this->a_tileset);
+}
+
 using namespace std;
-bool Level::LoadFromFile(std::string filename) {
-    TiXmlDocument levelFile(filename.c_str());
-
+bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
+    // Update attributes
+    this->a_tilemap = a_tilemap;
+    this->a_tileset = a_tileset;
+    
+    
+    TiXmlDocument levelFile(a_tilemap.c_str());
+    
     if (!levelFile.LoadFile()) {
-        std::cerr << "Loading level \"" << filename << "\" failed." << std::endl;
+        std::cerr << "Loading level \"" << a_tilemap << "\" failed." << std::endl;
         return false;
     }
 
@@ -84,30 +158,30 @@ bool Level::LoadFromFile(std::string filename) {
     //Tileset stuff
     TiXmlElement *tilesetElement;
     tilesetElement = map->FirstChildElement("tileset");
-    firstTileID = atoi(tilesetElement->Attribute("firstgid"));
+    this->firstTileID = atoi(tilesetElement->Attribute("firstgid"));
     spacing = 0;//atoi(tilesetElement->Attribute("spacing"));
     margin = 0;//atoi(tilesetElement->Attribute("margin"));
     
     //Tileset image
     TiXmlElement *image;
     image = tilesetElement->FirstChildElement("image");
-    std::string imagepath = "Resources/maps/tileset64.png";//tilesetElement->Attribute("source");
+    std::string imagepath = this->a_tileset;//"Resources/maps/tileset64.png";//tilesetElement->Attribute("source");
     
     //delete tilesetElement;
     
-    if (!tilesetImage.loadFromFile(imagepath)){//Load the tileset image
+    if (!this->tilesetImage.loadFromFile(imagepath)){//Load the tileset image
         std::cout << "Failed to load tile sheet." << std::endl;
         return false;
     }
 
-    tilesetImage.createMaskFromColor(sf::Color(255, 0, 255));
+    this->tilesetImage.createMaskFromColor(sf::Color(255, 0, 255));
 
-    tilesetTexture.loadFromImage(tilesetImage);
-    tilesetTexture.setSmooth(false);
+    this->tilesetTexture.loadFromImage(this->tilesetImage);
+    this->tilesetTexture.setSmooth(false);
 
     //Columns and rows (of tileset image)
-    int columns = tilesetTexture.getSize().x / tileWidth;
-    int rows = tilesetTexture.getSize().y / tileHeight;
+    int columns = this->tilesetTexture.getSize().x / tileWidth;
+    int rows = this->tilesetTexture.getSize().y / tileHeight;
 
     std::vector <sf::Rect<int> > subRects;//container of subrects (to divide the tilesheet image up)
 
@@ -161,11 +235,11 @@ bool Level::LoadFromFile(std::string filename) {
             } catch (std::exception e){
                 cerr << e.what() << endl;
             }
-                int subRectToUse = tileGID - firstTileID;//Work out the subrect ID to 'chop up' the tilesheet image.
+                int subRectToUse = tileGID - this->firstTileID;//Work out the subrect ID to 'chop up' the tilesheet image.
             if (subRectToUse >= 0){//we only need to (and only can) create a sprite/tile if there is one to display
             
                 sf::Sprite sprite;//sprite for the tile
-                sprite.setTexture(tilesetTexture);
+                sprite.setTexture(this->tilesetTexture);
                 sprite.setTextureRect(subRects[subRectToUse]);
                 sprite.setPosition(x * tileWidth, y * tileHeight);
 
@@ -265,7 +339,7 @@ bool Level::LoadFromFile(std::string filename) {
     return true;
 }
 
-Object Level::GetObject(std::string name)
+Object Mapa::GetObject(std::string name)
 {
     for (int i = 0; i < objects.size(); i++)
     {
@@ -277,10 +351,9 @@ Object Level::GetObject(std::string name)
     return objects[0];
 }
 
-void Level::SetDrawingBounds(sf::Rect<float> bounds)
+void Mapa::SetDrawingBounds(sf::Rect<float> bounds)
 {
     drawingBounds = bounds;
-
     //Adjust the rect so that tiles are drawn just off screen, so you don't see them disappearing.
     drawingBounds.top -= tileHeight;
     drawingBounds.left -= tileWidth;
@@ -288,30 +361,7 @@ void Level::SetDrawingBounds(sf::Rect<float> bounds)
     drawingBounds.height += tileHeight;
 }
 
-void Level::Draw(sf::RenderWindow *window)
-{
-    for (int layer = 0; layer < layers.size(); layer++)
-    {
-        for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
-        {
-            if (drawingBounds.contains(layers[layer].tiles[tile].getPosition().x, layers[layer].tiles[tile].getPosition().y))
-            
-                window->draw(layers[layer].tiles[tile]);
-            
-        }
-    }
-}
 
-void Level::Draw(sf::RenderTarget *window)
-{
-    for (int layer = 0; layer < layers.size(); layer++)
-    {
-        for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
-        {
-            if (drawingBounds.contains(layers[layer].tiles[tile].getPosition().x, layers[layer].tiles[tile].getPosition().y))
-            
-                window->draw(layers[layer].tiles[tile]);
-            
-        }
-    }
-}
+
+
+}}}

@@ -46,17 +46,17 @@ void FaseFlorestaState::update(const float &dt) {
 void FaseFlorestaState::updateKeyInput(const float &dt){
     // Verifica estado das keys utilizadas
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_LEFT_A"])))
-    {}
+        this->fase.onKeyInput(Fases::Eventos::Tipo::M_LEFT_A);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_RIGHT_A"])))
-    {}
+        this->fase.onKeyInput(Fases::Eventos::Tipo::M_RIGHT_A);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["JUMP_A"])))
-    {}
+        this->fase.onKeyInput(Fases::Eventos::Tipo::JUMP_A);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_LEFT_B"])))
-    {}
+        this->fase.onKeyInput(Fases::Eventos::Tipo::M_LEFT_B);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_RIGHT_B"])))
-    {}
+        this->fase.onKeyInput(Fases::Eventos::Tipo::M_RIGHT_B);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["JUMP_B"])))
-        this->manager->pushState(States::pause_menu);
+        this->fase.onKeyInput(Fases::Eventos::Tipo::JUMP_B);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["CLOSE"])))
         this->endState();
 }

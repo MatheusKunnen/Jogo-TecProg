@@ -9,7 +9,7 @@
 #ifndef Entidade_hpp
 #define Entidade_hpp
 
-#include "../base_includes.hpp"
+#include "../GerenciadorGrafico.hpp"
 #include "Componentes/MoveComponent.hpp"
 
 namespace Game{ namespace Entidades {
@@ -19,17 +19,18 @@ protected:
     // Attributes
     Texture*            texture;
     Sprite*             sprite;
-    float gravity ; //DEBUG
+    float               gravity;
+    GerenciadorGrafico* g_grafico;
     // Components
     unique_ptr<MoveComponent>       move_comp;
 public:
     // Constructor & Destructor
-    explicit Entidade(Texture* texture = nullptr);
+    explicit Entidade(Texture* texture = nullptr, GerenciadorGrafico* g_grafico = nullptr);
     virtual ~Entidade();
     // Getters & Setters
     virtual void setPosition(const Vector2f& position);
     // Component Methods
-    void setTexture(Texture* texture);
+    virtual void setTexture(Texture* texture);
     void createMoveComponent(const float& max_vel, const float& acceleration, const float& deceleration);
     
     // Methods

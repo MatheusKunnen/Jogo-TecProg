@@ -30,10 +30,10 @@ FaseFloresta::~FaseFloresta(){
 
 // Init Methods
 void FaseFloresta::initMapa(){
+    // Coloca textura de fundo
+    this->mapa.setTexture(&this->textures.get(Resources::Textures::background_01));
     // Carrega Mapa
-    this->mapa.LoadFromFile(this->parametros.getArquivoMapa());
-    // Determina parte a ser renderizada
-    this->mapa.SetDrawingBounds(sf::Rect<float>(0.f, 0.f, 9600, 1024));
+    this->mapa.load(this->parametros.getArquivoMapa(), this->parametros.getArquivoTileSet());
 }
 
 void FaseFloresta::initTextures(){
@@ -53,8 +53,35 @@ void FaseFloresta::initBackground(){
 }
 
 // Methods
+void FaseFloresta::onKeyInput(Eventos::Tipo tipo){
+    switch (tipo) {
+        case Eventos::Tipo::M_LEFT_A:
+            this->mapa.move(Vector2f(-2.f, 0.f),0);
+            break;
+        case Eventos::Tipo::M_RIGHT_A:
+            this->mapa.move(Vector2f(2.f, 0.f),0);
+            break;
+        case Eventos::Tipo::JUMP_A:
+                
+            break;
+        case Eventos::Tipo::M_LEFT_B:
+            this->mapa.move(Vector2f(-6.f, 0.f),0);
+            break;
+        case Eventos::Tipo::M_RIGHT_B:
+            this->mapa.move(Vector2f(6.f, 0.f),0);
+            break;
+        case Eventos::Tipo::JUMP_B:
+            
+            break;
+        default:
+            break;
+    }
+}
+
 void FaseFloresta::update(const float &dt){
     l_entidades.update(dt);
+    //this->mapa.move(Vector2f(2.f, 0.f),0);
+    this->mapa.update(dt);
     this->updateMapa(dt);
 }
 
@@ -63,22 +90,12 @@ void FaseFloresta::updateJogadores(const float &dt){
 }
 
 void FaseFloresta::updateMapa(const float &dt){
-    View vieww = *this->g_grafico->getView();
-    vieww.move(1, 0);
-    this->g_grafico->getRenderWindow()->setView(vieww);
-    sf::FloatRect rect = this->g_grafico->getRenderWindow()->getView().getViewport();
-    auto size = this->g_grafico->getRenderWindow()->getSize();
-    auto view = this->g_grafico->getView()->getCenter();
-    rect.left = view.x - size.x/2;
-    rect.top = view.y - size.y/2;
-    rect.width = 1920;
-    rect.height = 1024;
-    this->mapa.SetDrawingBounds(rect);
+    
 }
 
 void FaseFloresta::render(RenderTarget *target) {
-    target->draw(this->background);
-    this->mapa.Draw(target);
+    //target->draw(this->background);
+    this->mapa.render(target);
     this->l_entidades.render(target);
 
 }

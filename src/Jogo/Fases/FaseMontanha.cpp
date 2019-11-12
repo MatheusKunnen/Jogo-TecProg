@@ -45,12 +45,16 @@ void FaseMontanha::initBackground(){
 
 void FaseMontanha::initMapa() {
     // Carrega Mapa
-    this->mapa.LoadFromFile(this->parametros.getArquivoMapa());
+    this->mapa.load(this->parametros.getArquivoMapa(), this->parametros.getArquivoTileSet());
     // Determina parte a ser renderizada
     this->mapa.SetDrawingBounds(sf::Rect<float>(0.f, 0.f, 9600, 1024));
 }
 
 // Methods
+void FaseMontanha::onKeyInput(Eventos::Tipo tipo){
+    
+}
+
 void FaseMontanha::update(const float &dt){
     this->l_entidades.update(dt);
 }
@@ -65,7 +69,7 @@ void FaseMontanha::updateMapa(const float &dt){
 void FaseMontanha::render(RenderTarget *target) {
     target->draw(this->background);
     this->l_entidades.render(target);
-    this->mapa.Draw(target);
+    this->mapa.render(target);
 }
 
 }}

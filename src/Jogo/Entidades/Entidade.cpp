@@ -10,11 +10,11 @@
 namespace Game{ namespace Entidades {
 
 // Constructor & Destructor
-Entidade::Entidade(Texture* texture):
+Entidade::Entidade(Texture* texture, GerenciadorGrafico* g_grafico):
+g_grafico(g_grafico),
 texture(nullptr),
 sprite(nullptr),
-move_comp(nullptr),
-gravity(10.f)
+move_comp(nullptr)
 {
     this->sprite = new Sprite;
     this->setTexture(texture);
@@ -36,7 +36,7 @@ void Entidade::setPosition(const Vector2f& position){
 // Components Methos
 void Entidade::setTexture(Texture* texture){
     this->texture = texture;
-    if (this->sprite == nullptr)
+    if (this->texture == nullptr)
         return;
     
     this->sprite->setTexture(*this->texture);

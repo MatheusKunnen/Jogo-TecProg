@@ -26,6 +26,7 @@ public:
     FaseMontanha(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b = nullptr);
     ~FaseMontanha();
     // Methods
+    void onKeyInput(Eventos::Tipo tipo);
     void update(const float& dt);
     void updateJogadores(const float& dt);
     void updateMapa(const float& dt);

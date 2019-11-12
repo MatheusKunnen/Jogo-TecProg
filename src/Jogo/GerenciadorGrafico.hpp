@@ -20,24 +20,33 @@ namespace Game {
 class GerenciadorGrafico{
 private:
     // Singleton instance
-    static GerenciadorGrafico*         main_instance;
+    static GerenciadorGrafico*  main_instance;
     
     // SFML Attributes
     RenderWindow*               main_window;
+    View                        main_view;
     
     // Attributes
     MediaEngineParameters       parameters;
     
     // init Methods
-    void initWindow();
-    
+    void initWindow(); // Inicia RenderWindow com os parametros corretos
+    void initView(); // Obtem a View original do RenderWindow
 public:
     // Constructor & Destructor
     explicit GerenciadorGrafico(const string& parameters_file = "Resources/config/graphic_config.json");
     ~GerenciadorGrafico();
+    
     // Singleton methods
-    static GerenciadorGrafico* getInstance();
-    void deleteInstance();
+    static GerenciadorGrafico* getInstance(); // Instancia a classe
+    void deleteInstance(); // Elimina Instancia do singleton
+    
+    // Methods
+    bool moveView(const float& x, const float& y); // Desloca a View
+    void resetDefaultView(); // Restaura a View original
+    bool inView(const Vector2f& position); // Verifica se a posicao encontra-se dentro da view
+    bool inView(const float& x, const float& y);
+    
     // Setters & Getters
     RenderWindow* getRenderWindow();
     const View* getView();

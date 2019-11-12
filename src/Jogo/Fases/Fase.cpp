@@ -18,7 +18,7 @@ Fase::Fase(const string& f_parametros, GerenciadorGrafico* g_grafico, Jogador* j
 l_entidades(),
 jogador_a(jogador_a),
 jogador_b(jogador_b),
-mapa(),
+mapa(g_grafico),
 background(),
 textures(),
 g_grafico(g_grafico),
@@ -32,6 +32,7 @@ Fase::~Fase(){
 }
 
 void Fase::initParametros(){
+    // Carrega Parametros
     this->parametros.loadFromFile();
 }
 
