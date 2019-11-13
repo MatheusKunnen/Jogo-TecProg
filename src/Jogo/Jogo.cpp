@@ -1,6 +1,6 @@
 #include "Jogo.hpp"
 #include "FaseMontanhaState.hpp"
-#include "FaseFlorestaState.hpp"
+#include "FaseState.hpp"
 namespace Game {
 
 // Sigleton holder
@@ -17,6 +17,8 @@ Jogo* Jogo::getInstance() {
 Jogo::Jogo():
 jogador_a(nullptr),
 jogador_b(nullptr),
+fase_floresta(GerenciadorGrafico::getInstance(), this->jogador_a, this->jogador_b),
+fase_montanha(GerenciadorGrafico::getInstance(), this->jogador_a, this->jogador_b),
 event_pool(),
 main_clock(),
 g_grafico(nullptr),
@@ -25,12 +27,19 @@ dt(0),
 status_code(0)
 {
     this->g_grafico = GerenciadorGrafico::getInstance(); // Instacia o gerenciador gradico
+    this->initTextures();
+    this->initJogadores();
+    this->initFases();
     this->initKeys();
     this->initStates();
 }
 
 Jogo::~Jogo(){
     this->endGame();
+    
+    // Desaloca jogadores
+    delete this->jogador_a;
+    delete this->jogador_b;
 }
 
 // Init methods
@@ -47,8 +56,12 @@ void Jogo::initTextures(){
 
 void Jogo::initJogadores(){
     // Aloca jogadores
-    this->jogador_a = new Jogador(Vector2f(100.f,100.f), &this->textures.get(Resources::Textures::player_a));
-    this->jogador_b = new Jogador(Vector2f(100.f,100.f), &this->textures.get(Resources::Textures::player_b));
+    this->jogador_a = new Jogador(Vector2f(g_grafico->getRenderWindow()->getSize().x/2,512.f), &this->textures.get(Resources::Textures::player_a));
+    this->jogador_b = new Jogador(Vector2f(980.f,600.f), &this->textures.get(Resources::Textures::player_b));
+}
+
+void Jogo::initFases(){
+    //this->fase_floresta.set
 }
 
 void Jogo::initKeys(){
@@ -65,19 +78,12 @@ void Jogo::initKeys(){
 }
 // Methods
 void Jogo::run() {
-    //int count = 0;
-    View view = this->g_grafico->getRenderWindow()->getView();
-    view.move(1,0);
-    this->g_grafico->getRenderWindow()->setView(view);
     this->is_running = true;
     this->g_grafico->getRenderWindow()->display();
     while(this->is_running){
         updateDt();
         update();
         render();
-        //g_grafico->moveView(1, 0);
-        //if (++count % 100 == 0)
-        //    g_grafico->resetDefaultView();
         if (30 - this->dt < 0)
             cout << this->dt << endl;
     }
@@ -87,12 +93,6 @@ void Jogo::endGame(){
     delete this->g_grafico;
     while(!this->states.empty())
         this->states.pop(); // Lista desaloca a memoria ao fazer o pop
-    
-    // Desaloca jogadores
-    delete this->jogador_a;
-    delete this->jogador_b;
-    this->jogador_a = nullptr;
-    this->jogador_b = nullptr;
 }
 
 void Jogo::updateDt(){
@@ -142,16 +142,17 @@ void Jogo::pushState(States::states_id id){
             state = new GameState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::ranking:
-            state = new FaseFlorestaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            this->fase_floresta.onInitFase(this->jogador_a, this->jogador_b); // Notifica inicio de estado à fase
+            state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_floresta);
             break;
         case States::states_id::config:
-            state = new FaseMontanhaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_montanha);
             break;
         case States::states_id::fase_floresta:
-            state = new FaseFlorestaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            //state = new FaseFlorestaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::phase_b:
-            state = new FaseMontanhaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            //state = new FaseMontanhaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
         default:
             cerr << "ERROR: Jogo::pushState(): Trying to push unidentified state." << endl;
             break;
@@ -166,11 +167,11 @@ int Jogo::getStatusCode() const {
     return this->status_code;
 }
 
-Jogador* Jogo::getJogadorA() const {
+const Jogador* Jogo::getJogadorA() const {
     return this->jogador_a;
 }
 
-Jogador* Jogo::getJogadorB() const {
+const Jogador* Jogo::getJogadorB() const {
     return this->jogador_b;
 }
 }

@@ -19,7 +19,6 @@ private:
     // Init Methods
     void initTextures();
     void initJogadores();
-    void initBackground();
     void initMapa();
 public:
     // Constructor & Destructor
@@ -28,9 +27,9 @@ public:
     // Methods
     void onKeyInput(Eventos::Tipo tipo);
     void update(const float& dt);
-    void updateJogadores(const float& dt);
-    void updateMapa(const float& dt);
     void render(RenderTarget* target);
+    void onInitFase(Jogador* jogador_a, Jogador* jogador_b);
+    void onCloseFase();
 };
 
 }};

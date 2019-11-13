@@ -11,14 +11,14 @@
 namespace Game { namespace States{
 
 // Contructor & Destructor
-FaseMontanhaState::FaseMontanhaState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
-fase(g_grafico, Jogo::getInstance()->getJogadorA(), Jogo::getInstance()->getJogadorB()),
+FaseMontanhaState::FaseMontanhaState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, Fase& fase):
+fase(fase),
 State(handler, g_grafico, supported_keys, phase_b){
     this->initValidKeys();
 }
 
 FaseMontanhaState::~FaseMontanhaState(){
-    
+    this->fase.onCloseFase();
 }
 
 // Init Methods

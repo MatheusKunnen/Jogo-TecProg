@@ -16,17 +16,18 @@
 namespace Game { namespace States {
 
 using Fases::FaseMontanha;
+using Fases::Fase;
 
 class FaseMontanhaState : public State {
 private:
     // Attributes
-    FaseMontanha        fase;
+    Fase&               fase;
     
     // Init Methods
     void initValidKeys();
 public:
     // Constructor & Destructor
-    FaseMontanhaState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
+    FaseMontanhaState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, Fase& fase);
     ~FaseMontanhaState();
     
     // Methods

@@ -78,7 +78,7 @@ a_tileset(a_tileset)
 
 Mapa::~Mapa()
 {
-    this->g_grafico->resetDefaultView();
+
 }
 
 // Init Methods
@@ -117,6 +117,21 @@ void Mapa::render(RenderTarget *target){
             if (drawingBounds.contains(layers[layer].tiles[tile].getPosition().x, layers[layer].tiles[tile].getPosition().y))
                 target->draw(layers[layer].tiles[tile]);
         
+}
+
+void Mapa::reset(){
+    this->background.setPosition(0, 0);
+}
+
+void Mapa::setPosition(const Vector2f& position){
+    this->g_grafico->setViewPosition(position);
+    this->background.setPosition(position.x - this->g_grafico->getRenderWindow()->getSize().x/2,
+                                 position.y - this->g_grafico->getRenderWindow()->getSize().y/2);
+}
+
+const Vector2f& Mapa::getPosition() const {
+    return this->g_grafico->getView()->getCenter();
+    //return Vector2f(this->g_grafico->getView()->getCenter().x, this->g_grafico->getView()->getCenter().y);
 }
 
 // Getters & Setters

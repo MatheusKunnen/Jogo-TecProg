@@ -6,19 +6,21 @@
 #include "States/StateManager.hpp"
 #include "States/MainMenuState.hpp"
 #include "States/GameState.hpp"
-#include "States/FaseFlorestaState.hpp"
+#include "States/FaseState.hpp"
 #include "States/FaseMontanhaState.hpp"
 
 #include "GerenciadorGrafico.hpp"
 
 #include "Resources/TexturesHolder.hpp"
 #include "Entidades/Jogador.hpp"
+#include "Fases/FaseFloresta.hpp"
+#include "Fases/FaseMontanha.hpp"
 
 namespace Game {
 
 namespace States {
 
-class FaseFlorestaState;
+class FaseState;
 class FaseMontanhaState;
 
 }
@@ -31,12 +33,14 @@ using States::State;
 using States::StateManager;
 using States::MainMenuState;
 using States::GameState;
-using States::FaseFlorestaState;
+using States::FaseState;
 using States::FaseMontanhaState;
 
 using Resources::TextureHolder;
 
 using Entidades::Personagens::Jogador;
+using Fases::FaseFloresta;
+using Fases::FaseMontanha;
 
 using TADs::StateStack;
 
@@ -57,12 +61,17 @@ private:
     
     Jogador*                    jogador_a; // Ponteiro para jogador A
     Jogador*                    jogador_b; // Ponteiro para jogador B
+    
+    FaseFloresta                fase_floresta;
+    FaseMontanha                fase_montanha;
+    
     TextureHolder               textures; // Contenedor de texturas
     
     // Init methods
     void initStates();
     void initTextures();
     void initJogadores();
+    void initFases();
     void initKeys();
     
     // Private Constructor (para o Singleton)
@@ -84,8 +93,8 @@ public:
     void pushState(States::states_id id);
     
     // Getters & Setters
-    Jogador* getJogadorA() const;
-    Jogador* getJogadorB() const;
+    const Jogador* getJogadorA() const;
+    const Jogador* getJogadorB() const;
 	int getStatusCode() const;
 
 };

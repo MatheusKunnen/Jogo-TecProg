@@ -32,6 +32,9 @@ private:
     // init Methods
     void initWindow(); // Inicia RenderWindow com os parametros corretos
     void initView(); // Obtem a View original do RenderWindow
+    
+    // Private Methods
+    void onViewUpdated(); // Passa atualiza View do RenderWindow
 public:
     // Constructor & Destructor
     explicit GerenciadorGrafico(const string& parameters_file = "Resources/config/graphic_config.json");
@@ -49,7 +52,9 @@ public:
     
     // Setters & Getters
     RenderWindow* getRenderWindow();
-    const View* getView();
+    const View* getView() const;
+    void setViewPosition(const Vector2f& position);
+    void setViewPosition(const float& x, const float& y);
 };
 
 }

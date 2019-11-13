@@ -11,21 +11,21 @@
 
 #include "State.hpp"
 #include "Jogo.hpp"
-#include "../Fases/FaseFloresta.hpp"
+#include "../Fases/Fase.hpp"
 
 namespace Game {  namespace States {
 
-using Fases::FaseFloresta;
+using Fases::Fase;
 
-class FaseFlorestaState : public State {
+class FaseState : public State {
 private:
-    FaseFloresta        fase;
+    Fase&        fase;
     
     // Init Methods
     void initValidKeys();
 public:
-    FaseFlorestaState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
-    ~FaseFlorestaState();
+    FaseState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, Fase& fase);
+    ~FaseState();
     
     // Methods
     void update(const float& dt);

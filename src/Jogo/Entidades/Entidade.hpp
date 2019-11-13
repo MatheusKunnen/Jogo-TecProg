@@ -18,7 +18,7 @@ class Entidade {
 protected:
     // Attributes
     Texture*            texture;
-    Sprite*             sprite;
+    Sprite              sprite;
     float               gravity;
     GerenciadorGrafico* g_grafico;
     // Components
@@ -29,12 +29,13 @@ public:
     virtual ~Entidade();
     // Getters & Setters
     virtual void setPosition(const Vector2f& position);
+    virtual const Vector2f& getPosition() const;
     // Component Methods
     virtual void setTexture(Texture* texture);
     void createMoveComponent(const float& max_vel, const float& acceleration, const float& deceleration);
     
     // Methods
-    virtual void move(const sf::Vector2f& direction, const float& dt);
+    virtual void move(const sf::Vector2f& direction, const float& dt = 0);
     virtual void update(const float& dt);
     virtual void render(RenderTarget* target);
 };

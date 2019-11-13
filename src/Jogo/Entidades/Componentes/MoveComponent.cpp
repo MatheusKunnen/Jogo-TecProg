@@ -19,7 +19,7 @@ MoveComponent::MoveComponent(Sprite* sprite,  float& gravity, const float& max_s
 sprite(sprite),
 max_speed(max_speed),
 gravity(gravity),
-v_speed(0.f,0.f),
+v_speed(200.f,100.f),
 v_aceleration(aceleration * MoveComponent::ACELERATION_GAIN),
 v_deceleration(deceleration * MoveComponent::ACELERATION_GAIN),
 v_direction(0,0)
@@ -34,33 +34,35 @@ MoveComponent::~MoveComponent(){
 // Methods
 void MoveComponent::update(const float &dt){
     // Move texture
-    this->sprite->move(this->v_speed*dt);
+    this->sprite->move(this->max_speed*this->v_direction.x*dt,this->v_speed.y*this->v_direction.y*dt);
+    this->v_direction.x = this->v_direction.y = 0.f;
     
     // Calculates vel direction
-    this->v_direction.x = (this->v_speed.x != 0) ? (this->v_speed.x > 0) ? 1 : -1 : 0;
-    this->v_direction.y =(this->v_speed.y < 0) ? 1 : -1 ;
+    //this->v_direction.x = (this->v_speed.x != 0) ? (this->v_speed.x > 0) ? 1 : -1 : 0;
+    //this->v_direction.y =(this->v_speed.y < 0) ? 1 : -1 ;
     
     // Calculate deceleration
-    this->v_speed.x -= (v_deceleration * this->v_direction.x * dt);
+    //this->v_speed.x -= (v_deceleration * this->v_direction.x * dt);
     
-    if (this->v_speed.x * this->v_direction.x < 0)
-        this->v_speed.x  = this->v_direction.x = 0;
+    //if (this->v_speed.x * this->v_direction.x < 0)
+    //    this->v_speed.x  = this->v_direction.x = 0;
 
 }
 
 void MoveComponent::move(const Vector2f& direction, const float& dt){
+    this->v_direction += direction;
     // Update Speed vector
-    this->v_speed.x += (v_aceleration * direction.x * dt);
-    this->v_speed.y += (gravity * direction.y * dt);
+    //this->v_speed.x += (v_aceleration * direction.x * dt);
+    //this->v_speed.y += (gravity * direction.y * dt);
     // Check for max_speed
-    if (this->v_speed.x  * this->v_direction.x > max_speed)
-        this->v_speed.x = this->max_speed;
-    if (this->v_speed.y * this->v_direction.y > max_speed)
-        this->v_speed.y = this->max_speed;
+    //if (this->v_speed.x  * this->v_direction.x > max_speed)
+    //    this->v_speed.x = this->max_speed;
+    //if (this->v_speed.y * this->v_direction.y > max_speed)
+    //    this->v_speed.y = this->max_speed;
 }
 
 void MoveComponent::jump(const float& gain){
-    this->v_speed.y -= 5*gain;
+    this->v_aceleration = 5*gain;
 }
 
 // Getters & Setters

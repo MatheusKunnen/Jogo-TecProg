@@ -63,7 +63,7 @@ public:
     void addFront(Tipo* elemento, bool liberar = true) {
         this->add(elemento, liberar, true);
     }
-    void addLast(Tipo& elemento, bool liberar = true) {
+    void addLast(Tipo* elemento, bool liberar = true) {
         this->add(elemento, liberar, false);
     }
     void add(Tipo* elemento, bool liberar, bool front) {

@@ -38,8 +38,7 @@ protected:
     Jogador*            jogador_a;
     Jogador*            jogador_b;
     
-    Mapa               mapa;
-    RectangleShape      background;
+    Mapa                mapa;
     
     TextureHolder       textures;
     
@@ -50,7 +49,6 @@ protected:
     void initParametros();
     virtual void initTextures() = 0;
     virtual void initJogadores() = 0;
-    virtual void initBackground() = 0;
     virtual void initMapa() = 0;
 public:
     // Constructor & Destructor
@@ -59,10 +57,11 @@ public:
     
     // Methods
     virtual void update(const float& dt) = 0;
-    virtual void updateJogadores(const float& dt) = 0;
-    virtual void updateMapa(const float& dt) = 0;
+    virtual void updateView(const float& dt);
     virtual void render(RenderTarget* target) = 0;
     virtual void onKeyInput(Eventos::Tipo tipo) = 0;
+    virtual void onInitFase(Jogador* jogador_a, Jogador* jogador_b) = 0;
+    virtual void onCloseFase() = 0;
 };
 }};
 #endif /* Fase_hpp */

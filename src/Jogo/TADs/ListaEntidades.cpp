@@ -22,7 +22,7 @@ ListaEntidades::~ListaEntidades(){
 }
 
 void ListaEntidades::add(Entidade *entidade, const bool& liberar){
-    this->lista_entidades.addFront(entidade, liberar);
+    this->lista_entidades.addLast(entidade, liberar);
 }
 
 void ListaEntidades::clear(){
@@ -36,8 +36,9 @@ void ListaEntidades::operator+=(Entidade* entidade){
 void ListaEntidades::render(RenderTarget *target){
     this->itr = lista_entidades.begin();
     while (itr != nullptr){
-        itr->get()->render(target);
-        itr++;
+        if(itr->get() != nullptr)
+            itr->get()->render(target);
+        itr = itr->getNext();
     }
 }
 
@@ -45,7 +46,8 @@ void ListaEntidades::update(const float &dt){
     this->itr =lista_entidades.begin();
     while(itr != nullptr){
         itr->get()->update(dt);
-        itr++;
+        itr = itr->getNext();
+
     }
 }
 }};

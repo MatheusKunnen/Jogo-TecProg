@@ -6,23 +6,26 @@
 //  Copyright © 2019 Matheus Kunnen Ledesma. All rights reserved.
 //
 
-#include "FaseFlorestaState.hpp"
+#include "FaseState.hpp"
 
 namespace Game { namespace States{
 
 // Contructor & Destructor
-FaseFlorestaState::FaseFlorestaState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
-fase(g_grafico, Jogo::getInstance()->getJogadorA(), Jogo::getInstance()->getJogadorB()),
-State(handler, g_grafico, supported_keys, fase_floresta){
-    this->initValidKeys();
-}
-
-FaseFlorestaState::~FaseFlorestaState(){
+FaseState::FaseState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, Fase& fase):
+State(handler, g_grafico, supported_keys, fase_floresta),
+fase(fase)
+{
+    this->initValidKeys(); // Relaciona Keys utilizadas
     
 }
 
+FaseState::~FaseState(){
+    // Notifica à fase que o estado esta fechando;
+    this->fase.onCloseFase();
+}
+
 // Init Methods
-void FaseFlorestaState::initValidKeys(){
+void FaseState::initValidKeys(){
     try{
         // Inicia Teclas a ser utilizadas
         this->used_keys["MOVE_LEFT_A"] = this->supported_keys->at("A");
@@ -38,12 +41,14 @@ void FaseFlorestaState::initValidKeys(){
     }
 }
 
-void FaseFlorestaState::update(const float &dt) {
+void FaseState::update(const float &dt) {
+    // Verifica teclas apertadas
     this->updateKeyInput(dt);
+    // Notifica update para a fase
     this->fase.update(dt);
 }
 
-void FaseFlorestaState::updateKeyInput(const float &dt){
+void FaseState::updateKeyInput(const float &dt){
     // Verifica estado das keys utilizadas
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_LEFT_A"])))
         this->fase.onKeyInput(Fases::Eventos::Tipo::M_LEFT_A);
@@ -61,10 +66,10 @@ void FaseFlorestaState::updateKeyInput(const float &dt){
         this->endState();
 }
 
-void FaseFlorestaState::render(RenderTarget *target) {
+void FaseState::render(RenderTarget *target) {
     if (target == nullptr)
         target = this->g_grafico->getRenderWindow();
-    this->fase.render(target);
+    this->fase.render(target); // Renderiza a fase
 }
 
 }}

@@ -27,8 +27,8 @@ private:
     // Const
     static const float      ACELERATION_GAIN;
     static const float      DEFAULT_MAX_SPEED;
-    static const float   DEFAULT_ACELERATION;
-    static const float   DEFAULT_DECELERATION;
+    static const float      DEFAULT_ACELERATION;
+    static const float      DEFAULT_DECELERATION;
 public:
     // Constructor & Destructor
     explicit MoveComponent(Sprite* sprite,
@@ -40,7 +40,7 @@ public:
     
     // Methods
     void update(const float& dt);
-    void move(const Vector2f& direction, const float& dt);
+    void move(const Vector2f& direction, const float& dt = 1);
     void jump(const float& gain);
     // Getters & Setters
     float getMaxSpeed() const;

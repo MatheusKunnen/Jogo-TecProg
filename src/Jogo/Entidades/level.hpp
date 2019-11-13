@@ -77,6 +77,8 @@ private:
     
     // Init Methods
     void initBackground();
+    
+
 public:
     //   Constructor & Destructor
     Mapa(GerenciadorGrafico* g_grafico, const string& a_tilemap = "", const string& a_tileset = "", Texture* texture = nullptr);
@@ -86,7 +88,9 @@ public:
     void move(const sf::Vector2f& direction, const float& dt);
     void update(const float& dt);
     void render(RenderTarget* target);
-    
+    void reset();
+    void setPosition(const Vector2f&);
+    const Vector2f& getPosition() const;
     // Getters & Setters
     void setTexture(Texture* texture);
     

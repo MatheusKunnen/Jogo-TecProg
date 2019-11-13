@@ -14,7 +14,7 @@
 		2F0D64772378BE9200B214F4 /* GerenciadorArquivos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D64752378BE9200B214F4 /* GerenciadorArquivos.cpp */; };
 		2F0D647A2378D74400B214F4 /* FaseMontanha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D64782378D74400B214F4 /* FaseMontanha.cpp */; };
 		2F0D647D2378E0B500B214F4 /* FaseMontanhaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D647B2378E0B500B214F4 /* FaseMontanhaState.cpp */; };
-		2F0D64802378E42E00B214F4 /* FaseFlorestaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D647E2378E42E00B214F4 /* FaseFlorestaState.cpp */; };
+		2F0D6484237B1AA100B214F4 /* FaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6483237B1AA100B214F4 /* FaseState.cpp */; };
 		2F43569A230ED21E00A89E64 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F435699230ED21E00A89E64 /* main.cpp */; };
 		2F43569C230ED25300A89E64 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F43569B230ED22500A89E64 /* Resources */; };
 		2F4356BB230EDFA500A89E64 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B6230EDFA500A89E64 /* sfml-window.framework */; };
@@ -133,9 +133,9 @@
 		2F0D64792378D74400B214F4 /* FaseMontanha.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FaseMontanha.hpp; sourceTree = "<group>"; };
 		2F0D647B2378E0B500B214F4 /* FaseMontanhaState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FaseMontanhaState.cpp; sourceTree = "<group>"; };
 		2F0D647C2378E0B500B214F4 /* FaseMontanhaState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FaseMontanhaState.hpp; sourceTree = "<group>"; };
-		2F0D647E2378E42E00B214F4 /* FaseFlorestaState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FaseFlorestaState.cpp; sourceTree = "<group>"; };
-		2F0D647F2378E42E00B214F4 /* FaseFlorestaState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FaseFlorestaState.hpp; sourceTree = "<group>"; };
+		2F0D647F2378E42E00B214F4 /* FaseState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FaseState.hpp; sourceTree = "<group>"; };
 		2F0D6482237A0BCF00B214F4 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = json.hpp; path = ../json.hpp; sourceTree = "<group>"; };
+		2F0D6483237B1AA100B214F4 /* FaseState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaseState.cpp; sourceTree = "<group>"; };
 		2F43567A230ECF1D00A89E64 /* Jogo-SFML */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Jogo-SFML"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F43568E230ED17600A89E64 /* libsfml-system.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-system.2.5.1.dylib"; sourceTree = "<group>"; };
 		2F43568F230ED17600A89E64 /* libsfml-network.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-network.2.5.1.dylib"; sourceTree = "<group>"; };
@@ -682,8 +682,8 @@
 				2F8A5FFC236F2E4D00CDE82F /* StateManager.hpp */,
 				2F0D647B2378E0B500B214F4 /* FaseMontanhaState.cpp */,
 				2F0D647C2378E0B500B214F4 /* FaseMontanhaState.hpp */,
-				2F0D647E2378E42E00B214F4 /* FaseFlorestaState.cpp */,
-				2F0D647F2378E42E00B214F4 /* FaseFlorestaState.hpp */,
+				2F0D647F2378E42E00B214F4 /* FaseState.hpp */,
+				2F0D6483237B1AA100B214F4 /* FaseState.cpp */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -799,6 +799,7 @@
 				2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */,
 				2FDA0BF3234A3D9B00E3209D /* TexturesHolder.cpp in Sources */,
 				2FDA0BFB234BADD000E3209D /* State.cpp in Sources */,
+				2F0D6484237B1AA100B214F4 /* FaseState.cpp in Sources */,
 				2F8A601923733C2A00CDE82F /* ListaWidgets.cpp in Sources */,
 				2F0D647D2378E0B500B214F4 /* FaseMontanhaState.cpp in Sources */,
 				2FDA0BD62346BF5F00E3209D /* GerenciadorGrafico.cpp in Sources */,
@@ -815,7 +816,6 @@
 				2F8A60062370FB3900CDE82F /* Widget.cpp in Sources */,
 				2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */,
 				2F0D64702378BC4900B214F4 /* ParametrosFase.cpp in Sources */,
-				2F0D64802378E42E00B214F4 /* FaseFlorestaState.cpp in Sources */,
 				2F8A6000236FA65E00CDE82F /* ListaEntidades.cpp in Sources */,
 				2F43569A230ED21E00A89E64 /* main.cpp in Sources */,
 				2FA6DF48234CC7C100302427 /* MainMenuState.cpp in Sources */,

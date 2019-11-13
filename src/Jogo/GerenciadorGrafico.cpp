@@ -50,6 +50,11 @@ void GerenciadorGrafico::initView() {
     this->main_view = this->main_window->getView();
 }
 
+// Private Methods
+void GerenciadorGrafico::onViewUpdated() {
+    this->main_window->setView(this->main_view);
+}
+
 // Methods
 bool GerenciadorGrafico::moveView(const float &x, const float &y){
     bool status = true;
@@ -65,15 +70,18 @@ bool GerenciadorGrafico::moveView(const float &x, const float &y){
         status = false;
     }
     // Passa nova view para a RenderWindow
-    this->main_window->setView(this->main_view);
+    this->onViewUpdated();//this->main_window->setView(this->main_view);
     return status;
 }
 
 void GerenciadorGrafico::resetDefaultView(){
     try {
-    this->main_view = this->main_window->getDefaultView();
-    // Passa nova view para a RenderWindow
-    this->main_window->setView(this->main_view);
+        if (this->main_window == nullptr)
+            return;
+        
+        this->main_view = this->main_window->getDefaultView();
+        // Passa nova view para a RenderWindow
+        this->main_window->setView(this->main_view);
     } catch (std::exception e){
         cerr << "ERROR: GerenciadorGrafico::resetDefaultView(): " << e.what() << endl;
     }
@@ -95,7 +103,17 @@ RenderWindow* GerenciadorGrafico::getRenderWindow(){
     return this->main_window;
 }
 
-const View* GerenciadorGrafico::getView(){
+const View* GerenciadorGrafico::getView() const {
     return &this->main_window->getView();
 }
+
+void GerenciadorGrafico::setViewPosition(const Vector2f& position){
+    this->setViewPosition(position.x, position.y);
+}
+
+void GerenciadorGrafico::setViewPosition(const float& x, const float& y){
+    this->main_view.setCenter(x, y);
+    this->onViewUpdated();
+}
+
 }
