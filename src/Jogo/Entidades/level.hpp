@@ -48,7 +48,7 @@ public:
     std::string GetPropertyString(std::string name);
     std::string name;
     std::string type;
-    sf::Rect <int> rect;
+    sf::Rect <float> rect;
     std::map <std::string, std::string> properties;//All properties of the object. Values are stored as strings and mapped by strings(names provided in editor).
 };
 
@@ -68,7 +68,7 @@ private:
     sf::Image               tilesetImage; // The tileset image.
     sf::Texture             tilesetTexture; // The tileset texture.
     
-    std::vector<Rect<int>>  solidObjects;//This stores all the solid areas (objects with type 'solid'). This gets checked by the IsSolid function.
+    std::vector<Rect<float>>  solidObjects;//This stores all the solid areas (objects with type 'solid'). This gets checked by the IsSolid function.
     std::vector <Object>    objects; //This stores all objects (including 'solid' types)
     std::vector <Layer>     layers; //This stores each layer of sprites/tiles so they can be drawn in order.
     
@@ -90,6 +90,7 @@ public:
     void render(RenderTarget* target);
     void reset();
     void setPosition(const Vector2f&);
+    void setPosition(const float& x, const float& y);
     const Vector2f& getPosition() const;
     // Getters & Setters
     void setTexture(Texture* texture);
@@ -98,7 +99,8 @@ public:
     bool load();
     bool load(const string& a_tilemap, const string& a_tileset); //Loads the map. Returns false if it fails.
     Object GetObject(std::string name); //Returns the first object found with the given name. This is why we need unique names :)
-    bool IsSolidPixel(int x, int y); //Returns true if the given pixel is solid.
+    bool isSolidPixel(const Vector2f& pos);
+    bool isSolidPixel(int x, int y); //Returns true if the given pixel is solid.
     //bool IsSolidTile(int x, int y); //Returns true if the given tile is solid. DO WE NEED THIS?
     //void Move(int xStep, int yStep); //Moves the map. Although I would recommend using a view instead in most cases.
     void SetDrawingBounds(sf::Rect<float> bounds); //Set the area to draw. This rect is usually provided directly from the view you are using.

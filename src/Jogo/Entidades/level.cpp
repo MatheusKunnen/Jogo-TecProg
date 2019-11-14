@@ -1,32 +1,32 @@
 /*********************************************************************
-Quinn Schwab
-16/08/2010
-
-SFML Tiled Map Loader
-
-The zlib license has been used to make this software fully compatible
-with SFML. See http://www.sfml-dev.org/license.php
-
-This software is provided 'as-is', without any express or
-implied warranty. In no event will the authors be held
-liable for any damages arising from the use of this software.
-
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter it and redistribute
-it freely, subject to the following restrictions:
-
-1. The origin of this software must not be misrepresented;
-   you must not claim that you wrote the original software.
-   If you use this software in a product, an acknowledgment
-   in the product documentation would be appreciated but
-   is not required.
-
-2. Altered source versions must be plainly marked as such,
-   and must not be misrepresented as being the original software.
-
-3. This notice may not be removed or altered from any
-   source distribution.
-*********************************************************************/
+ Quinn Schwab
+ 16/08/2010
+ 
+ SFML Tiled Map Loader
+ 
+ The zlib license has been used to make this software fully compatible
+ with SFML. See http://www.sfml-dev.org/license.php
+ 
+ This software is provided 'as-is', without any express or
+ implied warranty. In no event will the authors be held
+ liable for any damages arising from the use of this software.
+ 
+ Permission is granted to anyone to use this software for any purpose,
+ including commercial applications, and to alter it and redistribute
+ it freely, subject to the following restrictions:
+ 
+ 1. The origin of this software must not be misrepresented;
+ you must not claim that you wrote the original software.
+ If you use this software in a product, an acknowledgment
+ in the product documentation would be appreciated but
+ is not required.
+ 
+ 2. Altered source versions must be plainly marked as such,
+ and must not be misrepresented as being the original software.
+ 
+ 3. This notice may not be removed or altered from any
+ source distribution.
+ *********************************************************************/
 
 #include "level.hpp"
 
@@ -36,7 +36,7 @@ int Object::GetPropertyInt(std::string name)
 {
     int i;
     i = atoi(properties[name].c_str());
-
+    
     return i;
 }
 
@@ -44,7 +44,7 @@ float Object::GetPropertyFloat(std::string name)
 {
     float f;
     f = strtod(properties[name].c_str(), NULL);
-
+    
     return f;
 }
 
@@ -78,7 +78,7 @@ a_tileset(a_tileset)
 
 Mapa::~Mapa()
 {
-
+    
 }
 
 // Init Methods
@@ -116,7 +116,7 @@ void Mapa::render(RenderTarget *target){
         for (int tile = 0; tile < layers[layer].tiles.size(); tile++)
             if (drawingBounds.contains(layers[layer].tiles[tile].getPosition().x, layers[layer].tiles[tile].getPosition().y))
                 target->draw(layers[layer].tiles[tile]);
-        
+    
 }
 
 void Mapa::reset(){
@@ -124,9 +124,13 @@ void Mapa::reset(){
 }
 
 void Mapa::setPosition(const Vector2f& position){
-    this->g_grafico->setViewPosition(position);
-    this->background.setPosition(position.x - this->g_grafico->getRenderWindow()->getSize().x/2,
-                                 position.y - this->g_grafico->getRenderWindow()->getSize().y/2);
+    this->setPosition(position.x, position.y);
+}
+
+void Mapa::setPosition(const float& x, const float& y) {
+    this->g_grafico->setViewPosition(x, y);
+    this->background.setPosition(x - this->g_grafico->getRenderWindow()->getSize().x/2,
+                                 y - this->g_grafico->getRenderWindow()->getSize().y/2);
 }
 
 const Vector2f& Mapa::getPosition() const {
@@ -159,17 +163,17 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
         std::cerr << "Loading level \"" << a_tilemap << "\" failed." << std::endl;
         return false;
     }
-
+    
     //Map element. This is the root element for the whole file.
     TiXmlElement *map;
     map = levelFile.FirstChildElement("map");
-
+    
     //Set up misc map properties.
     width = atoi(map->Attribute("width"));
     height = atoi(map->Attribute("height"));
     tileWidth = atoi(map->Attribute("tilewidth"));
     tileHeight = atoi(map->Attribute("tileheight"));
-
+    
     //Tileset stuff
     TiXmlElement *tilesetElement;
     tilesetElement = map->FirstChildElement("tileset");
@@ -188,18 +192,18 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
         std::cout << "Failed to load tile sheet." << std::endl;
         return false;
     }
-
+    
     this->tilesetImage.createMaskFromColor(sf::Color(255, 0, 255));
-
+    
     this->tilesetTexture.loadFromImage(this->tilesetImage);
     this->tilesetTexture.setSmooth(false);
-
+    
     //Columns and rows (of tileset image)
     int columns = this->tilesetTexture.getSize().x / tileWidth;
     int rows = this->tilesetTexture.getSize().y / tileHeight;
-
+    
     std::vector <sf::Rect<int> > subRects;//container of subrects (to divide the tilesheet image up)
-
+    
     //tiles/subrects are counted from 0, left to right, top to bottom
     for (int y = 0; y < rows; y++)
         for (int x = 0; x < columns; x++) {
@@ -210,7 +214,7 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
             rect.width = /*x * tileWidth +*/ tileWidth;
             subRects.push_back(rect);
         }
-
+    
     //Layers
     TiXmlElement *layerElement;
     layerElement = map->FirstChildElement("layer");
@@ -221,16 +225,16 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
         else
             layer.opacity = 255;//if the attribute doesnt exist, default to full opacity
         
-
+        
         //Tiles
         TiXmlElement *layerDataElement;
         layerDataElement = layerElement->FirstChildElement("data");
-
+        
         if (layerDataElement == NULL){
             std::cerr << "Bad map. No layer information found." << std::endl;
             return false;
         }
-
+        
         TiXmlElement *tileElement;
         tileElement = layerDataElement->FirstChildElement("tile");
         
@@ -239,10 +243,10 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
             std::cerr << "Bad map. No tile information found." << std::endl;
             return false;
         }
-
+        
         int x = 0;
         int y = 0;
-
+        
         while (tileElement) {
             int tileGID = 21;
             try{
@@ -250,22 +254,22 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
             } catch (std::exception e){
                 cerr << e.what() << endl;
             }
-                int subRectToUse = tileGID - this->firstTileID;//Work out the subrect ID to 'chop up' the tilesheet image.
+            int subRectToUse = tileGID - this->firstTileID;//Work out the subrect ID to 'chop up' the tilesheet image.
             if (subRectToUse >= 0){//we only need to (and only can) create a sprite/tile if there is one to display
-            
+                
                 sf::Sprite sprite;//sprite for the tile
                 sprite.setTexture(this->tilesetTexture);
                 sprite.setTextureRect(subRects[subRectToUse]);
                 sprite.setPosition(x * tileWidth, y * tileHeight);
-
+                
                 sprite.setColor(sf::Color(255, 255, 255, layer.opacity));//Set opacity of the tile.
-
+                
                 //add tile to layer
                 layer.tiles.push_back(sprite);
             }
-
+            
             tileElement = tileElement->NextSiblingElement("tile");
-
+            
             //increment x, y
             x++;
             if (x >= width){//if x has "hit" the end (right) of the map, reset it to the start (left)
@@ -278,15 +282,15 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
         //delete tileElement;
         
         layers.push_back(layer);
-
+        
         layerElement = layerElement->NextSiblingElement("layer");
     }
     //delete layerElement;
-
+    
     //Objects
     TiXmlElement *objectGroupElement;
     if (map->FirstChildElement("objectgroup") != NULL){//Check that there is atleast one object layer
-    
+        
         objectGroupElement = map->FirstChildElement("objectgroup");
         while (objectGroupElement){//loop through object layers
             
@@ -301,26 +305,30 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
                 if (objectElement->Attribute("name") != NULL)
                     objectName = objectElement->Attribute("name");
                 
-                int x = atoi(objectElement->Attribute("x"));
-                int y = atoi(objectElement->Attribute("y"));
-                int width = atoi(objectElement->Attribute("width"));
-                int height = atoi(objectElement->Attribute("height"));
-
+                //int x = atoi(objectElement->Attribute("x"));
+                //int y = atoi(objectElement->Attribute("y"));
+                //int width = atoi(objectElement->Attribute("width"));
+                //int height = atoi(objectElement->Attribute("height"));
+                
                 Object object;
                 object.name = objectName;
                 object.type = objectType;
-
-                sf::Rect <int> objectRect;
-                objectRect.top = y;
-                objectRect.left = x;
-                objectRect.height = y + height;
-                objectRect.width = x + width;
-
-                if (objectType == "solid")
-                    solidObjects.push_back(objectRect);
                 
-                object.rect = objectRect;
-
+                //sf::Rect <int> objectRect;
+                //objectRect.top = y;
+                //objectRect.left = x;
+                //objectRect.height = y + height;
+                //objectRect.width = x + width;
+                
+                //object.rect = objectRect;
+                object.rect.top = atof(objectElement->Attribute("y"));
+                object.rect.left = atof(objectElement->Attribute("x"));
+                object.rect.height = /*object.rect.top + */atof(objectElement->Attribute("height"));
+                object.rect.width = /*object.rect.left +*/ atof(objectElement->Attribute("width"));
+                
+                if (objectType == "solid")
+                    solidObjects.push_back(object.rect);
+                
                 TiXmlElement *properties;
                 properties = objectElement->FirstChildElement("properties");
                 if (properties != NULL){
@@ -330,17 +338,17 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
                         while(prop) {
                             std::string propertyName = prop->Attribute("name");
                             std::string propertyValue = prop->Attribute("value");
-
+                            
                             object.properties[propertyName] = propertyValue;
-
+                            
                             prop = prop->NextSiblingElement("property");
                         }
                     }
                     //delete prop;
                 }
-
+                
                 objects.push_back(object);
-
+                
                 objectElement = objectElement->NextSiblingElement("object");
             }
             objectGroupElement = objectGroupElement->NextSiblingElement("objectgroup");
@@ -364,6 +372,24 @@ Object Mapa::GetObject(std::string name)
         }
     }
     return objects[0];
+}
+
+
+bool Mapa::isSolidPixel(const Vector2f &pos){
+    return this->isSolidPixel(pos.x, pos.y);
+}
+
+bool Mapa::isSolidPixel(int x, int y){
+    //cout << " x:" << x << " y:" << y << endl;
+    for (int i = 0; i < objects.size(); i++){
+        if ((objects[i].rect.top <= y && y <= objects[i].rect.top + objects[i].rect.height) &&
+            (objects[i].rect.left <= x && x <= objects[i].rect.left + objects[i].rect.width)){
+            //cout << "Map: " << "top:" << objects[i].rect.top << " left:" << objects[i].rect.left << " height:" << objects[i].rect.height << " widht:" << objects[i].rect.width << endl;
+            return true;
+            
+        }
+    }
+    return false;
 }
 
 void Mapa::SetDrawingBounds(sf::Rect<float> bounds)

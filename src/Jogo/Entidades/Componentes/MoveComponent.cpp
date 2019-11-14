@@ -11,18 +11,20 @@
 namespace Game { namespace Entidades {
 
 const float MoveComponent::ACELERATION_GAIN = 100;
-const float MoveComponent::DEFAULT_MAX_SPEED = 1;
+const float MoveComponent::DEFAULT_MAX_SPEED = 250;
 const float MoveComponent::DEFAULT_ACELERATION = 1.f;
 const float MoveComponent::DEFAULT_DECELERATION = 1.f;
 
-MoveComponent::MoveComponent(Sprite* sprite,  float& gravity, const float& max_speed, const float& aceleration, const float& deceleration):
+MoveComponent::MoveComponent(Sprite* sprite,  float& gravity, const float& max_speed, const float& aceleration, const float& v_deceleration):
 sprite(sprite),
-max_speed(max_speed),
+max_speed(250),
 gravity(gravity),
-v_speed(200.f,100.f),
-v_aceleration(aceleration * MoveComponent::ACELERATION_GAIN),
-v_deceleration(deceleration * MoveComponent::ACELERATION_GAIN),
-v_direction(0,0)
+v_speed(0.f,100.f),
+v_aceleration(1000, 10000),//aceleration * MoveComponent::ACELERATION_GAIN),
+v_deceleration(500,1000),//v_deceleration * MoveComponent::ACELERATION_GAIN),
+v_direction(0,0),
+onXCollision(false),
+onYCollision(false)
 {
     
 }
@@ -33,36 +35,73 @@ MoveComponent::~MoveComponent(){
 
 // Methods
 void MoveComponent::update(const float &dt){
-    // Move texture
-    this->sprite->move(this->max_speed*this->v_direction.x*dt,this->v_speed.y*this->v_direction.y*dt);
-    this->v_direction.x = this->v_direction.y = 0.f;
+    if (!onXCollision){
+        this->sprite->move(this->v_speed.x * dt + this->v_aceleration.x*this->v_direction.x*dt*dt/2, 0);
+        this->v_speed.x += v_aceleration.x * v_direction.x * dt;
+        if (this->v_speed.x > 0.f) {
+            //Max v_speed check
+            if (this->v_speed.x > this->max_speed)
+                this->v_speed.x = this->max_speed;
+            
+            //v_deceleration
+            if (this->v_direction.x == 0)
+                this->v_speed.x -= v_deceleration.x * dt;
+                
+            
+            if (this->v_speed.x < 0.f)
+                this->v_speed.x = 0.f;
+        } else if(this->v_speed.x < 0.f) {
+            if (this->v_speed.x < -this->max_speed) // Max speed limitation
+                this->v_speed.x = -this->max_speed;
+            
+            // Deceleratin player
+            if (this->v_direction.x == 0)
+                this->v_speed.x += v_deceleration.x * dt;
+            
+            if (this->v_speed.x > 0.f)
+                this->v_speed.x = 0.f;
+        }
+        this->v_direction.x = 0;
+    } else {
+        onXCollision = false;
+    }
     
-    // Calculates vel direction
-    //this->v_direction.x = (this->v_speed.x != 0) ? (this->v_speed.x > 0) ? 1 : -1 : 0;
-    //this->v_direction.y =(this->v_speed.y < 0) ? 1 : -1 ;
+    if (v_speed.y < 0){
+        this->sprite->move(0.f, this->v_speed.y * dt + this->v_aceleration.y*dt*dt/2);
+        this->v_speed.y += this->v_aceleration.y*dt;
+    } else {
+        this->v_speed.y = 250;
+        this->sprite->move(0.f, this->v_direction.y * this->v_speed.y * dt);
+    }
+    this->onYCollision = false;
+    this->v_direction.y = 1;
     
-    // Calculate deceleration
-    //this->v_speed.x -= (v_deceleration * this->v_direction.x * dt);
     
-    //if (this->v_speed.x * this->v_direction.x < 0)
-    //    this->v_speed.x  = this->v_direction.x = 0;
-
+    
 }
 
 void MoveComponent::move(const Vector2f& direction, const float& dt){
     this->v_direction += direction;
-    // Update Speed vector
-    //this->v_speed.x += (v_aceleration * direction.x * dt);
-    //this->v_speed.y += (gravity * direction.y * dt);
-    // Check for max_speed
-    //if (this->v_speed.x  * this->v_direction.x > max_speed)
-    //    this->v_speed.x = this->max_speed;
-    //if (this->v_speed.y * this->v_direction.y > max_speed)
-    //    this->v_speed.y = this->max_speed;
+    this->v_speed.x += this->v_aceleration.x * direction.x * dt;
 }
 
 void MoveComponent::jump(const float& gain){
-    this->v_aceleration = 5*gain;
+    if (this->onYCollision)
+        this->v_speed.y = -250*gain;
+}
+
+void MoveComponent::reset() {
+    this->setVSpeed(Vector2f(0.f, 0.f));
+}
+
+void MoveComponent::stopX() {
+    this->onXCollision = true;
+    this->v_speed.x = 0.f;
+}
+
+void MoveComponent::stopY() {
+    this->onYCollision = true;
+    this->v_direction.y = 0.f;
 }
 
 // Getters & Setters
@@ -82,20 +121,20 @@ void MoveComponent::setVSpeed(const Vector2f &vSpeed) {
     v_speed = vSpeed;
 }
 
-const float &MoveComponent::getAceleration() const {
+const Vector2f &MoveComponent::getAceleration() const {
     return v_aceleration;
 }
 
-void MoveComponent::setAceleration(const float &vAceleration) {
-    v_aceleration = vAceleration * MoveComponent::ACELERATION_GAIN;
+void MoveComponent::setAceleration(const Vector2f& vAceleration) {
+    v_aceleration += vAceleration;// * MoveComponent::ACELERATION_GAIN;
 }
 
-const float &MoveComponent::getDeceleration() const {
+const Vector2f &MoveComponent::getDeceleration() const {
     return v_deceleration;
 }
 
-void MoveComponent::setDeceleration(const float &vDeceleration) {
-    v_deceleration = vDeceleration * MoveComponent::ACELERATION_GAIN;
+void MoveComponent::setDeceleration(const Vector2f &vDeceleration) {
+    v_deceleration = vDeceleration;// * MoveComponent::ACELERATION_GAIN;
 }
 
 void MoveComponent::setGravity(const float& gravity){

@@ -23,4 +23,8 @@ void Personagem::jump(const float& gain){
     this->move_comp->jump(gain);
 }
 
+unique_ptr<MoveComponent>& Personagem::getMoveComponent() {
+    return this->move_comp;
+    //this->sprite.getGl
+}
 }}};

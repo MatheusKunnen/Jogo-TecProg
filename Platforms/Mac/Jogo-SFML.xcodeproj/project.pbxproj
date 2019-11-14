@@ -15,6 +15,8 @@
 		2F0D647A2378D74400B214F4 /* FaseMontanha.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D64782378D74400B214F4 /* FaseMontanha.cpp */; };
 		2F0D647D2378E0B500B214F4 /* FaseMontanhaState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D647B2378E0B500B214F4 /* FaseMontanhaState.cpp */; };
 		2F0D6484237B1AA100B214F4 /* FaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6483237B1AA100B214F4 /* FaseState.cpp */; };
+		2F0D6487237C8CDA00B214F4 /* GerenciadorColisoes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6485237C8CDA00B214F4 /* GerenciadorColisoes.cpp */; };
+		2F0D648A237C8D8700B214F4 /* ListaPersonagens.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6488237C8D8700B214F4 /* ListaPersonagens.cpp */; };
 		2F43569A230ED21E00A89E64 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F435699230ED21E00A89E64 /* main.cpp */; };
 		2F43569C230ED25300A89E64 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2F43569B230ED22500A89E64 /* Resources */; };
 		2F4356BB230EDFA500A89E64 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B6230EDFA500A89E64 /* sfml-window.framework */; };
@@ -136,6 +138,10 @@
 		2F0D647F2378E42E00B214F4 /* FaseState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FaseState.hpp; sourceTree = "<group>"; };
 		2F0D6482237A0BCF00B214F4 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = json.hpp; path = ../json.hpp; sourceTree = "<group>"; };
 		2F0D6483237B1AA100B214F4 /* FaseState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FaseState.cpp; sourceTree = "<group>"; };
+		2F0D6485237C8CDA00B214F4 /* GerenciadorColisoes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GerenciadorColisoes.cpp; sourceTree = "<group>"; };
+		2F0D6486237C8CDA00B214F4 /* GerenciadorColisoes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GerenciadorColisoes.hpp; sourceTree = "<group>"; };
+		2F0D6488237C8D8700B214F4 /* ListaPersonagens.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListaPersonagens.cpp; sourceTree = "<group>"; };
+		2F0D6489237C8D8700B214F4 /* ListaPersonagens.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListaPersonagens.hpp; sourceTree = "<group>"; };
 		2F43567A230ECF1D00A89E64 /* Jogo-SFML */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Jogo-SFML"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F43568E230ED17600A89E64 /* libsfml-system.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-system.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-system.2.5.1.dylib"; sourceTree = "<group>"; };
 		2F43568F230ED17600A89E64 /* libsfml-network.2.5.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libsfml-network.2.5.1.dylib"; path = "../../../External-Libraries/Mac/SFML-2.5.1/lib/libsfml-network.2.5.1.dylib"; sourceTree = "<group>"; };
@@ -461,6 +467,8 @@
 				2F8A5FF6236F132100CDE82F /* StateStack.hpp */,
 				2F8A5FFE236FA65E00CDE82F /* ListaEntidades.cpp */,
 				2F8A5FFF236FA65E00CDE82F /* ListaEntidades.hpp */,
+				2F0D6488237C8D8700B214F4 /* ListaPersonagens.cpp */,
+				2F0D6489237C8D8700B214F4 /* ListaPersonagens.hpp */,
 			);
 			path = TADs;
 			sourceTree = "<group>";
@@ -481,6 +489,8 @@
 			children = (
 				2F0D64752378BE9200B214F4 /* GerenciadorArquivos.cpp */,
 				2F0D64762378BE9200B214F4 /* GerenciadorArquivos.hpp */,
+				2F0D6485237C8CDA00B214F4 /* GerenciadorColisoes.cpp */,
+				2F0D6486237C8CDA00B214F4 /* GerenciadorColisoes.hpp */,
 			);
 			path = Gerenciadores;
 			sourceTree = "<group>";
@@ -788,6 +798,7 @@
 				2F923777235BF7CC00747DCA /* tinyxmlerror.cpp in Sources */,
 				2FDA0C01234BB3D100E3209D /* MediaEngineParameters.cpp in Sources */,
 				2F923776235BF7CC00747DCA /* tinyxmlparser.cpp in Sources */,
+				2F0D6487237C8CDA00B214F4 /* GerenciadorColisoes.cpp in Sources */,
 				2F8A60032370F85F00CDE82F /* Context.cpp in Sources */,
 				2F8A60102371B80600CDE82F /* EventHandler.cpp in Sources */,
 				2FDA0BE623492EA600E3209D /* Personagem.cpp in Sources */,
@@ -823,6 +834,7 @@
 				2F0D64772378BE9200B214F4 /* GerenciadorArquivos.cpp in Sources */,
 				2FDA0BDA2349264500E3209D /* Entidade.cpp in Sources */,
 				2F8A6016237339AE00CDE82F /* TextView.cpp in Sources */,
+				2F0D648A237C8D8700B214F4 /* ListaPersonagens.cpp in Sources */,
 				2F92377B235BF7F300747DCA /* level.cpp in Sources */,
 				2F8A5FFD236F2E4D00CDE82F /* StateManager.cpp in Sources */,
 			);

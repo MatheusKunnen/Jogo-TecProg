@@ -45,7 +45,7 @@ void FaseMontanha::initMapa() {
 }
 
 // Methods
-void FaseMontanha::onKeyInput(Eventos::Tipo tipo){
+void FaseMontanha::onKeyInput(Eventos::Tipo tipo, const float& dt){
     switch (tipo) {
         case Eventos::Tipo::M_LEFT_A:
             this->mapa.move(Vector2f(-2.f, 0.f),0);

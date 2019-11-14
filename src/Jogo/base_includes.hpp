@@ -26,6 +26,7 @@ using sf::Texture;
 using sf::Sprite;
 using sf::Vector2i;
 using sf::Vector2f;
+using sf::FloatRect;
 using sf::View;
 
 using std::cout;

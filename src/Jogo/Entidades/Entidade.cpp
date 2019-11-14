@@ -26,6 +26,10 @@ Entidade::~Entidade(){
 }
 
 // Getters & Setters
+void Entidade::setGGrafico(GerenciadorGrafico *g_grafico) {
+    this->g_grafico = g_grafico;
+}
+
 void Entidade::setPosition(const Vector2f& position){
     //if (this->sprite == nullptr)
     //    return;
@@ -34,6 +38,10 @@ void Entidade::setPosition(const Vector2f& position){
 
 const Vector2f& Entidade::getPosition() const {
     return this->sprite.getPosition();
+}
+
+const FloatRect Entidade::getGlobalBounds() const {
+    return this->sprite.getGlobalBounds();
 }
 
 // Components Methos
@@ -64,6 +72,7 @@ void Entidade::update(const float& dt){
 }
 
 void Entidade::render(RenderTarget* target){
+    //target = this->g_grafico->getRenderWindow();
     target->draw(this->sprite);
 }
 

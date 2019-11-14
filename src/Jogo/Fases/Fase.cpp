@@ -20,6 +20,7 @@ jogador_a(jogador_a),
 jogador_b(jogador_b),
 mapa(g_grafico),
 textures(),
+g_colisoes(mapa, l_entidades),
 g_grafico(g_grafico),
 parametros(f_parametros)
 {
@@ -39,7 +40,38 @@ void Fase::initParametros(){
 // Methods
 void Fase::updateView(const float &dt){
     if (this->jogador_a != nullptr){
-        this->mapa.setPosition(this->jogador_a->getPosition());
+        this->mapa.setPosition(this->jogador_a->getPosition().x, this->g_grafico->getView()->getCenter().y);
+    }
+}
+
+void Fase::onKeyInput(Eventos::Tipo tipo, const float& dt){
+    switch (tipo) {
+        case Eventos::Tipo::M_LEFT_A:
+            if (this->jogador_a)
+                this->jogador_a->move(Vector2f(-1.f,0), dt);
+            break;
+        case Eventos::Tipo::M_RIGHT_A:
+            if (this->jogador_a)
+                 this->jogador_a->move(Vector2f(1.f,0), dt);
+            break;
+        case Eventos::Tipo::JUMP_A:
+             if (this->jogador_a)
+                 this->jogador_a->jump(10);
+            break;
+        case Eventos::Tipo::M_LEFT_B:
+             if (this->jogador_b)
+                 this->jogador_b->move(Vector2f(-1.f,0), dt);
+            break;
+        case Eventos::Tipo::M_RIGHT_B:
+            if (this->jogador_b)
+                this->jogador_b->move(Vector2f(1.f,0), dt);
+            break;
+        case Eventos::Tipo::JUMP_B:
+            if (this->jogador_b)
+                this->jogador_b->jump(10);
+            break;
+        default:
+            break;
     }
 }
 

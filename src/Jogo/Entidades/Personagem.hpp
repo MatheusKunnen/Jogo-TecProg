@@ -19,6 +19,9 @@ private:
     // Attributes
     int num_vidas;
     
+    // Components
+    unique_ptr<MoveComponent>       move_comp;
+    
     // Init methods
     virtual void initComponents() = 0;
     virtual void initMoveComponent() = 0;
@@ -26,11 +29,17 @@ public:
     // Constructor & Destructor
     Personagem(const Vector2f& position, Texture* texture);
     virtual ~Personagem();
-    // Getters & Setters
-    void setNumVidas(int num_vidas);
-    int getNumVidas();
+    void createMoveComponent(const float& max_vel, const float& acceleration, const float& deceleration);
     // Methods
     virtual void jump(const float& gain = 1.f);
+    virtual void onXCollision();
+    virtual void onYCollision();
+    
+    // Getters & Setters
+    unique_ptr<MoveComponent>& getMoveComponent();
+    void setNumVidas(int num_vidas);
+    int getNumVidas();
+    
 };
 
 }}}

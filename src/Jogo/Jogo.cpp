@@ -59,6 +59,9 @@ void Jogo::initJogadores(){
     // Aloca jogadores
     this->jogador_a = new Jogador(Vector2f(g_grafico->getRenderWindow()->getSize().x/2,512.f), &this->textures.get(Resources::Textures::player_a));
     this->jogador_b = new Jogador(Vector2f(980.f,600.f), &this->textures.get(Resources::Textures::player_b));
+    
+    this->jogador_a->setGGrafico(this->g_grafico);
+    this->jogador_b->setGGrafico(this->g_grafico);
 }
 
 void Jogo::initFases(){

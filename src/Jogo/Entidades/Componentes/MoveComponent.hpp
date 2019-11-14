@@ -16,12 +16,13 @@ private:
     // Attributes
     Vector2f    v_speed;
     float       max_speed;
-    float       v_aceleration;
-    float       v_deceleration;
+    Vector2f    v_aceleration;
+    Vector2f    v_deceleration;
     float&      gravity;
     Vector2f    v_direction;
     Sprite*     sprite;
-    
+    bool        onXCollision;
+    bool        onYCollision;
     // Init methods
     
     // Const
@@ -42,15 +43,18 @@ public:
     void update(const float& dt);
     void move(const Vector2f& direction, const float& dt = 1);
     void jump(const float& gain);
+    void reset();
+    void stopX();
+    void stopY();
     // Getters & Setters
     float getMaxSpeed() const;
     void setMaxSpeed(float maxSpeed);
     const Vector2f &getVSpeed() const;
     void setVSpeed(const Vector2f &vSpeed);
-    const float &getAceleration() const;
-    void setAceleration(const float &vAceleration);
-    const float &getDeceleration() const;
-    void setDeceleration(const float &vDeceleration);
+    const Vector2f &getAceleration() const;
+    void setAceleration(const Vector2f &vAceleration);
+    const Vector2f &getDeceleration() const;
+    void setDeceleration(const Vector2f &vDeceleration);
     void setGravity(const float& gravity);
 };
 

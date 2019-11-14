@@ -25,7 +25,6 @@ public:
     FaseFloresta(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b = nullptr);
     ~FaseFloresta();
     // Methods
-    void onKeyInput(Eventos::Tipo tipo);
     void update(const float& dt);
     void render(RenderTarget* target);
     void onInitFase(Jogador* jogador_a, Jogador* jogador_b);

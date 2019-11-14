@@ -13,6 +13,7 @@
 #include "../Entidades/Jogador.hpp"
 #include "../Entidades/level.hpp"
 #include "../GerenciadorGrafico.hpp"
+#include "../Gerenciadores/GerenciadorColisoes.hpp"
 #include "../Parametros/ParametrosFase.hpp"
 #include "../Resources/TexturesHolder.hpp"
 
@@ -26,6 +27,7 @@ using Entidades::Personagens::Jogador;
 
 using TADs::ListaEntidades;
 using Resources::TextureHolder;
+using Gerenciadores::GerenciadorColisoes;
 using Parametros::ParametrosFase;
 using Entidades::Mapas::Mapa;
 class Fase {
@@ -43,6 +45,7 @@ protected:
     TextureHolder       textures;
     
     GerenciadorGrafico* g_grafico;
+    GerenciadorColisoes g_colisoes;
     ParametrosFase      parametros;
     
     // Init Functions
@@ -59,7 +62,7 @@ public:
     virtual void update(const float& dt) = 0;
     virtual void updateView(const float& dt);
     virtual void render(RenderTarget* target) = 0;
-    virtual void onKeyInput(Eventos::Tipo tipo) = 0;
+    virtual void onKeyInput(Eventos::Tipo tipo, const float& dt);
     virtual void onInitFase(Jogador* jogador_a, Jogador* jogador_b) = 0;
     virtual void onCloseFase() = 0;
 };

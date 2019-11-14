@@ -17,22 +17,23 @@ namespace Game{ namespace Entidades {
 class Entidade {
 protected:
     // Attributes
-    Texture*            texture;
-    Sprite              sprite;
-    float               gravity;
-    GerenciadorGrafico* g_grafico;
-    // Components
-    unique_ptr<MoveComponent>       move_comp;
+    Texture*                        texture;
+    Sprite                          sprite;
+    float                           gravity;
+    GerenciadorGrafico*             g_grafico;
+
 public:
     // Constructor & Destructor
     explicit Entidade(Texture* texture = nullptr, GerenciadorGrafico* g_grafico = nullptr);
     virtual ~Entidade();
     // Getters & Setters
+    void setGGrafico(GerenciadorGrafico* g_grafico);
     virtual void setPosition(const Vector2f& position);
+    virtual const FloatRect getGlobalBounds() const;
     virtual const Vector2f& getPosition() const;
     // Component Methods
     virtual void setTexture(Texture* texture);
-    void createMoveComponent(const float& max_vel, const float& acceleration, const float& deceleration);
+    
     
     // Methods
     virtual void move(const sf::Vector2f& direction, const float& dt = 0);

@@ -20,7 +20,7 @@ Fase(FaseFloresta::CONFIG_FILE, g_grafico, jogador_a, jogador_b)
 {
     initTextures();
     initMapa();
-    initJogadores();
+    //initJogadores();
 }
 
 FaseFloresta::~FaseFloresta(){
@@ -33,10 +33,14 @@ void FaseFloresta::initTextures(){
 }
 
 void FaseFloresta::initJogadores(){
-    if (this->jogador_a != nullptr)
+    if (this->jogador_a != nullptr){
         this->l_entidades.add(this->jogador_a, false);
-    if (this->jogador_b != nullptr)
+        this->g_colisoes += this->jogador_a;
+    }
+    if (this->jogador_b != nullptr) {
         this->l_entidades.add(this->jogador_b, false);
+        this->g_colisoes += this->jogador_b;
+    }
 }
 
 void FaseFloresta::initMapa(){
@@ -46,37 +50,15 @@ void FaseFloresta::initMapa(){
     this->mapa.load(this->parametros.getArquivoMapa(), this->parametros.getArquivoTileSet());
 }
 // Methods
-void FaseFloresta::onKeyInput(Eventos::Tipo tipo){
-    switch (tipo) {
-        case Eventos::Tipo::M_LEFT_A:
-            this->jogador_a->move(Vector2f(-1.f,0), 0);
-            break;
-        case Eventos::Tipo::M_RIGHT_A:
-            this->jogador_a->move(Vector2f(1.f,0), 0);
-            break;
-        case Eventos::Tipo::JUMP_A:
-                
-            break;
-        case Eventos::Tipo::M_LEFT_B:
-            this->mapa.move(Vector2f(-6.f, 0.f),0);
-            break;
-        case Eventos::Tipo::M_RIGHT_B:
-            this->mapa.move(Vector2f(6.f, 0.f),0);
-            break;
-        case Eventos::Tipo::JUMP_B:
-            
-            break;
-        default:
-            break;
-    }
-}
-
 void FaseFloresta::update(const float &dt){
     l_entidades.update(dt); // Atualiza entidades
+    g_colisoes.gerenciarColisoes();
     this->updateView(dt);
 }
 
 void FaseFloresta::render(RenderTarget *target) {
+//    if (target == nullptr)
+//        target = this->g_grafico->getRenderWindow();
     this->l_entidades.render(target);
 
 }
@@ -93,7 +75,7 @@ void FaseFloresta::onInitFase(Jogador* jogador_a, Jogador* jogador_b){
 
 void FaseFloresta::onCloseFase(){
     this->l_entidades.clear(); // Limpa entidades
-    //this->l_entidades.add(&mapa);
+    this->g_colisoes.clear(); // Limpa gerenciador de colisoes
     this->g_grafico->resetDefaultView(); // Retorna View original
 }
 }}
