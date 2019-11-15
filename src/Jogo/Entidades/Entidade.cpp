@@ -13,8 +13,7 @@ namespace Game{ namespace Entidades {
 Entidade::Entidade(Texture* texture, GerenciadorGrafico* g_grafico):
 g_grafico(g_grafico),
 texture(texture),
-sprite(),
-move_comp(nullptr)
+sprite()
 {
     this->setTexture(texture);
 }
@@ -22,7 +21,7 @@ move_comp(nullptr)
 Entidade::~Entidade(){
     //delete this->sprite;
     //this->sprite = nullptr;
-    this->move_comp.reset();
+    //this->move_comp.reset();
 }
 
 // Getters & Setters
@@ -31,8 +30,6 @@ void Entidade::setGGrafico(GerenciadorGrafico *g_grafico) {
 }
 
 void Entidade::setPosition(const Vector2f& position){
-    //if (this->sprite == nullptr)
-    //    return;
     this->sprite.setPosition(position);
 }
 
@@ -42,6 +39,10 @@ const Vector2f& Entidade::getPosition() const {
 
 const FloatRect Entidade::getGlobalBounds() const {
     return this->sprite.getGlobalBounds();
+}
+
+void Entidade::move(const sf::Vector2f& direction, const float& dt){
+    
 }
 
 // Components Methos
@@ -54,21 +55,11 @@ void Entidade::setTexture(Texture* texture){
     this->sprite.setScale(0.3f, 0.3f);
 }
 
-void Entidade::createMoveComponent(const float& max_vel, const float& acceleration, const float& deceleration){
-    this->move_comp = unique_ptr<MoveComponent>(new MoveComponent(&this->sprite, gravity, max_vel, acceleration, deceleration));
-}
+
 
 // Methods
-void Entidade::move(const sf::Vector2f& direction, const float& dt){
-    if (this->move_comp == nullptr)
-        return;
-    this->move_comp->move(direction, dt);
+void Entidade::update(const float &dt){
     
-}
-
-void Entidade::update(const float& dt){
-    if (this->move_comp != nullptr)
-        this->move_comp->update(dt);
 }
 
 void Entidade::render(RenderTarget* target){

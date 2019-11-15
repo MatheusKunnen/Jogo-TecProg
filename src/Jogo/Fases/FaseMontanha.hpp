@@ -18,7 +18,6 @@ private:
     
     // Init Methods
     void initTextures();
-    void initJogadores();
     void initMapa();
 public:
     // Constructor & Destructor

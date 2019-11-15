@@ -10,6 +10,7 @@
 #define Base_includes_h
 
 #include <iostream>
+#include <cmath>
 #include <fstream>
 #include <string>
 #include <map>
@@ -34,6 +35,7 @@ using std::cin;
 using std::cerr;
 using std::endl;
 using std::string;
+using std::pow;
 
 using std::unique_ptr;
 using std::move;

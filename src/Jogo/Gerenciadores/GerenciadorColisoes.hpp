@@ -29,6 +29,7 @@ private:
     ListaEntidades&     l_entidades;
     Mapa&               mapa;
     
+    const Vector2f distance(const FloatRect& a, const FloatRect& b);
 public:
     // Constructor & Destructor
     GerenciadorColisoes(Mapa& mapa, ListaEntidades& l_entidades);
@@ -36,9 +37,10 @@ public:
     
     // Methods
     void gerenciarColisoes();
-    void gerenciarColisoesMapa();
-    void gerenciarColisoesEntidades();
+    void gerenciarColisoesPersonagensMapa();
+    void gerenciarColisoesPersonagensPersonagens();
     void checkMapCollision(Personagem* personagem);
+    void checkPPCollision(Personagem* personagem_a, Personagem* personagem_b);
     void addPersonagem(Personagem* personagem);
     void clear();
     // Operadores

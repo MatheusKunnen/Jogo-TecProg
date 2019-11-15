@@ -1,5 +1,10 @@
 {
     "arquivo_mapa":"Resources/maps/fase_a.tmx",
     "arquivo_tileset":"Resources/maps/tileset64.png",
-    "arquivo_bg":"Resources/img/textures/backgrounds/bg_fase_a.jpeg"
+    "arquivo_bg":"Resources/img/textures/backgrounds/bg_fase_a.jpeg",
+    "pos_x_p_a":425,
+    "pos_y_p_a":570,
+    "pos_x_p_b":315,
+    "pos_y_p_b":570
+    
 }

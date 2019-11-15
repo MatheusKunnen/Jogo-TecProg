@@ -16,6 +16,9 @@ private:
     string      arquivo_mapa;
     string      arquivo_tileset;
     string      arquivo_bg;
+    Vector2f    pos_player_a;
+    Vector2f    pos_player_b;
+    
 public:
     // Constructor & Destructor
     ParametrosFase(const string& filename);
@@ -30,6 +33,10 @@ public:
     const string& getArquivoTileSet() const;
     void setArquivoBackground(const string& arquivo_bg);
     const string& getArquivoBackground() const;
+    void setPosPlayerA(const Vector2f& pos_player_a);
+    const Vector2f& getPosPlayerA() const;
+    void setPosPlayerB(const Vector2f& pos_player_b);
+    const Vector2f& getPosPlayerB() const;
 };
 }}
 

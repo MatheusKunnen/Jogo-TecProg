@@ -23,6 +23,8 @@ private:
     // Attributes
     list<Personagem*>       l_personagens;
     list<Personagem*>::iterator  itr_personagens;
+    
+    
 public:
     // Constructor & Destructor
     ListaPersonagens();
@@ -34,9 +36,13 @@ public:
     bool beginItr();
     bool nextItr();
     Personagem* getItr() const;
+    Personagem* get(const int& i);
     
+    // Getters & Setters
+    const long getCount() const;
     // Operators
     void operator+=(Personagem* personagem);
+    Personagem* operator[](const int& i);
 };
 
 }}

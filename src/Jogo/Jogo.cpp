@@ -88,8 +88,11 @@ void Jogo::run() {
         updateDt();
         update();
         render();
-        if (30 - this->dt < 0)
-            cout << this->dt << endl;
+        cout << this->dt << " FPS:" << (int) 1/this->dt << endl;
+        if (.10 - this->dt < 0){
+            cerr << "WARNING: " << this->dt << endl;
+            this->dt = .10;
+        }
     }
 }
 

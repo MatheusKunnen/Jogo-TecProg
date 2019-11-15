@@ -30,13 +30,6 @@ void FaseMontanha::initTextures(){
     this->textures.load(Resources::Textures::background_01, this->textures.getFilename(Resources::Textures::background_01));
 }
 
-void FaseMontanha::initJogadores(){
-    if (this->jogador_a != nullptr)
-        this->l_entidades.add(this->jogador_a, false);
-    if (this->jogador_b != nullptr)
-        this->l_entidades.add(this->jogador_b, false);
-}
-
 void FaseMontanha::initMapa() {
     // Coloca textura de fundo
     this->mapa.setTexture(&this->textures.get(Resources::Textures::background_01));

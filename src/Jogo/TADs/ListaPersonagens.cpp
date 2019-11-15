@@ -50,8 +50,29 @@ Personagem* ListaPersonagens::getItr() const {
     return *this->itr_personagens;
 }
 
+Personagem* ListaPersonagens::get(const int &i){
+    if (i >= this->getCount()) // Verifica que o elemento esteja na lista
+        return nullptr;
+    // Inicia iterador
+    list<Personagem*>::iterator itr = this->l_personagens.begin();
+    // Vai até a posicao do elemento
+    int j;
+    for(j = 0; j < i; j++, itr++);
+    // Retorna elemento
+    return *itr;
+}
+
+// Getters && setters
+const long ListaPersonagens::getCount() const {
+    return this->l_personagens.size();
+}
+    
 // Operators
 void ListaPersonagens::operator+=(Personagem* personagem){
     this->add(personagem);
+}
+
+Personagem* ListaPersonagens::operator[](const int &i){
+    return this->get(i);
 }
 }}

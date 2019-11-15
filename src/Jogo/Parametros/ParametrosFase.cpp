@@ -14,7 +14,9 @@ ParametrosFase::ParametrosFase(const string& filename):
 Parametro(filename),
 arquivo_mapa(),
 arquivo_tileset(),
-arquivo_bg()
+arquivo_bg(),
+pos_player_a(250.f, 250.f),
+pos_player_b(250.f, 250.f)
 {
     
 }
@@ -35,6 +37,11 @@ bool ParametrosFase::loadFromFile(const string &filename){
         this->setArquivoMapa(this->g_arquivos.getData()["arquivo_mapa"]);
         this->setArquivoTileSet(this->g_arquivos.getData()["arquivo_tileset"]);
         this->setArquivoBackground(this->g_arquivos.getData()["arquivo_bg"]);
+        this->setPosPlayerA(Vector2f(this->g_arquivos.getData()["pos_x_p_a"],
+                                     this->g_arquivos.getData()["pos_y_p_a"]));
+        this->setPosPlayerB(Vector2f(this->g_arquivos.getData()["pos_x_p_b"],
+                                     this->g_arquivos.getData()["pos_y_p_b"]));
+
     } catch(std::exception e){
         status = false;
         cerr << "ERROR: ParametrosFase::loadFromFile(): " << e.what() << endl;
@@ -50,6 +57,10 @@ bool ParametrosFase::saveToFile(const string &filename) {
     data["arquivo_mapa"] = this->getArquivoMapa();
     data["arquivo_tileset"] = this->getArquivoTileSet();
     data["arquivo_bg"] = this->getArquivoBackground();
+    data["pos_x_p_a"] = this->pos_player_a.x;
+    data["pos_y_p_a"] = this->pos_player_a.y;
+    data["pos_x_p_b"] = this->pos_player_b.x;
+    data["pos_y_p_b"] = this->pos_player_b.y;
     // Passa json para o gerenciador de arquivos
     g_arquivos.setData(data);
     // Manda ao gerenciador de arquivos guardar o json
@@ -81,5 +92,21 @@ void ParametrosFase::setArquivoBackground(const string &arquivo_bg){
 
 const string& ParametrosFase::getArquivoBackground() const {
     return this->arquivo_bg;
+}
+
+void ParametrosFase::setPosPlayerA(const Vector2f &pos_player_a){
+    this->pos_player_a = pos_player_a;
+}
+
+const Vector2f& ParametrosFase::getPosPlayerA() const {
+    return this->pos_player_a;
+}
+
+void ParametrosFase::setPosPlayerB(const Vector2f &pos_player_b){
+    this->pos_player_b = pos_player_b;
+}
+
+const Vector2f& ParametrosFase::getPosPlayerB() const {
+    return this->pos_player_b;
 }
 }}

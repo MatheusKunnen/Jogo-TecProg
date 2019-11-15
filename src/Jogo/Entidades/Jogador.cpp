@@ -26,7 +26,8 @@ void Jogador::initComponents(){
 }
 
 void Jogador::initMoveComponent(){
-    this->createMoveComponent(100.f,250, 200);
+    
+    //this->createMoveComponent(100.f,250, 200);
 }
 
 //Methods

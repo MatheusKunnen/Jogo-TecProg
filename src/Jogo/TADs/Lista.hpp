@@ -124,13 +124,19 @@ public:
     }
     Elemento<Tipo>* begin() const { return this->p_first; };
     void clearAll(){ // Limpa todos os elementos
-        this->lenght = 0;
+        this->lenght = 0; // Coloca tamanho nulo
+        
         Elemento<Tipo>* aux;
+        
+        // Desaloca ponteiros
         while(this->p_first != nullptr && this->lenght > 0){
             aux = this->p_first++;
             delete this->p_first;
             this->p_first = aux;
         }
+        // Limpa ponteiros
+        this->p_first = nullptr;
+        this->p_last = nullptr;
     };
     // Operators
     virtual void operator+=(Tipo& elemento) { this->addFront(&elemento); };

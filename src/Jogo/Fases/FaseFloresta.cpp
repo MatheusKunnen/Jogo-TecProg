@@ -32,17 +32,6 @@ void FaseFloresta::initTextures(){
     this->textures.load(Resources::Textures::background_01, this->textures.getFilename(Resources::Textures::background_01));
 }
 
-void FaseFloresta::initJogadores(){
-    if (this->jogador_a != nullptr){
-        this->l_entidades.add(this->jogador_a, false);
-        this->g_colisoes += this->jogador_a;
-    }
-    if (this->jogador_b != nullptr) {
-        this->l_entidades.add(this->jogador_b, false);
-        this->g_colisoes += this->jogador_b;
-    }
-}
-
 void FaseFloresta::initMapa(){
     // Coloca textura de fundo
     this->mapa.setTexture(&this->textures.get(Resources::Textures::background_01));
@@ -51,8 +40,9 @@ void FaseFloresta::initMapa(){
 }
 // Methods
 void FaseFloresta::update(const float &dt){
-    l_entidades.update(dt); // Atualiza entidades
     g_colisoes.gerenciarColisoes();
+    l_entidades.update(dt); // Atualiza entidades
+
     this->updateView(dt);
 }
 

@@ -37,6 +37,19 @@ void Fase::initParametros(){
     this->parametros.loadFromFile();
 }
 
+void Fase::initJogadores(){
+    if (this->jogador_a != nullptr){
+        this->l_entidades.add(this->jogador_a, false);
+        this->g_colisoes += this->jogador_a;
+        this->jogador_a->setPosition(this->parametros.getPosPlayerA());
+    }
+    if (this->jogador_b != nullptr) {
+        this->l_entidades.add(this->jogador_b, false);
+        this->g_colisoes += this->jogador_b;
+        this->jogador_b->setPosition(this->parametros.getPosPlayerB());
+    }
+}
+
 // Methods
 void Fase::updateView(const float &dt){
     if (this->jogador_a != nullptr){

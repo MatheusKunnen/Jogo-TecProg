@@ -51,7 +51,7 @@ protected:
     // Init Functions
     void initParametros();
     virtual void initTextures() = 0;
-    virtual void initJogadores() = 0;
+    virtual void initJogadores();
     virtual void initMapa() = 0;
 public:
     // Constructor & Destructor
