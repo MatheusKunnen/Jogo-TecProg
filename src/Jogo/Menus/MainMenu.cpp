@@ -34,24 +34,6 @@ void MainMenu::initWidgets(){
     this->initButtons();
 }
 
-void MainMenu::initFonts(){
-    // Carrega fonte a ser utilizada
-    try {
-        this->fonts.load(Resources::Fonts::font_01, this->fonts.getFilename(Resources::Fonts::font_01));
-    } catch (std::exception e){
-        cerr << "MainMenu::initFonts: Error loading fonts" << endl;
-    }
-}
-
-void MainMenu::initTextures(){
-    // Carrega texturas a serem utilizadas
-    try {
-        this->textures.load(Resources::Textures::background_01, TextureHolder::getFilename(Resources::Textures::background_01));
-    } catch (std::exception e) {
-        cerr << "MainMenu::initTextures: ERROR Loading textutes: " << endl;
-    }
-}
-
 void MainMenu::initButtons(){
     // Inicia buttons com suas posicoes é tamanhos
     Vector2f btn_size = Vector2f(450.f, 100.f);
@@ -69,17 +51,13 @@ void MainMenu::initButtons(){
     this->widgets.add(btn_exit, new Button(btn_exit, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "EXIT"));
 }
 
-void MainMenu::initBackground(){
-    this->background.setTexture(&this->textures.get(Resources::Textures::background_01));
-}
 
+// Methods
 void MainMenu::updateMenu(const float &dt) {
     this->context.update(dt);
     this->widgets.update(dt);
 }
 
-
-// Methods
 void MainMenu::renderMenu(RenderTarget *target) const {
     target->draw(this->background);
     this->widgets.render(target);    

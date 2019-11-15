@@ -16,7 +16,8 @@ arquivo_mapa(),
 arquivo_tileset(),
 arquivo_bg(),
 pos_player_a(250.f, 250.f),
-pos_player_b(250.f, 250.f)
+pos_player_b(250.f, 250.f),
+pos_x_win(1000.f)
 {
     
 }
@@ -41,6 +42,7 @@ bool ParametrosFase::loadFromFile(const string &filename){
                                      this->g_arquivos.getData()["pos_y_p_a"]));
         this->setPosPlayerB(Vector2f(this->g_arquivos.getData()["pos_x_p_b"],
                                      this->g_arquivos.getData()["pos_y_p_b"]));
+        this->setPosXWin(this->g_arquivos.getData()["pos_x_win"]);
 
     } catch(std::exception e){
         status = false;
@@ -61,6 +63,7 @@ bool ParametrosFase::saveToFile(const string &filename) {
     data["pos_y_p_a"] = this->pos_player_a.y;
     data["pos_x_p_b"] = this->pos_player_b.x;
     data["pos_y_p_b"] = this->pos_player_b.y;
+    data["pos_x_win"] = this->getPosXWin();
     // Passa json para o gerenciador de arquivos
     g_arquivos.setData(data);
     // Manda ao gerenciador de arquivos guardar o json
@@ -109,4 +112,13 @@ void ParametrosFase::setPosPlayerB(const Vector2f &pos_player_b){
 const Vector2f& ParametrosFase::getPosPlayerB() const {
     return this->pos_player_b;
 }
+
+void ParametrosFase::setPosXWin(const float &pos_x_win) {
+    this->pos_x_win = pos_x_win;
+}
+
+const float& ParametrosFase::getPosXWin() const {
+    return this->pos_x_win;
+}
+
 }}

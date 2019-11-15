@@ -10,27 +10,32 @@
 #define FaseFlorestaState_hpp
 
 #include "State.hpp"
-#include "../Jogo.hpp"
 #include "../Fases/Fase.hpp"
 
 namespace Game {  namespace States {
 
+using Entidades::Personagens::Jogador;
 using Fases::Fase;
+using Fases::FaseEventHandler;
 
-class FaseState : public State {
+class FaseState : public State, public FaseEventHandler {
 private:
     Fase&        fase;
     
     // Init Methods
     void initValidKeys();
 public:
-    FaseState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, Fase& fase);
+    FaseState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, Fase& fase, Jogador* jogador_a, Jogador* jogador_b);
     ~FaseState();
     
     // Methods
     void update(const float& dt);
     void updateKeyInput(const float& dt);
     void render(RenderTarget* target);
+    void onWin();
+    void onFailed();
+    // Methods (FaseEventHandler)
+    void onFaseEvent(Fases::Event event_id);
 };
 }}
 

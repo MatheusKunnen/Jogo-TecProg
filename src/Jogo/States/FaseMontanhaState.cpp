@@ -13,7 +13,7 @@ namespace Game { namespace States{
 // Contructor & Destructor
 FaseMontanhaState::FaseMontanhaState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, Fase& fase):
 fase(fase),
-State(handler, g_grafico, supported_keys, phase_b){
+State(handler, g_grafico, supported_keys, fase_montanha){
     this->initValidKeys();
 }
 
@@ -56,7 +56,7 @@ void FaseMontanhaState::updateKeyInput(const float& dt){
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["MOVE_RIGHT_B"])))
         return;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["JUMP_B"])))
-        this->manager->pushState(States::pause_menu);
+        this->manager->pushTopState(States::pause_menu);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["CLOSE"])))
         this->endState();
 }

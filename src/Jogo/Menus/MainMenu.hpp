@@ -18,10 +18,8 @@ private:
     // Init methods
     void initMenu();
     void initWidgets();
-    void initFonts();
-    void initTextures();
     void initButtons();
-    void initBackground();
+
     // Const
     enum used_buttons{btn_new_game, btn_ranking, btn_config, btn_exit};
 public:

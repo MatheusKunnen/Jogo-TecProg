@@ -11,6 +11,7 @@
 
 #include "../GUI/ListaWidgets.hpp"
 #include "../GUI/Button.hpp"
+#include "../GUI/TextView.hpp"
 #include "../Resources/TexturesHolder.hpp"
 #include "../Resources/FontHolder.hpp"
 #include "../base_includes.hpp"
@@ -19,6 +20,7 @@ namespace Game { namespace Menus {
 
 using GUI::ListaWidgets;
 using GUI::Button;
+using GUI::TextView;
 using GUI::Context;
 using GUI::EventHandler;
 
@@ -29,7 +31,7 @@ class Menu : public EventHandler {
 protected:
     // Attributes
     Context                 context;
-    sf::RectangleShape      background;
+    RectangleShape          background;
     FontHolder              fonts;
     TextureHolder           textures;
     
@@ -38,11 +40,14 @@ protected:
     // Init methods
     virtual void initMenu() = 0;
     virtual void initWidgets() = 0;
-    virtual void initFonts() = 0;
+    virtual void initTextures();
+    virtual void initFonts();
+    virtual void initBackground();
 public:
     // Contructor & Destructor
     Menu(RenderWindow& window);
     virtual ~Menu();
+    
     // Methods
     virtual void updateMenu(const float& dt) = 0;
     virtual void renderMenu(RenderTarget* target) const = 0;

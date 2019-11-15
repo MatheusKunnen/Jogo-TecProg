@@ -10,25 +10,18 @@
 #define GameState_hpp
 
 #include "State.hpp"
-#include "../Resources/TexturesHolder.hpp"
-#include "../Entidades/Jogador.hpp"
-#include "../Entidades/level.hpp"
-#include "../base_includes.hpp"
+#include "../Menus/GameMenu.hpp"
+
 namespace Game { namespace States {
 
-using Resources::TextureHolder;
-using Entidades::Personagens::Jogador;
-using Entidades::Mapas::Mapa;
-class GameState : public State {
+// Usings
+using Menus::GameMenu;
+
+class GameState : public State, public GameMenu{
 private:
-    // Attributes
-    TextureHolder       textures_used;
-    Jogador*            jogador; // DEBUG
-    Mapa               lvl;
     // Init methods
-    void initTextures();
     void initValidKeys();
-    void initEntities();
+    
 public:
     // Contructor & Destructor
     GameState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
@@ -38,8 +31,12 @@ public:
     void updateKeyInput(const float& dt);
     void update(const float& dt);
     void render(RenderTarget* target);
+    
+    // Menu Methods
+    void onStartFaseFloresta();
+    void onStartFaseMontanha();
+    void onExit();
 };
-
 }};
 
 #endif /* GameState_hpp */

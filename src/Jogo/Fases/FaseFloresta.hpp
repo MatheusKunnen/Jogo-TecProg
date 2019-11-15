@@ -11,14 +11,15 @@
 
 #include "Fase.hpp"
 namespace Game { namespace Fases {
+
 class FaseFloresta : public Fase {
 private:
     // Const
     const static string CONFIG_FILE;
     
     // Init Methods
-    void initTextures();
-    void initMapa();
+    void initInimigos();
+    void initObstaculos();
 public:
     // Constructor & Destructor
     FaseFloresta(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b = nullptr);
@@ -26,7 +27,7 @@ public:
     // Methods
     void update(const float& dt);
     void render(RenderTarget* target);
-    void onInitFase(Jogador* jogador_a, Jogador* jogador_b);
+    void onInitFase(Jogador* jogador_a, Jogador* jogador_b, FaseEventHandler* event_handler);
     void onCloseFase();
     
 };

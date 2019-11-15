@@ -14,7 +14,7 @@
 
 namespace Game { namespace Resources{
 namespace Textures {
-    enum ID {background_01, background_02, player_a, player_b};
+    enum ID {background_01, bg_fase, player_a, player_b, narcotraficante, desmatador, narcotraficante_desmatador};
 }
 class TextureHolder : public ResourceHolder<sf::Texture, Textures::ID>{
 private:

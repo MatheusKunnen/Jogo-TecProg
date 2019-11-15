@@ -22,4 +22,26 @@ Menu::~Menu(){
     
 }
 
+// Init Methods
+void Menu::initFonts(){
+    // Carrega fonte a ser utilizada
+    try {
+        this->fonts.load(Resources::Fonts::font_01, this->fonts.getFilename(Resources::Fonts::font_01));
+    } catch (std::exception e){
+        cerr << "Menu::initFonts: Error loading fonts" << endl;
+    }
+}
+
+void Menu::initTextures(){
+    // Carrega texturas a serem utilizadas
+    try {
+        this->textures.load(Resources::Textures::background_01, TextureHolder::getFilename(Resources::Textures::background_01));
+    } catch (std::exception e) {
+        cerr << "Menu::initTextures: ERROR Loading textutes: " << endl;
+    }
+}
+void Menu::initBackground(){
+    this->background.setTexture(&this->textures.get(Resources::Textures::background_01));
+}
+
 }}

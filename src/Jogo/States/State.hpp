@@ -16,7 +16,7 @@
 
 namespace Game { namespace States {
 // Const
-enum states_id{main_menu, game_menu, config, ranking, pause_menu, fase_floresta, phase_b};
+enum states_id{main_menu, game_menu, config_menu, ranking_menu, pause_menu, win_menu, failed_menu, fase_floresta, fase_montanha};
 
 using Resources::TextureHolder;
 

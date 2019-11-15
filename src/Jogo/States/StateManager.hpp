@@ -17,7 +17,9 @@ class StateManager {
 public:
     StateManager() { };
     ~StateManager() { };
-    virtual void pushState(states_id id) = 0;
+    virtual void pushTopState(states_id id) = 0;
+    virtual void popTopState() = 0;
+    virtual void addStatePop(int n_states = 1) = 0;
 };
 }};
 

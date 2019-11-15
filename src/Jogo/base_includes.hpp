@@ -49,5 +49,4 @@ using std::vector;
 using std::runtime_error;
 
 static const bool DEBUG_MODE = true;
-static const string FONT_01_DIR = "Resources/fonts/font-01.otf"; // Crear clase FontHolder
 #endif /* Base_includes */

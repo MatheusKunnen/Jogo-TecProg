@@ -1,6 +1,4 @@
 #include "Jogo.hpp"
-//#include "FaseMontanhaState.hpp"
-#include "States/FaseState.hpp"
 
 namespace Game {
 
@@ -48,7 +46,7 @@ void Jogo::initStates(){
 void Jogo::initTextures(){
     // Carrega texturas de jogadores
     this->textures.load(Resources::Textures::player_a, textures.getFilename(    Resources::Textures::player_a));
-        this->textures.load(Resources::Textures::player_b, textures.getFilename(    Resources::Textures::player_b));
+    this->textures.load(Resources::Textures::player_b, textures.getFilename(    Resources::Textures::player_b));
 }
 
 void Jogo::initJogadores(){
@@ -57,11 +55,11 @@ void Jogo::initJogadores(){
     this->jogador_b = new Jogador(Vector2f(980.f,600.f), &this->textures.get(Resources::Textures::player_b));
     
     this->jogador_a->setGGrafico(this->g_grafico);
-    this->jogador_b->setGGrafico(this->g_grafico);
+    //this->jogador_b->setGGrafico(this->g_grafico);
 }
 
 void Jogo::initFases(){
-
+    
 }
 
 void Jogo::initKeys(){
@@ -90,20 +88,19 @@ void Jogo::run() {
         update();
         // Renderiza estados
         render();
-        //if (DEBUG_MODE)
-        //    cout << this->dt << " FPS:" << (int) 1/this->dt << endl; // Imprime dt ê os FPS
+        // Notifica quando a variação de tempo for muito alta
         if (1/50.f - this->dt < 0){
             cerr << "WARNING: " << this->dt << " Missed: " << 1/(this->dt-1/50.f)<<endl;
-            this->dt = .10;
+            this->dt = .10; // Limita maxima variacao do tempo
         }
     }
 }
 
 void Jogo::endGame(){
-    delete this->g_grafico; // Desaloca gerenciador grafico
+    // Desaloca gerenciador grafico
+    delete this->g_grafico;
     while(!this->states.empty())
-        this->states.pop(); // Lista desaloca a memoria ao fazer o "pop"
-    
+        this->states.pop(); // Pilha desaloca a elemento ao fazer o "pop"
     // Desaloca jogadores
     delete this->jogador_a;
     delete this->jogador_b;
@@ -117,7 +114,7 @@ void Jogo::updateDt(){
 
 void Jogo::handleEvents(){
     while(this->g_grafico->getRenderWindow()->pollEvent(event_pool)){
-        // Se a janela é fechada
+        // Verifica se a janela é fechada
         if (event_pool.type == sf::Event::Closed)
             this->is_running = false;
     }
@@ -126,16 +123,18 @@ void Jogo::handleEvents(){
 void Jogo::update(){
     // Verifica Eventos
     this->handleEvents();
+    // Verifica fila de estados a finalizar
+    while(this->states_2_pop > 0){
+        this->popTopState();
+        this->states_2_pop--;
+    }
     // Atualiza estado se existir algum
     if (!this->states.empty()){
         // Atualiza estado
         this->states.top()->update(this->dt);
         // Verifica se o estado quer finalizar
-        if (this->states.top()->isQuitting()){
-            // Remove estado da pila (e é desalocado)
-            this->states.top()->endState();
-            this->states.pop();
-        }
+        if (this->states.top()->isQuitting())
+            this->popTopState(); // Remove estado da pila (e é desalocado)
     } else
         // Para execucao se a pilha se estados encontra-se vazia
         this->is_running = false;
@@ -151,7 +150,7 @@ void Jogo::render(){
     this->g_grafico->getRenderWindow()->display();
 }
 
-void Jogo::pushState(States::states_id id){
+void Jogo::pushTopState(States::states_id id){
     State* state  = nullptr;
     // Aloca estado solicitado
     switch (id) {
@@ -161,18 +160,29 @@ void Jogo::pushState(States::states_id id){
         case States::states_id::game_menu:
             state = new GameState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
-        case States::states_id::ranking:
-            this->fase_floresta.onInitFase(this->jogador_a, this->jogador_b); // Notifica inicio de estado à fase
-            state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_floresta);
+        case States::states_id::config_menu:
+            state = new ConfigMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
-        case States::states_id::config:
-            state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_montanha);
+        case States::states_id::ranking_menu:
+            state = new RankingMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            break;
+        case States::states_id::pause_menu:
+            state = new PauseMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            break;
+        case States::states_id::win_menu:
+            state = new WinMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            break;
+        case States::states_id::failed_menu:
+            state = new FailedMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::fase_floresta:
-            //state = new FaseFlorestaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            //this->fase_floresta.onInitFase(this->jogador_a, this->jogador_b);
+            state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_floresta, this->getJogadorA(), this->getJogadorB());
             break;
-        case States::states_id::phase_b:
-            //state = new FaseMontanhaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+        case States::states_id::fase_montanha:
+            // Notifica inicio de estado à fase
+            //this->fase_montanha.onInitFase(this->jogador_a, this->jogador_b);
+            state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_montanha, this->getJogadorA(), this->getJogadorB());
         default:
             // Caso o ID seja inválido
             cerr << "ERROR: Jogo::pushState(): Trying to push unidentified state." << endl;
@@ -181,19 +191,32 @@ void Jogo::pushState(States::states_id id){
     // Se um estado foi alocado o agrega à pilha
     if (state != nullptr)
         this->states.push(state);
+    // Delay para evitar falsos eventos
+    sf::sleep(sf::milliseconds(150));
 }
 
+void Jogo::popTopState(){
+    if (!this->states.empty())
+        this->states.top()->endState(); // Notifica termino
+        this->states.pop(); // Remove da pilha e desaloca
+}
+
+void Jogo::addStatePop(int n_states){
+    this->states_2_pop = n_states;
+    // Delay para evitar falsos eventos
+    sf::sleep(sf::milliseconds(150));
+}
 
 // Getters & Setters
 int Jogo::getStatusCode() const {
     return this->status_code; // Retorna estado final da execução
 }
 
-const Jogador* Jogo::getJogadorA() const {
+Jogador* Jogo::getJogadorA() const {
     return this->jogador_a;
 }
 
-const Jogador* Jogo::getJogadorB() const {
+Jogador* Jogo::getJogadorB() const {
     return this->jogador_b;
 }
 }

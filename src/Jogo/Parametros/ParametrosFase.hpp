@@ -18,6 +18,7 @@ private:
     string      arquivo_bg;
     Vector2f    pos_player_a;
     Vector2f    pos_player_b;
+    float       pos_x_win;
     
 public:
     // Constructor & Destructor
@@ -37,6 +38,8 @@ public:
     const Vector2f& getPosPlayerA() const;
     void setPosPlayerB(const Vector2f& pos_player_b);
     const Vector2f& getPosPlayerB() const;
+    void setPosXWin(const float& pos_player_b);
+    const float& getPosXWin() const;
 };
 }}
 

@@ -4,10 +4,14 @@
 #include "TADs/StateStack.hpp"
 
 #include "States/StateManager.hpp"
-#include "States/MainMenuState.hpp"
 #include "States/GameState.hpp"
+#include "States/MainMenuState.hpp"
+#include "States/RankingMenuState.hpp"
+#include "States/ConfigMenuState.hpp"
 #include "States/FaseState.hpp"
-#include "States/FaseMontanhaState.hpp"
+#include "States/PauseMenuState.hpp"
+#include "States/WinMenuState.hpp"
+#include "States/FailedMenuState.hpp"
 
 #include "GerenciadorGrafico.hpp"
 
@@ -18,13 +22,6 @@
 
 namespace Game {
 
-namespace States {
-
-class FaseState;
-class FaseMontanhaState;
-
-}
-
 // Usings
 using sf::Clock;
 using sf::Event;
@@ -32,9 +29,13 @@ using sf::Event;
 using States::State;
 using States::StateManager;
 using States::MainMenuState;
+using States::RankingMenuState;
+using States::ConfigMenuState;
+using States::PauseMenuState;
+using States::WinMenuState;
+using States::FailedMenuState;
 using States::GameState;
 using States::FaseState;
-using States::FaseMontanhaState;
 
 using Resources::TextureHolder;
 
@@ -48,12 +49,14 @@ class Jogo : public StateManager {
 private:
     // Sigleton instance pointer
     static Jogo*                main_instance; // Instancia do jogo para o Singleton
+    
     // Attributes
     Event                       event_pool; // Eventos de SFML
     Clock                       main_clock; // Relogio principal do jogo
     GerenciadorGrafico*         g_grafico; // Referencia ao gerenciador grafico
     
     StateStack                  states; // Pilha de estados
+    int                         states_2_pop; // Nro estados a ser removidos
     map<string, int>            valid_keys; // Mapa Keys habilidas
     float                       dt; // Variacao do tempo
     int                         status_code; // Estado da execucao
@@ -90,11 +93,15 @@ public:
     void handleEvents();
     void update();
     void render();
-    void pushState(States::states_id id);
+    
+    // State Manager Methods
+    void pushTopState(States::states_id id);
+    void popTopState();
+    void addStatePop(int n_states = 1);
     
     // Getters & Setters
-    const Jogador* getJogadorA() const;
-    const Jogador* getJogadorB() const;
+    Jogador* getJogadorA() const;
+    Jogador* getJogadorB() const;
 	int getStatusCode() const;
 
 };

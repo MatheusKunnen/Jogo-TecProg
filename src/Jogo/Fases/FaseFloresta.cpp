@@ -18,9 +18,7 @@ const string FaseFloresta::CONFIG_FILE("Resources/config/fase_a_config.json");
 FaseFloresta::FaseFloresta(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b):
 Fase(FaseFloresta::CONFIG_FILE, g_grafico, jogador_a, jogador_b)
 {
-    initTextures();
-    initMapa();
-    //initJogadores();
+    
 }
 
 FaseFloresta::~FaseFloresta(){
@@ -28,44 +26,51 @@ FaseFloresta::~FaseFloresta(){
 }
 
 // Init Methods
-void FaseFloresta::initTextures(){
-    this->textures.load(Resources::Textures::background_01, this->textures.getFilename(Resources::Textures::background_01));
+void FaseFloresta::initInimigos() {
+    
 }
 
-void FaseFloresta::initMapa(){
-    // Coloca textura de fundo
-    this->mapa.setTexture(&this->textures.get(Resources::Textures::background_01));
-    // Carrega Mapa
-    this->mapa.load(this->parametros.getArquivoMapa(), this->parametros.getArquivoTileSet());
+void FaseFloresta::initObstaculos() {
+    
 }
+
 // Methods
 void FaseFloresta::update(const float &dt){
+    // Verifica colisoes
     g_colisoes.gerenciarColisoes();
-    l_entidades.update(dt); // Atualiza entidades
-
+    // Atualiza entidades
+    l_entidades.update(dt);
+    // Atualiza view do RenderWindow
     this->updateView(dt);
+    // Verifica se um jogador Ganhou/Perdeu
+    this->checkPlayerStatus();
 }
 
 void FaseFloresta::render(RenderTarget *target) {
-//    if (target == nullptr)
-//        target = this->g_grafico->getRenderWindow();
+    // Renderiza todas as entidades
     this->l_entidades.render(target);
-
 }
 
-void FaseFloresta::onInitFase(Jogador* jogador_a, Jogador* jogador_b){
-    this->l_entidades.add(&mapa);// Coloca jogadores na lista de entidades
+void FaseFloresta::onInitFase(Jogador* jogador_a, Jogador* jogador_b, FaseEventHandler* event_handler){
+    // Agrega mapa
+    this->l_entidades.add(&mapa);
+    // Atualiza ponteiros de jogadores
     this->jogador_a = jogador_a;
     this->jogador_b = jogador_b;
-    
+    // Inicia jogadores
     this->initJogadores();
-    
-    this->mapa.reset(); // Retorna o mapa a sua posicao inicial
+    // Retorna o mapa a sua posicao inicial
+    this->mapa.reset();
+    // Atualiza EventHandler
+    this->setEventHandler(event_handler);
 }
 
 void FaseFloresta::onCloseFase(){
-    this->l_entidades.clear(); // Limpa entidades
-    this->g_colisoes.clear(); // Limpa gerenciador de colisoes
-    this->g_grafico->resetDefaultView(); // Retorna View original
+    // Limpa entidades
+    this->l_entidades.clear();
+    // Limpa gerenciador de colisoes
+    this->g_colisoes.clear();
+    // Retorna à View original
+    this->g_grafico->resetDefaultView();
 }
 }}

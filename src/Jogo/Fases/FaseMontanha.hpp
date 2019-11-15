@@ -17,17 +17,16 @@ private:
     const static string     CONFIG_FILE;
     
     // Init Methods
-    void initTextures();
-    void initMapa();
+    void initInimigos();
+    void initObstaculos();
 public:
     // Constructor & Destructor
     FaseMontanha(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b = nullptr);
     ~FaseMontanha();
     // Methods
-    void onKeyInput(Eventos::Tipo tipo, const float& dt);
     void update(const float& dt);
     void render(RenderTarget* target);
-    void onInitFase(Jogador* jogador_a, Jogador* jogador_b);
+    void onInitFase(Jogador* jogador_a, Jogador* jogador_b, FaseEventHandler* event_handler);
     void onCloseFase();
 };
 

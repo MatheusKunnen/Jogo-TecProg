@@ -12,6 +12,7 @@ namespace GUI {
 // Contructor & Destructor
 TextView::TextView(const int& id, Context& context, EventHandler& handler, const Vector2f& size, const Vector2f& pos, Font& font, const string& text):
 Widget(id, context, handler, font, size, pos){
+    this->setText(text);
     this->background.setFillColor(sf::Color::Transparent);
 }
 

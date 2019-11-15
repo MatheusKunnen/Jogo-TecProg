@@ -16,10 +16,11 @@
 #include "../Gerenciadores/GerenciadorColisoes.hpp"
 #include "../Parametros/ParametrosFase.hpp"
 #include "../Resources/TexturesHolder.hpp"
+#include "FaseEventHandler.hpp"
 
 namespace Game { namespace Fases{
 
-namespace Eventos {
+namespace eventos_jogador {
     enum Tipo {M_LEFT_A, M_RIGHT_A, JUMP_A, M_LEFT_B, M_RIGHT_B, JUMP_B};
 }
 
@@ -30,6 +31,7 @@ using Resources::TextureHolder;
 using Gerenciadores::GerenciadorColisoes;
 using Parametros::ParametrosFase;
 using Entidades::Mapas::Mapa;
+
 class Fase {
 protected:
     // Consts
@@ -47,12 +49,14 @@ protected:
     GerenciadorGrafico* g_grafico;
     GerenciadorColisoes g_colisoes;
     ParametrosFase      parametros;
-    
+    FaseEventHandler*   event_handler;
     // Init Functions
     void initParametros();
-    virtual void initTextures() = 0;
+    virtual void initTextures();
     virtual void initJogadores();
-    virtual void initMapa() = 0;
+    virtual void initInimigos() = 0;
+    virtual void initObstaculos() = 0;
+    virtual void initMapa();
 public:
     // Constructor & Destructor
     Fase(const string& f_parametros, GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b = nullptr);
@@ -61,10 +65,15 @@ public:
     // Methods
     virtual void update(const float& dt) = 0;
     virtual void updateView(const float& dt);
+    virtual void checkPlayerStatus();
     virtual void render(RenderTarget* target) = 0;
-    virtual void onKeyInput(Eventos::Tipo tipo, const float& dt);
-    virtual void onInitFase(Jogador* jogador_a, Jogador* jogador_b) = 0;
+    virtual void onKeyInput(eventos_jogador::Tipo tipo, const float& dt);
+    virtual void onInitFase(Jogador* jogador_a, Jogador* jogador_b, FaseEventHandler* event_handler) = 0;
     virtual void onCloseFase() = 0;
+    
+    // Getters & Setters
+    void setEventHandler(FaseEventHandler* event_handler);
+    FaseEventHandler* getEventHandler() const;
 };
 }};
 #endif /* Fase_hpp */

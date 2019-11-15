@@ -46,15 +46,15 @@ void MainMenuState::render(RenderTarget* target){
 
 // Menu Methods
 void MainMenuState::onOpenNewGame(){
-    this->manager->pushState(states_id::game_menu);
+    this->manager->pushTopState(states_id::game_menu);
 }
 
 void MainMenuState::onOpenRanking(){
-    this->manager->pushState(states_id::ranking);
+    this->manager->pushTopState(states_id::ranking_menu);
 }
 
 void MainMenuState::onOpenConfig(){
-    this->manager->pushState(states_id::config);
+    this->manager->pushTopState(states_id::config_menu);
 }
 
 void MainMenuState::onExit(){
