@@ -37,10 +37,6 @@ status_code(0)
 
 Jogo::~Jogo(){
     this->endGame();
-    
-    // Desaloca jogadores
-    delete this->jogador_a;
-    delete this->jogador_b;
 }
 
 // Init methods
@@ -65,7 +61,7 @@ void Jogo::initJogadores(){
 }
 
 void Jogo::initFases(){
-    //this->fase_floresta.set
+
 }
 
 void Jogo::initKeys(){
@@ -82,33 +78,46 @@ void Jogo::initKeys(){
 }
 // Methods
 void Jogo::run() {
+    // Atualiza bandeira de execução
     this->is_running = true;
+    // Abre janela do RenderWindow
     this->g_grafico->getRenderWindow()->display();
+    // Loop principal do jogo
     while(this->is_running){
+        // Atualiza relogio
         updateDt();
+        // Atualiza estados
         update();
+        // Renderiza estados
         render();
-        cout << this->dt << " FPS:" << (int) 1/this->dt << endl;
-        if (.10 - this->dt < 0){
-            cerr << "WARNING: " << this->dt << endl;
+        //if (DEBUG_MODE)
+        //    cout << this->dt << " FPS:" << (int) 1/this->dt << endl; // Imprime dt ê os FPS
+        if (1/50.f - this->dt < 0){
+            cerr << "WARNING: " << this->dt << " Missed: " << 1/(this->dt-1/50.f)<<endl;
             this->dt = .10;
         }
     }
 }
 
 void Jogo::endGame(){
-    delete this->g_grafico;
+    delete this->g_grafico; // Desaloca gerenciador grafico
     while(!this->states.empty())
-        this->states.pop(); // Lista desaloca a memoria ao fazer o pop
+        this->states.pop(); // Lista desaloca a memoria ao fazer o "pop"
+    
+    // Desaloca jogadores
+    delete this->jogador_a;
+    delete this->jogador_b;
 }
 
 void Jogo::updateDt(){
+    // Relogio principal do jogo
+    // (determina variacao de tempo de cada loop)
     this->dt = main_clock.restart().asSeconds();
 }
 
 void Jogo::handleEvents(){
     while(this->g_grafico->getRenderWindow()->pollEvent(event_pool)){
-        // Close window : exit
+        // Se a janela é fechada
         if (event_pool.type == sf::Event::Closed)
             this->is_running = false;
     }
@@ -119,8 +128,11 @@ void Jogo::update(){
     this->handleEvents();
     // Atualiza estado se existir algum
     if (!this->states.empty()){
+        // Atualiza estado
         this->states.top()->update(this->dt);
+        // Verifica se o estado quer finalizar
         if (this->states.top()->isQuitting()){
+            // Remove estado da pila (e é desalocado)
             this->states.top()->endState();
             this->states.pop();
         }
@@ -141,6 +153,7 @@ void Jogo::render(){
 
 void Jogo::pushState(States::states_id id){
     State* state  = nullptr;
+    // Aloca estado solicitado
     switch (id) {
         case States::states_id::main_menu:
             state = new MainMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
@@ -161,9 +174,11 @@ void Jogo::pushState(States::states_id id){
         case States::states_id::phase_b:
             //state = new FaseMontanhaState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
         default:
+            // Caso o ID seja inválido
             cerr << "ERROR: Jogo::pushState(): Trying to push unidentified state." << endl;
             break;
     }
+    // Se um estado foi alocado o agrega à pilha
     if (state != nullptr)
         this->states.push(state);
 }
@@ -171,7 +186,7 @@ void Jogo::pushState(States::states_id id){
 
 // Getters & Setters
 int Jogo::getStatusCode() const {
-    return this->status_code;
+    return this->status_code; // Retorna estado final da execução
 }
 
 const Jogador* Jogo::getJogadorA() const {
