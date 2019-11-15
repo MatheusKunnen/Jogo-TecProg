@@ -30,6 +30,7 @@
     <ClCompile Include="..\..\..\src\Jogo\Fases\FaseFloresta.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Fases\FaseMontanha.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorArquivos.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorColisoes.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\GerenciadorGrafico.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\GUI\Button.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\GUI\Context.cpp" />
@@ -49,12 +50,12 @@
     <ClCompile Include="..\..\..\src\Jogo\Parametros\ParametrosFase.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Resources\FontHolder.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Resources\TexturesHolder.cpp" />
-    <ClCompile Include="..\..\..\src\Jogo\States\FaseFlorestaState.cpp" />
-    <ClCompile Include="..\..\..\src\Jogo\States\FaseMontanhaState.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\States\FaseState.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\States\GameState.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\States\MainMenuState.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\States\State.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\TADs\ListaEntidades.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\TADs\ListaPersonagens.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\TADs\StateStack.cpp" />
     <ClCompile Include="..\..\..\src\main.cpp" />
   </ItemGroup>
@@ -71,6 +72,7 @@
     <ClInclude Include="..\..\..\src\Jogo\Fases\FaseFloresta.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Fases\FaseMontanha.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorArquivos.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorColisoes.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\GerenciadorGrafico.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\GUI\base_gui_includes.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\GUI\Button.hpp" />
@@ -91,13 +93,13 @@
     <ClInclude Include="..\..\..\src\Jogo\Resources\FontHolder.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Resources\ResourcesHolder.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Resources\TexturesHolder.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\States\FaseFlorestaState.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\States\FaseMontanhaState.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\FaseState.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\States\GameState.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\States\MainMenuState.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\States\State.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\TADs\Lista.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\TADs\ListaEntidades.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\TADs\ListaPersonagens.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\TADs\Pilha.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\TADs\StateStack.hpp" />
   </ItemGroup>

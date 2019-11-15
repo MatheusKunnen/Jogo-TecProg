@@ -1,6 +1,6 @@
 #include "Jogo.hpp"
-#include "FaseMontanhaState.hpp"
-#include "FaseState.hpp"
+//#include "FaseMontanhaState.hpp"
+#include "States/FaseState.hpp"
 
 namespace Game {
 
