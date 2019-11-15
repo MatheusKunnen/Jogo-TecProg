@@ -13,7 +13,7 @@ namespace Game {  namespace Parametros {
 Parametro::Parametro(const string& filename):
 g_arquivos(filename),
 filename(filename){
-    
+   
 }
 
 Parametro::~Parametro(){

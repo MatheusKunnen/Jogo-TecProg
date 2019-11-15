@@ -10,7 +10,7 @@
 #define FaseFlorestaState_hpp
 
 #include "State.hpp"
-#include "Jogo.hpp"
+#include "../Jogo.hpp"
 #include "../Fases/Fase.hpp"
 
 namespace Game {  namespace States {
