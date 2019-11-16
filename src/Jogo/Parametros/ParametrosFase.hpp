@@ -8,7 +8,9 @@
 
 #ifndef ParametrosFase_hpp
 #define ParametrosFase_hpp
+
 #include "Parametros.hpp"
+
 namespace Game { namespace Parametros{
 
 class ParametrosFase : public Parametro {

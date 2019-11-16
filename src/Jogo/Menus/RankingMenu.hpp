@@ -21,7 +21,7 @@ private:
     void initButtons();
     
     // Const
-    enum used_buttons{btn_exit};
+    enum widgets_ids{btn_exit};
 public:
     // Constructor & Destructor
     RankingMenu(RenderWindow& window);

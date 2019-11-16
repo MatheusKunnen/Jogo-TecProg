@@ -21,7 +21,7 @@ private:
     void initButtons();
     
     // Const
-    enum used_buttons{btn_start_floresta, btn_start_montanha, btn_exit};
+    enum widgets_ids{btn_start_floresta, btn_start_montanha, btn_exit};
 public:
     // Constructor & Destructor
     GameMenu(RenderWindow& window);

@@ -3,6 +3,10 @@
 
 #include "TADs/StateStack.hpp"
 
+#include "GerenciadorGrafico.hpp"
+
+#include "Parametros/ParametrosJogo.hpp"
+
 #include "States/StateManager.hpp"
 #include "States/GameState.hpp"
 #include "States/MainMenuState.hpp"
@@ -13,19 +17,16 @@
 #include "States/WinMenuState.hpp"
 #include "States/FailedMenuState.hpp"
 
-#include "GerenciadorGrafico.hpp"
+#include "Fases/FaseFloresta.hpp"
+#include "Fases/FaseMontanha.hpp"
 
 #include "Resources/TexturesHolder.hpp"
 #include "Entidades/Jogador.hpp"
-#include "Fases/FaseFloresta.hpp"
-#include "Fases/FaseMontanha.hpp"
+
 
 namespace Game {
 
 // Usings
-using sf::Clock;
-using sf::Event;
-
 using States::State;
 using States::StateManager;
 using States::MainMenuState;
@@ -37,23 +38,27 @@ using States::FailedMenuState;
 using States::GameState;
 using States::FaseState;
 
-using Resources::TextureHolder;
-
-using Entidades::Personagens::Jogador;
 using Fases::FaseFloresta;
 using Fases::FaseMontanha;
+
+using Resources::TextureHolder;
+
+using Parametros::ParametrosJogo;
+
+using Entidades::Personagens::Jogador;
 
 using TADs::StateStack;
 
 class Jogo : public StateManager {
 private:
     // Sigleton instance pointer
-    static Jogo*                main_instance; // Instancia do jogo para o Singleton
+    static Jogo*                main_instance;  // Instancia do jogo para o Singleton
     
     // Attributes
     Event                       event_pool; // Eventos de SFML
     Clock                       main_clock; // Relogio principal do jogo
     GerenciadorGrafico*         g_grafico; // Referencia ao gerenciador grafico
+    ParametrosJogo              parametros_jogo; // Parametros do jogo
     
     StateStack                  states; // Pilha de estados
     int                         states_2_pop; // Nro estados a ser removidos
@@ -65,16 +70,16 @@ private:
     Jogador*                    jogador_a; // Ponteiro para jogador A
     Jogador*                    jogador_b; // Ponteiro para jogador B
     
-    FaseFloresta                fase_floresta;
-    FaseMontanha                fase_montanha;
+    FaseFloresta                fase_floresta; // Instancia fase floresta
+    FaseMontanha                fase_montanha; // Instancia fase montanha
     
     TextureHolder               textures; // Contenedor de texturas
     
     // Init methods
+    void initParametros();
     void initStates();
     void initTextures();
     void initJogadores();
-    void initFases();
     void initKeys();
     
     // Private Constructor (para o Singleton)
@@ -100,10 +105,10 @@ public:
     void addStatePop(int n_states = 1);
     
     // Getters & Setters
+    int getStatusCode() const;
     Jogador* getJogadorA() const;
     Jogador* getJogadorB() const;
-	int getStatusCode() const;
-
+    const ParametrosJogo* getParametrosJogo() const;
 };
 };
 

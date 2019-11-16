@@ -2,7 +2,7 @@
 
 namespace Game {
 
-// Sigleton holder
+// Sigleton pointer
 Jogo* Jogo::main_instance = nullptr;
 
 // Singleton instancer
@@ -21,14 +21,17 @@ fase_montanha(GerenciadorGrafico::getInstance(), this->jogador_a, this->jogador_
 event_pool(),
 main_clock(),
 g_grafico(nullptr),
+parametros_jogo(),
 states(),
 dt(0),
 status_code(0)
 {
-    this->g_grafico = GerenciadorGrafico::getInstance(); // Instacia o gerenciador gradico
+    // Instacia o gerenciador gradico
+    this->g_grafico = GerenciadorGrafico::getInstance();
+    // Chama funcoes de inicio
+    this->initParametros();
     this->initTextures();
     this->initJogadores();
-    this->initFases();
     this->initKeys();
     this->initStates();
 }
@@ -38,6 +41,10 @@ Jogo::~Jogo(){
 }
 
 // Init methods
+void Jogo::initParametros(){
+    this->parametros_jogo.loadFromFile();
+}
+
 void Jogo::initStates(){
     // Realiza o push do state base (Menu Principal)
     this->states.push(new MainMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys));
@@ -55,11 +62,7 @@ void Jogo::initJogadores(){
     this->jogador_b = new Jogador(Vector2f(980.f,600.f), &this->textures.get(Resources::Textures::player_b));
     
     this->jogador_a->setGGrafico(this->g_grafico);
-    //this->jogador_b->setGGrafico(this->g_grafico);
-}
-
-void Jogo::initFases(){
-    
+    this->jogador_b->setGGrafico(this->g_grafico);
 }
 
 void Jogo::initKeys(){
@@ -91,7 +94,8 @@ void Jogo::run() {
         // Notifica quando a variação de tempo for muito alta
         if (1/50.f - this->dt < 0){
             cerr << "WARNING: " << this->dt << " Missed: " << 1/(this->dt-1/50.f)<<endl;
-            this->dt = .10; // Limita maxima variacao do tempo
+            // Limita maxima variacao do tempo
+            this->dt = .10;
         }
     }
 }
@@ -100,7 +104,8 @@ void Jogo::endGame(){
     // Desaloca gerenciador grafico
     delete this->g_grafico;
     while(!this->states.empty())
-        this->states.pop(); // Pilha desaloca a elemento ao fazer o "pop"
+        // Pilha desaloca a elemento ao fazer o "pop"
+        this->states.pop();
     // Desaloca jogadores
     delete this->jogador_a;
     delete this->jogador_b;
@@ -113,6 +118,7 @@ void Jogo::updateDt(){
 }
 
 void Jogo::handleEvents(){
+    //return;
     while(this->g_grafico->getRenderWindow()->pollEvent(event_pool)){
         // Verifica se a janela é fechada
         if (event_pool.type == sf::Event::Closed)
@@ -161,7 +167,7 @@ void Jogo::pushTopState(States::states_id id){
             state = new GameState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::config_menu:
-            state = new ConfigMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            state = new ConfigMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, &this->parametros_jogo);
             break;
         case States::states_id::ranking_menu:
             state = new RankingMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
@@ -176,12 +182,9 @@ void Jogo::pushTopState(States::states_id id){
             state = new FailedMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::fase_floresta:
-            //this->fase_floresta.onInitFase(this->jogador_a, this->jogador_b);
             state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_floresta, this->getJogadorA(), this->getJogadorB());
             break;
         case States::states_id::fase_montanha:
-            // Notifica inicio de estado à fase
-            //this->fase_montanha.onInitFase(this->jogador_a, this->jogador_b);
             state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_montanha, this->getJogadorA(), this->getJogadorB());
         default:
             // Caso o ID seja inválido
@@ -217,6 +220,11 @@ Jogador* Jogo::getJogadorA() const {
 }
 
 Jogador* Jogo::getJogadorB() const {
-    return this->jogador_b;
+    return (parametros_jogo.isDualPlayer()) ? this->jogador_b : nullptr;
 }
+
+const ParametrosJogo* Jogo::getParametrosJogo() const {
+    return &this->parametros_jogo;
+}
+
 }

@@ -12,9 +12,9 @@
 namespace Game { namespace States {
 
 // Constructor & Destructor
-ConfigMenuState::ConfigMenuState(StateManager* handler,GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
+ConfigMenuState::ConfigMenuState(StateManager* handler,GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ParametrosJogo* parametros_jogo):
 State(handler, g_grafico, supported_keys, states_id::game_menu),
-ConfigMenu(*g_grafico->getRenderWindow())
+ConfigMenu(*g_grafico->getRenderWindow(), parametros_jogo)
 {
     initValidKeys();
 }

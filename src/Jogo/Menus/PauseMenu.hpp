@@ -21,7 +21,7 @@ private:
     void initButtons();
     
     // Const
-    enum used_buttons{btn_resume_game, btn_exit};
+    enum widgets_ids{btn_resume_game, btn_exit};
 public:
     // Constructor & Destructor
     PauseMenu(RenderWindow& window);

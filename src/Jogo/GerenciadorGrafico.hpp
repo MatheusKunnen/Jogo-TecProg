@@ -35,9 +35,11 @@ private:
     
     // Private Methods
     void onViewUpdated(); // Passa atualiza View do RenderWindow
-public:
-    // Constructor & Destructor
+    
+    // Private Constructor (para Singleton)
     explicit GerenciadorGrafico(const string& parameters_file = "Resources/config/graphic_config.json");
+public:
+    // Destructor
     ~GerenciadorGrafico();
     
     // Singleton methods

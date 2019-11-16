@@ -16,6 +16,7 @@ namespace Game { namespace States {
 
 // Usings
 using Menus::ConfigMenu;
+using Parametros::ParametrosJogo;
 
 class ConfigMenuState : public State, public ConfigMenu{
 private:
@@ -24,7 +25,7 @@ private:
     
 public:
     // Contructor & Destructor
-    ConfigMenuState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
+    ConfigMenuState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ParametrosJogo* parametros_jogo);
     ~ConfigMenuState();
     
     // Methods

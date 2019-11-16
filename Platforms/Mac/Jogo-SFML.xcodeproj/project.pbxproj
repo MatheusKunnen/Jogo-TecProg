@@ -36,6 +36,7 @@
 		2F4356BE230EDFA500A89E64 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B9230EDFA500A89E64 /* sfml-network.framework */; };
 		2F4356BF230EDFA500A89E64 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356BA230EDFA500A89E64 /* sfml-system.framework */; };
 		2F4356C1230EDFBE00A89E64 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356C0230EDFBE00A89E64 /* SFML.framework */; };
+		2F69E402237F518600699DD2 /* ParametrosJogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F69E400237F518600699DD2 /* ParametrosJogo.cpp */; };
 		2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FF5236F132100CDE82F /* StateStack.cpp */; };
 		2F8A5FFD236F2E4D00CDE82F /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFB236F2E4D00CDE82F /* StateManager.cpp */; };
 		2F8A6000236FA65E00CDE82F /* ListaEntidades.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFE236FA65E00CDE82F /* ListaEntidades.cpp */; };
@@ -198,6 +199,8 @@
 		2F4356B9230EDFA500A89E64 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		2F4356BA230EDFA500A89E64 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
 		2F4356C0230EDFBE00A89E64 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
+		2F69E400237F518600699DD2 /* ParametrosJogo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ParametrosJogo.cpp; sourceTree = "<group>"; };
+		2F69E401237F518600699DD2 /* ParametrosJogo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ParametrosJogo.hpp; sourceTree = "<group>"; };
 		2F8A5FF0236E1A8900CDE82F /* Lista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lista.hpp; sourceTree = "<group>"; };
 		2F8A5FF3236E27C900CDE82F /* Pilha.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pilha.hpp; sourceTree = "<group>"; };
 		2F8A5FF5236F132100CDE82F /* StateStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateStack.cpp; sourceTree = "<group>"; };
@@ -316,6 +319,8 @@
 				2F0D64722378BCFF00B214F4 /* Parametros.hpp */,
 				2F0D646E2378BC4900B214F4 /* ParametrosFase.cpp */,
 				2F0D646F2378BC4900B214F4 /* ParametrosFase.hpp */,
+				2F69E400237F518600699DD2 /* ParametrosJogo.cpp */,
+				2F69E401237F518600699DD2 /* ParametrosJogo.hpp */,
 			);
 			path = Parametros;
 			sourceTree = "<group>";
@@ -670,6 +675,7 @@
 				2F0D6484237B1AA100B214F4 /* FaseState.cpp in Sources */,
 				2F0D649F237F0C1900B214F4 /* ConfigMenu.cpp in Sources */,
 				2F8A601923733C2A00CDE82F /* ListaWidgets.cpp in Sources */,
+				2F69E402237F518600699DD2 /* ParametrosJogo.cpp in Sources */,
 				2FDA0BD62346BF5F00E3209D /* GerenciadorGrafico.cpp in Sources */,
 				2F923778235BF7CC00747DCA /* tinyxml.cpp in Sources */,
 				2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */,

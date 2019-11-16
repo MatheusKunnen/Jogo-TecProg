@@ -21,7 +21,7 @@ private:
     void initButtons();
 
     // Const
-    enum used_buttons{btn_new_game, btn_ranking, btn_config, btn_exit};
+    enum widgets_ids{btn_new_game, btn_ranking, btn_config, btn_exit};
 public:
     // Constructor & Destructor
     MainMenu(RenderWindow& window);

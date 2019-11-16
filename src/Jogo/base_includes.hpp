@@ -18,10 +18,11 @@
 #include <vector>
 
 #include <SFML/Graphics.hpp>
-
 // SFML usings
 using sf::RenderWindow;
 using sf::RenderTarget;
+using sf::Clock;
+using sf::Event;
 using sf::RectangleShape;
 using sf::Texture;
 using sf::Sprite;
@@ -29,6 +30,7 @@ using sf::Vector2i;
 using sf::Vector2f;
 using sf::FloatRect;
 using sf::View;
+using sf::Clipboard;
 
 using std::cout;
 using std::cin;

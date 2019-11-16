@@ -22,7 +22,7 @@ private:
     void initTextViews();
     
     // Const
-    enum widgets_id{btn_exit, txt_01};
+    enum widgets_ids{btn_exit, txt_01};
     
 public:
     // Constructor & Destructor

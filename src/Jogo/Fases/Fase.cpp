@@ -56,7 +56,6 @@ void Fase::initJogadores(){
         this->l_entidades.add(this->jogador_a, false);
         this->g_colisoes += this->jogador_a;
         this->jogador_a->setPosition(this->parametros.getPosPlayerA());
-        
     }
     if (this->jogador_b != nullptr) {
         this->l_entidades.add(this->jogador_b, false);
