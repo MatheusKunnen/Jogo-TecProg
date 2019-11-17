@@ -16,6 +16,7 @@ namespace Game { namespace Entidades { namespace Personagens {
 class Jogador : public Personagem{
 private:
     // Attributes
+    float total_dt;
     
     // Init methods
     void initComponents();
@@ -24,8 +25,12 @@ public:
     // Constructor & Destructor
     Jogador(const Vector2f& position, Texture* texture);
     ~Jogador();
-    // Methods
     
+    // Methods
+    void update(const float& dt);
+    void reset();
+    // Getters & Setters
+    const int getScore() const;
 };
 
 }}};

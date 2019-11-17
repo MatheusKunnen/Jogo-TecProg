@@ -35,13 +35,13 @@ void Menu::initFonts(){
 void Menu::initTextures(){
     // Carrega texturas a serem utilizadas
     try {
-        this->textures.load(Resources::Textures::background_01, TextureHolder::getFilename(Resources::Textures::background_01));
+        this->textures.load(Resources::Textures::bg_menu, TextureHolder::getFilename(Resources::Textures::bg_menu));
     } catch (std::exception e) {
         cerr << "Menu::initTextures: ERROR Loading textutes: " << endl;
     }
 }
 void Menu::initBackground(){
-    this->background.setTexture(&this->textures.get(Resources::Textures::background_01));
+    this->background.setTexture(&this->textures.get(Resources::Textures::bg_menu));
 }
 
 }}

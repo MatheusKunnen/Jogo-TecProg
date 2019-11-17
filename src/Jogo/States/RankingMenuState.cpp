@@ -11,9 +11,9 @@
 namespace Game { namespace States {
 
 // Constructor & Destructor
-RankingMenuState::RankingMenuState(StateManager* handler,GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
+RankingMenuState::RankingMenuState(StateManager* handler,GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ListaRanking& l_ranking):
 State(handler, g_grafico, supported_keys, states_id::game_menu),
-RankingMenu(*g_grafico->getRenderWindow())
+RankingMenu(*g_grafico->getRenderWindow(), l_ranking)
 {
     initValidKeys();
 }

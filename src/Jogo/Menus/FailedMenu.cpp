@@ -50,7 +50,7 @@ void FailedMenu::initTextViews(){
     Vector2f btn_pos = Vector2f(this->context.getRenderWindow()->getSize().x*0.5, this->context.getRenderWindow()->getSize().y*.2);
     
     //btn_pos.y = btn_pos.y + btn_size.y *1.2;
-    TextView* txt = new TextView(txt_01, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "PERDEU :(");
+    TextView* txt = new TextView(txt_01, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "PERDEU \n:(");
     this->widgets.add(txt_01, txt);
 }
 

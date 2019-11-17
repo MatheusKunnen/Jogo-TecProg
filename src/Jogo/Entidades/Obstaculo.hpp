@@ -10,12 +10,32 @@
 #define Obstaculo_hpp
 
 #include "../base_includes.hpp"
-#include "Entidade.hpp"
+#include "Personagem.hpp"
 
-namespace Game { namespace Entidades { namespace Objetos{
+namespace Game { namespace Entidades { namespace Obstaculos {
 
-class Obstaculo : public Entidade{
+using Entidades::Personagens::Personagem;
+
+enum Type {planta_venenosa, pedra, espinhos};
+
+class Obstaculo : public Entidade {
+protected:
+    // Attributes
+    const int type_id;
+    int     damage;
     
+public:
+    // Constructor & Destructor
+    Obstaculo(const Type type_id, const Vector2f& position, Texture* texture, const int damage = 1);
+    virtual ~Obstaculo();
+    
+    // Methods
+    virtual void update(const float& dt);
+    virtual void onCollision(Personagem* personagem);
+    
+    // Getters & Setters
+    void setDamage(const int& damage);
+    const int& getDamage() const;
 };
 
 }}}

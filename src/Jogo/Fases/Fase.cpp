@@ -41,12 +41,13 @@ void Fase::initParametros(){
 }
 
 void Fase::initTextures(){
-    this->textures.load(Resources::Textures::background_01, this->parametros.getArquivoBackground());
+    this->textures.load(Resources::Textures::bg_fase, this->parametros.getArquivoBackground());
+    this->textures.load(Resources::Textures::planta_venenosa, this->textures.getFilename(Resources::Textures::planta_venenosa));
 }
 
 void Fase::initMapa(){
     // Coloca textura de fundo
-    this->mapa.setTexture(&this->textures.get(Resources::Textures::background_01));
+    this->mapa.setTexture(&this->textures.get(Resources::Textures::bg_fase));
     // Carrega Mapa
     this->mapa.load(this->parametros.getArquivoMapa(), this->parametros.getArquivoTileSet());
 }
@@ -73,6 +74,11 @@ void Fase::updateView(const float &dt){
 }
 
 void Fase::checkPlayerStatus(){
+    // Verifica vida de jogadores
+    if (this->jogador_a->getNumVidas() <= 0 || (this->jogador_b && this->jogador_b->getNumVidas() <= 0)){
+        this->event_handler->onFaseEvent(Event::failed);
+        this->g_grafico->resetDefaultView();
+    }
     // Verifica se algum jogador chegou ao final
     if ((this->jogador_a->getPosition().x >= this->parametros.getPosXWin()) ||
         (this->jogador_b && this->jogador_b->getPosition().x >= this->parametros.getPosXWin())){

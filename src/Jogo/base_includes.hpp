@@ -10,11 +10,13 @@
 #define Base_includes_h
 
 #include <iostream>
+#include <sstream>
 #include <cmath>
 #include <fstream>
 #include <string>
 #include <map>
-#include <stack>
+#include <list>
+#include <set>
 #include <vector>
 
 #include <SFML/Graphics.hpp>
@@ -37,10 +39,14 @@ using std::cin;
 using std::cerr;
 using std::endl;
 using std::string;
+using std::stringstream;
 using std::pow;
 
 using std::unique_ptr;
 using std::move;
+
+using std::list;
+using std::set;
 
 using std::map;
 using std::make_pair;

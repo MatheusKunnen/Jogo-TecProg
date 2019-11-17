@@ -11,8 +11,9 @@
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-RankingMenu::RankingMenu(RenderWindow& window):
-Menu(window)
+RankingMenu::RankingMenu(RenderWindow& window, ListaRanking& l_ranking):
+Menu(window),
+l_ranking(l_ranking)
 {
     this->initMenu();
 }
@@ -27,10 +28,12 @@ void RankingMenu::initMenu(){
     this->initTextures();
     this->initWidgets();
     this->initBackground();
+    this->initRankingBoard();
 }
 
 void RankingMenu::initWidgets(){
     this->initButtons();
+    this->initTextViews();
 }
 
 void RankingMenu::initButtons(){
@@ -40,6 +43,18 @@ void RankingMenu::initButtons(){
     
     //btn_pos.y = btn_pos.y + btn_size.y *1.2;
     this->widgets.add(btn_exit, new Button(btn_exit, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "VOLTAR"));
+}
+
+void RankingMenu::initTextViews(){
+    Vector2f size = Vector2f(450.f, 100.f);
+    Vector2f pos = Vector2f(this->context.getRenderWindow()->getSize().x*0.5, this->context.getRenderWindow()->getSize().y*.1);
+    this->widgets.add(txt_header, new TextView(txt_header, context ,*this, size, pos, this->fonts.get(Resources::Fonts::font_01), "N˚ | Jogador | Pontos"));
+    pos.y = pos.y + size.y *1.2;
+    this->widgets.add(txt_board, new TextView(txt_board, context ,*this, size, pos, this->fonts.get(Resources::Fonts::font_01), "--\t\t--\t\t--"));
+}
+
+void RankingMenu::initRankingBoard(){
+    this->widgets[txt_board]->setText(this->l_ranking.dump(), false);
 }
 
 // Methods

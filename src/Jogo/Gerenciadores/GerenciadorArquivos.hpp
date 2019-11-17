@@ -24,6 +24,7 @@ public:
     // Constructor & Destructor
     GerenciadorArquivos(const string& filename);
     ~GerenciadorArquivos();
+    
     // Methods
     bool load();
     bool save();

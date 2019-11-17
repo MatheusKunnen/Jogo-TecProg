@@ -34,7 +34,7 @@ state(enabled)
 {
     this->background.setPosition(pos.x - size.x / 2.f, pos.y - size.y / 2.f);
     this->text.setFillColor(this->text_color);
-    this->text.setCharacterSize(64);
+    this->text.setCharacterSize(72);
     
     updateTextPos();
     
@@ -68,9 +68,10 @@ void Widget::setEnabled(const bool& enabled) {
     }
 }
 
-void Widget::setText(const string& text){
+void Widget::setText(const string& text, const bool& update){
     this->text.setString(text);
-    this->updateTextPos();
+    if (update)
+        this->updateTextPos();
 }
 
 void Widget::setTextColor(const Color &color){
@@ -84,6 +85,6 @@ void Widget::updateTextPos(){
     - this->text.getGlobalBounds().width/2.f,
     this->background.getPosition().y
     + this->background.getGlobalBounds().height / 2.f
-    - this->text.getGlobalBounds().height/2.f - 25.f);
+    - this->text.getGlobalBounds().height/2.f - 20);
 }
 }

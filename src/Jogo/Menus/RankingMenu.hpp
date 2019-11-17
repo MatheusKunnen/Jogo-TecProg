@@ -10,21 +10,29 @@
 #define RankingMenu_hpp
 
 #include "Menu.hpp"
+#include "../TADs/ListaRanking.hpp"
 
 namespace Game { namespace Menus {
 
+using TADs::ListaRanking;
+
 class RankingMenu : public Menu {
 private:
+    // Attributes
+    ListaRanking&       l_ranking;
+    
     // Init methods
     void initMenu();
     void initWidgets();
     void initButtons();
+    void initTextViews();
+    void initRankingBoard();
     
-    // Const
-    enum widgets_ids{btn_exit};
+    // Const Matheus
+    enum widgets_ids{btn_exit, txt_header, txt_board};
 public:
     // Constructor & Destructor
-    RankingMenu(RenderWindow& window);
+    RankingMenu(RenderWindow& window, ListaRanking& l_ranking);
     virtual ~RankingMenu();
     // Methods
     void updateMenu(const float& dt);

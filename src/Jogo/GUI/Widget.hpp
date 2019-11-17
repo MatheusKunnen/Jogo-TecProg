@@ -53,7 +53,7 @@ public:
     const bool isPressed() const;
     const bool isHovered() const;
     const bool isEnabled() const;
-    void setText(const string& text);
+    void setText(const string& text, const bool& update = true);
     void setTextColor(const Color& color);
     void setEnabled(const bool& enabled);
     // Const

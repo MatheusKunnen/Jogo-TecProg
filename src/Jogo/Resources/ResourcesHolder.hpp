@@ -5,6 +5,9 @@
 //  Created by Matheus Kunnen Ledesma on 10/6/19.
 //  Copyright © 2019 Matheus Kunnen Ledesma. All rights reserved.
 //
+/*
+    Código modificado de https://github.com/SFML/SFML-Game-Development-Book
+ */
 
 #ifndef ResourcesHolder_h
 #define ResourcesHolder_h

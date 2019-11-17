@@ -24,7 +24,8 @@ g_grafico(nullptr),
 parametros_jogo(),
 states(),
 dt(0),
-status_code(0)
+status_code(0),
+l_ranking()
 {
     // Instacia o gerenciador gradico
     this->g_grafico = GerenciadorGrafico::getInstance();
@@ -52,14 +53,14 @@ void Jogo::initStates(){
 
 void Jogo::initTextures(){
     // Carrega texturas de jogadores
-    this->textures.load(Resources::Textures::player_a, textures.getFilename(    Resources::Textures::player_a));
-    this->textures.load(Resources::Textures::player_b, textures.getFilename(    Resources::Textures::player_b));
+    this->textures.load(Resources::Textures::jogador_a, textures.getFilename(    Resources::Textures::jogador_a));
+    this->textures.load(Resources::Textures::jogador_b, textures.getFilename(    Resources::Textures::jogador_b));
 }
 
 void Jogo::initJogadores(){
     // Aloca jogadores
-    this->jogador_a = new Jogador(Vector2f(g_grafico->getRenderWindow()->getSize().x/2,512.f), &this->textures.get(Resources::Textures::player_a));
-    this->jogador_b = new Jogador(Vector2f(980.f,600.f), &this->textures.get(Resources::Textures::player_b));
+    this->jogador_a = new Jogador(Vector2f(g_grafico->getRenderWindow()->getSize().x/2,512.f), &this->textures.get(Resources::Textures::jogador_a));
+    this->jogador_b = new Jogador(Vector2f(980.f,600.f), &this->textures.get(Resources::Textures::jogador_b));
     
     this->jogador_a->setGGrafico(this->g_grafico);
     this->jogador_b->setGGrafico(this->g_grafico);
@@ -156,6 +157,10 @@ void Jogo::render(){
     this->g_grafico->getRenderWindow()->display();
 }
 
+void Jogo::onWin(){
+    this->l_ranking.add(this->parametros_jogo.getPlayerName(), this->jogador_a->getScore());
+}
+
 void Jogo::pushTopState(States::states_id id){
     State* state  = nullptr;
     // Aloca estado solicitado
@@ -170,12 +175,13 @@ void Jogo::pushTopState(States::states_id id){
             state = new ConfigMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, &this->parametros_jogo);
             break;
         case States::states_id::ranking_menu:
-            state = new RankingMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            state = new RankingMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->l_ranking);
             break;
         case States::states_id::pause_menu:
             state = new PauseMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::win_menu:
+            this->onWin();
             state = new WinMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::failed_menu:

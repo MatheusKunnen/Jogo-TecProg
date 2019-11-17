@@ -16,6 +16,7 @@ namespace Game { namespace States {
 
 // Usings
 using Menus::RankingMenu;
+using TADs::ListaRanking;
 
 class RankingMenuState : public State, public RankingMenu {
 private:
@@ -24,7 +25,7 @@ private:
     
 public:
     // Contructor & Destructor
-    RankingMenuState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
+    RankingMenuState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ListaRanking& l_ranking);
     ~RankingMenuState();
     
     // Methods

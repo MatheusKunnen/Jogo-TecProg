@@ -24,12 +24,14 @@ public:
     // Cosntructor & Destructor
     ListaEntidades();
     ~ListaEntidades();
+    
     // Methods
     void add(Entidade* entidade, const bool& liberar = true);
     void clear();
     void operator+=(Entidade* entidade);
     void render(RenderTarget* target);
     void update(const float& dt);
+    
 };
 
 }};

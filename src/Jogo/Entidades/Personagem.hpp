@@ -15,9 +15,9 @@
 namespace Game { namespace Entidades { namespace Personagens {
 
 class Personagem : public Entidade {
-private:
+protected:
     // Attributes
-    int num_vidas;
+    int                 num_vidas;
     
     // Components
     MoveComponent       move_comp;
@@ -37,12 +37,12 @@ public:
     virtual void jump(const float& gain = 1.f);
     virtual void onXCollision(const bool& on_collision);
     virtual void onYCollision(const bool& on_collision);
-    virtual void repulse(const float& x, const float& y);
+    virtual void removeVida(const int& n_vidas);
     
     // Getters & Setters
     MoveComponent& getMoveComponent();
-    void setNumVidas(int num_vidas);
-    int getNumVidas();
+    void setNumVidas(const int& num_vidas);
+    const int& getNumVidas() const;
     
 };
 

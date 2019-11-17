@@ -18,7 +18,7 @@ const string FaseFloresta::CONFIG_FILE("Resources/config/fase_a_config.json");
 FaseFloresta::FaseFloresta(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b):
 Fase(FaseFloresta::CONFIG_FILE, g_grafico, jogador_a, jogador_b)
 {
-    
+
 }
 
 FaseFloresta::~FaseFloresta(){
@@ -31,7 +31,10 @@ void FaseFloresta::initInimigos() {
 }
 
 void FaseFloresta::initObstaculos() {
+    PlantaVenenosa* obstaculo = new PlantaVenenosa(this->parametros.getPosPlayerB(), &this->textures.get(Resources::Textures::planta_venenosa));
     
+    this->l_entidades+= obstaculo;
+    this->g_colisoes += obstaculo;
 }
 
 // Methods
@@ -59,6 +62,10 @@ void FaseFloresta::onInitFase(Jogador* jogador_a, Jogador* jogador_b, FaseEventH
     this->jogador_b = jogador_b;
     // Inicia jogadores
     this->initJogadores();
+    // Inicia Obstaculos
+    initObstaculos();
+    // Inicia Inimigos
+    initInimigos();
     // Retorna o mapa a sua posicao inicial
     this->mapa.reset();
     // Atualiza EventHandler

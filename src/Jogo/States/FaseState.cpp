@@ -44,10 +44,10 @@ void FaseState::initValidKeys(){
 }
 
 void FaseState::update(const float &dt) {
-    // Verifica teclas apertadas
-    this->updateKeyInput(dt);
     // Notifica update para a fase
     this->fase.update(dt);
+    // Verifica teclas apertadas
+    this->updateKeyInput(dt);
 }
 
 void FaseState::updateKeyInput(const float &dt){
@@ -65,7 +65,7 @@ void FaseState::updateKeyInput(const float &dt){
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["JUMP_B"])))
         this->fase.onKeyInput(Fases::eventos_jogador::Tipo::JUMP_B, dt);
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key(this->used_keys["CLOSE"])))
-        this->endState();
+        this->manager->pushTopState(pause_menu);
 }
 
 void FaseState::render(RenderTarget *target) {

@@ -7,3 +7,37 @@
 //
 
 #include "Obstaculo.hpp"
+
+namespace Game { namespace Entidades { namespace Obstaculos {
+
+Obstaculo::Obstaculo(const Type type_id, const Vector2f& position, Texture* texture, const int damage):
+Entidade(texture),
+type_id(type_id),
+damage(damage)
+{
+    this->setPosition(position);
+}
+
+Obstaculo::~Obstaculo(){
+        
+}
+
+// Methods
+void Obstaculo::update(const float& dt){
+    
+}
+
+void Obstaculo::onCollision(Personagem* persongem) {
+    
+}
+
+// Getters & Setters
+void Obstaculo::setDamage(const int& damage){
+    this->damage = damage;
+}
+
+const int& Obstaculo::getDamage() const {
+    return this->damage;
+}
+
+}}}

@@ -60,6 +60,7 @@ void GerenciadorArquivos::setData(const json &data){
 void GerenciadorArquivos::clear(){
     this->data.clear();
 }
+
 // Getters & Setters
 void GerenciadorArquivos::setFilename(const string &filename){
     this->filename = filename;

@@ -12,6 +12,7 @@ namespace Game { namespace Entidades { namespace Personagens{
 
 Personagem::Personagem(const Vector2f& position, Texture* texture):
 Entidade(texture),
+num_vidas(1),
 move_comp(&sprite){
     //initComponents();
 }
@@ -50,10 +51,21 @@ void Personagem::onYCollision(const bool& on_collision){
     this->move_comp.onYCollision(on_collision);
 }
 
-void Personagem::repulse(const float& x, const float& y){
+void Personagem::removeVida(const int &n_vidas) {
+    this->num_vidas -= n_vidas;
 }
 
+
+// Getters & Setters
 MoveComponent& Personagem::getMoveComponent() {
     return this->move_comp;
+}
+
+void Personagem::setNumVidas(const int& n_vidas){
+    this->num_vidas = n_vidas;
+}
+
+const int& Personagem::getNumVidas() const {
+    return this->num_vidas;
 }
 }}};

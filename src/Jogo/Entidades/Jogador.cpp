@@ -27,9 +27,21 @@ void Jogador::initComponents(){
 
 void Jogador::initMoveComponent(){
     
-    //this->createMoveComponent(100.f,250, 200);
 }
 
 //Methods
+void Jogador::update(const float &dt){
+    this->total_dt += dt;
+    this->move_comp.update(dt);
+}
 
+void Jogador::reset(){
+    this->setNumVidas(5);
+    this->total_dt = 0;
+}
+
+// Getters & Setters
+const int Jogador::getScore() const {
+    return (pow(this->getNumVidas(), 2) / pow(this->total_dt, 2)) * 10000;
+}
 }}};

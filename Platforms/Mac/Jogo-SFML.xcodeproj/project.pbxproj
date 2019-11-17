@@ -36,6 +36,9 @@
 		2F4356BE230EDFA500A89E64 /* sfml-network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B9230EDFA500A89E64 /* sfml-network.framework */; };
 		2F4356BF230EDFA500A89E64 /* sfml-system.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356BA230EDFA500A89E64 /* sfml-system.framework */; };
 		2F4356C1230EDFBE00A89E64 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356C0230EDFBE00A89E64 /* SFML.framework */; };
+		2F43AFE1238100F50089A918 /* PlantaVenenosa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFDF238100F50089A918 /* PlantaVenenosa.cpp */; };
+		2F43AFE4238103950089A918 /* ListaObstaculos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFE2238103950089A918 /* ListaObstaculos.cpp */; };
+		2F43AFE7238185070089A918 /* ListaRanking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFE5238185070089A918 /* ListaRanking.cpp */; };
 		2F69E402237F518600699DD2 /* ParametrosJogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F69E400237F518600699DD2 /* ParametrosJogo.cpp */; };
 		2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FF5236F132100CDE82F /* StateStack.cpp */; };
 		2F8A5FFD236F2E4D00CDE82F /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFB236F2E4D00CDE82F /* StateManager.cpp */; };
@@ -199,6 +202,12 @@
 		2F4356B9230EDFA500A89E64 /* sfml-network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-network.framework"; path = "../../../../../../../Library/Frameworks/sfml-network.framework"; sourceTree = "<group>"; };
 		2F4356BA230EDFA500A89E64 /* sfml-system.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "sfml-system.framework"; path = "../../../../../../../Library/Frameworks/sfml-system.framework"; sourceTree = "<group>"; };
 		2F4356C0230EDFBE00A89E64 /* SFML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SFML.framework; path = ../../../../../../../Library/Frameworks/SFML.framework; sourceTree = "<group>"; };
+		2F43AFDF238100F50089A918 /* PlantaVenenosa.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PlantaVenenosa.cpp; sourceTree = "<group>"; };
+		2F43AFE0238100F50089A918 /* PlantaVenenosa.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PlantaVenenosa.hpp; sourceTree = "<group>"; };
+		2F43AFE2238103950089A918 /* ListaObstaculos.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListaObstaculos.cpp; sourceTree = "<group>"; };
+		2F43AFE3238103950089A918 /* ListaObstaculos.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListaObstaculos.hpp; sourceTree = "<group>"; };
+		2F43AFE5238185070089A918 /* ListaRanking.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListaRanking.cpp; sourceTree = "<group>"; };
+		2F43AFE6238185070089A918 /* ListaRanking.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListaRanking.hpp; sourceTree = "<group>"; };
 		2F69E400237F518600699DD2 /* ParametrosJogo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ParametrosJogo.cpp; sourceTree = "<group>"; };
 		2F69E401237F518600699DD2 /* ParametrosJogo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ParametrosJogo.hpp; sourceTree = "<group>"; };
 		2F8A5FF0236E1A8900CDE82F /* Lista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lista.hpp; sourceTree = "<group>"; };
@@ -410,6 +419,10 @@
 				2F8A5FFF236FA65E00CDE82F /* ListaEntidades.hpp */,
 				2F0D6488237C8D8700B214F4 /* ListaPersonagens.cpp */,
 				2F0D6489237C8D8700B214F4 /* ListaPersonagens.hpp */,
+				2F43AFE2238103950089A918 /* ListaObstaculos.cpp */,
+				2F43AFE3238103950089A918 /* ListaObstaculos.hpp */,
+				2F43AFE5238185070089A918 /* ListaRanking.cpp */,
+				2F43AFE6238185070089A918 /* ListaRanking.hpp */,
 			);
 			path = TADs;
 			sourceTree = "<group>";
@@ -569,6 +582,8 @@
 				2FDA0BEE234A3C7900E3209D /* Obstaculo.hpp */,
 				2FDA0BD82349264500E3209D /* Entidade.cpp */,
 				2FDA0BD92349264500E3209D /* Entidade.hpp */,
+				2F43AFDF238100F50089A918 /* PlantaVenenosa.cpp */,
+				2F43AFE0238100F50089A918 /* PlantaVenenosa.hpp */,
 			);
 			path = Entidades;
 			sourceTree = "<group>";
@@ -676,12 +691,15 @@
 				2F0D649F237F0C1900B214F4 /* ConfigMenu.cpp in Sources */,
 				2F8A601923733C2A00CDE82F /* ListaWidgets.cpp in Sources */,
 				2F69E402237F518600699DD2 /* ParametrosJogo.cpp in Sources */,
+				2F43AFE1238100F50089A918 /* PlantaVenenosa.cpp in Sources */,
 				2FDA0BD62346BF5F00E3209D /* GerenciadorGrafico.cpp in Sources */,
 				2F923778235BF7CC00747DCA /* tinyxml.cpp in Sources */,
 				2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */,
 				2F8A600D2371B3E800CDE82F /* MainMenu.cpp in Sources */,
 				2FDA0BDD2349265500E3209D /* Jogador.cpp in Sources */,
+				2F43AFE7238185070089A918 /* ListaRanking.cpp in Sources */,
 				2FA6DF6F234F940E00302427 /* MoveComponent.cpp in Sources */,
+				2F43AFE4238103950089A918 /* ListaObstaculos.cpp in Sources */,
 				2F0D649C237F034700B214F4 /* GameMenu.cpp in Sources */,
 				2F0D6469237581A100B214F4 /* Fase.cpp in Sources */,
 				2FDA0BEF234A3C7900E3209D /* Obstaculo.cpp in Sources */,

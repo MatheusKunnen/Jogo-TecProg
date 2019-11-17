@@ -16,6 +16,7 @@ texture(texture),
 sprite()
 {
     this->setTexture(texture);
+    this->setGGrafico(GerenciadorGrafico::getInstance());
 }
 
 Entidade::~Entidade(){
@@ -63,7 +64,6 @@ void Entidade::update(const float &dt){
 }
 
 void Entidade::render(RenderTarget* target){
-    //target = this->g_grafico->getRenderWindow();
     target->draw(this->sprite);
 }
 

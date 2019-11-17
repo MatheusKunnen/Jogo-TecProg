@@ -11,6 +11,7 @@
 
 #include "../TADs/ListaEntidades.hpp"
 #include "../Entidades/Jogador.hpp"
+#include "../Entidades/PlantaVenenosa.hpp"
 #include "../Entidades/level.hpp"
 #include "../GerenciadorGrafico.hpp"
 #include "../Gerenciadores/GerenciadorColisoes.hpp"
@@ -25,6 +26,7 @@ namespace eventos_jogador {
 }
 
 using Entidades::Personagens::Jogador;
+using Entidades::Obstaculos::PlantaVenenosa;
 
 using TADs::ListaEntidades;
 using Resources::TextureHolder;

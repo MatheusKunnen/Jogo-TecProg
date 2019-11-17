@@ -13,7 +13,7 @@ namespace Game { namespace Resources {
 const string FontHolder::DEFAULT_NOT_FILE("Resources/img/texttures/no_texture.png");
 
 map<Fonts::ID, string> FontHolder::default_filenames = {
-                                                {Fonts::font_01,"Resources/fonts/font-01.otf"}};
+                                                {Fonts::font_01,"Resources/fonts/font-02.ttf"}};
 // Constructor & Destructor
 FontHolder::FontHolder():
 ResourceHolder<sf::Font, Fonts::ID>()

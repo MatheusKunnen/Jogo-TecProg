@@ -2,6 +2,7 @@
 #define Jogo_hpp
 
 #include "TADs/StateStack.hpp"
+#include "TADS/ListaRanking.hpp"
 
 #include "GerenciadorGrafico.hpp"
 
@@ -48,6 +49,7 @@ using Parametros::ParametrosJogo;
 using Entidades::Personagens::Jogador;
 
 using TADs::StateStack;
+using TADs::ListaRanking;
 
 class Jogo : public StateManager {
 private:
@@ -61,6 +63,7 @@ private:
     ParametrosJogo              parametros_jogo; // Parametros do jogo
     
     StateStack                  states; // Pilha de estados
+    ListaRanking                l_ranking;
     int                         states_2_pop; // Nro estados a ser removidos
     map<string, int>            valid_keys; // Mapa Keys habilidas
     float                       dt; // Variacao do tempo
@@ -98,6 +101,8 @@ public:
     void handleEvents();
     void update();
     void render();
+    
+    void onWin();
     
     // State Manager Methods
     void pushTopState(States::states_id id);

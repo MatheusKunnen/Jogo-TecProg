@@ -19,7 +19,7 @@ used_keys(),
 g_grafico(g_grafico),
 quit(false)
 {
-    
+    this->g_grafico->resetDefaultView();
 }
 
 State::~State(){

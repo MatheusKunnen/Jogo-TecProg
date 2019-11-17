@@ -13,6 +13,7 @@ namespace Game { namespace Gerenciadores {
 // Constructor & Destructor
 GerenciadorColisoes::GerenciadorColisoes(Mapa& mapa, ListaEntidades& l_entidades):
 l_personagens(),
+l_obstaculos(),
 l_entidades(l_entidades),
 mapa(mapa)
 {
@@ -28,6 +29,8 @@ void GerenciadorColisoes::gerenciarColisoes(){
     // Chama gerenciadores de colisoes
     this->gerenciarColisoesPersonagensMapa();
     this->gerenciarColisoesPersonagensPersonagens();
+    this->gerenciarColisoesPersonagensObstaculos();
+    this->gerenciarColisoesPersonagensProjeteis();
 }
 
 void GerenciadorColisoes::gerenciarColisoesPersonagensMapa() {
@@ -47,6 +50,21 @@ void GerenciadorColisoes::gerenciarColisoesPersonagensPersonagens() {
         for(j = i+1; j < count; j++)
             checkPPCollision(this->l_personagens[i], this->l_personagens[j]);
 }
+
+void GerenciadorColisoes::gerenciarColisoesPersonagensObstaculos() {
+    int i, j;
+    long count_personagens = this->l_personagens.getCount(),
+         count_obstaculos = this->l_obstaculos.getCount();
+    for(i = 0; i < count_personagens; i++)
+        for (j = 0; j < count_obstaculos; j++)
+            checkPOCollision(this->l_personagens[i], this->l_obstaculos[j]);
+}
+
+void GerenciadorColisoes::gerenciarColisoesPersonagensProjeteis() {
+    
+}
+
+
 
 void GerenciadorColisoes::checkMapCollision(Personagem *personagem){
     // Obtem posicao/tamanho personagem
@@ -86,6 +104,19 @@ void GerenciadorColisoes::checkPPCollision(Personagem *personagem_a, Personagem 
     }
 }
 
+void GerenciadorColisoes::checkPOCollision(Personagem *personagem, Obstaculo *obstaculo) {
+    // Obtem posicoes/tamanhos dos personagens
+    const FloatRect&    bounds_p = personagem->getGlobalBounds(),
+                        bounds_o = obstaculo->getGlobalBounds();
+    // Calcula vetor de distancia e distancia maxima
+    const Vector2f      distance = this->distance(bounds_p, bounds_o),
+                        max_distance(pow(bounds_o.width/2 + bounds_p.width/2, 2), pow(bounds_o.height/2 + bounds_p.height/2, 2));
+    // Verifica colisao
+    if ((distance.x <= max_distance.x && distance.y < max_distance.y) && (distance.y <= max_distance.y && distance.x < max_distance.x)) {
+        obstaculo->onCollision(personagem);
+    }
+}
+
 const Vector2f GerenciadorColisoes::distance(const FloatRect& a, const FloatRect& b){
     return Vector2f(pow((a.left + a.width/2) - (b.left + b.width/2), 2),
                     pow((a.top + a.height/2) - (b.top + b.height/2), 2));
@@ -94,6 +125,10 @@ const Vector2f GerenciadorColisoes::distance(const FloatRect& a, const FloatRect
 void GerenciadorColisoes::addPersonagem(Personagem *personagem) {
     this->l_personagens += personagem;
 }
+
+void GerenciadorColisoes::addObstaculo(Obstaculo *obstaculo) {
+    this->l_obstaculos += obstaculo;
+}
     
 void GerenciadorColisoes::clear(){
     this->l_personagens.clear();
@@ -101,6 +136,10 @@ void GerenciadorColisoes::clear(){
 // Operators
 void GerenciadorColisoes::operator+=(Personagem *personagem){
     this->addPersonagem(personagem);
+}
+
+void GerenciadorColisoes::operator+=(Obstaculo *obstaculo){
+    this->addObstaculo(obstaculo);
 }
     
 }}
