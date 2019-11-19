@@ -19,8 +19,8 @@ MoveComponent::MoveComponent(Sprite* sprite, const Vector2f& max_speed, const Ve
 player_sprite(sprite),
 max_speed(max_speed),
 v_speed(0.f,0.f),
-v_aceleration(v_aceleration),//aceleration * MoveComponent::ACELERATION_GAIN),
-v_deceleration(v_deceleration),//v_deceleration * MoveComponent::ACELERATION_GAIN),
+v_aceleration(v_aceleration),
+v_deceleration(v_deceleration),
 v_direction(0.f,0.f),
 x_collision(false),
 y_collision(false)
@@ -34,7 +34,6 @@ MoveComponent::~MoveComponent(){
 
 // Methods
 void MoveComponent::update(const float &dt){
-    
     // EIXO X
     // Move a sprite da personagem
     this->player_sprite->move(this->v_speed.x * dt + this->v_aceleration.x*this->v_direction.x*dt*dt/2, 0);
@@ -69,7 +68,7 @@ void MoveComponent::update(const float &dt){
     this->v_direction.x = 0; // Reseta direcao do movimento
     
     // EIXO Y
-    if (v_speed.y < 0 ) { // Case jogador saltou
+    if (v_speed.y < 0 ) { // Caso jogador saltou
         
         this->player_sprite->move(0.f, this->v_speed.y * dt + this->v_aceleration.y*dt*dt/2);
         

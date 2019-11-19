@@ -48,7 +48,8 @@ void GerenciadorColisoes::gerenciarColisoesPersonagensPersonagens() {
     // Verifica colisoes entre todos os personagens da lista
     for(i = 0; i<count-1 ; i++)
         for(j = i+1; j < count; j++)
-            checkPPCollision(this->l_personagens[i], this->l_personagens[j]);
+            if(!this->l_personagens[i]->isEnding() && !this->l_personagens[j]->isEnding())
+                checkPPCollision(this->l_personagens[i], this->l_personagens[j]);
 }
 
 void GerenciadorColisoes::gerenciarColisoesPersonagensObstaculos() {
@@ -57,7 +58,8 @@ void GerenciadorColisoes::gerenciarColisoesPersonagensObstaculos() {
          count_obstaculos = this->l_obstaculos.getCount();
     for(i = 0; i < count_personagens; i++)
         for (j = 0; j < count_obstaculos; j++)
-            checkPOCollision(this->l_personagens[i], this->l_obstaculos[j]);
+            if(!this->l_personagens[i]->isEnding() && !this->l_obstaculos[j]->isEnding())
+                checkPOCollision(this->l_personagens[i], this->l_obstaculos[j]);
 }
 
 void GerenciadorColisoes::gerenciarColisoesPersonagensProjeteis() {
@@ -86,12 +88,9 @@ void GerenciadorColisoes::checkMapCollision(Personagem *personagem){
 }
 
 void GerenciadorColisoes::checkPPCollision(Personagem *personagem_a, Personagem *personagem_b) {
-    // Obtem posicoes/tamanhos dos personagens
-    const FloatRect&    bounds_a = personagem_a->getGlobalBounds(),
-                        bounds_b = personagem_b->getGlobalBounds();
     // Calcula vetor de distancia e distancia maxima
-    const Vector2f      distance = this->distance(bounds_a, bounds_b),
-                        max_distance(pow(bounds_b.width/2 + bounds_a.width/2, 2), pow(bounds_b.height/2 + bounds_a.height/2, 2));
+    const Vector2f      distance = Entidade::distanceV(personagem_a, personagem_b),
+                    max_distance = Entidade::maxDistanceV(personagem_a, personagem_b);
     // Verifica colisao em X
     if (distance.x <= max_distance.x && distance.y < max_distance.y - 10){
         personagem_a->onXCollision(true);
@@ -105,12 +104,9 @@ void GerenciadorColisoes::checkPPCollision(Personagem *personagem_a, Personagem 
 }
 
 void GerenciadorColisoes::checkPOCollision(Personagem *personagem, Obstaculo *obstaculo) {
-    // Obtem posicoes/tamanhos dos personagens
-    const FloatRect&    bounds_p = personagem->getGlobalBounds(),
-                        bounds_o = obstaculo->getGlobalBounds();
     // Calcula vetor de distancia e distancia maxima
-    const Vector2f      distance = this->distance(bounds_p, bounds_o),
-                        max_distance(pow(bounds_o.width/2 + bounds_p.width/2, 2), pow(bounds_o.height/2 + bounds_p.height/2, 2));
+    const Vector2f      distance = Entidade::distanceV(personagem, obstaculo),
+                    max_distance = Entidade::maxDistanceV(personagem, obstaculo);
     // Verifica colisao
     if ((distance.x <= max_distance.x && distance.y < max_distance.y) && (distance.y <= max_distance.y && distance.x < max_distance.x)) {
         obstaculo->onCollision(personagem);

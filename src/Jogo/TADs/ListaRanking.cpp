@@ -12,7 +12,7 @@ namespace Game { namespace TADs {
 /*
     Implementação de "Ranking Comparator"
 */
-bool ListaRanking::RankingComparator::operator()(const ListaRanking::RankingElement* a, const ListaRanking::RankingElement* b) {
+bool ListaRanking::RankingComparator::operator()(const ListaRanking::RankingElement* a, const ListaRanking::RankingElement* b) const {
     return a->getScore() < b->getScore();
 }
 
@@ -145,6 +145,8 @@ void ListaRanking::save() {
     
     // Manda ao gerenciador de arquivos guardar o json
     g_arquivos.save();
+    
+    // Limpa listas 
     data.clear();
     a_nomes.clear();
     a_scores.clear();

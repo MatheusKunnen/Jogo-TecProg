@@ -42,11 +42,14 @@ void ConfigMenu::initButtons(){
     // Posição base dos buttons
     Vector2f btn_size = Vector2f(450.f, 100.f);
     Vector2f btn_pos = Vector2f(this->context.getRenderWindow()->getSize().x*0.5  - btn_size.x/2 - 25, this->context.getRenderWindow()->getSize().y*.3);
+    
     // Button opção de 1 jogador
     this->widgets.add(btn_single_player, new Button(btn_single_player, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "1 JOGADOR"));
+    
     // Button opção de 2 jogadores
     btn_pos.x += btn_size.x + 50;
     this->widgets.add(btn_dual_player, new Button(btn_dual_player, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "2 JOGADORES"));
+    
     // Posição button sair
     Vector2f btn_exit_pos =
     Vector2f(this->context.getRenderWindow()->getSize().x*0.8, this->context.getRenderWindow()->getSize().y*.8);

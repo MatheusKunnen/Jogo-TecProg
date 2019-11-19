@@ -39,7 +39,7 @@ private:
     
     // Comparador para o set da lista Ranking
     struct RankingComparator {
-        bool operator()(const RankingElement* a, const RankingElement* b);
+        bool operator()(const RankingElement* a, const RankingElement* b) const;
     };
     
     // Attributes

@@ -39,6 +39,10 @@
 		2F43AFE1238100F50089A918 /* PlantaVenenosa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFDF238100F50089A918 /* PlantaVenenosa.cpp */; };
 		2F43AFE4238103950089A918 /* ListaObstaculos.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFE2238103950089A918 /* ListaObstaculos.cpp */; };
 		2F43AFE7238185070089A918 /* ListaRanking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFE5238185070089A918 /* ListaRanking.cpp */; };
+		2F43AFEA2382E5B00089A918 /* Desmatador.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFE82382E5B00089A918 /* Desmatador.cpp */; };
+		2F43AFED23833E230089A918 /* Projetil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFEB23833E230089A918 /* Projetil.cpp */; };
+		2F43AFF02383438E0089A918 /* Atirador.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFEE2383438E0089A918 /* Atirador.cpp */; };
+		2F43AFF323834DA00089A918 /* Narcotraficante.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFF123834DA00089A918 /* Narcotraficante.cpp */; };
 		2F69E402237F518600699DD2 /* ParametrosJogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F69E400237F518600699DD2 /* ParametrosJogo.cpp */; };
 		2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FF5236F132100CDE82F /* StateStack.cpp */; };
 		2F8A5FFD236F2E4D00CDE82F /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFB236F2E4D00CDE82F /* StateManager.cpp */; };
@@ -208,6 +212,14 @@
 		2F43AFE3238103950089A918 /* ListaObstaculos.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListaObstaculos.hpp; sourceTree = "<group>"; };
 		2F43AFE5238185070089A918 /* ListaRanking.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListaRanking.cpp; sourceTree = "<group>"; };
 		2F43AFE6238185070089A918 /* ListaRanking.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListaRanking.hpp; sourceTree = "<group>"; };
+		2F43AFE82382E5B00089A918 /* Desmatador.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Desmatador.cpp; sourceTree = "<group>"; };
+		2F43AFE92382E5B00089A918 /* Desmatador.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Desmatador.hpp; sourceTree = "<group>"; };
+		2F43AFEB23833E230089A918 /* Projetil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Projetil.cpp; sourceTree = "<group>"; };
+		2F43AFEC23833E230089A918 /* Projetil.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Projetil.hpp; sourceTree = "<group>"; };
+		2F43AFEE2383438E0089A918 /* Atirador.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Atirador.cpp; sourceTree = "<group>"; };
+		2F43AFEF2383438E0089A918 /* Atirador.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Atirador.hpp; sourceTree = "<group>"; };
+		2F43AFF123834DA00089A918 /* Narcotraficante.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Narcotraficante.cpp; sourceTree = "<group>"; };
+		2F43AFF223834DA00089A918 /* Narcotraficante.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Narcotraficante.hpp; sourceTree = "<group>"; };
 		2F69E400237F518600699DD2 /* ParametrosJogo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ParametrosJogo.cpp; sourceTree = "<group>"; };
 		2F69E401237F518600699DD2 /* ParametrosJogo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ParametrosJogo.hpp; sourceTree = "<group>"; };
 		2F8A5FF0236E1A8900CDE82F /* Lista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lista.hpp; sourceTree = "<group>"; };
@@ -576,6 +588,8 @@
 				2FDA0BDC2349265500E3209D /* Jogador.hpp */,
 				2FDA0BDE2349266200E3209D /* Inimigo.cpp */,
 				2FDA0BDF2349266200E3209D /* Inimigo.hpp */,
+				2F43AFE82382E5B00089A918 /* Desmatador.cpp */,
+				2F43AFE92382E5B00089A918 /* Desmatador.hpp */,
 				2FDA0BE423492EA600E3209D /* Personagem.cpp */,
 				2FDA0BE523492EA600E3209D /* Personagem.hpp */,
 				2FDA0BED234A3C7900E3209D /* Obstaculo.cpp */,
@@ -584,6 +598,12 @@
 				2FDA0BD92349264500E3209D /* Entidade.hpp */,
 				2F43AFDF238100F50089A918 /* PlantaVenenosa.cpp */,
 				2F43AFE0238100F50089A918 /* PlantaVenenosa.hpp */,
+				2F43AFEB23833E230089A918 /* Projetil.cpp */,
+				2F43AFEC23833E230089A918 /* Projetil.hpp */,
+				2F43AFEE2383438E0089A918 /* Atirador.cpp */,
+				2F43AFEF2383438E0089A918 /* Atirador.hpp */,
+				2F43AFF123834DA00089A918 /* Narcotraficante.cpp */,
+				2F43AFF223834DA00089A918 /* Narcotraficante.hpp */,
 			);
 			path = Entidades;
 			sourceTree = "<group>";
@@ -673,6 +693,7 @@
 				2F0D64A5237F211A00B214F4 /* WinMenu.cpp in Sources */,
 				2F0D6490237F02B400B214F4 /* RankingMenuState.cpp in Sources */,
 				2F8A60102371B80600CDE82F /* EventHandler.cpp in Sources */,
+				2F43AFF323834DA00089A918 /* Narcotraficante.cpp in Sources */,
 				2FDA0BE623492EA600E3209D /* Personagem.cpp in Sources */,
 				2FDA0BFE234BADE200E3209D /* GameState.cpp in Sources */,
 				2FA6DF4C234CCF7200302427 /* Button.cpp in Sources */,
@@ -685,6 +706,8 @@
 				2F8A60132371BEDC00CDE82F /* FontHolder.cpp in Sources */,
 				2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */,
 				2F0D6496237F031800B214F4 /* FailedMenuState.cpp in Sources */,
+				2F43AFEA2382E5B00089A918 /* Desmatador.cpp in Sources */,
+				2F43AFF02383438E0089A918 /* Atirador.cpp in Sources */,
 				2FDA0BF3234A3D9B00E3209D /* TexturesHolder.cpp in Sources */,
 				2FDA0BFB234BADD000E3209D /* State.cpp in Sources */,
 				2F0D6484237B1AA100B214F4 /* FaseState.cpp in Sources */,
@@ -696,6 +719,7 @@
 				2F923778235BF7CC00747DCA /* tinyxml.cpp in Sources */,
 				2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */,
 				2F8A600D2371B3E800CDE82F /* MainMenu.cpp in Sources */,
+				2F43AFED23833E230089A918 /* Projetil.cpp in Sources */,
 				2FDA0BDD2349265500E3209D /* Jogador.cpp in Sources */,
 				2F43AFE7238185070089A918 /* ListaRanking.cpp in Sources */,
 				2FA6DF6F234F940E00302427 /* MoveComponent.cpp in Sources */,

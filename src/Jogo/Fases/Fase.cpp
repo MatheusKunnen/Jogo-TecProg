@@ -42,7 +42,13 @@ void Fase::initParametros(){
 
 void Fase::initTextures(){
     this->textures.load(Resources::Textures::bg_fase, this->parametros.getArquivoBackground());
+    // Texturas Obstaculos
     this->textures.load(Resources::Textures::planta_venenosa, this->textures.getFilename(Resources::Textures::planta_venenosa));
+    this->textures.load(Resources::Textures::pedra, this->textures.getFilename(Resources::Textures::pedra));
+    this->textures.load(Resources::Textures::projetil, this->textures.getFilename(Resources::Textures::projetil));
+    // Texturas Inimigos
+    this->textures.load(Resources::Textures::desmatador, this->textures.getFilename(Resources::Textures::desmatador));
+    this->textures.load(Resources::Textures::narcotraficante, this->textures.getFilename(Resources::Textures::narcotraficante));
 }
 
 void Fase::initMapa(){
@@ -54,11 +60,13 @@ void Fase::initMapa(){
 
 void Fase::initJogadores(){
     if (this->jogador_a != nullptr){
+        this->jogador_a->reset();
         this->l_entidades.add(this->jogador_a, false);
         this->g_colisoes += this->jogador_a;
         this->jogador_a->setPosition(this->parametros.getPosPlayerA());
     }
     if (this->jogador_b != nullptr) {
+        this->jogador_b->reset();
         this->l_entidades.add(this->jogador_b, false);
         this->g_colisoes += this->jogador_b;
         this->jogador_b->setPosition(this->parametros.getPosPlayerB());
@@ -94,6 +102,20 @@ void Fase::checkPlayerStatus(){
         this->g_grafico->resetDefaultView();
     }
 
+}
+
+void Fase::addEntidade(Gerenciadores::Personagem* personagem){
+    this->l_entidades += personagem;
+    this->g_colisoes += personagem;
+}
+
+void Fase::addEntidade(Gerenciadores::Obstaculo* obstaculo){
+    this->l_entidades += obstaculo;
+    this->g_colisoes += obstaculo;
+}
+
+void Fase::createProjetil(const Vector2f& position, const short &direction, const int &damage, const float& speed) {
+    this->addEntidade(new Projetil(position, &this->textures.get(Resources::Textures::projetil), damage, direction, speed));
 }
 
 void Fase::onKeyInput(eventos_jogador::Tipo tipo, const float& dt){

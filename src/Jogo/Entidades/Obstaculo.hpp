@@ -16,13 +16,15 @@ namespace Game { namespace Entidades { namespace Obstaculos {
 
 using Entidades::Personagens::Personagem;
 
-enum Type {planta_venenosa, pedra, espinhos};
+enum Type {planta_venenosa, pedra, espinhos, projetil};
 
 class Obstaculo : public Entidade {
 protected:
     // Attributes
-    const int type_id;
-    int     damage;
+    const int   type_id;
+    int         damage;
+    float       idle_time;
+    float       delay_time;
     
 public:
     // Constructor & Destructor
@@ -31,11 +33,13 @@ public:
     
     // Methods
     virtual void update(const float& dt);
-    virtual void onCollision(Personagem* personagem);
+    virtual void onCollision(Personagem* personagem) = 0;
     
     // Getters & Setters
-    void setDamage(const int& damage);
-    const int& getDamage() const;
+    virtual void setDamage(const int& damage);
+    virtual const int& getDamage() const;
+    void setDelayTime(const float& delay_time);
+    const float& getDelayTime() const ;
 };
 
 }}}

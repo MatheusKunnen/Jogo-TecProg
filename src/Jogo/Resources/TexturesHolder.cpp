@@ -22,8 +22,9 @@ map<Textures::ID, string> TextureHolder::default_filenames = {
                                                 {Textures::desmatador,"Resources/img/textures/sprites/player/desmatador.png"},
                                                 {Textures::narcotraficante_desmatador,"Resources/img/textures/sprites/player/narcotraficante_desmatador.png"},
                                                 {Textures::planta_venenosa,"Resources/img/textures/obstaculos/planta_venenosa.png"},
-                                                {Textures::pedra,"Resources/img/textures/sprites/obstasculos/pedra.png"},
-                                                {Textures::spinhos,"Resources/img/textures/sprites/obstaculos/spinhos.png"}
+                                                {Textures::pedra,"Resources/img/textures/sprites/obstaculos/pedra.png"},
+                                                {Textures::spinhos,"Resources/img/textures/sprites/obstaculos/spinhos.png"},
+                                                {Textures::projetil,"Resources/img/textures/sprites/obstaculos/projetil.png"}
 };
 // Constructor & Destructor
 TextureHolder::TextureHolder():

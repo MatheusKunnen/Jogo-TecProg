@@ -13,7 +13,9 @@ namespace Game { namespace Entidades { namespace Obstaculos {
 Obstaculo::Obstaculo(const Type type_id, const Vector2f& position, Texture* texture, const int damage):
 Entidade(texture),
 type_id(type_id),
-damage(damage)
+damage(damage),
+idle_time(0),
+delay_time(5)
 {
     this->setPosition(position);
 }
@@ -23,13 +25,10 @@ Obstaculo::~Obstaculo(){
 }
 
 // Methods
-void Obstaculo::update(const float& dt){
-    
+void Obstaculo::update(const float &dt) {
+    this->idle_time += dt;
 }
 
-void Obstaculo::onCollision(Personagem* persongem) {
-    
-}
 
 // Getters & Setters
 void Obstaculo::setDamage(const int& damage){
@@ -38,6 +37,14 @@ void Obstaculo::setDamage(const int& damage){
 
 const int& Obstaculo::getDamage() const {
     return this->damage;
+}
+
+void Obstaculo::setDelayTime(const float &delay_time) {
+    this->delay_time = delay_time;
+}
+
+const float& Obstaculo::getDelayTime() const {
+    return this->delay_time;
 }
 
 }}}

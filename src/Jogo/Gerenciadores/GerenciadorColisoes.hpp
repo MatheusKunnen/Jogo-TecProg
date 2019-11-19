@@ -17,6 +17,7 @@
 
 namespace Game { namespace Gerenciadores {
 
+using Entidades::Entidade;
 using Entidades::Mapas::Mapa;
 using Entidades::Personagens::Personagem;
 using Entidades::Personagens::Jogador;

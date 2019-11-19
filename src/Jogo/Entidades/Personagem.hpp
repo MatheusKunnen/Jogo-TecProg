@@ -21,10 +21,7 @@ protected:
     
     // Components
     MoveComponent       move_comp;
-    
-    // Init methods
-    virtual void initComponents() = 0;
-    virtual void initMoveComponent();
+
 public:
     // Constructor & Destructor
     Personagem(const Vector2f& position, Texture* texture);

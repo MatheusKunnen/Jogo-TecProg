@@ -2,7 +2,7 @@
 #define Jogo_hpp
 
 #include "TADs/StateStack.hpp"
-#include "TADS/ListaRanking.hpp"
+#include "TADs/ListaRanking.hpp"
 
 #include "GerenciadorGrafico.hpp"
 

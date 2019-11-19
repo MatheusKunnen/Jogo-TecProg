@@ -11,6 +11,9 @@
 
 #include "../TADs/ListaEntidades.hpp"
 #include "../Entidades/Jogador.hpp"
+#include "../Entidades/Projetil.hpp"
+#include "../Entidades/Desmatador.hpp"
+#include "../Entidades/Narcotraficante.hpp"
 #include "../Entidades/PlantaVenenosa.hpp"
 #include "../Entidades/level.hpp"
 #include "../GerenciadorGrafico.hpp"
@@ -26,7 +29,10 @@ namespace eventos_jogador {
 }
 
 using Entidades::Personagens::Jogador;
+using Entidades::Obstaculos::Projetil;
 using Entidades::Obstaculos::PlantaVenenosa;
+using Entidades::Personagens::Desmatador;
+using Entidades::Personagens::Narcotraficante;
 
 using TADs::ListaEntidades;
 using Resources::TextureHolder;
@@ -68,6 +74,9 @@ public:
     virtual void update(const float& dt) = 0;
     virtual void updateView(const float& dt);
     virtual void checkPlayerStatus();
+    virtual void addEntidade(Gerenciadores::Personagem* entidade);
+    virtual void addEntidade(Gerenciadores::Obstaculo* obstaculo);
+    virtual void createProjetil(const Vector2f& position, const short& direction, const int& damage, const float& speed);
     virtual void render(RenderTarget* target) = 0;
     virtual void onKeyInput(eventos_jogador::Tipo tipo, const float& dt);
     virtual void onInitFase(Jogador* jogador_a, Jogador* jogador_b, FaseEventHandler* event_handler) = 0;

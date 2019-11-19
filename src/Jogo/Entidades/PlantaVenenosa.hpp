@@ -16,7 +16,6 @@ namespace Game { namespace Entidades { namespace Obstaculos {
 using Entidades::Obstaculos::Obstaculo;
 
 class PlantaVenenosa : public Obstaculo {
-private:
 public:
     // Constructor & Destructor
     PlantaVenenosa(const Vector2f& position, Texture* texture);

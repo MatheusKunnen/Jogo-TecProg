@@ -21,24 +21,33 @@ protected:
     Sprite                          sprite;
     float                           gravity;
     GerenciadorGrafico*             g_grafico;
+    bool                            ending;
 
 public:
     // Constructor & Destructor
     explicit Entidade(Texture* texture = nullptr, GerenciadorGrafico* g_grafico = nullptr);
     virtual ~Entidade();
+    
     // Getters & Setters
     void setGGrafico(GerenciadorGrafico* g_grafico);
     virtual void setPosition(const Vector2f& position);
     virtual const FloatRect getGlobalBounds() const;
     virtual const Vector2f& getPosition() const;
+    void setEnding(const bool& ending);
+    const bool& isEnding() const;
+    
     // Component Methods
     virtual void setTexture(Texture* texture);
     
-    
     // Methods
-    virtual void move(const sf::Vector2f& direction, const float& dt = 0);
     virtual void update(const float& dt);
     virtual void render(RenderTarget* target);
+    
+    // Static method
+    static const Vector2f distanceV(Entidade* a, Entidade* b);
+    static const Vector2f maxDistanceV(Entidade* a, Entidade* b);
+    static const float distance(Entidade* a, Entidade* b);
+    static const float maxDistance(Entidade* a, Entidade* b);
 };
 
 }};

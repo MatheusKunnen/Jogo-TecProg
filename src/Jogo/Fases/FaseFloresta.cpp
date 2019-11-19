@@ -28,10 +28,14 @@ FaseFloresta::~FaseFloresta(){
 // Init Methods
 void FaseFloresta::initInimigos() {
     
+    Narcotraficante* desmatador = new Narcotraficante(Vector2f(1400.f, 600.f), &this->textures.get(Resources::Textures::desmatador), this->jogador_a, this->jogador_b, this, 5);
+    
+    this->l_entidades += desmatador;
+    this->g_colisoes += desmatador;
 }
 
 void FaseFloresta::initObstaculos() {
-    PlantaVenenosa* obstaculo = new PlantaVenenosa(this->parametros.getPosPlayerB(), &this->textures.get(Resources::Textures::planta_venenosa));
+    PlantaVenenosa* obstaculo = new PlantaVenenosa(Vector2f(700.f,500.f), &this->textures.get(Resources::Textures::planta_venenosa));
     
     this->l_entidades+= obstaculo;
     this->g_colisoes += obstaculo;

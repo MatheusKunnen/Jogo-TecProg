@@ -36,7 +36,7 @@ void ListaEntidades::operator+=(Entidade* entidade){
 void ListaEntidades::render(RenderTarget *target){
     this->itr = lista_entidades.begin();
     while (itr != nullptr){
-        if(itr->get() != nullptr)
+        if(itr->get() != nullptr && !itr->get()->isEnding())
             itr->get()->render(target);
         itr = itr->getNext();
     }
@@ -45,9 +45,10 @@ void ListaEntidades::render(RenderTarget *target){
 void ListaEntidades::update(const float &dt){
     this->itr =lista_entidades.begin();
     while(itr != nullptr){
-        itr->get()->update(dt);
-        itr = itr->getNext();
-
+        if(itr->get() != nullptr && !itr->get()->isEnding())
+            itr->get()->update(dt);
+            itr = itr->getNext();
+        
     }
 }
 }};

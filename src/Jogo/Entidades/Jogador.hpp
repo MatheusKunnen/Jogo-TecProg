@@ -29,6 +29,7 @@ public:
     // Methods
     void update(const float& dt);
     void reset();
+    
     // Getters & Setters
     const int getScore() const;
 };

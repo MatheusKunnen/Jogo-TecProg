@@ -17,10 +17,12 @@ class ListaWidgets {
 private:
     // Attributes
     map<int, Widget*> widgets;
+    
 public:
     // Constructor & Destructor
     ListaWidgets();
     ~ListaWidgets();
+    
     // Methods
     void update(const float& dt);
     void render(RenderTarget* target) const;
@@ -28,6 +30,7 @@ public:
     void add(const int& id, Widget* widget);
     Widget* get(const int& id) const;
     void clear();
+    
     // Operators
     Widget* operator[](const int& id);
 

@@ -21,10 +21,12 @@ PlantaVenenosa::~PlantaVenenosa(){
     
 }
 
-// Methods
+// Methods Matheus
 void PlantaVenenosa::onCollision(Personagem *personagem){
-    if (personagem)
+    if (personagem && this->idle_time > this->delay_time) {
         personagem->removeVida(this->damage);
+        this->idle_time = 0.f;
+    }
 }
 
 }}}

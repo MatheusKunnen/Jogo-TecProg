@@ -14,16 +14,12 @@ Personagem::Personagem(const Vector2f& position, Texture* texture):
 Entidade(texture),
 num_vidas(1),
 move_comp(&sprite){
+    this->sprite.setPosition(position);
     //initComponents();
 }
 
 Personagem::~Personagem(){
     this->move_comp.reset();
-}
-
-// Init Methods
-void Personagem::initMoveComponent(){
-
 }
 
 // Methods
