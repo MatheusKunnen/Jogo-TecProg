@@ -12,8 +12,8 @@ namespace Game { namespace TADs {
 /*
     Implementação de "Ranking Comparator"
 */
-bool ListaRanking::RankingComparator::operator()(const ListaRanking::RankingElement* a, const ListaRanking::RankingElement* b) const {
-    return a->getScore() < b->getScore();
+bool ListaRanking::RankingComparator::operator()(const ListaRanking::RankingElement& a, const ListaRanking::RankingElement& b) const {
+    return a.getScore() > b.getScore();
 }
 
 /*
@@ -65,22 +65,22 @@ ListaRanking::~ListaRanking(){
 
 // Methods
 void ListaRanking::add(const string &nome_jogador, const int &score){
-    this->add(new ListaRanking::RankingElement(nome_jogador, score));
+    this->add(ListaRanking::RankingElement(nome_jogador, score));
 }
 
-void ListaRanking::add(RankingElement *element){
-    if (element)
-        this->l_ranking.insert(element);
+void ListaRanking::add(const ListaRanking::RankingElement& element){
+
+    this->l_ranking.insert(element);
     // Salva sempre que se agrega um novo jogador
     this->save();
 }
 
-ListaRanking::RankingElement* ListaRanking::get(const int &i) const {
+const ListaRanking::RankingElement& ListaRanking::get(const int &i) const {
     // Verifica validade de indice
     if (i >= this->getSize())
         throw runtime_error("ERROR: ListaRanking::get(): Index out of bounds.\n");
     
-    set<RankingElement*, RankingComparator>::iterator itr = this->l_ranking.begin();
+    set<RankingElement, RankingComparator>::iterator itr = this->l_ranking.begin();
     int j;
     // Busca Elemento
     for(j = 0; j < i; j++, itr++);
@@ -90,8 +90,8 @@ ListaRanking::RankingElement* ListaRanking::get(const int &i) const {
 
 void ListaRanking::clear() {
     // Desaloca elementos
-    for (ListaRanking::RankingElement* elemento : this->l_ranking)
-        delete elemento;
+    //for (ListaRanking::RankingElement elemento : this->l_ranking)
+    //    delete elemento;
     // Limpa lista
     this->l_ranking.clear();
 }
@@ -132,9 +132,9 @@ void ListaRanking::save() {
     json a_scores = json::array();
     
     // Loads Arrays
-    for (RankingElement* element: this->l_ranking){
-        a_nomes.push_back(element->getNomeJogador());
-        a_scores.push_back(element->getScore());
+    for (RankingElement element: this->l_ranking){
+        a_nomes.push_back(element.getNomeJogador());
+        a_scores.push_back(element.getScore());
     }
     // Add arrays to json obj
     data["nomes"] = a_nomes;
@@ -155,8 +155,8 @@ void ListaRanking::save() {
 const string ListaRanking::dump() const {
     stringstream txt_board;
     int count = 0;
-    for(RankingElement* element: this->l_ranking){
-        txt_board << ++count << "˚ - " << element->getNomeJogador() << " - " << element->getScore() << endl;
+    for(const RankingElement& element: this->l_ranking){
+        txt_board << ++count << "˚ - " << element.getNomeJogador() << " - " << element.getScore() << endl;
     }
     return txt_board.str();
 }
@@ -175,7 +175,7 @@ const string& ListaRanking::getFilename() const {
 }
 
 // Operators
-ListaRanking::RankingElement* ListaRanking::operator[](const int &i) const {
+const ListaRanking::RankingElement& ListaRanking::operator[](const int &i) const {
     return this->get(i);
 }
 

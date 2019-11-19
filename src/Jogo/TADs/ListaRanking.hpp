@@ -39,11 +39,11 @@ private:
     
     // Comparador para o set da lista Ranking
     struct RankingComparator {
-        bool operator()(const RankingElement* a, const RankingElement* b) const;
+        bool operator()(const RankingElement& a, const RankingElement& b) const;
     };
     
     // Attributes
-    set<RankingElement*, RankingComparator>      l_ranking;
+    set<RankingElement, RankingComparator>       l_ranking;
     GerenciadorArquivos                          g_arquivos;
     
 public:
@@ -53,8 +53,8 @@ public:
     
     // Methods
     void add(const string& nome_jogador, const int& score);
-    void add(RankingElement* element);
-    RankingElement* get(const int& i) const;
+    void add(const ListaRanking::RankingElement& element);
+    const ListaRanking::RankingElement& get(const int& i) const;
     void clear();
     void load();
     void save();
@@ -66,7 +66,7 @@ public:
     const string& getFilename() const;
     
     // Operators
-    RankingElement* operator[](const int& i) const ;
+    const RankingElement& operator[](const int& i) const ;
 };
 
 }}
