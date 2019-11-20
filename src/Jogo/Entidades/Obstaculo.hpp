@@ -22,7 +22,7 @@ class Obstaculo : public Entidade {
 protected:
     // Attributes
     const int   type_id;
-    int         damage;
+    float         damage;
     float       idle_time;
     float       delay_time;
     
@@ -36,8 +36,8 @@ public:
     virtual void onCollision(Personagem* personagem) = 0;
     
     // Getters & Setters
-    virtual void setDamage(const int& damage);
-    virtual const int& getDamage() const;
+    virtual void setDamage(const float& damage);
+    virtual const float& getDamage() const;
     void setDelayTime(const float& delay_time);
     const float& getDelayTime() const ;
 };

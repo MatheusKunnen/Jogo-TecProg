@@ -68,11 +68,11 @@ void Inimigo::updatePlayerAttack(){
 }
 
 // Getters & Setters
-void Inimigo::setDamage(const int &damage) {
+void Inimigo::setDamage(const float &damage) {
     this->damage = damage;
 }
 
-const int Inimigo::getDamage() const {
+const float& Inimigo::getDamage() const {
     return this->damage;
 }
 

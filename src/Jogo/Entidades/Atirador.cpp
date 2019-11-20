@@ -12,10 +12,10 @@
 namespace Game { namespace Entidades { namespace Personagens {
 
 // Constructor & Destructor
-Atirador::Atirador(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const int& damage):
+Atirador::Atirador(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const float& projetil_speed, const float& damage):
 Inimigo(position, texture, jogador_a, jogador_b, damage),
 fase(fase),
-projetil_speed(1)
+projetil_speed(projetil_speed)
 {
     
 }
@@ -56,13 +56,5 @@ void Atirador::updatePlayerAttack() {
 void Atirador::attack(Jogador *jogador) {
     this->atirar((jogador->getPosition().x - this->getPosition().x > 0) ? 1 : -1);
 }
-
-/*void Atirador::autoMove(const float &dt) {
- this->move(Vector2f(this->getAmplitudeMov() * std::cos(this->getVelMov()*this->time_mov), 0), dt);
- }
- 
- void Atirador::atirar(const short &direction) {
- this->fase->createProjetil(this->sprite.getPosition(), direction, this->damage, this->projetil_speed);
- }*/
 
 }}}

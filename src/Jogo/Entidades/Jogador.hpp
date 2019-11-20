@@ -15,12 +15,17 @@ namespace Game { namespace Entidades { namespace Personagens {
 
 class Jogador : public Personagem{
 private:
+    // Const
+    static const Vector2f   lifebar_size;
+    static const sf::Color  lifebar_color;
+    static const int       max_life;
+    
     // Attributes
     float total_dt;
+    RectangleShape life_bar;
     
     // Init methods
-    void initComponents();
-    void initMoveComponent();
+    void initLifeBar();
 public:
     // Constructor & Destructor
     Jogador(const Vector2f& position, Texture* texture);
@@ -28,6 +33,9 @@ public:
     
     // Methods
     void update(const float& dt);
+    void updateLifeBar();
+    void render(RenderTarget* target);
+    void renderLifeBar(RenderTarget* target);
     void reset();
     
     // Getters & Setters

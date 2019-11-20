@@ -14,7 +14,9 @@
 #include "../Entidades/Projetil.hpp"
 #include "../Entidades/Desmatador.hpp"
 #include "../Entidades/Narcotraficante.hpp"
+#include "../Entidades/NarcotraficanteDesmatador.hpp"
 #include "../Entidades/PlantaVenenosa.hpp"
+#include "../Entidades/Espinho.hpp"
 #include "../Entidades/level.hpp"
 #include "../GerenciadorGrafico.hpp"
 #include "../Gerenciadores/GerenciadorColisoes.hpp"
@@ -31,8 +33,10 @@ namespace eventos_jogador {
 using Entidades::Personagens::Jogador;
 using Entidades::Obstaculos::Projetil;
 using Entidades::Obstaculos::PlantaVenenosa;
+using Entidades::Obstaculos::Espinho;
 using Entidades::Personagens::Desmatador;
 using Entidades::Personagens::Narcotraficante;
+using Entidades::Personagens::NarcotraficanteDesmatador;
 
 using TADs::ListaEntidades;
 using Resources::TextureHolder;
@@ -58,6 +62,7 @@ protected:
     GerenciadorColisoes g_colisoes;
     ParametrosFase      parametros;
     FaseEventHandler*   event_handler;
+    
     // Init Functions
     void initParametros();
     virtual void initTextures();
@@ -65,6 +70,7 @@ protected:
     virtual void initInimigos() = 0;
     virtual void initObstaculos() = 0;
     virtual void initMapa();
+    
 public:
     // Constructor & Destructor
     Fase(const string& f_parametros, GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b = nullptr);

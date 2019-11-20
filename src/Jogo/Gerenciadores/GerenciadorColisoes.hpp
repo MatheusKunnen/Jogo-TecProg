@@ -34,7 +34,6 @@ private:
     ListaEntidades&     l_entidades;
     Mapa&               mapa;
     
-    const Vector2f distance(const FloatRect& a, const FloatRect& b);
 public:
     // Constructor & Destructor
     GerenciadorColisoes(Mapa& mapa, ListaEntidades& l_entidades);
@@ -45,14 +44,17 @@ public:
     void gerenciarColisoesPersonagensMapa();
     void gerenciarColisoesPersonagensPersonagens();
     void gerenciarColisoesPersonagensObstaculos();
-    void gerenciarColisoesPersonagensProjeteis();
+    
     void checkMapCollision(Personagem* personagem);
     void checkPPCollision(Personagem* personagem_a, Personagem* personagem_b);
     void checkPOCollision(Personagem* personagem, Obstaculo* obstaculo);
-    //void checkPpCollision(Personagem* personagem, )
+    
     void addPersonagem(Personagem* personagem);
     void addObstaculo(Obstaculo* obstaculo);
+    
+    void clearEndingObj();
     void clear();
+    
     // Operadores
     void operator+=(Personagem* personagem);
     void operator+=(Obstaculo* obstaculo);

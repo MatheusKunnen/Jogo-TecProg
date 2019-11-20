@@ -20,17 +20,22 @@ private:
     // Attributes
     Lista<Entidade>                      lista_entidades;
     Lista<Entidade>::Elemento<Entidade>* itr;
+    
 public:
     // Cosntructor & Destructor
     ListaEntidades();
     ~ListaEntidades();
     
     // Methods
-    void add(Entidade* entidade, const bool& liberar = true);
-    void clear();
-    void operator+=(Entidade* entidade);
-    void render(RenderTarget* target);
     void update(const float& dt);
+    void render(RenderTarget* target);
+    void add(Entidade* entidade, const bool& liberar = true);
+    void clearEnding();
+    void clear();
+    
+    // Operators
+    void operator+=(Entidade* entidade);
+
     
 };
 

@@ -43,12 +43,24 @@ void ListaEntidades::render(RenderTarget *target){
 }
 
 void ListaEntidades::update(const float &dt){
-    this->itr =lista_entidades.begin();
+    //this->clearEnding();
+    this->itr = lista_entidades.begin();
     while(itr != nullptr){
         if(itr->get() != nullptr && !itr->get()->isEnding())
             itr->get()->update(dt);
             itr = itr->getNext();
-        
+    }
+}
+
+void ListaEntidades::clearEnding(){
+    this->itr =lista_entidades.begin();
+    Entidade* entidade = nullptr;
+    while(itr != nullptr){
+        entidade = itr->get();
+        itr = itr->getNext();
+        if(entidade->isEnding())
+            this->lista_entidades.remove(entidade);
+
     }
 }
 }};

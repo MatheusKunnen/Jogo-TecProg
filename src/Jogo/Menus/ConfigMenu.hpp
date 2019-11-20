@@ -31,14 +31,15 @@ private:
     enum widgets_ids{btn_exit, btn_single_player, btn_dual_player, btn_update_p_name, txt_player_name};
 public:
     // Constructor & Destructor
-    ConfigMenu(RenderWindow& window, ParametrosJogo* parametros_jogo);
+    ConfigMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ParametrosJogo* parametros_jogo);
     virtual ~ConfigMenu();
+    
     // Methods
-    void updateMenu(const float& dt);
-    void renderMenu(RenderTarget* target) const;
+    void update(const float& dt);
+    void render(RenderTarget* target);
     void onGuiEvent(int id, GUI::Events::Type event_id);
     void onUpdatePlayerName();
-    virtual void onExit() = 0;
+    void onExit();
     
     // Getters & Setters
     void setParametrosJogo(ParametrosJogo* parametros_jogo);

@@ -1,7 +1,6 @@
 #ifndef Jogo_hpp
 #define Jogo_hpp
 
-#include "TADs/StateStack.hpp"
 #include "TADs/ListaRanking.hpp"
 
 #include "GerenciadorGrafico.hpp"
@@ -9,14 +8,6 @@
 #include "Parametros/ParametrosJogo.hpp"
 
 #include "States/StateManager.hpp"
-#include "States/GameState.hpp"
-#include "States/MainMenuState.hpp"
-#include "States/RankingMenuState.hpp"
-#include "States/ConfigMenuState.hpp"
-#include "States/FaseState.hpp"
-#include "States/PauseMenuState.hpp"
-#include "States/WinMenuState.hpp"
-#include "States/FailedMenuState.hpp"
 
 #include "Fases/FaseFloresta.hpp"
 #include "Fases/FaseMontanha.hpp"
@@ -30,13 +21,13 @@ namespace Game {
 // Usings
 using States::State;
 using States::StateManager;
-using States::MainMenuState;
-using States::RankingMenuState;
-using States::ConfigMenuState;
-using States::PauseMenuState;
-using States::WinMenuState;
-using States::FailedMenuState;
-using States::GameState;
+using Menus::MainMenu;
+using Menus::RankingMenu;
+using Menus::ConfigMenu;
+using Menus::PauseMenu;
+using Menus::WinMenu;
+using Menus::FailedMenu;
+using Menus::GameMenu;
 using States::FaseState;
 
 using Fases::FaseFloresta;
@@ -62,7 +53,7 @@ private:
     GerenciadorGrafico*         g_grafico; // Referencia ao gerenciador grafico
     ParametrosJogo              parametros_jogo; // Parametros do jogo
     
-    StateStack                  states; // Pilha de estados
+    //StateStack                  states; // Pilha de estados
     ListaRanking                l_ranking;
     int                         states_2_pop; // Nro estados a ser removidos
     map<string, int>            valid_keys; // Mapa Keys habilidas

@@ -1,10 +1,14 @@
 {
     "arquivo_mapa":"Resources/maps/fase_b.tmx",
     "arquivo_tileset":"Resources/maps/tileset64.png",
-    "arquivo_bg":"Resources/img/textures/backgrounds/bg_fase_b.jpeg",
+    "arquivo_bg":"Resources/img/textures/backgrounds/bg_fase_b.png",
     "pos_x_p_a":425,
     "pos_y_p_a":570,
     "pos_x_p_b":315,
     "pos_y_p_b":570,
-    "pos_x_win":4000
+    "pos_x_win":4000,
+    "pos_inimigos_x":[2490, 1570],
+    "pos_inimigos_y":[650, 650],
+    "pos_obstaculos_x":[700, 1300],
+    "pos_obstaculos_y":[870, 870]
 }

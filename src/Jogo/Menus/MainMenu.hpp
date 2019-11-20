@@ -22,18 +22,20 @@ private:
 
     // Const
     enum widgets_ids{btn_new_game, btn_ranking, btn_config, btn_exit};
+    
 public:
     // Constructor & Destructor
-    MainMenu(RenderWindow& window);
+    MainMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
     virtual ~MainMenu();
+    
     // Methods
-    void updateMenu(const float& dt);
-    void renderMenu(RenderTarget* target) const;
+    void update(const float& dt);
+    void render(RenderTarget* target= nullptr);
     void onGuiEvent(int id, GUI::Events::Type event_id);
-    virtual void onOpenNewGame() = 0;
-    virtual void onOpenRanking() = 0;
-    virtual void onOpenConfig() = 0;
-    virtual void onExit() = 0;
+    void onOpenNewGame();
+    void onOpenRanking();
+    void onOpenConfig();
+    void onExit();
 };
 
 }}

@@ -7,6 +7,7 @@
 //
 
 #include "State.hpp"
+#include "StateManager.hpp"
 
 namespace Game { namespace States {
 

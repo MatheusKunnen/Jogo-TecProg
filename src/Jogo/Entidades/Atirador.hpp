@@ -29,12 +29,12 @@ protected:
     const float     projetil_speed;
     
 public:
-    Atirador(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const int& damage = 1);
+    Atirador(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const float& projetil_speed, const float& damage = 1);
     virtual ~Atirador();
     
     // Methods
     virtual void updatePlayerAttack();
-    void attack(Jogador* jogador);
+    virtual void attack(Jogador* jogador);
     virtual void atirar(const short& direction) = 0;
     
 };

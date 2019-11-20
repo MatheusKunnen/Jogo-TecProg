@@ -22,7 +22,6 @@ event_pool(),
 main_clock(),
 g_grafico(nullptr),
 parametros_jogo(),
-states(),
 dt(0),
 status_code(0),
 l_ranking()
@@ -48,7 +47,7 @@ void Jogo::initParametros(){
 
 void Jogo::initStates(){
     // Realiza o push do state base (Menu Principal)
-    this->states.push(new MainMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys));
+    this->states.push(new MainMenu(this, GerenciadorGrafico::getInstance(), &this->valid_keys));
 }
 
 void Jogo::initTextures(){
@@ -166,26 +165,26 @@ void Jogo::pushTopState(States::states_id id){
     // Aloca estado solicitado
     switch (id) {
         case States::states_id::main_menu:
-            state = new MainMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            state = new MainMenu(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::game_menu:
-            state = new GameState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            state = new GameMenu(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::config_menu:
-            state = new ConfigMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, &this->parametros_jogo);
+            state = new ConfigMenu(this, GerenciadorGrafico::getInstance(), &this->valid_keys, &this->parametros_jogo);
             break;
         case States::states_id::ranking_menu:
-            state = new RankingMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->l_ranking);
+            state = new RankingMenu(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->l_ranking);
             break;
         case States::states_id::pause_menu:
-            state = new PauseMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            state = new PauseMenu(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::win_menu:
             this->onWin();
-            state = new WinMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            state = new WinMenu(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::failed_menu:
-            state = new FailedMenuState(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
+            state = new FailedMenu(this, GerenciadorGrafico::getInstance(), &this->valid_keys);
             break;
         case States::states_id::fase_floresta:
             state = new FaseState(this, GerenciadorGrafico::getInstance(), &this->valid_keys, this->fase_floresta, this->getJogadorA(), this->getJogadorB());

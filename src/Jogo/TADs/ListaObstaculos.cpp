@@ -39,6 +39,16 @@ Obstaculo* ListaObstaculos::get(const int &i) {
     return *this->itr;
 }
 
+void ListaObstaculos::clearEnding() {
+    //for(Obstaculo* obstaculo : this->l_obstaculos)
+    //    if (obstaculo->isEnding())
+    //        this->l_obstaculos.remove(obstaculo);
+    //for(this->itr = this->l_obstaculos.begin(); this->itr != this->l_obstaculos.end(); itr++)
+    //    if ((*itr)->isEnding())
+    //        this->l_obstaculos.remove((*itr));
+
+}
+
 void ListaObstaculos::clear() {
     this->l_obstaculos.clear();
 }

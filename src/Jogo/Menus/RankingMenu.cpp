@@ -11,8 +11,8 @@
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-RankingMenu::RankingMenu(RenderWindow& window, ListaRanking& l_ranking):
-Menu(window),
+RankingMenu::RankingMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ListaRanking& l_ranking):
+Menu(handler, g_grafico, supported_keys, States::states_id::ranking_menu),
 l_ranking(l_ranking)
 {
     this->initMenu();
@@ -58,12 +58,14 @@ void RankingMenu::initRankingBoard(){
 }
 
 // Methods
-void RankingMenu::updateMenu(const float &dt) {
+void RankingMenu::update(const float &dt) {
     this->context.update(dt);
     this->widgets.update(dt);
 }
 
-void RankingMenu::renderMenu(RenderTarget *target) const {
+void RankingMenu::render(RenderTarget *target) {
+    if (!target)
+        target = this->g_grafico->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }
@@ -74,6 +76,10 @@ void RankingMenu::onGuiEvent(int id, GUI::Events::Type event_id){
             onExit();
             break;
     }
+}
+
+void RankingMenu::onExit() {
+    this->quit = true;
 }
 
 }};

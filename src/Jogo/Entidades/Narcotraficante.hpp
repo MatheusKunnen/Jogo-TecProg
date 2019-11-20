@@ -14,6 +14,13 @@
 namespace Game { namespace Entidades { namespace Personagens {
 
 class Narcotraficante : public Atirador {
+private:
+    // Const
+    static const float DAMAGE;
+    static const float DELAY_TIME;
+    static const float ATTACK_DISTANCE;
+    static const float VEL_PROJETIL;
+    
 public:
     // Constructor & Destructor
     Narcotraficante(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const int& damage = 1);

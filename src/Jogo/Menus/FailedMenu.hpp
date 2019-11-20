@@ -26,13 +26,13 @@ private:
     
 public:
     // Constructor & Destructor
-    FailedMenu(RenderWindow& window);
+    FailedMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
     virtual ~FailedMenu();
     // Methods
-    void updateMenu(const float& dt);
-    void renderMenu(RenderTarget* target) const;
+    void update(const float& dt);
+    void render(RenderTarget* target);
     void onGuiEvent(int id, GUI::Events::Type event_id);
-    virtual void onExit() = 0;
+    void onExit();
 };
 
 }}

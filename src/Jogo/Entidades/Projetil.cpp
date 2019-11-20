@@ -16,13 +16,19 @@ direction(direction),
 speed(speed),
 life_time(0)
 {
-    
+    this->initSprite();
 }
 
 Projetil::~Projetil() {
     
 }
 
+// Init Methods
+void Projetil::initSprite(){
+    this->sprite.setScale((this->direction > 0) ? -1 : 1, 1);
+}
+
+// Methods
 void Projetil::update(const float &dt) {
     this->updateLifeTime(dt);
     this->move(dt);

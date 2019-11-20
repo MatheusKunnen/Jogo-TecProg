@@ -17,14 +17,14 @@ namespace Game { namespace Entidades { namespace Personagens {
 class Personagem : public Entidade {
 protected:
     // Attributes
-    int                 num_vidas;
+    float                 num_vidas;
     
     // Components
     MoveComponent       move_comp;
 
 public:
     // Constructor & Destructor
-    Personagem(const Vector2f& position, Texture* texture);
+    Personagem(const Vector2f& position, Texture* texture, const float& num_vidas = 10);
     virtual ~Personagem();
 
     // Methods
@@ -38,8 +38,8 @@ public:
     
     // Getters & Setters
     MoveComponent& getMoveComponent();
-    void setNumVidas(const int& num_vidas);
-    const int& getNumVidas() const;
+    void setNumVidas(const float& num_vidas);
+    const float& getNumVidas() const;
     
 };
 

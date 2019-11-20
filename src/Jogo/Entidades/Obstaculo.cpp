@@ -15,7 +15,7 @@ Entidade(texture),
 type_id(type_id),
 damage(damage),
 idle_time(0),
-delay_time(5)
+delay_time(0)
 {
     this->setPosition(position);
 }
@@ -31,11 +31,11 @@ void Obstaculo::update(const float &dt) {
 
 
 // Getters & Setters
-void Obstaculo::setDamage(const int& damage){
+void Obstaculo::setDamage(const float& damage){
     this->damage = damage;
 }
 
-const int& Obstaculo::getDamage() const {
+const float& Obstaculo::getDamage() const {
     return this->damage;
 }
 

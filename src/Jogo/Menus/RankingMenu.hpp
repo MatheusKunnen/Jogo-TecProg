@@ -32,13 +32,13 @@ private:
     enum widgets_ids{btn_exit, txt_header, txt_board};
 public:
     // Constructor & Destructor
-    RankingMenu(RenderWindow& window, ListaRanking& l_ranking);
+    RankingMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ListaRanking& l_ranking);
     virtual ~RankingMenu();
     // Methods
-    void updateMenu(const float& dt);
-    void renderMenu(RenderTarget* target) const;
+    void update(const float& dt);
+    void render(RenderTarget* target);
     void onGuiEvent(int id, GUI::Events::Type event_id);
-    virtual void onExit() = 0;
+    void onExit();
 };
 
 }}

@@ -7,3 +7,17 @@
 //
 
 #include "StateManager.hpp"
+
+namespace Game { namespace States {
+
+StateManager::StateManager():
+states()
+{
+    
+}
+
+StateManager::~StateManager() {
+
+}
+
+}}

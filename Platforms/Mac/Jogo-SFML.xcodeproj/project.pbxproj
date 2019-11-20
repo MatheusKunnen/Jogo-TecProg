@@ -16,11 +16,6 @@
 		2F0D6484237B1AA100B214F4 /* FaseState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6483237B1AA100B214F4 /* FaseState.cpp */; };
 		2F0D6487237C8CDA00B214F4 /* GerenciadorColisoes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6485237C8CDA00B214F4 /* GerenciadorColisoes.cpp */; };
 		2F0D648A237C8D8700B214F4 /* ListaPersonagens.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6488237C8D8700B214F4 /* ListaPersonagens.cpp */; };
-		2F0D648D237F029400B214F4 /* ConfigMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D648B237F029300B214F4 /* ConfigMenuState.cpp */; };
-		2F0D6490237F02B400B214F4 /* RankingMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D648E237F02B400B214F4 /* RankingMenuState.cpp */; };
-		2F0D6493237F02CE00B214F4 /* PauseMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6491237F02CE00B214F4 /* PauseMenuState.cpp */; };
-		2F0D6496237F031800B214F4 /* FailedMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6494237F031800B214F4 /* FailedMenuState.cpp */; };
-		2F0D6499237F032500B214F4 /* WinMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D6497237F032500B214F4 /* WinMenuState.cpp */; };
 		2F0D649C237F034700B214F4 /* GameMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D649A237F034700B214F4 /* GameMenu.cpp */; };
 		2F0D649F237F0C1900B214F4 /* ConfigMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D649D237F0C1900B214F4 /* ConfigMenu.cpp */; };
 		2F0D64A2237F12BB00B214F4 /* PauseMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F0D64A0237F12BB00B214F4 /* PauseMenu.cpp */; };
@@ -44,6 +39,7 @@
 		2F43AFF02383438E0089A918 /* Atirador.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFEE2383438E0089A918 /* Atirador.cpp */; };
 		2F43AFF323834DA00089A918 /* Narcotraficante.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F43AFF123834DA00089A918 /* Narcotraficante.cpp */; };
 		2F69E402237F518600699DD2 /* ParametrosJogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F69E400237F518600699DD2 /* ParametrosJogo.cpp */; };
+		2F6E51552384365B00FF497B /* EndGameMenu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E51532384365B00FF497B /* EndGameMenu.cpp */; };
 		2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FF5236F132100CDE82F /* StateStack.cpp */; };
 		2F8A5FFD236F2E4D00CDE82F /* StateManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFB236F2E4D00CDE82F /* StateManager.cpp */; };
 		2F8A6000236FA65E00CDE82F /* ListaEntidades.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F8A5FFE236FA65E00CDE82F /* ListaEntidades.cpp */; };
@@ -60,11 +56,9 @@
 		2F923777235BF7CC00747DCA /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F92376E235BF7CC00747DCA /* tinyxmlerror.cpp */; };
 		2F923778235BF7CC00747DCA /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F923772235BF7CC00747DCA /* tinyxml.cpp */; };
 		2F92377B235BF7F300747DCA /* level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F923779235BF7F300747DCA /* level.cpp */; };
-		2FA6DF48234CC7C100302427 /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF46234CC7C100302427 /* MainMenuState.cpp */; };
 		2FA6DF4C234CCF7200302427 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF4A234CCF7200302427 /* Button.cpp */; };
 		2FA6DF4F234CDADF00302427 /* MediaEngineParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BFF234BB3D100E3209D /* MediaEngineParameters.cpp */; };
 		2FA6DF50234CDADF00302427 /* Personagem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BE423492EA600E3209D /* Personagem.cpp */; };
-		2FA6DF51234CDADF00302427 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BFC234BADE200E3209D /* GameState.cpp */; };
 		2FA6DF52234CDADF00302427 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF4A234CCF7200302427 /* Button.cpp */; };
 		2FA6DF53234CDADF00302427 /* TexturesHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BF1234A3D9B00E3209D /* TexturesHolder.cpp */; };
 		2FA6DF54234CDADF00302427 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BF9234BADD000E3209D /* State.cpp */; };
@@ -74,7 +68,6 @@
 		2FA6DF58234CDADF00302427 /* Inimigo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BDE2349266200E3209D /* Inimigo.cpp */; };
 		2FA6DF59234CDADF00302427 /* Jogo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD12346BE8F00E3209D /* Jogo.cpp */; };
 		2FA6DF5A234CDADF00302427 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2F435699230ED21E00A89E64 /* main.cpp */; };
-		2FA6DF5B234CDADF00302427 /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FA6DF46234CC7C100302427 /* MainMenuState.cpp */; };
 		2FA6DF5C234CDADF00302427 /* Entidade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BD82349264500E3209D /* Entidade.cpp */; };
 		2FA6DF5E234CDADF00302427 /* SFML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356C0230EDFBE00A89E64 /* SFML.framework */; };
 		2FA6DF5F234CDADF00302427 /* sfml-window.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4356B6230EDFA500A89E64 /* sfml-window.framework */; };
@@ -93,8 +86,10 @@
 		2FDA0BEF234A3C7900E3209D /* Obstaculo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BED234A3C7900E3209D /* Obstaculo.cpp */; };
 		2FDA0BF3234A3D9B00E3209D /* TexturesHolder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BF1234A3D9B00E3209D /* TexturesHolder.cpp */; };
 		2FDA0BFB234BADD000E3209D /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BF9234BADD000E3209D /* State.cpp */; };
-		2FDA0BFE234BADE200E3209D /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BFC234BADE200E3209D /* GameState.cpp */; };
 		2FDA0C01234BB3D100E3209D /* MediaEngineParameters.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FDA0BFF234BB3D100E3209D /* MediaEngineParameters.cpp */; };
+		2FFE79F223847D65004BBA5A /* Espinho.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE79F023847D65004BBA5A /* Espinho.cpp */; };
+		2FFE79F5238495A1004BBA5A /* Pedra.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE79F3238495A1004BBA5A /* Pedra.cpp */; };
+		2FFE79F823849CC4004BBA5A /* NarcotraficanteDesmatador.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE79F623849CC4004BBA5A /* NarcotraficanteDesmatador.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -158,16 +153,6 @@
 		2F0D6486237C8CDA00B214F4 /* GerenciadorColisoes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GerenciadorColisoes.hpp; sourceTree = "<group>"; };
 		2F0D6488237C8D8700B214F4 /* ListaPersonagens.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListaPersonagens.cpp; sourceTree = "<group>"; };
 		2F0D6489237C8D8700B214F4 /* ListaPersonagens.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListaPersonagens.hpp; sourceTree = "<group>"; };
-		2F0D648B237F029300B214F4 /* ConfigMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigMenuState.cpp; sourceTree = "<group>"; };
-		2F0D648C237F029300B214F4 /* ConfigMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ConfigMenuState.hpp; sourceTree = "<group>"; };
-		2F0D648E237F02B400B214F4 /* RankingMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = RankingMenuState.cpp; sourceTree = "<group>"; };
-		2F0D648F237F02B400B214F4 /* RankingMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = RankingMenuState.hpp; sourceTree = "<group>"; };
-		2F0D6491237F02CE00B214F4 /* PauseMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PauseMenuState.cpp; sourceTree = "<group>"; };
-		2F0D6492237F02CE00B214F4 /* PauseMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PauseMenuState.hpp; sourceTree = "<group>"; };
-		2F0D6494237F031800B214F4 /* FailedMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FailedMenuState.cpp; sourceTree = "<group>"; };
-		2F0D6495237F031800B214F4 /* FailedMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FailedMenuState.hpp; sourceTree = "<group>"; };
-		2F0D6497237F032500B214F4 /* WinMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WinMenuState.cpp; sourceTree = "<group>"; };
-		2F0D6498237F032500B214F4 /* WinMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WinMenuState.hpp; sourceTree = "<group>"; };
 		2F0D649A237F034700B214F4 /* GameMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameMenu.cpp; sourceTree = "<group>"; };
 		2F0D649B237F034700B214F4 /* GameMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameMenu.hpp; sourceTree = "<group>"; };
 		2F0D649D237F0C1900B214F4 /* ConfigMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigMenu.cpp; sourceTree = "<group>"; };
@@ -222,6 +207,8 @@
 		2F43AFF223834DA00089A918 /* Narcotraficante.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Narcotraficante.hpp; sourceTree = "<group>"; };
 		2F69E400237F518600699DD2 /* ParametrosJogo.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ParametrosJogo.cpp; sourceTree = "<group>"; };
 		2F69E401237F518600699DD2 /* ParametrosJogo.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ParametrosJogo.hpp; sourceTree = "<group>"; };
+		2F6E51532384365B00FF497B /* EndGameMenu.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = EndGameMenu.cpp; sourceTree = "<group>"; };
+		2F6E51542384365B00FF497B /* EndGameMenu.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = EndGameMenu.hpp; sourceTree = "<group>"; };
 		2F8A5FF0236E1A8900CDE82F /* Lista.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Lista.hpp; sourceTree = "<group>"; };
 		2F8A5FF3236E27C900CDE82F /* Pilha.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pilha.hpp; sourceTree = "<group>"; };
 		2F8A5FF5236F132100CDE82F /* StateStack.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = StateStack.cpp; sourceTree = "<group>"; };
@@ -254,8 +241,6 @@
 		2F923772235BF7CC00747DCA /* tinyxml.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml.cpp; sourceTree = "<group>"; };
 		2F923779235BF7F300747DCA /* level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = level.cpp; sourceTree = "<group>"; };
 		2F92377A235BF7F300747DCA /* level.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = level.hpp; sourceTree = "<group>"; };
-		2FA6DF46234CC7C100302427 /* MainMenuState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuState.cpp; sourceTree = "<group>"; };
-		2FA6DF47234CC7C100302427 /* MainMenuState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainMenuState.hpp; sourceTree = "<group>"; };
 		2FA6DF4A234CCF7200302427 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
 		2FA6DF4B234CCF7200302427 /* Button.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Button.hpp; sourceTree = "<group>"; };
 		2FA6DF6A234CDADF00302427 /* Jogo-SFML ORIGINAL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Jogo-SFML ORIGINAL"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -282,10 +267,14 @@
 		2FDA0BF7234A63C200E3209D /* ResourcesHolder.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcesHolder.hpp; sourceTree = "<group>"; };
 		2FDA0BF9234BADD000E3209D /* State.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		2FDA0BFA234BADD000E3209D /* State.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
-		2FDA0BFC234BADE200E3209D /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
-		2FDA0BFD234BADE200E3209D /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
 		2FDA0BFF234BB3D100E3209D /* MediaEngineParameters.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MediaEngineParameters.cpp; sourceTree = "<group>"; };
 		2FDA0C00234BB3D100E3209D /* MediaEngineParameters.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MediaEngineParameters.hpp; sourceTree = "<group>"; };
+		2FFE79F023847D65004BBA5A /* Espinho.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Espinho.cpp; sourceTree = "<group>"; };
+		2FFE79F123847D65004BBA5A /* Espinho.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Espinho.hpp; sourceTree = "<group>"; };
+		2FFE79F3238495A1004BBA5A /* Pedra.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Pedra.cpp; sourceTree = "<group>"; };
+		2FFE79F4238495A1004BBA5A /* Pedra.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Pedra.hpp; sourceTree = "<group>"; };
+		2FFE79F623849CC4004BBA5A /* NarcotraficanteDesmatador.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = NarcotraficanteDesmatador.cpp; sourceTree = "<group>"; };
+		2FFE79F723849CC4004BBA5A /* NarcotraficanteDesmatador.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NarcotraficanteDesmatador.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,6 +447,8 @@
 				2F0D64A7237F24A000B214F4 /* FailedMenu.hpp */,
 				2F0D64A9237F276A00B214F4 /* RankingMenu.cpp */,
 				2F0D64AA237F276A00B214F4 /* RankingMenu.hpp */,
+				2F6E51532384365B00FF497B /* EndGameMenu.cpp */,
+				2F6E51542384365B00FF497B /* EndGameMenu.hpp */,
 			);
 			path = Menus;
 			sourceTree = "<group>";
@@ -558,22 +549,8 @@
 				2F8A5FFC236F2E4D00CDE82F /* StateManager.hpp */,
 				2FDA0BF9234BADD000E3209D /* State.cpp */,
 				2FDA0BFA234BADD000E3209D /* State.hpp */,
-				2FDA0BFC234BADE200E3209D /* GameState.cpp */,
-				2FDA0BFD234BADE200E3209D /* GameState.hpp */,
-				2FA6DF46234CC7C100302427 /* MainMenuState.cpp */,
-				2FA6DF47234CC7C100302427 /* MainMenuState.hpp */,
 				2F0D647F2378E42E00B214F4 /* FaseState.hpp */,
 				2F0D6483237B1AA100B214F4 /* FaseState.cpp */,
-				2F0D648B237F029300B214F4 /* ConfigMenuState.cpp */,
-				2F0D648C237F029300B214F4 /* ConfigMenuState.hpp */,
-				2F0D648E237F02B400B214F4 /* RankingMenuState.cpp */,
-				2F0D648F237F02B400B214F4 /* RankingMenuState.hpp */,
-				2F0D6491237F02CE00B214F4 /* PauseMenuState.cpp */,
-				2F0D6492237F02CE00B214F4 /* PauseMenuState.hpp */,
-				2F0D6494237F031800B214F4 /* FailedMenuState.cpp */,
-				2F0D6495237F031800B214F4 /* FailedMenuState.hpp */,
-				2F0D6497237F032500B214F4 /* WinMenuState.cpp */,
-				2F0D6498237F032500B214F4 /* WinMenuState.hpp */,
 			);
 			path = States;
 			sourceTree = "<group>";
@@ -604,6 +581,12 @@
 				2F43AFEF2383438E0089A918 /* Atirador.hpp */,
 				2F43AFF123834DA00089A918 /* Narcotraficante.cpp */,
 				2F43AFF223834DA00089A918 /* Narcotraficante.hpp */,
+				2FFE79F023847D65004BBA5A /* Espinho.cpp */,
+				2FFE79F123847D65004BBA5A /* Espinho.hpp */,
+				2FFE79F3238495A1004BBA5A /* Pedra.cpp */,
+				2FFE79F4238495A1004BBA5A /* Pedra.hpp */,
+				2FFE79F623849CC4004BBA5A /* NarcotraficanteDesmatador.cpp */,
+				2FFE79F723849CC4004BBA5A /* NarcotraficanteDesmatador.hpp */,
 			);
 			path = Entidades;
 			sourceTree = "<group>";
@@ -691,31 +674,28 @@
 				2F0D6487237C8CDA00B214F4 /* GerenciadorColisoes.cpp in Sources */,
 				2F8A60032370F85F00CDE82F /* Context.cpp in Sources */,
 				2F0D64A5237F211A00B214F4 /* WinMenu.cpp in Sources */,
-				2F0D6490237F02B400B214F4 /* RankingMenuState.cpp in Sources */,
 				2F8A60102371B80600CDE82F /* EventHandler.cpp in Sources */,
 				2F43AFF323834DA00089A918 /* Narcotraficante.cpp in Sources */,
 				2FDA0BE623492EA600E3209D /* Personagem.cpp in Sources */,
-				2FDA0BFE234BADE200E3209D /* GameState.cpp in Sources */,
 				2FA6DF4C234CCF7200302427 /* Button.cpp in Sources */,
 				2F0D64AB237F276A00B214F4 /* RankingMenu.cpp in Sources */,
 				2F0D646C2378BA9500B214F4 /* FaseFloresta.cpp in Sources */,
 				2F0D64A2237F12BB00B214F4 /* PauseMenu.cpp in Sources */,
-				2F0D6499237F032500B214F4 /* WinMenuState.cpp in Sources */,
 				2F0D64732378BCFF00B214F4 /* Parametros.cpp in Sources */,
-				2F0D648D237F029400B214F4 /* ConfigMenuState.cpp in Sources */,
 				2F8A60132371BEDC00CDE82F /* FontHolder.cpp in Sources */,
 				2F8A5FF7236F132100CDE82F /* StateStack.cpp in Sources */,
-				2F0D6496237F031800B214F4 /* FailedMenuState.cpp in Sources */,
 				2F43AFEA2382E5B00089A918 /* Desmatador.cpp in Sources */,
 				2F43AFF02383438E0089A918 /* Atirador.cpp in Sources */,
 				2FDA0BF3234A3D9B00E3209D /* TexturesHolder.cpp in Sources */,
 				2FDA0BFB234BADD000E3209D /* State.cpp in Sources */,
 				2F0D6484237B1AA100B214F4 /* FaseState.cpp in Sources */,
 				2F0D649F237F0C1900B214F4 /* ConfigMenu.cpp in Sources */,
+				2FFE79F5238495A1004BBA5A /* Pedra.cpp in Sources */,
 				2F8A601923733C2A00CDE82F /* ListaWidgets.cpp in Sources */,
 				2F69E402237F518600699DD2 /* ParametrosJogo.cpp in Sources */,
 				2F43AFE1238100F50089A918 /* PlantaVenenosa.cpp in Sources */,
 				2FDA0BD62346BF5F00E3209D /* GerenciadorGrafico.cpp in Sources */,
+				2F6E51552384365B00FF497B /* EndGameMenu.cpp in Sources */,
 				2F923778235BF7CC00747DCA /* tinyxml.cpp in Sources */,
 				2F923775235BF7CC00747DCA /* tinystr.cpp in Sources */,
 				2F8A600D2371B3E800CDE82F /* MainMenu.cpp in Sources */,
@@ -723,25 +703,25 @@
 				2FDA0BDD2349265500E3209D /* Jogador.cpp in Sources */,
 				2F43AFE7238185070089A918 /* ListaRanking.cpp in Sources */,
 				2FA6DF6F234F940E00302427 /* MoveComponent.cpp in Sources */,
+				2FFE79F223847D65004BBA5A /* Espinho.cpp in Sources */,
 				2F43AFE4238103950089A918 /* ListaObstaculos.cpp in Sources */,
 				2F0D649C237F034700B214F4 /* GameMenu.cpp in Sources */,
 				2F0D6469237581A100B214F4 /* Fase.cpp in Sources */,
 				2FDA0BEF234A3C7900E3209D /* Obstaculo.cpp in Sources */,
 				2F8A600A2371B03B00CDE82F /* Menu.cpp in Sources */,
+				2FFE79F823849CC4004BBA5A /* NarcotraficanteDesmatador.cpp in Sources */,
 				2FDA0BE02349266200E3209D /* Inimigo.cpp in Sources */,
 				2F8A60062370FB3900CDE82F /* Widget.cpp in Sources */,
 				2FDA0BD32346BE8F00E3209D /* Jogo.cpp in Sources */,
 				2F0D64702378BC4900B214F4 /* ParametrosFase.cpp in Sources */,
 				2F8A6000236FA65E00CDE82F /* ListaEntidades.cpp in Sources */,
 				2F43569A230ED21E00A89E64 /* main.cpp in Sources */,
-				2FA6DF48234CC7C100302427 /* MainMenuState.cpp in Sources */,
 				2F0D647A2378D74400B214F4 /* FaseMontanha.cpp in Sources */,
 				2F0D64AE237F326A00B214F4 /* FaseEventHandler.cpp in Sources */,
 				2F0D64772378BE9200B214F4 /* GerenciadorArquivos.cpp in Sources */,
 				2FDA0BDA2349264500E3209D /* Entidade.cpp in Sources */,
 				2F8A6016237339AE00CDE82F /* TextView.cpp in Sources */,
 				2F0D648A237C8D8700B214F4 /* ListaPersonagens.cpp in Sources */,
-				2F0D6493237F02CE00B214F4 /* PauseMenuState.cpp in Sources */,
 				2F92377B235BF7F300747DCA /* level.cpp in Sources */,
 				2F8A5FFD236F2E4D00CDE82F /* StateManager.cpp in Sources */,
 				2F0D64A8237F24A000B214F4 /* FailedMenu.cpp in Sources */,
@@ -754,7 +734,6 @@
 			files = (
 				2FA6DF4F234CDADF00302427 /* MediaEngineParameters.cpp in Sources */,
 				2FA6DF50234CDADF00302427 /* Personagem.cpp in Sources */,
-				2FA6DF51234CDADF00302427 /* GameState.cpp in Sources */,
 				2FA6DF52234CDADF00302427 /* Button.cpp in Sources */,
 				2FA6DF53234CDADF00302427 /* TexturesHolder.cpp in Sources */,
 				2FA6DF54234CDADF00302427 /* State.cpp in Sources */,
@@ -764,7 +743,6 @@
 				2FA6DF58234CDADF00302427 /* Inimigo.cpp in Sources */,
 				2FA6DF59234CDADF00302427 /* Jogo.cpp in Sources */,
 				2FA6DF5A234CDADF00302427 /* main.cpp in Sources */,
-				2FA6DF5B234CDADF00302427 /* MainMenuState.cpp in Sources */,
 				2FA6DF5C234CDADF00302427 /* Entidade.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

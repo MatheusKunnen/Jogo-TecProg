@@ -15,7 +15,8 @@ const string TextureHolder::DEFAULT_NOT_FILE("Resources/img/texttures/no_texture
 
 map<Textures::ID, string> TextureHolder::default_filenames = {
                                                 {Textures::bg_menu,"Resources/img/textures/backgrounds/bg-main_menu.jpeg"},
-                                                {Textures::bg_fase,"Resources/img/textures/backgrounds/bg-main_menu.jpeg"},
+                                                {Textures::bg_fase,"Resources/img/textures/backgrounds/bg_fase_a.png"},
+                                                //{Textures::bg_fase_b,"Resources/img/textures/backgrounds/bg-main_menu.jpeg"},
                                                 {Textures::jogador_a,"Resources/img/textures/sprites/player/player_a.png"},
                                                 {Textures::jogador_b,"Resources/img/textures/sprites/player/player_b.png"},
                                                 {Textures::narcotraficante,"Resources/img/textures/sprites/player/narcotraficante.png"},
@@ -23,7 +24,7 @@ map<Textures::ID, string> TextureHolder::default_filenames = {
                                                 {Textures::narcotraficante_desmatador,"Resources/img/textures/sprites/player/narcotraficante_desmatador.png"},
                                                 {Textures::planta_venenosa,"Resources/img/textures/obstaculos/planta_venenosa.png"},
                                                 {Textures::pedra,"Resources/img/textures/sprites/obstaculos/pedra.png"},
-                                                {Textures::spinhos,"Resources/img/textures/sprites/obstaculos/spinhos.png"},
+                                                {Textures::espinhos,"Resources/img/textures/sprites/obstaculos/espinhos.png"},
                                                 {Textures::projetil,"Resources/img/textures/sprites/obstaculos/projetil.png"}
 };
 // Constructor & Destructor

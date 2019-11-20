@@ -25,6 +25,7 @@ void Desmatador::attack(Jogador* jogador){
 }
 
 void Desmatador::autoMove(const float& dt) {
+    this->time_mov += dt;
     this->move(Vector2f(this->getAmplitudeMov() * std::cos(this->getVelMov()*this->time_mov), 0), dt);
 }
 

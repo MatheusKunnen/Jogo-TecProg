@@ -15,12 +15,14 @@ namespace Game { namespace Parametros{
 
 class ParametrosFase : public Parametro {
 private:
-    string      arquivo_mapa;
-    string      arquivo_tileset;
-    string      arquivo_bg;
-    Vector2f    pos_player_a;
-    Vector2f    pos_player_b;
-    float       pos_x_win;
+    string          arquivo_mapa; // Dir arquivo com dados do mapa
+    string          arquivo_tileset; // Dir arquivo de tiles do mapa
+    string          arquivo_bg; // Dir arquivo do background da fase
+    Vector2f        pos_player_a; // Posição inicial do jogador A
+    Vector2f        pos_player_b; // Posição inicial do jogador B
+    vector<Vector2f>  l_pos_inimigos; // Posições possíveis para os inimigos
+    vector<Vector2f>  l_pos_obstaculos; // Posições possíveis para os obstaculos
+    float           pos_x_win; // Posição de ponto para ganhar
     
 public:
     // Constructor & Destructor
@@ -42,6 +44,10 @@ public:
     const Vector2f& getPosPlayerB() const;
     void setPosXWin(const float& pos_player_b);
     const float& getPosXWin() const;
+    void setListaPosInimigos(const vector<Vector2f>& l_pos_inimigos);
+    const vector<Vector2f>& getListaPosInimigos() const;
+    void setListaPosObstaculos(const vector<Vector2f>& l_pos_obstaculos);
+    const vector<Vector2f>& getListaPosObstaculos() const;
 };
 }}
 

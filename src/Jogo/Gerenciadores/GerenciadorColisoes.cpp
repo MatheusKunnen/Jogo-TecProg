@@ -26,11 +26,11 @@ GerenciadorColisoes::~GerenciadorColisoes(){
 
 // Methods
 void GerenciadorColisoes::gerenciarColisoes(){
+    this->clearEndingObj();
     // Chama gerenciadores de colisoes
     this->gerenciarColisoesPersonagensMapa();
     this->gerenciarColisoesPersonagensPersonagens();
     this->gerenciarColisoesPersonagensObstaculos();
-    this->gerenciarColisoesPersonagensProjeteis();
 }
 
 void GerenciadorColisoes::gerenciarColisoesPersonagensMapa() {
@@ -44,7 +44,8 @@ void GerenciadorColisoes::gerenciarColisoesPersonagensMapa() {
 
 void GerenciadorColisoes::gerenciarColisoesPersonagensPersonagens() {
     int i, j;
-    long count = this->l_personagens.getCount(); // Obtem nro de jogadores
+    // Obtem nro de jogadores
+    long count = this->l_personagens.getCount();
     // Verifica colisoes entre todos os personagens da lista
     for(i = 0; i<count-1 ; i++)
         for(j = i+1; j < count; j++)
@@ -54,19 +55,15 @@ void GerenciadorColisoes::gerenciarColisoesPersonagensPersonagens() {
 
 void GerenciadorColisoes::gerenciarColisoesPersonagensObstaculos() {
     int i, j;
+    // Obtem nro de personagens e obstaculos
     long count_personagens = this->l_personagens.getCount(),
          count_obstaculos = this->l_obstaculos.getCount();
+        // Verifica colisoes entre todos os personagens e obstaculos
     for(i = 0; i < count_personagens; i++)
         for (j = 0; j < count_obstaculos; j++)
             if(!this->l_personagens[i]->isEnding() && !this->l_obstaculos[j]->isEnding())
                 checkPOCollision(this->l_personagens[i], this->l_obstaculos[j]);
 }
-
-void GerenciadorColisoes::gerenciarColisoesPersonagensProjeteis() {
-    
-}
-
-
 
 void GerenciadorColisoes::checkMapCollision(Personagem *personagem){
     // Obtem posicao/tamanho personagem
@@ -113,17 +110,17 @@ void GerenciadorColisoes::checkPOCollision(Personagem *personagem, Obstaculo *ob
     }
 }
 
-const Vector2f GerenciadorColisoes::distance(const FloatRect& a, const FloatRect& b){
-    return Vector2f(pow((a.left + a.width/2) - (b.left + b.width/2), 2),
-                    pow((a.top + a.height/2) - (b.top + b.height/2), 2));
-}
-
 void GerenciadorColisoes::addPersonagem(Personagem *personagem) {
     this->l_personagens += personagem;
 }
 
 void GerenciadorColisoes::addObstaculo(Obstaculo *obstaculo) {
     this->l_obstaculos += obstaculo;
+}
+
+void GerenciadorColisoes::clearEndingObj() {
+    this->l_personagens.clearEnding();
+    this->l_obstaculos.clearEnding();
 }
     
 void GerenciadorColisoes::clear(){

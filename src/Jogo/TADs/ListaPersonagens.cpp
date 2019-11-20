@@ -62,6 +62,12 @@ Personagem* ListaPersonagens::get(const int &i){
     return *itr;
 }
 
+void ListaPersonagens::clearEnding() {
+    //for (Personagem* per : this->l_personagens)
+    //    if (per->isEnding())
+    //        this->l_personagens.remove(per);
+}
+
 // Getters && setters
 const long ListaPersonagens::getCount() const {
     return this->l_personagens.size();

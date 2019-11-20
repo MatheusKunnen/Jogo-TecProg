@@ -7,12 +7,13 @@
 //
 
 #include "WinMenu.hpp"
+#include "StateManager.hpp"
 
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-WinMenu::WinMenu(RenderWindow& window):
-Menu(window)
+WinMenu::WinMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
+Menu(handler, g_grafico, supported_keys, States::states_id::win_menu)
 {
     this->initMenu();
 }
@@ -56,12 +57,14 @@ void WinMenu::initTextViews(){
 
 
 // Methods
-void WinMenu::updateMenu(const float &dt) {
+void WinMenu::update(const float &dt) {
     this->context.update(dt);
     this->widgets.update(dt);
 }
 
-void WinMenu::renderMenu(RenderTarget *target) const {
+void WinMenu::render(RenderTarget *target) {
+    if (!target)
+        target = this->g_grafico->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }
@@ -72,6 +75,11 @@ void WinMenu::onGuiEvent(int id, GUI::Events::Type event_id){
             onExit();
             break;
     }
+}
+
+void WinMenu::onExit() {
+    // Remove estado
+    this->manager->addStatePop(2);
 }
 
 }};

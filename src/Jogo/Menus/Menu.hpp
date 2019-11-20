@@ -14,6 +14,7 @@
 #include "../GUI/TextView.hpp"
 #include "../Resources/TexturesHolder.hpp"
 #include "../Resources/FontHolder.hpp"
+#include "../States/State.hpp"
 #include "../base_includes.hpp"
 
 namespace Game { namespace Menus {
@@ -24,18 +25,21 @@ using GUI::TextView;
 using GUI::Context;
 using GUI::EventHandler;
 
+using States::State;
+using States::StateManager;
+
 using Resources::FontHolder;
 using Resources::TextureHolder;
 
-class Menu : public EventHandler {
+class Menu : public State, public EventHandler {
 protected:
     // Attributes
-    Context                 context;
-    RectangleShape          background;
-    FontHolder              fonts;
-    TextureHolder           textures;
+    Context                 context; // Contexto para GUI
+    RectangleShape          background; // Fundo
+    FontHolder              fonts; // FlyWeight fontes
+    TextureHolder           textures; // FlyWeight texturas
     
-    ListaWidgets            widgets;
+    ListaWidgets            widgets; // Lista elementos GUI
     
     // Init methods
     virtual void initMenu() = 0;
@@ -43,16 +47,16 @@ protected:
     virtual void initTextures();
     virtual void initFonts();
     virtual void initBackground();
+    virtual void initValidKeys();
+    
 public:
     // Contructor & Destructor
-    Menu(RenderWindow& window);
+    Menu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, States::states_id id);
     virtual ~Menu();
     
     // Methods
-    virtual void updateMenu(const float& dt) = 0;
-    virtual void renderMenu(RenderTarget* target) const = 0;
     virtual void onGuiEvent(int id, GUI::Events::Type event_id) = 0;
-    virtual void onExit() = 0;
+
 };
 
 }};

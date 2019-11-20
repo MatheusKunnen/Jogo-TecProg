@@ -7,11 +7,13 @@
 //
 
 #include "PauseMenu.hpp"
+#include "StateManager.hpp"
+
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-PauseMenu::PauseMenu(RenderWindow& window):
-Menu(window)
+PauseMenu::PauseMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
+Menu(handler, g_grafico, supported_keys, States::states_id::pause_menu)
 {
     this->initMenu();
 }
@@ -46,12 +48,14 @@ void PauseMenu::initButtons(){
 
 
 // Methods
-void PauseMenu::updateMenu(const float &dt) {
+void PauseMenu::update(const float &dt) {
     this->context.update(dt);
     this->widgets.update(dt);
 }
 
-void PauseMenu::renderMenu(RenderTarget *target) const {
+void PauseMenu::render(RenderTarget *target) {
+    if (!target)
+        target = this->g_grafico->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }
@@ -65,6 +69,16 @@ void PauseMenu::onGuiEvent(int id, GUI::Events::Type event_id){
             onExit();
             break;
     }
+}
+
+void PauseMenu::onResumeGame() {
+    // Remove estado de pausa e volta para a fase
+    this->quit = true;
+}
+
+void PauseMenu::onExit() {
+    // Remove estado de pausa e de fase da pilha de estados
+    this->manager->addStatePop(2);
 }
 
 }};

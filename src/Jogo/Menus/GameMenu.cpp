@@ -7,12 +7,13 @@
 //
 
 #include "GameMenu.hpp"
+#include "StateManager.hpp"
 
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-GameMenu::GameMenu(RenderWindow& window):
-Menu(window)
+GameMenu::GameMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
+Menu(handler, g_grafico, supported_keys, States::states_id::game_menu)
 {
     this->initMenu();
 }
@@ -50,12 +51,14 @@ void GameMenu::initButtons(){
 
 
 // Methods
-void GameMenu::updateMenu(const float &dt) {
+void GameMenu::update(const float &dt) {
     this->context.update(dt);
     this->widgets.update(dt);
 }
 
-void GameMenu::renderMenu(RenderTarget *target) const {
+void GameMenu::render(RenderTarget *target) {
+    if (!target)
+        target = this->g_grafico->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }
@@ -72,6 +75,18 @@ void GameMenu::onGuiEvent(int id, GUI::Events::Type event_id){
             onExit();
             break;
     }
+}
+
+void GameMenu::onStartFaseFloresta() {
+    this->manager->pushTopState(States::states_id::fase_floresta);
+}
+
+void GameMenu::onStartFaseMontanha() {
+    this->manager->pushTopState(States::states_id::fase_montanha);
+}
+
+void GameMenu::onExit(){
+    this->quit = true;
 }
 
 }};

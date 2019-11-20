@@ -24,14 +24,15 @@ private:
     enum widgets_ids{btn_resume_game, btn_exit};
 public:
     // Constructor & Destructor
-    PauseMenu(RenderWindow& window);
+    PauseMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
     virtual ~PauseMenu();
+    
     // Methods
-    void updateMenu(const float& dt);
-    void renderMenu(RenderTarget* target) const;
+    void update(const float& dt);
+    void render(RenderTarget* target);
     void onGuiEvent(int id, GUI::Events::Type event_id);
-    virtual void onResumeGame() = 0;
-    virtual void onExit() = 0;
+    void onResumeGame();
+    void onExit();
 };
 
 }}

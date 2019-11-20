@@ -32,6 +32,7 @@ public:
     
     // Methods
     void add(Personagem* personagem);
+    void clearEnding();
     void clear();
     bool beginItr();
     bool nextItr();

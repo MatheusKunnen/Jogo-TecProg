@@ -11,11 +11,17 @@
 
 namespace Game { namespace Entidades { namespace Personagens{
 
+// Const
+const float Narcotraficante::DAMAGE(2.f);
+const float Narcotraficante::DELAY_TIME(1.5);
+const float Narcotraficante::ATTACK_DISTANCE(320.f);
+const float Narcotraficante::VEL_PROJETIL(4.f);
+
 // Constructor & Destructor
 Narcotraficante::Narcotraficante(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const int& damage):
-Atirador(position, texture, jogador_a, jogador_b, fase, damage)
+Atirador(position, texture, jogador_a, jogador_b, fase,  Narcotraficante::VEL_PROJETIL, Narcotraficante::DAMAGE)
 {
-    
+    this->setAttackDelay(Narcotraficante::DELAY_TIME);
 }
 
 Narcotraficante::~Narcotraficante() {
@@ -24,13 +30,14 @@ Narcotraficante::~Narcotraficante() {
 
 // Methods
 void Narcotraficante::autoMove(const float &dt) {
+    this->time_mov+= dt;
     this->move(Vector2f(std::cos(this->getVelMov()*this->time_mov), 0), dt);
 }
 
 void Narcotraficante::atirar(const short &direction) {
     Vector2f pos = this->sprite.getPosition();
-    pos.x = (direction > 0) ? pos.x + 16 : pos.x - 130;
-    pos.y -=32;
+    pos.x = (direction > 0) ? pos.x + 16.f : pos.x - this->getGlobalBounds().width - 16.f;
+    pos.y += this->getGlobalBounds().height - 32;
     this->fase->createProjetil(pos, direction, this->damage, this->projetil_speed);
 }
 

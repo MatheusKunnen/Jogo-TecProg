@@ -11,9 +11,9 @@
 namespace Game { namespace Menus{
 
 // Constructor & Destructor
-ConfigMenu::ConfigMenu(RenderWindow& window, ParametrosJogo* parametros_jogo):
-Menu(window),
-parametros_jogo(nullptr)
+ConfigMenu::ConfigMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ParametrosJogo* parametros_jogo):
+Menu(handler, g_grafico, supported_keys, States::states_id::config_menu),
+parametros_jogo(parametros_jogo)
 {
     this->setParametrosJogo(parametros_jogo);
     this->initMenu();
@@ -72,12 +72,14 @@ void ConfigMenu::initTextViews() {
 
 
 // Methods
-void ConfigMenu::updateMenu(const float &dt) {
+void ConfigMenu::update(const float &dt) {
     this->context.update(dt);
     this->widgets.update(dt);
 }
 
-void ConfigMenu::renderMenu(RenderTarget *target) const {
+void ConfigMenu::render(RenderTarget *target) {
+    if (!target)
+        target = this->g_grafico->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }
@@ -105,6 +107,13 @@ void ConfigMenu::onUpdatePlayerName() {
         this->parametros_jogo->setPlayerName(sf::Clipboard::getString());
         this->widgets[txt_player_name]->setText("Jogador: " + this->parametros_jogo->getPlayerName());
     }
+}
+
+void ConfigMenu::onExit() {
+    // Salva parametros
+    this->parametros_jogo->saveToFile();
+    // Muda flag finalização
+    this->quit = true;
 }
 
 // Getters & Setters

@@ -18,7 +18,7 @@ const string FaseFloresta::CONFIG_FILE("Resources/config/fase_a_config.json");
 FaseFloresta::FaseFloresta(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b):
 Fase(FaseFloresta::CONFIG_FILE, g_grafico, jogador_a, jogador_b)
 {
-
+    
 }
 
 FaseFloresta::~FaseFloresta(){
@@ -28,17 +28,24 @@ FaseFloresta::~FaseFloresta(){
 // Init Methods
 void FaseFloresta::initInimigos() {
     
-    Narcotraficante* desmatador = new Narcotraficante(Vector2f(1400.f, 600.f), &this->textures.get(Resources::Textures::desmatador), this->jogador_a, this->jogador_b, this, 5);
-    
-    this->l_entidades += desmatador;
-    this->g_colisoes += desmatador;
+    Narcotraficante* desmatador = nullptr;
+    const vector<Vector2f>& lista = this->parametros.getListaPosInimigos();
+    for (Vector2f pos : lista){
+        desmatador = new Narcotraficante(pos, &this->textures.get(Resources::Textures::narcotraficante_desmatador), this->jogador_a, this->jogador_b, this);
+        this->l_entidades += desmatador;
+        this->g_colisoes += desmatador;
+    }
 }
 
 void FaseFloresta::initObstaculos() {
-    PlantaVenenosa* obstaculo = new PlantaVenenosa(Vector2f(700.f,500.f), &this->textures.get(Resources::Textures::planta_venenosa));
-    
-    this->l_entidades+= obstaculo;
-    this->g_colisoes += obstaculo;
+    Espinho* obstaculo = nullptr;
+    const vector<Vector2f>& lista = this->parametros.getListaPosObstaculos();
+    for (Vector2f pos : lista){
+        obstaculo = new Espinho(pos, &this->textures.get(Resources::Textures::espinhos));
+        this->l_entidades+= obstaculo;
+        this->g_colisoes += obstaculo;
+        
+    }
 }
 
 // Methods

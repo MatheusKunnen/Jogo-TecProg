@@ -7,12 +7,13 @@
 //
 
 #include "MainMenu.hpp"
+#include "StateManager.hpp"
 
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-MainMenu::MainMenu(RenderWindow& window):
-Menu(window)
+MainMenu::MainMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
+Menu(handler, g_grafico, supported_keys, States::states_id::main_menu)
 {
     this->initMenu();
 }
@@ -53,12 +54,14 @@ void MainMenu::initButtons(){
 
 
 // Methods
-void MainMenu::updateMenu(const float &dt) {
+void MainMenu::update(const float &dt) {
     this->context.update(dt);
     this->widgets.update(dt);
 }
 
-void MainMenu::renderMenu(RenderTarget *target) const {
+void MainMenu::render(RenderTarget *target) {
+    if (!target)
+        target = this->g_grafico->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);    
 }
@@ -80,4 +83,19 @@ void MainMenu::onGuiEvent(int id, GUI::Events::Type event_id){
     }
 }
 
+void MainMenu::onOpenNewGame() {
+    this->manager->pushTopState(States::states_id::game_menu);
+}
+
+void MainMenu::onOpenRanking() {
+    this->manager->pushTopState(States::states_id::ranking_menu);
+}
+
+void MainMenu::onOpenConfig() {
+    this->manager->pushTopState(States::states_id::config_menu);
+}
+
+void MainMenu::onExit() {
+    this->quit = true;
+}
 }};

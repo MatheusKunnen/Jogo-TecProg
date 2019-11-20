@@ -69,7 +69,7 @@ void ListaRanking::add(const string &nome_jogador, const int &score){
 }
 
 void ListaRanking::add(const ListaRanking::RankingElement& element){
-
+    // Agrega elemento da lista
     this->l_ranking.insert(element);
     // Salva sempre que se agrega um novo jogador
     this->save();
@@ -89,9 +89,6 @@ const ListaRanking::RankingElement& ListaRanking::get(const int &i) const {
 }
 
 void ListaRanking::clear() {
-    // Desaloca elementos
-    //for (ListaRanking::RankingElement elemento : this->l_ranking)
-    //    delete elemento;
     // Limpa lista
     this->l_ranking.clear();
 }

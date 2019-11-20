@@ -29,6 +29,7 @@ public:
     // Methods
     void add(Obstaculo* obstaculo);
     Obstaculo* get(const int& i);
+    void clearEnding();
     void clear();
     
     // Getters & Setters

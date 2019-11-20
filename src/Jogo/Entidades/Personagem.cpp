@@ -10,12 +10,11 @@
 
 namespace Game { namespace Entidades { namespace Personagens{
 
-Personagem::Personagem(const Vector2f& position, Texture* texture):
+Personagem::Personagem(const Vector2f& position, Texture* texture, const float& num_vidas):
 Entidade(texture),
-num_vidas(1),
+num_vidas(num_vidas),
 move_comp(&sprite){
     this->sprite.setPosition(position);
-    //initComponents();
 }
 
 Personagem::~Personagem(){
@@ -57,11 +56,11 @@ MoveComponent& Personagem::getMoveComponent() {
     return this->move_comp;
 }
 
-void Personagem::setNumVidas(const int& n_vidas){
+void Personagem::setNumVidas(const float& n_vidas){
     this->num_vidas = n_vidas;
 }
 
-const int& Personagem::getNumVidas() const {
+const float& Personagem::getNumVidas() const {
     return this->num_vidas;
 }
 }}};

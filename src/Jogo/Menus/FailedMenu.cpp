@@ -7,12 +7,13 @@
 //
 
 #include "FailedMenu.hpp"
+#include "StateManager.hpp"
 
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-FailedMenu::FailedMenu(RenderWindow& window):
-Menu(window)
+FailedMenu::FailedMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
+Menu(handler, g_grafico, supported_keys, States::states_id::failed_menu)
 {
     this->initMenu();
 }
@@ -56,12 +57,14 @@ void FailedMenu::initTextViews(){
 
 
 // Methods
-void FailedMenu::updateMenu(const float &dt) {
+void FailedMenu::update(const float &dt) {
     this->context.update(dt);
     this->widgets.update(dt);
 }
 
-void FailedMenu::renderMenu(RenderTarget *target) const {
+void FailedMenu::render(RenderTarget *target) {
+    if (!target)
+        target = this->g_grafico->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }
@@ -72,6 +75,11 @@ void FailedMenu::onGuiEvent(int id, GUI::Events::Type event_id){
             onExit();
             break;
     }
+}
+
+void FailedMenu::onExit() {
+    // Muda bandeira de finalização
+    this->manager->addStatePop(2);
 }
 
 }};

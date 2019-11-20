@@ -16,8 +16,7 @@ namespace Game { namespace Entidades { namespace Personagens {
 class Inimigo : public Personagem {
 protected:
     // Attributes
-    int         damage;
-    int         power;
+    float       damage;
     float       amplitude_mov;
     float       vel_mov;
     float       time_mov;
@@ -39,8 +38,8 @@ public:
     virtual void autoMove(const float& dt) = 0;
     
     // Getters & Setters
-    void setDamage(const int& damage);
-    const int getDamage() const;
+    void setDamage(const float& damage);
+    const float& getDamage() const;
     void setAmplitudeMov(const float& amplitude_mov);
     const float& getAmplitudeMov() const;
     void setVelMov(const float& vel_mov);

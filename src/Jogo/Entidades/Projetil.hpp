@@ -20,6 +20,8 @@ private:
     const float        speed;
     float              life_time;
     
+    // Init Methods
+    void initSprite();
 public:
     // Constructor & Destructor
     Projetil(const Vector2f& position, Texture* texture, const int damage, const short& direction, const float& speed);

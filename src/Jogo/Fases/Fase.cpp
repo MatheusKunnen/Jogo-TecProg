@@ -44,11 +44,13 @@ void Fase::initTextures(){
     this->textures.load(Resources::Textures::bg_fase, this->parametros.getArquivoBackground());
     // Texturas Obstaculos
     this->textures.load(Resources::Textures::planta_venenosa, this->textures.getFilename(Resources::Textures::planta_venenosa));
+    this->textures.load(Resources::Textures::espinhos, this->textures.getFilename(Resources::Textures::espinhos));
     this->textures.load(Resources::Textures::pedra, this->textures.getFilename(Resources::Textures::pedra));
     this->textures.load(Resources::Textures::projetil, this->textures.getFilename(Resources::Textures::projetil));
     // Texturas Inimigos
     this->textures.load(Resources::Textures::desmatador, this->textures.getFilename(Resources::Textures::desmatador));
     this->textures.load(Resources::Textures::narcotraficante, this->textures.getFilename(Resources::Textures::narcotraficante));
+        this->textures.load(Resources::Textures::narcotraficante_desmatador, this->textures.getFilename(Resources::Textures::narcotraficante_desmatador));
 }
 
 void Fase::initMapa(){
