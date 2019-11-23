@@ -71,16 +71,16 @@ void Jogo::run() {
     while(this->is_running){
         // Atualiza relogio
         updateDt();
+		// Notifica quando a variação de tempo for muito alta
+		if (1 / 50.f - this->dt < 0) {
+			cerr << "WARNING: " << this->dt << " Missed: " << 1 / (this->dt - 1 / 50.f) << endl;
+			// Limita maxima variacao do tempo
+			this->dt = .02;
+		}
         // Atualiza estados
         update();
         // Renderiza estados
         render();
-        // Notifica quando a variação de tempo for muito alta
-        if (1/50.f - this->dt < 0){
-            cerr << "WARNING: " << this->dt << " Missed: " << 1/(this->dt-1/50.f)<<endl;
-            // Limita maxima variacao do tempo
-            this->dt = .10;
-        }
     }
 }
 

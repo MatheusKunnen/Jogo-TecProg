@@ -10,7 +10,7 @@
 #define MediaEngine_hpp
 
 // Generic Includes
-#include "base_includes.hpp"
+#include "../base_includes.hpp"
 #include "../Parametros/ParametrosGerenciadorGrafico.hpp"
 
 using Game::Parametros::ParametrosGerenciadorGrafico;

@@ -7,7 +7,7 @@
 //
 
 #include "PauseMenu.hpp"
-#include "StateManager.hpp"
+#include "../States/StateManager.hpp"
 
 namespace Game { namespace Menus{
   

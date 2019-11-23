@@ -48,7 +48,7 @@ void RankingMenu::initButtons(){
 void RankingMenu::initTextViews(){
     Vector2f size = Vector2f(450.f, 100.f);
     Vector2f pos = Vector2f(this->context.getRenderWindow()->getSize().x*0.5, this->context.getRenderWindow()->getSize().y*.1);
-    this->widgets.add(txt_header, new TextView(txt_header, context ,*this, size, pos, this->fonts.get(Resources::Fonts::font_01), "N˚ | Jogador | Pontos"));
+    this->widgets.add(txt_header, new TextView(txt_header, context ,*this, size, pos, this->fonts.get(Resources::Fonts::font_01), "Pos | Jogador | Pontos"));
     pos.y = pos.y + size.y *1.2;
     this->widgets.add(txt_board, new TextView(txt_board, context ,*this, size, pos, this->fonts.get(Resources::Fonts::font_01), "--\t\t--\t\t--"));
 }

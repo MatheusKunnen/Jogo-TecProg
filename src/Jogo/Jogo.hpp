@@ -3,7 +3,7 @@
 
 #include "TADs/ListaRanking.hpp"
 
-#include "GerenciadorGrafico.hpp"
+#include "Gerenciadores/GerenciadorGrafico.hpp"
 
 #include "Parametros/ParametrosJogo.hpp"
 

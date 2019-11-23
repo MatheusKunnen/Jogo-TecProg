@@ -52,7 +52,6 @@ using std::set;
 using std::map;
 using std::make_pair;
 
-using std::stack;
 using std::vector;
 
 using std::runtime_error;
