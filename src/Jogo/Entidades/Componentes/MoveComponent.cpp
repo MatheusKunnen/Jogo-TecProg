@@ -11,8 +11,8 @@
 namespace Game { namespace Entidades {
 
 const float MoveComponent::ACELERATION_GAIN(100);
-const Vector2f MoveComponent::DEFAULT_MAX_SPEED(250.f, 250.f);
-const Vector2f MoveComponent::DEFAULT_ACELERATION(1500.f, 10000.f);
+const Vector2f MoveComponent::DEFAULT_MAX_SPEED(300.f, 250.f);
+const Vector2f MoveComponent::DEFAULT_ACELERATION(2000.f, 10000.f);
 const Vector2f MoveComponent::DEFAULT_DECELERATION(500.f,1000.f);
 
 MoveComponent::MoveComponent(Sprite* sprite, const Vector2f& max_speed, const Vector2f& v_aceleration, const Vector2f& v_deceleration):
@@ -92,7 +92,7 @@ void MoveComponent::move(const Vector2f& direction, const float& dt){
 
 void MoveComponent::jump(const float& gain){
     if (this->y_collision) // Verifica que esteja tocando o chao
-        this->v_speed.y = -250*gain;
+        this->v_speed.y = -200*gain;
 }
 
 void MoveComponent::reset() {

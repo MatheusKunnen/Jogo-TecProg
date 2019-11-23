@@ -9,37 +9,28 @@
 #ifndef State_hpp
 #define State_hpp
 
-#include "../GerenciadorGrafico.hpp"
-#include "../Entidades/Entidade.hpp"
-#include "../Resources/TexturesHolder.hpp"
+#include "../Gerenciadores/GerenciadorGrafico.hpp"
 #include "../base_includes.hpp"
 
 namespace Game { namespace States {
 // Const
 enum states_id{main_menu, game_menu, config_menu, ranking_menu, pause_menu, win_menu, failed_menu, fase_floresta, fase_montanha};
 
-using Resources::TextureHolder;
+using Gerenciadores::GerenciadorGrafico;
 
 class StateManager;
 
 class State {
 protected:
     // Attributes
-    TextureHolder               textures;
-    
-    map<string, int>*           supported_keys;
-    map<string, int>            used_keys;
-    
-    GerenciadorGrafico*         g_grafico;
+    //TextureHolder               textures;
     StateManager*               manager;
     const states_id             id;
     bool                        quit;
     
-    // Methods
-    virtual void initValidKeys() = 0;
 public:
     // Constructor & Destructor
-    State(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, states_id id);
+    State(StateManager* handler, states_id id);
     virtual ~State();
     // Methods
     virtual void endState();

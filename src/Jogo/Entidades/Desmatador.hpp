@@ -14,6 +14,11 @@
 namespace Game { namespace Entidades { namespace Personagens{
 
 class Desmatador : public Inimigo {
+private:
+    // Const
+    static const float  DAMAGE;
+    static const float  DELAY_TIME;
+    
 public:
     // Constructor & Destructor
     Desmatador(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b = nullptr);

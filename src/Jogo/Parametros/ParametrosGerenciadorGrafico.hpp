@@ -9,11 +9,11 @@
 #ifndef MediaEngineParameters_hpp
 #define MediaEngineParameters_hpp
 
-#include "Parametros/Parametros.hpp"
+#include "Parametros.hpp"
 
 namespace Game {  namespace Parametros {
 
-class MediaEngineParameters : public Parametro{
+class ParametrosGerenciadorGrafico : public Parametro{
 private:
     // Attributes
     int             window_width;
@@ -27,8 +27,8 @@ private:
     
 public:
     // Constructor & Destructor
-    explicit MediaEngineParameters(const string& file = "");
-    ~MediaEngineParameters();
+    explicit ParametrosGerenciadorGrafico(const string& file = "");
+    ~ParametrosGerenciadorGrafico();
     // Methods
     bool loadFromFile(const string& file);
     bool saveToFile(const string& file);

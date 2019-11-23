@@ -15,6 +15,9 @@ namespace Game { namespace Menus {
 
 class EndGameMenu : public Menu {
 private:
+    // Atributes
+    bool win;
+    
     // Init methods
     void initMenu();
     void initWidgets();
@@ -26,7 +29,7 @@ private:
     
 public:
     // Constructor & Destructor
-    EndGameMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, States::states_id id, const bool& win);
+    EndGameMenu(StateManager* handler, const bool& win);
     virtual ~EndGameMenu();
     
     // Methods

@@ -10,7 +10,15 @@
 #define FaseMontanha_hpp
 
 #include "Fase.hpp"
+
+#include "../Entidades/NarcotraficanteDesmatador.hpp"
+#include "../Entidades/Pedra.hpp"
+
 namespace Game { namespace Fases {
+
+using Entidades::Personagens::NarcotraficanteDesmatador;
+using Entidades::Obstaculos::Pedra;
+
 class FaseMontanha : public Fase {
 private:
     // Const
@@ -19,15 +27,16 @@ private:
     // Init Methods
     void initInimigos();
     void initObstaculos();
+    void initBoss();
+    void onSavedFase();
+    
 public:
     // Constructor & Destructor
-    FaseMontanha(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b = nullptr);
+    FaseMontanha(Jogador* jogador_a, Jogador* jogador_b = nullptr);
     ~FaseMontanha();
+    
     // Methods
-    void update(const float& dt);
-    void render(RenderTarget* target);
     void onInitFase(Jogador* jogador_a, Jogador* jogador_b, FaseEventHandler* event_handler);
-    void onCloseFase();
 };
 
 }};

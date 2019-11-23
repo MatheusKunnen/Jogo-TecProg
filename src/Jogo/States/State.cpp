@@ -11,20 +11,16 @@
 
 namespace Game { namespace States {
 
-State::State(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, states_id id):
+State::State(StateManager* handler, states_id id):
 manager(handler),
 id(id),
-textures(),
-supported_keys(supported_keys),
-used_keys(),
-g_grafico(g_grafico),
 quit(false)
 {
-    this->g_grafico->resetDefaultView();
+    GerenciadorGrafico::getInstance()->resetDefaultView();
 }
 
 State::~State(){
-    this->g_grafico = nullptr;
+    
 }
 
 void State::endState(){

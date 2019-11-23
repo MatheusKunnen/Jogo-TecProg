@@ -9,10 +9,14 @@
 #include "Desmatador.hpp"
 
 namespace Game { namespace Entidades { namespace Personagens {
+// Const
+const float Desmatador::DAMAGE(2.f);
+const float Desmatador::DELAY_TIME(1.5);
+
 Desmatador::Desmatador(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b):
-Inimigo(position, texture, jogador_a, jogador_b, 5)
+Inimigo(desmatador, position, texture, jogador_a, jogador_b, Desmatador::DAMAGE)
 {
-    
+    this->setAttackDelay(Desmatador::DELAY_TIME);
 }
 
 Desmatador::~Desmatador(){
@@ -22,6 +26,8 @@ Desmatador::~Desmatador(){
 // Methods
 void Desmatador::attack(Jogador* jogador){
     jogador->removeVida(this->getDamage());
+    // Reseta valor de idle time
+    this->idle_time = 0.f;
 }
 
 void Desmatador::autoMove(const float& dt) {

@@ -12,7 +12,7 @@ namespace Game { namespace Entidades { namespace Obstaculos {
 
 // Constructor & Destructor
 PlantaVenenosa::PlantaVenenosa(const Vector2f& position, Texture* texture):
-Obstaculo(Type::planta_venenosa, position, texture)
+Obstaculo(planta_venenosa, position, texture)
 {
     this->setDelayTime(1);
     this->setDamage(2);

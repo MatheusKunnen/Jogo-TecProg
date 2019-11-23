@@ -11,8 +11,8 @@
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-RankingMenu::RankingMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ListaRanking& l_ranking):
-Menu(handler, g_grafico, supported_keys, States::states_id::ranking_menu),
+RankingMenu::RankingMenu(StateManager* handler, ListaRanking& l_ranking):
+Menu(handler, States::states_id::ranking_menu),
 l_ranking(l_ranking)
 {
     this->initMenu();
@@ -53,6 +53,11 @@ void RankingMenu::initTextViews(){
     this->widgets.add(txt_board, new TextView(txt_board, context ,*this, size, pos, this->fonts.get(Resources::Fonts::font_01), "--\t\t--\t\t--"));
 }
 
+void RankingMenu::initBackground() {
+    this->textures.load(Resources::Textures::bg_ranking, this->textures.getFilename(Resources::Textures::bg_ranking));
+    this->background.setTexture(&this->textures.get(Resources::Textures::bg_ranking));
+}
+
 void RankingMenu::initRankingBoard(){
     this->widgets[txt_board]->setText(this->l_ranking.dump(), false);
 }
@@ -65,7 +70,7 @@ void RankingMenu::update(const float &dt) {
 
 void RankingMenu::render(RenderTarget *target) {
     if (!target)
-        target = this->g_grafico->getRenderWindow();
+        target = GerenciadorGrafico::getInstance()->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }

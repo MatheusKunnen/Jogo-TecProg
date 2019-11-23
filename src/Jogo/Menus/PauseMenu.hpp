@@ -24,7 +24,7 @@ private:
     enum widgets_ids{btn_resume_game, btn_exit};
 public:
     // Constructor & Destructor
-    PauseMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
+    PauseMenu(StateManager* handler);
     virtual ~PauseMenu();
     
     // Methods

@@ -17,6 +17,7 @@ arquivo_tileset(),
 arquivo_bg(),
 pos_player_a(250.f, 250.f),
 pos_player_b(250.f, 250.f),
+pos_boss(0.f, 0.f),
 pos_x_win(1000.f),
 l_pos_inimigos(),
 l_pos_obstaculos()
@@ -33,10 +34,12 @@ bool ParametrosFase::loadFromFile(const string &filename){
     try {
         if (this->filename != this->g_arquivos.getFilename())
             this->g_arquivos.setFilename(filename);
-        // Check file load
+        
+        // Carrega o aquivo
         if (!this->g_arquivos.load())
             throw runtime_error("Error loading file.");
-        // Gets file data
+        
+        // Obtem dados do arquivo
         this->setArquivoMapa(this->g_arquivos.getData()["arquivo_mapa"]);
         this->setArquivoTileSet(this->g_arquivos.getData()["arquivo_tileset"]);
         this->setArquivoBackground(this->g_arquivos.getData()["arquivo_bg"]);
@@ -44,10 +47,14 @@ bool ParametrosFase::loadFromFile(const string &filename){
                                      this->g_arquivos.getData()["pos_y_p_a"]));
         this->setPosPlayerB(Vector2f(this->g_arquivos.getData()["pos_x_p_b"],
                                      this->g_arquivos.getData()["pos_y_p_b"]));
+        this->setPosBoss(Vector2f(this->g_arquivos.getData()["pos_x_boss"],
+                                     this->g_arquivos.getData()["pos_y_boss"]));
         this->setPosXWin(this->g_arquivos.getData()["pos_x_win"]);
-        // Gets file data
+        
+        // Carrega arquivo em json
         json a_x = this->g_arquivos.getData()["pos_inimigos_x"];
         json a_y = this->g_arquivos.getData()["pos_inimigos_y"];
+        
         // Carrega Array com pos inimigos
         json::iterator  itr_x = a_x.begin(),
                         itr_y = a_y.begin();
@@ -56,6 +63,7 @@ bool ParametrosFase::loadFromFile(const string &filename){
             itr_x++;
             itr_y++;
         }
+        
         // Carrega Array com pos obstaculos
         a_x = this->g_arquivos.getData()["pos_obstaculos_x"];
         a_y = this->g_arquivos.getData()["pos_obstaculos_y"];
@@ -77,6 +85,7 @@ bool ParametrosFase::loadFromFile(const string &filename){
 bool ParametrosFase::saveToFile(const string &filename) {
     if (this->filename != this->g_arquivos.getFilename())
         this->g_arquivos.setFilename(filename);
+    
     // Cria json com valores da classe
     json data;
     data["arquivo_mapa"] = this->getArquivoMapa();
@@ -85,35 +94,46 @@ bool ParametrosFase::saveToFile(const string &filename) {
     data["pos_x_p_a"] = this->pos_player_a.x;
     data["pos_y_p_a"] = this->pos_player_a.y;
     data["pos_x_p_b"] = this->pos_player_b.x;
+    data["pos_x_boss"] = this->pos_boss.x;
+    data["pos_y_boss"] = this->pos_boss.y;
     data["pos_y_p_b"] = this->pos_player_b.y;
     data["pos_x_win"] = this->getPosXWin();
+    
     // Cria arrays json
     json a_x = json::array();
     json a_y = json::array();
+    
     // Carrega arrays json de Inimigos
     for (Vector2f vector: this->l_pos_inimigos){
         a_x.push_back(vector.x);
         a_y.push_back(vector.y);
     }
+    
     // Passa array para o objeto json
-    data["pos_inimigos_x"] = a_y;
-    data["pos_inimigos_y"] = a_x;
+    data["pos_inimigos_x"] = a_x;
+    data["pos_inimigos_y"] = a_y;
+    
     // Limpa arrays json
     a_x.clear();
     a_y.clear();
+    
     // Carrega arrays json de obstaculos
     for (Vector2f vector: this->l_pos_obstaculos){
         a_x.push_back(vector.x);
         a_y.push_back(vector.y);
     }
+    
     // Passa array para o objeto json
-    data["pos_obstaculos_x"] = a_y;
-    data["pos_obstaculos_y"] = a_x;
+    data["pos_obstaculos_x"] = a_x;
+    data["pos_obstaculos_y"] = a_y;
+    
     // Limpa arrays json
     a_x.clear();
     a_y.clear();
+    
     // Passa json para o gerenciador de arquivos
     g_arquivos.setData(data);
+    
     // Manda ao gerenciador de arquivos guardar o json
     g_arquivos.save();
     data.clear();
@@ -159,6 +179,14 @@ void ParametrosFase::setPosPlayerB(const Vector2f &pos_player_b){
 
 const Vector2f& ParametrosFase::getPosPlayerB() const {
     return this->pos_player_b;
+}
+
+void ParametrosFase::setPosBoss(const Vector2f &pos_boss) {
+    this->pos_boss = pos_boss;
+}
+
+const Vector2f& ParametrosFase::getPosBoss() const {
+    return this->pos_boss;
 }
 
 void ParametrosFase::setPosXWin(const float &pos_x_win) {

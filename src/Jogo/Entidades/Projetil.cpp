@@ -11,10 +11,10 @@
 namespace Game { namespace Entidades { namespace Obstaculos{
 
 Projetil::Projetil(const Vector2f& position, Texture* texture, const int damage, const short& direction, const float& speed):
-Obstaculo(Type::projetil, position, texture, damage),
+Obstaculo(projetil, position, texture, damage),
 direction(direction),
 speed(speed),
-life_time(0)
+life_time(0.5)
 {
     this->initSprite();
 }

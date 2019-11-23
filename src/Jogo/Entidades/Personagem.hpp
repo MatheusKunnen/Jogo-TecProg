@@ -24,17 +24,17 @@ protected:
 
 public:
     // Constructor & Destructor
-    Personagem(const Vector2f& position, Texture* texture, const float& num_vidas = 10);
+    Personagem(ID id, const Vector2f& position, Texture* texture, const float& num_vidas = 10);
     virtual ~Personagem();
 
     // Methods
     virtual void update(const float& dt);
-    virtual void move(const Vector2f& direction, const float& dt);
-    virtual void updateMoveComponent(const float& dt);
-    virtual void jump(const float& gain = 1.f);
-    virtual void onXCollision(const bool& on_collision);
-    virtual void onYCollision(const bool& on_collision);
-    virtual void removeVida(const int& n_vidas);
+    void move(const Vector2f& direction, const float& dt);
+    void updateMoveComponent(const float& dt);
+    void jump(const float& gain = 1.f);
+    void onXCollision(const bool& on_collision);
+    void onYCollision(const bool& on_collision);
+    void removeVida(const int& n_vidas);
     
     // Getters & Setters
     MoveComponent& getMoveComponent();

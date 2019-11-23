@@ -43,6 +43,7 @@ public:
     void reset();
     void onXCollision(const bool& on_collision);
     void onYCollision(const bool& on_collision);
+    
     // Getters & Setters
     const Vector2f getMaxSpeed() const;
     void setMaxSpeed(const Vector2f& maxSpeed);

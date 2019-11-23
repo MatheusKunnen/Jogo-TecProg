@@ -30,7 +30,7 @@ public:
     void update(const float& dt);
     void render(RenderTarget* target);
     void add(Entidade* entidade, const bool& liberar = true);
-    void clearEnding();
+    const string toJson() const;
     void clear();
     
     // Operators

@@ -23,9 +23,11 @@ public:
     // Constructor & Destructor
     ParametrosJogo(const string& filename = "Resources/config/jogo_config.json");
     ~ParametrosJogo();
+    
     // Methods
     bool loadFromFile(const string& filename = "");
     bool saveToFile(const string& filename = "");
+    
     // Getters & Setters
     void setDualPlayer(const bool& is_dual_player);
     const bool& isDualPlayer() const;

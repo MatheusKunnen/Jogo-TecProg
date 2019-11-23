@@ -12,11 +12,11 @@ namespace Game { namespace Entidades { namespace Personagens {
 // Const
 const Vector2f Jogador::lifebar_size(64.f, 10.f);
 const sf::Color Jogador::lifebar_color(255, 0, 0);
-const int Jogador::max_life(15);
+const int Jogador::max_life(50);
 
 // Constructor & Destructor
 Jogador::Jogador(const Vector2f& position, Texture* texture):
-Personagem(position, texture, Jogador::max_life)
+Personagem(jogador, position, texture, Jogador::max_life)
 {
     this->initLifeBar();
 }

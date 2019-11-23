@@ -9,38 +9,39 @@
 #ifndef Entidade_hpp
 #define Entidade_hpp
 
-#include "../GerenciadorGrafico.hpp"
+#include "../Gerenciadores/GerenciadorGrafico.hpp"
 #include "Componentes/MoveComponent.hpp"
 
 namespace Game{ namespace Entidades {
 
+using Gerenciadores::GerenciadorGrafico;
+
+enum ID {mapa, jogador, desmatador, narcotraficante, boss, planta_venenosa, pedra, espinhos, projetil};
+
 class Entidade {
 protected:
     // Attributes
-    Texture*                        texture;
-    Sprite                          sprite;
-    float                           gravity;
-    GerenciadorGrafico*             g_grafico;
-    bool                            ending;
+    const ID        id;
+    Texture*        texture;
+    Sprite          sprite;
+    bool            ending;
 
 public:
     // Constructor & Destructor
-    explicit Entidade(Texture* texture = nullptr, GerenciadorGrafico* g_grafico = nullptr);
+    explicit Entidade(ID id, Texture* texture = nullptr);
     virtual ~Entidade();
     
     // Getters & Setters
-    void setGGrafico(GerenciadorGrafico* g_grafico);
     virtual void setPosition(const Vector2f& position);
-    virtual const FloatRect getGlobalBounds() const;
+    const FloatRect getGlobalBounds() const;
     virtual const Vector2f& getPosition() const;
+    void setTexture(Texture* texture);
     void setEnding(const bool& ending);
     const bool& isEnding() const;
-    
-    // Component Methods
-    virtual void setTexture(Texture* texture);
+    const ID& getId() const;
     
     // Methods
-    virtual void update(const float& dt);
+    virtual void update(const float& dt) = 0;
     virtual void render(RenderTarget* target);
     
     // Static method

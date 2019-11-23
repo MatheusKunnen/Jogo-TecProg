@@ -11,7 +11,8 @@
 namespace Game { namespace States {
 
 StateManager::StateManager():
-states()
+states(),
+states_2_pop(0)
 {
     
 }

@@ -10,25 +10,32 @@
 #define FaseFloresta_hpp
 
 #include "Fase.hpp"
+#include "../Entidades/Desmatador.hpp"
+#include "../Entidades/PlantaVenenosa.hpp"
+
 namespace Game { namespace Fases {
+
+using Entidades::Obstaculos::PlantaVenenosa;
+using Entidades::Personagens::Desmatador;
 
 class FaseFloresta : public Fase {
 private:
     // Const
     const static string CONFIG_FILE;
+    float delay;
     
     // Init Methods
     void initInimigos();
     void initObstaculos();
+    void onSavedFase();
+    
 public:
     // Constructor & Destructor
-    FaseFloresta(GerenciadorGrafico* g_grafico, Jogador* jogador_a, Jogador* jogador_b = nullptr);
+    FaseFloresta(Jogador* jogador_a, Jogador* jogador_b = nullptr);
     ~FaseFloresta();
+    
     // Methods
-    void update(const float& dt);
-    void render(RenderTarget* target);
     void onInitFase(Jogador* jogador_a, Jogador* jogador_b, FaseEventHandler* event_handler);
-    void onCloseFase();
     
 };
 

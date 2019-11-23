@@ -10,6 +10,7 @@
 #define Base_includes_h
 
 #include <iostream>
+#include <cstdlib>
 #include <sstream>
 #include <cmath>
 #include <fstream>

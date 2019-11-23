@@ -26,11 +26,13 @@ bool ParametrosJogo::loadFromFile(const string &filename){
     try {
         if (this->filename != this->g_arquivos.getFilename())
             this->g_arquivos.setFilename(filename);
+        
         // Check file load
         if (!this->g_arquivos.load())
             throw runtime_error("Error loading file.");
-        // Gets file data
-        //this->setPlayerName(this->g_arquivos.getData()["player_name"]); // Sem inicia sem nome
+        
+        // Obtem informação do arquivo
+        //this->setPlayerName(this->g_arquivos.getData()["player_name"]); // Sempre inicia sem nome
         this->setDualPlayer(this->g_arquivos.getData()["is_dual_player"] == 1);
     } catch(std::exception e){
         status = false;
@@ -42,12 +44,15 @@ bool ParametrosJogo::loadFromFile(const string &filename){
 bool ParametrosJogo::saveToFile(const string &filename) {
     if (this->filename != this->g_arquivos.getFilename())
         this->g_arquivos.setFilename(filename);
+    
     // Cria json com valores da classe
     json data;
     data["player_name"] = this->getPlayerName();
     data["is_dual_player"] = this->is_dual_player ? 1 : 0;
+    
     // Passa json para o gerenciador de arquivos
     g_arquivos.setData(data);
+    
     // Manda ao gerenciador de arquivos guardar o json
     g_arquivos.save();
     data.clear();

@@ -12,8 +12,8 @@
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-PauseMenu::PauseMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
-Menu(handler, g_grafico, supported_keys, States::states_id::pause_menu)
+PauseMenu::PauseMenu(StateManager* handler):
+Menu(handler, States::states_id::pause_menu)
 {
     this->initMenu();
 }
@@ -55,7 +55,7 @@ void PauseMenu::update(const float &dt) {
 
 void PauseMenu::render(RenderTarget *target) {
     if (!target)
-        target = this->g_grafico->getRenderWindow();
+        target = GerenciadorGrafico::getInstance()->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }

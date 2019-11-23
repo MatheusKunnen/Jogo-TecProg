@@ -13,7 +13,7 @@
 #include "../TADs/ListaEntidades.hpp"
 #include "../TADs/ListaObstaculos.hpp"
 #include "../Entidades/Jogador.hpp"
-#include "../Entidades/level.hpp"
+#include "../Entidades/Mapa.hpp"
 
 namespace Game { namespace Gerenciadores {
 
@@ -31,26 +31,25 @@ private:
     // Attributes
     ListaPersonagens    l_personagens;
     ListaObstaculos     l_obstaculos;
-    ListaEntidades&     l_entidades;
     Mapa&               mapa;
     
 public:
     // Constructor & Destructor
-    GerenciadorColisoes(Mapa& mapa, ListaEntidades& l_entidades);
+    GerenciadorColisoes(Mapa& mapa);
     ~GerenciadorColisoes();
     
     // Methods
     void gerenciarColisoes();
-    void gerenciarColisoesPersonagensMapa();
-    void gerenciarColisoesPersonagensPersonagens();
-    void gerenciarColisoesPersonagensObstaculos();
+    void gerenciarColisoesPM(); // Colisoes Personagem - Mapa
+    void gerenciarColisoesPP(); // Colisoes Personagem - Personagem
+    void gerenciarColisoesPO(); // Colisoes Personagem - Obstaculo
     
-    void checkMapCollision(Personagem* personagem);
-    void checkPPCollision(Personagem* personagem_a, Personagem* personagem_b);
-    void checkPOCollision(Personagem* personagem, Obstaculo* obstaculo);
+    void checkCollision(Personagem* personagem);
+    void checkCollision(Personagem* personagem_a, Personagem* personagem_b);
+    void checkCollision(Personagem* personagem, Obstaculo* obstaculo);
     
-    void addPersonagem(Personagem* personagem);
-    void addObstaculo(Obstaculo* obstaculo);
+    void add(Personagem* personagem);
+    void add(Obstaculo* obstaculo);
     
     void clearEndingObj();
     void clear();

@@ -24,12 +24,15 @@ using Fases::Fase;
 
 class Atirador : public Inimigo {
 protected:
+    // Const
+    static const float DEFAULT_ATTACK_DISTANCE;
+    
     // Attributes
     Fase*           fase;
-    const float     projetil_speed;
+    const float     vel_projetil;
     
 public:
-    Atirador(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const float& projetil_speed, const float& damage = 1);
+    Atirador(ID id, const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const float& projetil_speed, const float& damage = 1);
     virtual ~Atirador();
     
     // Methods

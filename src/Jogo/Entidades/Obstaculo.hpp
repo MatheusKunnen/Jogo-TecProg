@@ -16,19 +16,16 @@ namespace Game { namespace Entidades { namespace Obstaculos {
 
 using Entidades::Personagens::Personagem;
 
-enum Type {planta_venenosa, pedra, espinhos, projetil};
-
 class Obstaculo : public Entidade {
 protected:
     // Attributes
-    const int   type_id;
-    float         damage;
+    float       damage;
     float       idle_time;
     float       delay_time;
     
 public:
     // Constructor & Destructor
-    Obstaculo(const Type type_id, const Vector2f& position, Texture* texture, const int damage = 1);
+    Obstaculo(ID id, const Vector2f& position, Texture* texture, const int damage = 1);
     virtual ~Obstaculo();
     
     // Methods

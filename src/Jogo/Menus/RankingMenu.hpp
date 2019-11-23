@@ -27,13 +27,14 @@ private:
     void initButtons();
     void initTextViews();
     void initRankingBoard();
-    
+    void initBackground();
     // Const Matheus
     enum widgets_ids{btn_exit, txt_header, txt_board};
 public:
     // Constructor & Destructor
-    RankingMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ListaRanking& l_ranking);
+    RankingMenu(StateManager* handler, ListaRanking& l_ranking);
     virtual ~RankingMenu();
+    
     // Methods
     void update(const float& dt);
     void render(RenderTarget* target);

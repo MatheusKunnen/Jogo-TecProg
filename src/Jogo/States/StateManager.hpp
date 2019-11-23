@@ -16,8 +16,7 @@
 #include "../Menus/PauseMenu.hpp"
 #include "../Menus/EndGameMenu.hpp"
 #include "../Menus/MainMenu.hpp"
-#include "../Menus/FailedMenu.hpp"
-#include "../Menus/WinMenu.hpp"
+#include "../Menus/EndGameMenu.hpp"
 #include "../Menus/RankingMenu.hpp"
 
 #include "../TADs/StateStack.hpp"
@@ -28,7 +27,9 @@ using TADs::StateStack;
 
 class StateManager {
 protected:
-    StateStack                  states; // Pilha de estados
+    // Atributes
+    StateStack states; // Pilha de estados
+    int        states_2_pop; // Nro estados a ser removidos
     
 public:
     StateManager();

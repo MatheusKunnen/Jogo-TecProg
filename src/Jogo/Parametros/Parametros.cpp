@@ -10,6 +10,7 @@
 
 namespace Game {  namespace Parametros {
 
+// Constructor & Destructor
 Parametro::Parametro(const string& filename):
 g_arquivos(filename),
 filename(filename){
@@ -20,6 +21,7 @@ Parametro::~Parametro(){
     this->filename.clear();
 }
 
+// Getters & Setters
 void Parametro::setFilename(const string &filename){
     this->filename = filename;
 }

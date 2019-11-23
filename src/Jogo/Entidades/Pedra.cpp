@@ -12,7 +12,7 @@ namespace Game { namespace Entidades { namespace Obstaculos {
 
 // Constructor & Destructor
 Pedra::Pedra(const Vector2f& position, Texture* texture):
-Obstaculo(Type::planta_venenosa, position, texture)
+Obstaculo(pedra, position, texture)
 {
     this->setDelayTime(0.5);
     this->setDamage(1);
@@ -22,7 +22,7 @@ Pedra::~Pedra(){
     
 }
 
-// Methods Matheus
+// Methods
 void Pedra::onCollision(Personagem *personagem){
     if (personagem && this->idle_time > this->delay_time) {
         personagem->removeVida(this->damage);

@@ -11,8 +11,8 @@
 namespace Game { namespace Menus{
 
 // Constructor & Destructor
-ConfigMenu::ConfigMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, ParametrosJogo* parametros_jogo):
-Menu(handler, g_grafico, supported_keys, States::states_id::config_menu),
+ConfigMenu::ConfigMenu(StateManager* handler, ParametrosJogo* parametros_jogo):
+Menu(handler, States::states_id::config_menu),
 parametros_jogo(parametros_jogo)
 {
     this->setParametrosJogo(parametros_jogo);
@@ -41,7 +41,7 @@ void ConfigMenu::initButtons(){
     // Inicia buttons com suas posicoes e tamanhos
     // Posição base dos buttons
     Vector2f btn_size = Vector2f(450.f, 100.f);
-    Vector2f btn_pos = Vector2f(this->context.getRenderWindow()->getSize().x*0.5  - btn_size.x/2 - 25, this->context.getRenderWindow()->getSize().y*.3);
+    Vector2f btn_pos = Vector2f(this->context.getRenderWindow()->getSize().x*0.5  - btn_size.x/2 - 25, this->context.getRenderWindow()->getSize().y*.4);
     
     // Button opção de 1 jogador
     this->widgets.add(btn_single_player, new Button(btn_single_player, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "1 JOGADOR"));
@@ -70,6 +70,11 @@ void ConfigMenu::initTextViews() {
     this->widgets.add(txt_player_name, txt);
 }
 
+void ConfigMenu::initBackground() {
+    this->textures.load(Resources::Textures::bg_config, this->textures.getFilename(Resources::Textures::bg_config));
+    this->background.setTexture(&this->textures.get(Resources::Textures::bg_config));
+}
+
 
 // Methods
 void ConfigMenu::update(const float &dt) {
@@ -79,7 +84,7 @@ void ConfigMenu::update(const float &dt) {
 
 void ConfigMenu::render(RenderTarget *target) {
     if (!target)
-        target = this->g_grafico->getRenderWindow();
+        target = GerenciadorGrafico::getInstance()->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }

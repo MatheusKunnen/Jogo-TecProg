@@ -31,6 +31,8 @@ using States::StateManager;
 using Resources::FontHolder;
 using Resources::TextureHolder;
 
+using Gerenciadores::GerenciadorGrafico;
+
 class Menu : public State, public EventHandler {
 protected:
     // Attributes
@@ -47,11 +49,10 @@ protected:
     virtual void initTextures();
     virtual void initFonts();
     virtual void initBackground();
-    virtual void initValidKeys();
     
 public:
     // Contructor & Destructor
-    Menu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, States::states_id id);
+    Menu(StateManager* handler, States::states_id id);
     virtual ~Menu();
     
     // Methods

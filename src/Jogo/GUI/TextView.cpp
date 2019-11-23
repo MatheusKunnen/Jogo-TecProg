@@ -21,16 +21,8 @@ TextView::~TextView(){
 }
 
 // Methods
-void TextView::update(){
-    sf::Event event;
-    while(this->context.getRenderWindow()->pollEvent(event)){
-        if(event.type == sf::Event::TextEntered){
-            if (event.text.unicode < 128){
-                cout << static_cast<char>(event.text.unicode) << endl;
-            }
-            
-        }
-    }
+void TextView::update() {
+    
 }
 
 void TextView::render(RenderTarget* target){

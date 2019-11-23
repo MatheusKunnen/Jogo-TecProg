@@ -14,21 +14,23 @@
 namespace Game { namespace TADs {
 
 template<class Tipo>
-class Pilha : protected Lista<Tipo> {
+class Pilha{
+private:
+    Lista<Tipo> lista;
 public:
     // Constructor & Destructor
-    Pilha(): Lista<Tipo>() { };
+    Pilha(): lista() { };
     ~Pilha() { };
     // Methods
-    Tipo* top() const { return this->p_first->get(); };
-    void push(Tipo* elemento, const bool& liberar = true) { this->addFront(elemento, liberar); };
+    Tipo* top() const { return this->lista.getFirst(); };
+    void push(Tipo* elemento, const bool& liberar = true) { this->lista.addFront(elemento, liberar); };
     void pop() {
-        this->remove(this->p_first->get());
+        this->lista.remove(this->lista.getFirst());
     };
-    void clear(){ this->clearAll(); };
-    const bool empty() const { return this->lenght <= 0; };
+    void clear(){ this->lista.clearAll(); };
+    const bool empty() const { return this->lista.count() <= 0; };
     // Operators
-    void operator--() { this->pop(); };
+    void operator--() { this->lista->pop(); };
 };
 
 }};

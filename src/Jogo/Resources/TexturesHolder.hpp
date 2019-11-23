@@ -14,7 +14,7 @@
 
 namespace Game { namespace Resources{
 namespace Textures {
-    enum ID {bg_menu, bg_fase, jogador_a, jogador_b, narcotraficante, desmatador, narcotraficante_desmatador, planta_venenosa, pedra, espinhos, projetil};
+    enum ID {bg_menu, bg_config, bg_ranking, bg_fase, bg_game, jogador_a, jogador_b, narcotraficante, desmatador, narcotraficante_desmatador, planta_venenosa, pedra, espinhos, projetil};
 }
 class TextureHolder : public ResourceHolder<sf::Texture, Textures::ID>{
 private:

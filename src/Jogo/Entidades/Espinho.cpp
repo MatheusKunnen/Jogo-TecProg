@@ -12,10 +12,10 @@ namespace Game { namespace Entidades { namespace Obstaculos {
 
 // Constructor & Destructor
 Espinho::Espinho(const Vector2f& position, Texture* texture):
-Obstaculo(Type::planta_venenosa, position, texture)
+Obstaculo(espinhos, position, texture)
 {
     this->setDelayTime(0.5);
-    this->setDamage(1);
+    this->setDamage(2.f);
 }
 
 Espinho::~Espinho(){

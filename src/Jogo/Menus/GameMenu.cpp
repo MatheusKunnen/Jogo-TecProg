@@ -12,8 +12,8 @@
 namespace Game { namespace Menus{
   
 // Constructor & Destructor
-GameMenu::GameMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys):
-Menu(handler, g_grafico, supported_keys, States::states_id::game_menu)
+GameMenu::GameMenu(StateManager* handler):
+Menu(handler, States::states_id::game_menu)
 {
     this->initMenu();
 }
@@ -49,6 +49,11 @@ void GameMenu::initButtons(){
     this->widgets.add(btn_exit, new Button(btn_exit, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "VOLTAR"));
 }
 
+void GameMenu::initBackground() {
+    this->textures.load(Resources::Textures::bg_game, this->textures.getFilename(Resources::Textures::bg_game));
+    this->background.setTexture(&this->textures.get(Resources::Textures::bg_game));
+}
+
 
 // Methods
 void GameMenu::update(const float &dt) {
@@ -58,7 +63,7 @@ void GameMenu::update(const float &dt) {
 
 void GameMenu::render(RenderTarget *target) {
     if (!target)
-        target = this->g_grafico->getRenderWindow();
+        target = GerenciadorGrafico::getInstance()->getRenderWindow();
     target->draw(this->background);
     this->widgets.render(target);
 }

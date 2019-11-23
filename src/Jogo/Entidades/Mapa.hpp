@@ -81,7 +81,7 @@ private:
 
 public:
     //   Constructor & Destructor
-    Mapa(GerenciadorGrafico* g_grafico, const string& a_tilemap = "", const string& a_tileset = "", Texture* texture = nullptr);
+    Mapa(const string& a_tilemap = "", const string& a_tileset = "", Texture* texture = nullptr);
     virtual ~Mapa();
     
     // Methods (Entidade)
@@ -94,6 +94,7 @@ public:
     const Vector2f& getPosition() const;
     // Getters & Setters
     void setTexture(Texture* texture);
+    const int getHeight() const;
     
     // TileMap Methods
     bool load();

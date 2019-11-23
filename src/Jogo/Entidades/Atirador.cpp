@@ -10,12 +10,14 @@
 #include "../Fases/Fase.hpp"
 
 namespace Game { namespace Entidades { namespace Personagens {
+// Const
+const float Atirador::DEFAULT_ATTACK_DISTANCE(640.f);
 
 // Constructor & Destructor
-Atirador::Atirador(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const float& projetil_speed, const float& damage):
-Inimigo(position, texture, jogador_a, jogador_b, damage),
+Atirador::Atirador(ID id, const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, Fase* fase, const float& projetil_speed, const float& damage):
+Inimigo(id, position, texture, jogador_a, jogador_b, damage),
 fase(fase),
-projetil_speed(projetil_speed)
+vel_projetil(projetil_speed)
 {
     
 }

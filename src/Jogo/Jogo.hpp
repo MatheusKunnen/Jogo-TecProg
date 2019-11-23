@@ -25,8 +25,7 @@ using Menus::MainMenu;
 using Menus::RankingMenu;
 using Menus::ConfigMenu;
 using Menus::PauseMenu;
-using Menus::WinMenu;
-using Menus::FailedMenu;
+using Menus::EndGameMenu;
 using Menus::GameMenu;
 using States::FaseState;
 
@@ -34,9 +33,8 @@ using Fases::FaseFloresta;
 using Fases::FaseMontanha;
 
 using Resources::TextureHolder;
-
 using Parametros::ParametrosJogo;
-
+using Gerenciadores::GerenciadorGrafico;
 using Entidades::Personagens::Jogador;
 
 using TADs::StateStack;
@@ -51,12 +49,9 @@ private:
     Event                       event_pool; // Eventos de SFML
     Clock                       main_clock; // Relogio principal do jogo
     GerenciadorGrafico*         g_grafico; // Referencia ao gerenciador grafico
-    ParametrosJogo              parametros_jogo; // Parametros do jogo
+    ParametrosJogo              par_jogo; // Parametros do jogo
+    ListaRanking                l_ranking; // Lista de Ranking
     
-    //StateStack                  states; // Pilha de estados
-    ListaRanking                l_ranking;
-    int                         states_2_pop; // Nro estados a ser removidos
-    map<string, int>            valid_keys; // Mapa Keys habilidas
     float                       dt; // Variacao do tempo
     int                         status_code; // Estado da execucao
     bool                        is_running; // Bandeira de execicao
@@ -77,13 +72,13 @@ private:
     void initKeys();
     
     // Private Constructor (para o Singleton)
-    Jogo();
+    Jogo(const string& nome_jogador);
 public:
     // Destructor
     ~Jogo();
     
     // Singleton intancer
-    static Jogo* getInstance();
+    static Jogo* getInstance(const string& nome_jogador = "Sem nome");
     
     // Methods
     void run();

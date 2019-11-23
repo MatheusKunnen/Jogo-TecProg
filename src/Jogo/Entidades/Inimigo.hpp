@@ -28,7 +28,7 @@ protected:
     
 public:
     // Constructor & Destructor
-    Inimigo(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b = nullptr, const int& damage = 1);
+    Inimigo(ID id, const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b = nullptr, const int& damage = 1);
     ~Inimigo();
         
     // Methods

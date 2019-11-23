@@ -7,7 +7,7 @@
 //
 
 #include "GerenciadorGrafico.hpp"
-namespace Game {
+namespace Game { namespace Gerenciadores {
 
 // Singleton Methods
 GerenciadorGrafico* GerenciadorGrafico::main_instance = nullptr;
@@ -25,7 +25,7 @@ void GerenciadorGrafico::deleteInstance(){
 
 // Constructor & Destructor
 GerenciadorGrafico::GerenciadorGrafico(const string& parameters_file):
-parameters(parameters_file),
+parametros(parameters_file),
 main_window(),
 main_view()
 {
@@ -34,15 +34,15 @@ main_view()
 }
 
 GerenciadorGrafico::~GerenciadorGrafico(){
-
+    
 }
 
 // Init methods
 void GerenciadorGrafico::initWindow(){
     // Aloca RenderWindow
-    this->main_window = new RenderWindow(sf::VideoMode(this->parameters.getWindowWidth(), this->parameters.getWindowHeight(), 32), this->parameters.getWindowTitle(), this->parameters.getStyle());
+    this->main_window = new RenderWindow(sf::VideoMode(this->parametros.getWindowWidth(), this->parametros.getWindowHeight(), 32), this->parametros.getWindowTitle(), this->parametros.getStyle());
     // Set max framerate
-    main_window->setFramerateLimit(this->parameters.getFrameRateLimit());
+    main_window->setFramerateLimit(this->parametros.getFrameRateLimit());
 }
 
 void GerenciadorGrafico::initView() {
@@ -65,12 +65,8 @@ bool GerenciadorGrafico::moveView(const float &x, const float &y){
         this->main_view.move(this->main_window->getSize().x/2 - this->main_view.getCenter().x, 0);
         status = false;
     }
-    if (this->main_view.getCenter().y - this->main_window->getSize().y/2 < 0) {
-        this->main_view.move(0, this->main_window->getSize().y/2 - this->main_view.getCenter().y);
-        status = false;
-    }
     // Passa nova view para a RenderWindow
-    this->onViewUpdated();//this->main_window->setView(this->main_view);
+    this->onViewUpdated();
     return status;
 }
 
@@ -85,17 +81,6 @@ void GerenciadorGrafico::resetDefaultView(){
     } catch (std::exception e){
         cerr << "ERROR: GerenciadorGrafico::resetDefaultView(): " << e.what() << endl;
     }
-}
-
-bool GerenciadorGrafico::inView(const Vector2f &position){
-    return this->inView(position.x, position.y);
-}
-
-bool GerenciadorGrafico::inView(const float &x, const float &y){
-    return (this->main_view.getCenter().x - this->main_window->getSize().x/2) < x
-    && x < (this->main_view.getCenter().x - this->main_window->getSize().x/2) &&
-    (this->main_view.getCenter().y - this->main_window->getSize().y/2) < y
-    && y < (this->main_view.getCenter().y - this->main_window->getSize().y/2);
 }
 
 // Getters && Setters
@@ -116,4 +101,4 @@ void GerenciadorGrafico::setViewPosition(const float& x, const float& y){
     this->onViewUpdated();
 }
 
-}
+}}

@@ -11,10 +11,9 @@
 namespace Game { namespace Gerenciadores {
   
 // Constructor & Destructor
-GerenciadorColisoes::GerenciadorColisoes(Mapa& mapa, ListaEntidades& l_entidades):
+GerenciadorColisoes::GerenciadorColisoes(Mapa& mapa):
 l_personagens(),
 l_obstaculos(),
-l_entidades(l_entidades),
 mapa(mapa)
 {
     
@@ -28,21 +27,21 @@ GerenciadorColisoes::~GerenciadorColisoes(){
 void GerenciadorColisoes::gerenciarColisoes(){
     this->clearEndingObj();
     // Chama gerenciadores de colisoes
-    this->gerenciarColisoesPersonagensMapa();
-    this->gerenciarColisoesPersonagensPersonagens();
-    this->gerenciarColisoesPersonagensObstaculos();
+    this->gerenciarColisoesPM();
+    this->gerenciarColisoesPP();
+    this->gerenciarColisoesPO();
 }
 
-void GerenciadorColisoes::gerenciarColisoesPersonagensMapa() {
+void GerenciadorColisoes::gerenciarColisoesPM() {
     if (!this->l_personagens.beginItr())
         return;
     // Verifica colisao com o mapa con todos os personagens
     do {
-        checkMapCollision(this->l_personagens.getItr());
+        checkCollision(this->l_personagens.getItr());
     } while (this->l_personagens.nextItr());
 }
 
-void GerenciadorColisoes::gerenciarColisoesPersonagensPersonagens() {
+void GerenciadorColisoes::gerenciarColisoesPP() {
     int i, j;
     // Obtem nro de jogadores
     long count = this->l_personagens.getCount();
@@ -50,10 +49,10 @@ void GerenciadorColisoes::gerenciarColisoesPersonagensPersonagens() {
     for(i = 0; i<count-1 ; i++)
         for(j = i+1; j < count; j++)
             if(!this->l_personagens[i]->isEnding() && !this->l_personagens[j]->isEnding())
-                checkPPCollision(this->l_personagens[i], this->l_personagens[j]);
+                checkCollision(this->l_personagens[i], this->l_personagens[j]);
 }
 
-void GerenciadorColisoes::gerenciarColisoesPersonagensObstaculos() {
+void GerenciadorColisoes::gerenciarColisoesPO() {
     int i, j;
     // Obtem nro de personagens e obstaculos
     long count_personagens = this->l_personagens.getCount(),
@@ -62,10 +61,10 @@ void GerenciadorColisoes::gerenciarColisoesPersonagensObstaculos() {
     for(i = 0; i < count_personagens; i++)
         for (j = 0; j < count_obstaculos; j++)
             if(!this->l_personagens[i]->isEnding() && !this->l_obstaculos[j]->isEnding())
-                checkPOCollision(this->l_personagens[i], this->l_obstaculos[j]);
+                checkCollision(this->l_personagens[i], this->l_obstaculos[j]);
 }
 
-void GerenciadorColisoes::checkMapCollision(Personagem *personagem){
+void GerenciadorColisoes::checkCollision(Personagem *personagem){
     // Obtem posicao/tamanho personagem
     const FloatRect& bounds = personagem->getGlobalBounds();
     
@@ -84,7 +83,7 @@ void GerenciadorColisoes::checkMapCollision(Personagem *personagem){
         personagem->onXCollision(false);
 }
 
-void GerenciadorColisoes::checkPPCollision(Personagem *personagem_a, Personagem *personagem_b) {
+void GerenciadorColisoes::checkCollision(Personagem *personagem_a, Personagem *personagem_b) {
     // Calcula vetor de distancia e distancia maxima
     const Vector2f      distance = Entidade::distanceV(personagem_a, personagem_b),
                     max_distance = Entidade::maxDistanceV(personagem_a, personagem_b);
@@ -100,7 +99,7 @@ void GerenciadorColisoes::checkPPCollision(Personagem *personagem_a, Personagem 
     }
 }
 
-void GerenciadorColisoes::checkPOCollision(Personagem *personagem, Obstaculo *obstaculo) {
+void GerenciadorColisoes::checkCollision(Personagem *personagem, Obstaculo *obstaculo) {
     // Calcula vetor de distancia e distancia maxima
     const Vector2f      distance = Entidade::distanceV(personagem, obstaculo),
                     max_distance = Entidade::maxDistanceV(personagem, obstaculo);
@@ -110,11 +109,11 @@ void GerenciadorColisoes::checkPOCollision(Personagem *personagem, Obstaculo *ob
     }
 }
 
-void GerenciadorColisoes::addPersonagem(Personagem *personagem) {
+void GerenciadorColisoes::add(Personagem *personagem) {
     this->l_personagens += personagem;
 }
 
-void GerenciadorColisoes::addObstaculo(Obstaculo *obstaculo) {
+void GerenciadorColisoes::add(Obstaculo *obstaculo) {
     this->l_obstaculos += obstaculo;
 }
 
@@ -128,11 +127,11 @@ void GerenciadorColisoes::clear(){
 }
 // Operators
 void GerenciadorColisoes::operator+=(Personagem *personagem){
-    this->addPersonagem(personagem);
+    this->add(personagem);
 }
 
 void GerenciadorColisoes::operator+=(Obstaculo *obstaculo){
-    this->addObstaculo(obstaculo);
+    this->add(obstaculo);
 }
     
 }}

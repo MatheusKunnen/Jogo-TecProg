@@ -11,12 +11,12 @@
 
 namespace Game { namespace Menus{
 
-Menu::Menu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, States::states_id id):
-State(handler, g_grafico, supported_keys, id),
-context(*g_grafico->getRenderWindow()),
+Menu::Menu(StateManager* handler, States::states_id id):
+State(handler, id),
+context(*GerenciadorGrafico::getInstance()->getRenderWindow()),
 widgets()
 {
-    this->background.setSize(sf::Vector2f(this->g_grafico->getRenderWindow()->getSize()));
+    this->background.setSize(sf::Vector2f(GerenciadorGrafico::getInstance()->getRenderWindow()->getSize()));
     this->background.setFillColor(sf::Color::White);
 }
 
@@ -45,14 +45,6 @@ void Menu::initTextures(){
 
 void Menu::initBackground(){
     this->background.setTexture(&this->textures.get(Resources::Textures::bg_menu));
-}
-
-void Menu::initValidKeys(){
-    try {
-        // No valid Keys
-    } catch (std::exception e) {
-        cerr << "FATAL ERROR: PauseMenuState::initValidkeys: " << e.what() << endl;
-    }
 }
 
 }}

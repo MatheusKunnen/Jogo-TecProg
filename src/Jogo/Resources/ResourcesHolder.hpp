@@ -48,6 +48,8 @@ ResourceHolder<Resource, Id>::~ResourceHolder(){
 
 template <typename Resource, typename Id>
 void ResourceHolder<Resource, Id>::load(Id id, const string& filename) {
+    if (filename == "")
+        return;
     unique_ptr<Resource> resource(new Resource());
     
     if (!resource->loadFromFile(filename))

@@ -10,14 +10,13 @@
 namespace Game{ namespace Entidades {
 
 // Constructor & Destructor
-Entidade::Entidade(Texture* texture, GerenciadorGrafico* g_grafico):
-g_grafico(g_grafico),
+Entidade::Entidade(ID id, Texture* texture):
+id(id),
 texture(texture),
 sprite(),
 ending(false)
 {
     this->setTexture(texture);
-    this->setGGrafico(GerenciadorGrafico::getInstance());
 }
 
 Entidade::~Entidade(){
@@ -25,10 +24,6 @@ Entidade::~Entidade(){
 }
 
 // Getters & Setters
-void Entidade::setGGrafico(GerenciadorGrafico *g_grafico) {
-    this->g_grafico = g_grafico;
-}
-
 void Entidade::setPosition(const Vector2f& position){
     this->sprite.setPosition(position);
 }
@@ -56,16 +51,13 @@ void Entidade::setTexture(Texture* texture){
         return;
     
     this->sprite.setTexture(*this->texture);
-    //this->sprite.setScale(0.3f, 0.3f);
 }
 
-
+const ID& Entidade::getId() const {
+    return this->id;
+}
 
 // Methods
-void Entidade::update(const float &dt){
-    
-}
-
 void Entidade::render(RenderTarget* target){
     target->draw(this->sprite);
 }

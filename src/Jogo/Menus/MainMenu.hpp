@@ -25,7 +25,7 @@ private:
     
 public:
     // Constructor & Destructor
-    MainMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
+    MainMenu(StateManager* handler);
     virtual ~MainMenu();
     
     // Methods

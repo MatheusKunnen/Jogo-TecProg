@@ -21,13 +21,16 @@ protected:
     // Attributes
     GerenciadorArquivos g_arquivos;
     string filename;
+    
 public:
     // Contructors & Destructors
     Parametro(const string& filename = "");
     ~Parametro();
+    
     // Methods
     virtual bool loadFromFile(const string& filename = "") = 0;
     virtual bool saveToFile(const string& filename = "") = 0;
+    
     // Getters & Setters
     void setFilename(const string& filename);
     const string& getFilename() const;

@@ -58,7 +58,7 @@ public:
     Lista(): p_first(nullptr), p_last(nullptr), lenght(0){ }
     ~Lista() { clearAll(); };
     // Getters & Setters
-    const int getLenght() const { return this->lenght; };
+    const int count() const { return this->lenght; };
     // Methods
     void addFront(Tipo* elemento, bool liberar = true) {
         this->add(elemento, liberar, true);
@@ -111,6 +111,10 @@ public:
             itr = itr->getNext(); // Navega para o seguinte elemento
         }
     }
+    Tipo* getFirst() const {
+        return this->p_first->get();
+    }
+    
     Tipo* get(int i_elemento) const {
         if (i_elemento >= lenght) // Verifica que o indice seja valido
             throw runtime_error("ERROR: get(): Index out of range");

@@ -11,23 +11,21 @@
 
 // Generic Includes
 #include "base_includes.hpp"
-#include "MediaEngineParameters.hpp"
+#include "../Parametros/ParametrosGerenciadorGrafico.hpp"
 
-using Game::Parametros::MediaEngineParameters;
+using Game::Parametros::ParametrosGerenciadorGrafico;
 
-namespace Game {
+namespace Game { namespace Gerenciadores {
 
 class GerenciadorGrafico{
 private:
     // Singleton instance
     static GerenciadorGrafico*  main_instance;
-    
-    // SFML Attributes
-    RenderWindow*               main_window;
-    View                        main_view;
-    
+   
     // Attributes
-    MediaEngineParameters       parameters;
+    ParametrosGerenciadorGrafico    parametros;
+    RenderWindow*                   main_window;
+    View                            main_view;
     
     // init Methods
     void initWindow(); // Inicia RenderWindow com os parametros corretos
@@ -49,8 +47,6 @@ public:
     // Methods
     bool moveView(const float& x, const float& y); // Desloca a View
     void resetDefaultView(); // Restaura a View original
-    bool inView(const Vector2f& position); // Verifica se a posicao encontra-se dentro da view
-    bool inView(const float& x, const float& y);
     
     // Setters & Getters
     RenderWindow* getRenderWindow();
@@ -59,5 +55,5 @@ public:
     void setViewPosition(const float& x, const float& y);
 };
 
-}
+}}
 #endif /* MediaEngine_hpp */

@@ -28,7 +28,7 @@
  source distribution.
  *********************************************************************/
 
-#include "level.hpp"
+#include "Mapa.hpp"
 
 namespace Game { namespace Entidades { namespace Mapas {
 
@@ -54,8 +54,8 @@ std::string Object::GetPropertyString(std::string name)
 }
 
 // Constructor & Destructor
-Mapa::Mapa( GerenciadorGrafico* g_grafico, const string& a_tilemap, const string& a_tileset, Texture* texture):
-Entidade(texture, g_grafico),
+Mapa::Mapa(const string& a_tilemap, const string& a_tileset, Texture* texture):
+Entidade(mapa, texture),
 width(0),
 height(0),
 tileWidth(0),
@@ -78,30 +78,27 @@ a_tileset(a_tileset)
 
 Mapa::~Mapa()
 {
-    
+
 }
 
 // Init Methods
 void Mapa::initBackground(){
-    this->background.setSize(Vector2f(this->g_grafico->getRenderWindow()->getSize()));
+    this->background.setSize(Vector2f(GerenciadorGrafico::getInstance()->getRenderWindow()->getSize()));
     if (this->texture != nullptr)
         this->background.setTexture(this->texture);
 }
 
 // Methods
 void Mapa::move(const sf::Vector2f &direction, const float &dt){
-    if (this->g_grafico->moveView(direction.x, direction.y))
+    if (GerenciadorGrafico::getInstance()->moveView(direction.x, direction.y))
         this->background.move(direction.x, direction.y);
 }
 
 void Mapa::update(const float &dt){
-    //View view = *this->g_grafico->getView();
-    //view.move(1, 0);
-    //this->g_grafico->getRenderWindow()->setView(view);
-    sf::FloatRect rect = this->g_grafico->getRenderWindow()->getView().getViewport();
-    auto size = this->g_grafico->getRenderWindow()->getSize();
-    rect.left = this->g_grafico->getView()->getCenter().x - size.x/2;
-    rect.top = this->g_grafico->getView()->getCenter().y - size.y/2;
+    sf::FloatRect rect = GerenciadorGrafico::getInstance()->getRenderWindow()->getView().getViewport();
+    auto size = GerenciadorGrafico::getInstance()->getRenderWindow()->getSize();
+    rect.left = GerenciadorGrafico::getInstance()->getView()->getCenter().x - size.x/2;
+    rect.top = GerenciadorGrafico::getInstance()->getView()->getCenter().y - size.y/2;
     rect.width = size.x;
     rect.height = size.y;
     this->SetDrawingBounds(rect);
@@ -109,7 +106,7 @@ void Mapa::update(const float &dt){
 
 void Mapa::render(RenderTarget *target){
     if (target == nullptr) // Verifica target
-        target = this->g_grafico->getRenderWindow();
+        target = GerenciadorGrafico::getInstance()->getRenderWindow();
     target->draw(this->background);
     // Desenha tiles que se encontram nos limites
     for (int layer = 0; layer < layers.size(); layer++)
@@ -128,22 +125,23 @@ void Mapa::setPosition(const Vector2f& position){
 }
 
 void Mapa::setPosition(const float& x, const float& y) {
-    this->g_grafico->setViewPosition(x, y);
-    this->background.setPosition(x - this->g_grafico->getRenderWindow()->getSize().x/2,
-                                 y - this->g_grafico->getRenderWindow()->getSize().y/2);
+    GerenciadorGrafico::getInstance()->setViewPosition(x, y);
+    this->background.setPosition(x - GerenciadorGrafico::getInstance()->getRenderWindow()->getSize().x/2,
+                                 y - GerenciadorGrafico::getInstance()->getRenderWindow()->getSize().y/2);
 }
 
 const Vector2f& Mapa::getPosition() const {
-    return this->g_grafico->getView()->getCenter();
-    //return Vector2f(this->g_grafico->getView()->getCenter().x, this->g_grafico->getView()->getCenter().y);
+    return GerenciadorGrafico::getInstance()->getView()->getCenter();
 }
 
 // Getters & Setters
 void Mapa::setTexture(Texture *texture){
-    
     this->background.setTexture(texture);
 }
 
+const int Mapa::getHeight() const {
+    return this->height*this->tileHeight;
+}
 
 // TileMap Methods
 bool Mapa::load(){
@@ -155,7 +153,6 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
     // Update attributes
     this->a_tilemap = a_tilemap;
     this->a_tileset = a_tileset;
-    
     
     TiXmlDocument levelFile(a_tilemap.c_str());
     
@@ -279,13 +276,11 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
                     y = 0;
             }
         }
-        //delete tileElement;
         
         layers.push_back(layer);
         
         layerElement = layerElement->NextSiblingElement("layer");
     }
-    //delete layerElement;
     
     //Objects
     TiXmlElement *objectGroupElement;
@@ -305,26 +300,14 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
                 if (objectElement->Attribute("name") != NULL)
                     objectName = objectElement->Attribute("name");
                 
-                //int x = atoi(objectElement->Attribute("x"));
-                //int y = atoi(objectElement->Attribute("y"));
-                //int width = atoi(objectElement->Attribute("width"));
-                //int height = atoi(objectElement->Attribute("height"));
-                
                 Object object;
                 object.name = objectName;
                 object.type = objectType;
                 
-                //sf::Rect <int> objectRect;
-                //objectRect.top = y;
-                //objectRect.left = x;
-                //objectRect.height = y + height;
-                //objectRect.width = x + width;
-                
-                //object.rect = objectRect;
                 object.rect.top = atof(objectElement->Attribute("y"));
                 object.rect.left = atof(objectElement->Attribute("x"));
-                object.rect.height = /*object.rect.top + */atof(objectElement->Attribute("height"));
-                object.rect.width = /*object.rect.left +*/ atof(objectElement->Attribute("width"));
+                object.rect.height = atof(objectElement->Attribute("height"));
+                object.rect.width = atof(objectElement->Attribute("width"));
                 
                 if (objectType == "solid")
                     solidObjects.push_back(object.rect);
@@ -362,15 +345,10 @@ bool Mapa::load(const string& a_tilemap, const string& a_tileset) {
     return true;
 }
 
-Object Mapa::GetObject(std::string name)
-{
+Object Mapa::GetObject(std::string name) {
     for (int i = 0; i < objects.size(); i++)
-    {
         if (objects[i].name == name)
-        {
             return objects[i];
-        }
-    }
     return objects[0];
 }
 
@@ -380,15 +358,10 @@ bool Mapa::isSolidPixel(const Vector2f &pos){
 }
 
 bool Mapa::isSolidPixel(int x, int y){
-    //cout << " x:" << x << " y:" << y << endl;
-    for (int i = 0; i < objects.size(); i++){
+    for (int i = 0; i < objects.size(); i++)
         if ((objects[i].rect.top <= y && y <= objects[i].rect.top + objects[i].rect.height) &&
-            (objects[i].rect.left <= x && x <= objects[i].rect.left + objects[i].rect.width)){
-            //cout << "Map: " << "top:" << objects[i].rect.top << " left:" << objects[i].rect.left << " height:" << objects[i].rect.height << " widht:" << objects[i].rect.width << endl;
+            (objects[i].rect.left <= x && x <= objects[i].rect.left + objects[i].rect.width))
             return true;
-            
-        }
-    }
     return false;
 }
 
@@ -401,8 +374,5 @@ void Mapa::SetDrawingBounds(sf::Rect<float> bounds)
     drawingBounds.width += tileWidth;
     drawingBounds.height += tileHeight;
 }
-
-
-
 
 }}}

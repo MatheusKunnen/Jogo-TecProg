@@ -19,12 +19,13 @@ private:
     void initMenu();
     void initWidgets();
     void initButtons();
+    void initBackground();
     
     // Const
     enum widgets_ids{btn_start_floresta, btn_start_montanha, btn_exit};
 public:
     // Constructor & Destructor
-    GameMenu(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys);
+    GameMenu(StateManager* handler);
     virtual ~GameMenu();
     
     // Methods

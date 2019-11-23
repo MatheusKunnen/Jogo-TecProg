@@ -10,18 +10,18 @@
 
 namespace Game { namespace Entidades { namespace Personagens {
 
-Inimigo::Inimigo(const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, const int& damage):
-Personagem(position, texture),
+Inimigo::Inimigo(ID id,const Vector2f& position, Texture* texture, Jogador* jogador_a, Jogador* jogador_b, const int& damage):
+Personagem(id, position, texture),
 jogador_a(jogador_a),
 jogador_b(jogador_b),
 damage(damage),
-amplitude_mov(5),
-vel_mov(5),
-time_mov(0),
-idle_time(0),
-attack_delay(3)
+amplitude_mov(.25),
+vel_mov(2.4),
+time_mov(0.f),
+idle_time(0.f),
+attack_delay(2.f)
 {
-    
+    this->move_comp.setAceleration(Vector2f(this->move_comp.getAceleration().x*this->amplitude_mov, this->move_comp.getAceleration().y));
 }
 
 Inimigo::~Inimigo(){
@@ -63,8 +63,7 @@ void Inimigo::updatePlayerAttack(){
             this->attack(jogador_b);
     }
     
-    // Reseta valor de idle time
-    this->idle_time = 0.f;
+
 }
 
 // Getters & Setters

@@ -20,6 +20,7 @@ public:
     // Constructro & Destructor
     FaseEventHandler() { };
     virtual ~FaseEventHandler() { };
+    
     // Methods
     virtual void onFaseEvent(Event event_id) = 0;
 };

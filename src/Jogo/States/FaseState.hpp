@@ -20,12 +20,11 @@ using Fases::FaseEventHandler;
 
 class FaseState : public State, public FaseEventHandler {
 private:
+    // Attributes
     Fase&        fase;
     
-    // Init Methods
-    void initValidKeys();
 public:
-    FaseState(StateManager* handler, GerenciadorGrafico* g_grafico, map<string, int>* supported_keys, Fase& fase, Jogador* jogador_a, Jogador* jogador_b);
+    FaseState(StateManager* handler, Fase& fase, Jogador* jogador_a, Jogador* jogador_b);
     ~FaseState();
     
     // Methods

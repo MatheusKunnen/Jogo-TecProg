@@ -10,8 +10,8 @@
 
 namespace Game { namespace Entidades { namespace Personagens{
 
-Personagem::Personagem(const Vector2f& position, Texture* texture, const float& num_vidas):
-Entidade(texture),
+Personagem::Personagem(ID id, const Vector2f& position, Texture* texture, const float& num_vidas):
+Entidade(id, texture),
 num_vidas(num_vidas),
 move_comp(&sprite){
     this->sprite.setPosition(position);

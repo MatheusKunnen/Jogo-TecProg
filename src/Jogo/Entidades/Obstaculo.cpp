@@ -10,9 +10,8 @@
 
 namespace Game { namespace Entidades { namespace Obstaculos {
 
-Obstaculo::Obstaculo(const Type type_id, const Vector2f& position, Texture* texture, const int damage):
-Entidade(texture),
-type_id(type_id),
+Obstaculo::Obstaculo(ID id, const Vector2f& position, Texture* texture, const int damage):
+Entidade(id, texture),
 damage(damage),
 idle_time(0),
 delay_time(0)
