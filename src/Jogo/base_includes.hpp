@@ -57,5 +57,5 @@ using std::vector;
 
 using std::runtime_error;
 
-static const bool DEBUG_MODE = true;
+static const bool DEBUG_MODE = false;
 #endif /* Base_includes */

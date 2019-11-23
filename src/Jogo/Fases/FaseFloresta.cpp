@@ -31,14 +31,14 @@ void FaseFloresta::initInimigos() {
     const vector<Vector2f>& lista = this->parametros.getListaPosInimigos();
     for (Vector2f pos : lista){
         // Sorteia o nro e tipo de inimigos a instanciar
-        //if (rand() % 2 == 1) {
+        if (rand() % 10 > 4) {
             if (rand() % 2 == 1)
                 desmatador = new Narcotraficante(pos, &this->textures.get(Resources::Textures::narcotraficante), this->jogador_a, this->jogador_b, this);
             else
                 desmatador = new Desmatador(pos, &this->textures.get(Resources::Textures::desmatador), this->jogador_a, this->jogador_b);
             this->l_entidades += desmatador;
             this->g_colisoes += desmatador;
-        //}
+        }
     }
 }
 
@@ -47,7 +47,7 @@ void FaseFloresta::initObstaculos() {
     const vector<Vector2f>& lista = this->parametros.getListaPosObstaculos();
     for (Vector2f pos : lista){
         // Sorteia o nro e tipo de inimigos a instanciar
-        if (rand() % 2 == 1){
+        if (rand() % 10 > 4){
             if (rand() % 2 == 1)
                 obstaculo = new PlantaVenenosa(pos, &this->textures.get(Resources::Textures::planta_venenosa));
             else

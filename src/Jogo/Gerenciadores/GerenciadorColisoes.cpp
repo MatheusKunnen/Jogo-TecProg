@@ -88,12 +88,12 @@ void GerenciadorColisoes::checkCollision(Personagem *personagem_a, Personagem *p
     const Vector2f      distance = Entidade::distanceV(personagem_a, personagem_b),
                     max_distance = Entidade::maxDistanceV(personagem_a, personagem_b);
     // Verifica colisao em X
-    if (distance.x <= max_distance.x && distance.y < max_distance.y - 10){
+    if (distance.x <= max_distance.x && sqrt(distance.y < max_distance.y - 100)){
         personagem_a->onXCollision(true);
         personagem_b->onXCollision(true);
     }
     // Verifica colisao em Y
-    if (distance.y <= max_distance.y && distance.x < max_distance.x - 10){
+    if (distance.y <= max_distance.y && distance.x < max_distance.x - 100){
         personagem_a->onYCollision(true);
         personagem_b->onYCollision(true);
     }

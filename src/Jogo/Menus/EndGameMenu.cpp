@@ -48,9 +48,10 @@ void EndGameMenu::initButtons(){
 void EndGameMenu::initTextViews(){
     // Inicia buttons com suas posicoes é tamanhos
     Vector2f size = Vector2f(450.f, 100.f);
-    Vector2f pos = Vector2f(this->context.getRenderWindow()->getSize().x*0.5, this->context.getRenderWindow()->getSize().y*.2);
+    Vector2f pos = Vector2f(this->context.getRenderWindow()->getSize().x*0.5, this->context.getRenderWindow()->getSize().y*.5);
     
-    TextView* txt = new TextView(txt_01, context ,*this, size, pos, this->fonts.get(Resources::Fonts::font_01), (win) ? "Ganhou" : "PERDEU :(");
+    TextView* txt = new TextView(txt_01, context ,*this, size, pos, this->fonts.get(Resources::Fonts::font_01), (win) ? "GANHOU :D" : "PERDEU :(");
+    txt->setTextColor((win) ? sf::Color::Green : sf::Color::Red);
     this->widgets.add(txt_01, txt);
 }
 
@@ -77,7 +78,7 @@ void EndGameMenu::onGuiEvent(int id, GUI::Events::Type event_id){
 }
 
 void EndGameMenu::onExit() {
-    // Muda bandeira de finalização
+    // Solicita remoção ao StateManager
     this->manager->addStatePop(2);
 }
 
