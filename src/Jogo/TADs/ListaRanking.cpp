@@ -153,7 +153,7 @@ const string ListaRanking::dump() const {
     stringstream txt_board;
     int count = 0;
     for(const RankingElement& element: this->l_ranking){
-        txt_board << ++count << "˚ - " << element.getNomeJogador() << " - " << element.getScore() << endl;
+        txt_board << std::to_string(++count) << " - " << element.getNomeJogador() << " - " << element.getScore() << endl;
     }
     return txt_board.str();
 }

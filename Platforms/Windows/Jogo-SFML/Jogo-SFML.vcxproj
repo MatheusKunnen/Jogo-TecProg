@@ -19,19 +19,90 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\src\Jogo\base_includes.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Atirador.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Componentes\MoveComponent.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Desmatador.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Entidade.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Espinho.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Inimigo.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Jogador.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Mapa.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Narcotraficante.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\NarcotraficanteDesmatador.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Obstaculo.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Pedra.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Personagem.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\PlantaVenenosa.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Entidades\Projetil.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Fases\Fase.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Fases\FaseEventHandler.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Fases\FaseFloresta.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Fases\FaseMontanha.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Fases\SalvadoraFase.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorArquivos.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorColisoes.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorGrafico.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\base_gui_includes.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\Button.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\Context.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\EventHandler.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\ListaWidgets.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\TextView.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\GUI\Widget.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Jogo.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\libs\json.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\libs\tinyxml\tinystr.h" />
+    <ClInclude Include="..\..\..\src\Jogo\libs\tinyxml\tinyxml.h" />
+    <ClInclude Include="..\..\..\src\Jogo\Menus\ConfigMenu.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Menus\EndGameMenu.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Menus\GameMenu.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Menus\MainMenu.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Menus\Menu.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Menus\PauseMenu.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Menus\RankingMenu.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Parametros\Parametros.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Parametros\ParametrosFase.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Parametros\ParametrosGerenciadorGrafico.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Parametros\ParametrosJogo.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Resources\FontHolder.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Resources\ResourcesHolder.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Resources\TexturesHolder.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\FaseState.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\State.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\States\StateManager.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\TADs\Lista.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\TADs\ListaEntidades.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\TADs\ListaObstaculos.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\TADs\ListaPersonagens.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\TADs\ListaRanking.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\TADs\Pilha.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\TADs\StateStack.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Atirador.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Entidades\Componentes\MoveComponent.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Desmatador.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Entidades\Entidade.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Espinho.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Entidades\Inimigo.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Entidades\Jogador.cpp" />
-    <ClCompile Include="..\..\..\src\Jogo\Entidades\level.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Mapa.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Narcotraficante.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\NarcotraficanteDesmatador.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Entidades\Obstaculo.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Pedra.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Entidades\Personagem.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\PlantaVenenosa.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Entidades\Projetil.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Fases\Fase.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Fases\FaseEventHandler.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Fases\FaseFloresta.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Fases\FaseMontanha.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Fases\SalvadoraFase.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorArquivos.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorColisoes.cpp" />
-    <ClCompile Include="..\..\..\src\Jogo\GerenciadorGrafico.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorGrafico.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\GUI\Button.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\GUI\Context.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\GUI\EventHandler.cpp" />
@@ -43,68 +114,28 @@
     <ClCompile Include="..\..\..\src\Jogo\libs\tinyxml\tinyxml.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\libs\tinyxml\tinyxmlerror.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\libs\tinyxml\tinyxmlparser.cpp" />
-    <ClCompile Include="..\..\..\src\Jogo\MediaEngineParameters.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Menus\ConfigMenu.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Menus\EndGameMenu.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Menus\GameMenu.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Menus\MainMenu.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Menus\Menu.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Menus\PauseMenu.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Menus\RankingMenu.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Parametros\Parametros.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Parametros\ParametrosFase.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Parametros\ParametrosGerenciadorGrafico.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Parametros\ParametrosJogo.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Resources\FontHolder.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Resources\TexturesHolder.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\States\FaseState.cpp" />
-    <ClCompile Include="..\..\..\src\Jogo\States\GameState.cpp" />
-    <ClCompile Include="..\..\..\src\Jogo\States\MainMenuState.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\States\State.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\States\StateManager.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\TADs\ListaEntidades.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\TADs\ListaObstaculos.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\TADs\ListaPersonagens.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\TADs\ListaRanking.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\TADs\StateStack.cpp" />
     <ClCompile Include="..\..\..\src\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\src\Jogo\base_includes.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Entidades\Componentes\MoveComponent.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Entidades\Entidade.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Entidades\Inimigo.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Entidades\Jogador.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Entidades\level.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Entidades\Obstaculo.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Entidades\Personagem.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Fases\Fase.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Fases\FaseFloresta.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Fases\FaseMontanha.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorArquivos.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorColisoes.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\GerenciadorGrafico.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\GUI\base_gui_includes.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\GUI\Button.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\GUI\Context.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\GUI\EventHandler.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\GUI\ListaWidgets.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\GUI\TextView.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\GUI\Widget.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Jogo.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\json.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\libs\tinyxml\tinystr.h" />
-    <ClInclude Include="..\..\..\src\Jogo\libs\tinyxml\tinyxml.h" />
-    <ClInclude Include="..\..\..\src\Jogo\MediaEngineParameters.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Menus\MainMenu.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Menus\Menu.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Parametros\Parametros.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Parametros\ParametrosFase.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Resources\FontHolder.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Resources\ResourcesHolder.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\Resources\TexturesHolder.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\States\FaseState.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\States\GameState.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\States\MainMenuState.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\States\State.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\TADs\Lista.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\TADs\ListaEntidades.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\TADs\ListaPersonagens.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\TADs\Pilha.hpp" />
-    <ClInclude Include="..\..\..\src\Jogo\TADs\StateStack.hpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\..\..\src\Jogo\.DS_Store" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -246,7 +277,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\..\External-Libraries\Win64\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-main.lib;sfml=graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-main.lib;sfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
