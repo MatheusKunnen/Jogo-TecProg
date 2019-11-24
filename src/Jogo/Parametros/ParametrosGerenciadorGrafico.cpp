@@ -49,7 +49,8 @@ bool ParametrosGerenciadorGrafico::loadFromFile(const string& file){
         this->setWindowHeight(j["window_height"]);
         this->setWindowTitle(j["window_title"]);
         this->setFullscreen(j["fullscreen"] == 1);
-        // cout << j.dump() << endl; // DEBUG
+        if (DEBUG_MODE)
+            cout << j.dump() << endl; // DEBUG
         i.close();
         j.clear();
     } catch (std::exception e){
@@ -68,7 +69,8 @@ bool ParametrosGerenciadorGrafico::saveToFile(const string& file){
         j["window_height"] = this->getWindowHeight();
         j["window_title"] = this->getWindowTitle();
         j["fullscreen"] = this->isFullscreen() ? 1 : 0;
-        // cout << j.dump() << endl; // DEBUG
+        if (DEBUG_MODE)
+            cout << j.dump() << endl; // DEBUG
         out << j.dump() << endl;
         out.close();
         j.clear();

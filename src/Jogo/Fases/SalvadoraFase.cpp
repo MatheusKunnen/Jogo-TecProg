@@ -64,7 +64,8 @@ const bool SalvadoraFase::save() {
         << l_entidades.toJson() << "}" << endl;
         data.clear();
         // Verifica validade do json e carrega o objeto
-        cout << s_json.str() << endl;
+        if (DEBUG_MODE)
+            cout << s_json.str() << endl;
         data = json::parse(s_json.str());
 
         // Limpa string stream

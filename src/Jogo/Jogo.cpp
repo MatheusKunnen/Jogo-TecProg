@@ -72,8 +72,8 @@ void Jogo::run() {
         // Atualiza relogio
         updateDt();
 		// Notifica quando a variação de tempo for muito alta
-		if (1 / 50.f - this->dt < 0) {
-			cerr << "WARNING: " << this->dt << " Missed: " << 1 / (this->dt - 1 / 50.f) << endl;
+		if (1 / 30.f - this->dt < 0) {
+			cerr << "WARNING: " << this->dt << " Missed: " << (int) (1 / (this->dt - 1 / 30.f)) << " frames."<< endl;
 			// Limita maxima variacao do tempo
 			this->dt = .02;
 		}
