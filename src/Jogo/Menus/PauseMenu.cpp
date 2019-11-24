@@ -46,6 +46,10 @@ void PauseMenu::initButtons(){
     this->widgets.add(btn_exit, new Button(btn_exit, context ,*this, btn_size, btn_pos, this->fonts.get(Resources::Fonts::font_01), "VOLTAR"));
 }
 
+void PauseMenu::initBackground() {
+    this->textures.load(Resources::Textures::bg_pause, this->textures.getFilename(Resources::Textures::bg_pause));
+    this->background.setTexture(&this->textures.get(Resources::Textures::bg_pause));
+}
 
 // Methods
 void PauseMenu::update(const float &dt) {

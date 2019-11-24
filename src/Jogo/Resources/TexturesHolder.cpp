@@ -19,7 +19,7 @@ map<Textures::ID, string> TextureHolder::default_filenames = {
                                                 {Textures::bg_config,"Resources/img/textures/backgrounds/bg_config.png"},
                                                 {Textures::bg_ranking,"Resources/img/textures/backgrounds/bg_ranking.png"},
                                                 {Textures::bg_game,"Resources/img/textures/backgrounds/bg_game.png"},
-                                                //{Textures::bg_fase_b,"Resources/img/textures/backgrounds/bg-main_menu.jpeg"},
+                                                {Textures::bg_pause,"Resources/img/textures/backgrounds/bg_pause.png"},
                                                 {Textures::jogador_a,"Resources/img/textures/sprites/player/player_a.png"},
                                                 {Textures::jogador_b,"Resources/img/textures/sprites/player/player_b.png"},
                                                 {Textures::narcotraficante,"Resources/img/textures/sprites/player/narcotraficante.png"},

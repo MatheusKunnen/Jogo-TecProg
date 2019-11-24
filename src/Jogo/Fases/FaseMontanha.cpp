@@ -45,7 +45,7 @@ void FaseMontanha::initObstaculos() {
     for (Vector2f pos : lista){
         if (rand() % 10 > 3) {
             if (rand() % 2 == 1)
-                obstaculo = new Pedra(pos, &this->textures.get(Resources::Textures::planta_venenosa));
+                obstaculo = new Pedra(pos, &this->textures.get(Resources::Textures::pedra));
             else
                 obstaculo = new Espinho(pos, &this->textures.get(Resources::Textures::espinhos));
             Vector2f ppos = obstaculo->getPosition();

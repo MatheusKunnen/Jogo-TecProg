@@ -19,6 +19,7 @@ private:
     void initMenu();
     void initWidgets();
     void initButtons();
+    void initBackground();
     
     // Const
     enum widgets_ids{btn_resume_game, btn_exit};

@@ -40,7 +40,8 @@ bool GerenciadorArquivos::save(){
     bool status = true;
     try{
         std::ofstream out(this->filename);
-        out << this->data.dump() << endl;
+        if(DEBUG_MODE)
+            out << this->data.dump() << endl;
         out.close();
     } catch (std::exception e){
         cerr << "ERROR: GerenciadorArquivos.save(): " << e.what() << endl;
