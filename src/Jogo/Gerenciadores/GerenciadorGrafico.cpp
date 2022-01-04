@@ -42,7 +42,8 @@ void GerenciadorGrafico::initWindow(){
     // Aloca RenderWindow
     this->main_window = new RenderWindow(sf::VideoMode(this->parametros.getWindowWidth(), this->parametros.getWindowHeight(), 32), this->parametros.getWindowTitle(), this->parametros.getStyle());
     // Set max framerate
-    main_window->setFramerateLimit(this->parametros.getFrameRateLimit());
+    if (this->parametros.getFrameRateLimit() > 0)
+        main_window->setFramerateLimit(this->parametros.getFrameRateLimit());
 }
 
 void GerenciadorGrafico::initView() {
