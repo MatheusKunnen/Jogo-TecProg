@@ -9,6 +9,8 @@
 #ifndef Fase_hpp
 #define Fase_hpp
 
+#include "../FrameTimer.hpp"
+
 #include "../TADs/ListaEntidades.hpp"
 
 #include "../Entidades/Mapa.hpp"
@@ -85,7 +87,7 @@ public:
     virtual ~Fase();
     
     // Methods
-    void update(const float& dt);
+    virtual void update(const float& dt);
     void updateView(const float& dt);
     void checkPlayerStatus();
     void addEntidade(Gerenciadores::Personagem* entidade);

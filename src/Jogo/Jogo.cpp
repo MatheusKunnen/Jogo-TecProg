@@ -16,8 +16,9 @@ Jogo* Jogo::getInstance(const string& nome_jogador) {
 Jogo::Jogo(const string& nome_jogador):
 jogador_a(nullptr),
 jogador_b(nullptr),
-fase_floresta(this->jogador_a, this->jogador_b),
-fase_montanha(this->jogador_a, this->jogador_b),
+fase_floresta(nullptr),
+fase_montanha(nullptr),
+fase_teste(nullptr),
 event_pool(),
 main_clock(),
 par_jogo(),
@@ -25,6 +26,7 @@ dt(0),
 status_code(0),
 l_ranking()
 {
+    FrameTimer::GetInstance("analytics");
     // Instacia o gerenciador gradico
     this->g_grafico = GerenciadorGrafico::getInstance();
     // Chama funcoes de inicio
@@ -172,10 +174,23 @@ void Jogo::pushTopState(States::states_id id){
             state = new EndGameMenu(this, false);
             break;
         case States::states_id::fase_floresta:
-            state = new FaseState(this, this->fase_floresta, this->getJogadorA(), this->getJogadorB());
+            if (this->fase_floresta != nullptr)
+                delete this->fase_floresta;
+            this->fase_floresta = new FaseFloresta(this->getJogadorA(), this->getJogadorB());
+            state = new FaseState(this, *this->fase_floresta, this->getJogadorA(), this->getJogadorB());
             break;
         case States::states_id::fase_montanha:
-            state = new FaseState(this, this->fase_montanha, this->getJogadorA(), this->getJogadorB());
+            if (this->fase_montanha != nullptr)
+                delete this->fase_montanha;
+            this->fase_montanha = new FaseMontanha(this->getJogadorA(), this->getJogadorB());
+            state = new FaseState(this, *this->fase_montanha, this->getJogadorA(), this->getJogadorB());
+            break;
+        case States::states_id::fase_teste:
+            if (this->fase_teste != nullptr)
+                delete this->fase_teste;
+            this->fase_teste = new FaseTeste(this->getJogadorA(), this->getJogadorB());
+            state = new FaseState(this, *this->fase_teste, this->getJogadorA(), this->getJogadorB());
+            break;
         default:
             // Caso o ID seja inválido
             cerr << "ERROR: Jogo::pushState(): Trying to push unidentified state." << endl;

@@ -22,7 +22,7 @@ private:
     void initBackground();
     
     // Const
-    enum widgets_ids{btn_start_floresta, btn_start_montanha, btn_exit};
+    enum widgets_ids{btn_start_floresta, btn_start_montanha, btn_start_teste, btn_exit};
 public:
     // Constructor & Destructor
     GameMenu(StateManager* handler);
@@ -34,6 +34,7 @@ public:
     void onGuiEvent(int id, GUI::Events::Type event_id);
     void onStartFaseFloresta();
     void onStartFaseMontanha();
+    void onStartFaseTeste();
     void onExit();
 };
 

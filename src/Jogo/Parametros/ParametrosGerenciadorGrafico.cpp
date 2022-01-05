@@ -11,7 +11,7 @@
 namespace Game {  namespace Parametros {
 
 // Const init
-const int ParametrosGerenciadorGrafico::DEFAULT_FRAMERATE(60);
+const int ParametrosGerenciadorGrafico::DEFAULT_FRAMERATE(0);
 const int ParametrosGerenciadorGrafico::DEFAULT_WINDOW_HEIGHT(1024);
 const int ParametrosGerenciadorGrafico::DEFAULT_WINDOW_WIDTH(1920);
 const int ParametrosGerenciadorGrafico::DEFAULT_STYLE_NORMAL(sf::Style::Titlebar | sf::Style::Close);

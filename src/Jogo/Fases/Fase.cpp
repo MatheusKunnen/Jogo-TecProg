@@ -29,6 +29,7 @@ event_handler(nullptr)
     initParametros();
     initTextures();
     initMapa();
+    FrameTimer::GetInstance()->clear();
 }
 
 Fase::~Fase(){
@@ -79,6 +80,8 @@ void Fase::initJogadores(){
 
 // Methods
 void Fase::update(const float &dt){
+    FrameTimer::GetInstance()->markUpdateDt();
+    FrameTimer::GetInstance()->markUpdateStart();
     // Verifica colisoes
     g_colisoes.gerenciarColisoes();
     // Atualiza entidades
@@ -87,11 +90,14 @@ void Fase::update(const float &dt){
     this->updateView(dt);
     // Verifica se um jogador Ganhou/Perdeu
     this->checkPlayerStatus();
+    FrameTimer::GetInstance()->markUpdateFinished();
 }
 
 void Fase::render(RenderTarget *target) {
+    FrameTimer::GetInstance()->markRenderStart();
     // Renderiza todas as entidades
     this->l_entidades.render(target);
+    FrameTimer::GetInstance()->markRenderFinished();
 }
 
 void Fase::updateView(const float &dt){
@@ -172,6 +178,8 @@ void Fase::onKeyInput(eventos_jogador::Tipo tipo, const float& dt){
 }
 
 void Fase::onCloseFase(){
+    // Guarda timer
+    FrameTimer::GetInstance()->persist(true);
     // Atualiza vida jogadores
     this->salvadora.setVidaJogador(1, this->jogador_a->getNumVidas());
     if (this->jogador_b)

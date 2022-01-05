@@ -1,6 +1,8 @@
 #ifndef Jogo_hpp
 #define Jogo_hpp
 
+#include "./FrameTimer.hpp"
+
 #include "TADs/ListaRanking.hpp"
 
 #include "Gerenciadores/GerenciadorGrafico.hpp"
@@ -11,6 +13,7 @@
 
 #include "Fases/FaseFloresta.hpp"
 #include "Fases/FaseMontanha.hpp"
+#include "Fases/FaseTeste.hpp"
 
 #include "Resources/TexturesHolder.hpp"
 #include "Entidades/Jogador.hpp"
@@ -31,6 +34,7 @@ using States::FaseState;
 
 using Fases::FaseFloresta;
 using Fases::FaseMontanha;
+using Fases::FaseTeste;
 
 using Resources::TextureHolder;
 using Parametros::ParametrosJogo;
@@ -59,10 +63,10 @@ private:
     Jogador*                    jogador_a; // Ponteiro para jogador A
     Jogador*                    jogador_b; // Ponteiro para jogador B
     
-    FaseFloresta                fase_floresta; // Instancia fase floresta
-    FaseMontanha                fase_montanha; // Instancia fase montanha
-    
-    TextureHolder               textures; // Contenedor de texturas
+    FaseFloresta*                fase_floresta; // Instancia fase floresta
+    FaseMontanha*                fase_montanha; // Instancia fase montanha
+    FaseTeste*                   fase_teste; // Instancia fase teste
+    TextureHolder                textures; // Contenedor de texturas
     
     // Init methods
     void initParametros();
