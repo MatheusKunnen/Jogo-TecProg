@@ -19,6 +19,7 @@ FrameTimer::FrameTimer(const string& saveFile) :
 	totalFrameTimes(),
 	updateFrameTimes(),
 	renderFrameTimes(),
+	totalEntities(),
 	gArquivos(saveFile + "-" + std::to_string(this->fileCount)) {
 	this->gArquivos.setFilename(saveFile + "-" + std::to_string(this->fileCount) + ".json");
 
@@ -47,26 +48,32 @@ void FrameTimer::markRenderFinished() {
 	this->renderFrameTimes.push_back(this->updateClock.restart().asSeconds());
 };
 
+void FrameTimer::addEntitiesMark(const int& entities) {
+	this->totalEntities.push_back(entities);
+}
+
 void FrameTimer::persist(const bool& nextFile) {
 	/*cout << "Guardando" << endl;
 	int count = this->updateFrameTimes.size();
 	for (int i = 0; i < count; i++)
 		cout << this->updateFrameTimes[i] << endl;*/
 	json data;
-	data["totalFrames"] = this->totalFrameTimes;
-	data["updateFrames"] = this->updateFrameTimes;
-	data["renderFrames"] = this->renderFrameTimes;
+	data["total_frame_time"] = this->totalFrameTimes;
+	data["update_frame_time"] = this->updateFrameTimes;
+	data["render_frame_time"] = this->renderFrameTimes;
+	data["entities_frame"] = this->totalEntities;
 	this->gArquivos.setData(data);
 	this->gArquivos.save();
 	if (nextFile)
 		this->gArquivos.setFilename(this->saveFile + "-" + std::to_string(++this->fileCount) + ".json");
-	
+
 }
 
 void FrameTimer::clear() {
 	this->totalFrameTimes.clear();
 	this->updateFrameTimes.clear();
 	this->renderFrameTimes.clear();
+	this->totalEntities.clear();
 	this->mainClock.restart();
 	this->updateClock.restart();
 	this->renderClock.restart();

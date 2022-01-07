@@ -26,7 +26,7 @@ dt(0),
 status_code(0),
 l_ranking()
 {
-    FrameTimer::GetInstance("analytics");
+    FrameTimer::GetInstance("analytics-oop");
     // Instacia o gerenciador gradico
     this->g_grafico = GerenciadorGrafico::getInstance();
     // Chama funcoes de inicio
@@ -74,11 +74,11 @@ void Jogo::run() {
         // Atualiza relogio
         updateDt();
 		// Notifica quando a variação de tempo for muito alta
-		if (1 / 30.f - this->dt < 0) {
-			cerr << "WARNING: " << this->dt << " Missed: " << (int) (1 / (this->dt - 1 / 30.f)) << " frames."<< endl;
-			// Limita maxima variacao do tempo
-			this->dt = .02;
-		}
+		//if (1 / 30.f - this->dt < 0) {
+		//	cerr << "WARNING: " << this->dt << " Missed: " << (int) (1 / (this->dt - 1 / 30.f)) << " frames."<< endl;
+		//	// Limita maxima variacao do tempo
+		//	this->dt = .02;
+		//}
         // Atualiza estados
         update();
         // Renderiza estados

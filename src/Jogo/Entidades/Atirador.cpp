@@ -37,7 +37,7 @@ void Atirador::updatePlayerAttack() {
     if (this->jogador_a){
         distance = Entidade::distanceV(this->jogador_a, this);
         max_distance = Entidade::maxDistanceV(this->jogador_a, this);
-        max_distance.x *= 20;
+        max_distance.x *= 200;
         
         if ((distance.x <= max_distance.x))// && distance.y < max_distance.y) && (distance.y <= max_distance.y && distance.x < max_distance.x))
             this->attack(jogador_a);

@@ -39,7 +39,9 @@
     <ClInclude Include="..\..\..\src\Jogo\Fases\FaseEventHandler.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Fases\FaseFloresta.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Fases\FaseMontanha.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\Fases\FaseTeste.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Fases\SalvadoraFase.hpp" />
+    <ClInclude Include="..\..\..\src\Jogo\FrameTimer.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorArquivos.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorColisoes.hpp" />
     <ClInclude Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorGrafico.hpp" />
@@ -99,7 +101,9 @@
     <ClCompile Include="..\..\..\src\Jogo\Fases\FaseEventHandler.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Fases\FaseFloresta.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Fases\FaseMontanha.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\Fases\FaseTeste.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Fases\SalvadoraFase.cpp" />
+    <ClCompile Include="..\..\..\src\Jogo\FrameTimer.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorArquivos.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorColisoes.cpp" />
     <ClCompile Include="..\..\..\src\Jogo\Gerenciadores\GerenciadorGrafico.cpp" />

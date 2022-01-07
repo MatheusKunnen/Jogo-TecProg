@@ -25,10 +25,11 @@ private:
 	Clock mainClock;
 	Clock updateClock;
 	Clock renderClock;
-	
+
 	vector<float> totalFrameTimes;
 	vector<float> updateFrameTimes;
 	vector<float> renderFrameTimes;
+	vector<int> totalEntities;
 
 public:
 	FrameTimer(const string& saveFile);
@@ -38,6 +39,7 @@ public:
 	void markUpdateFinished();
 	void markRenderStart();
 	void markRenderFinished();
+	void addEntitiesMark(const int& entities);
 	void persist(const bool& nextFile = true);
 	void clear();
 

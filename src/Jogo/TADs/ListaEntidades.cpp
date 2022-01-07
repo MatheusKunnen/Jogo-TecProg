@@ -67,6 +67,7 @@ void ListaEntidades::operator+=(Entidade* entidade){
 }
 
 void ListaEntidades::render(RenderTarget *target){
+    FrameTimer::GetInstance()->addEntitiesMark(this->lista_entidades.count());
     this->itr = lista_entidades.begin();
     while (itr != nullptr){
         if(itr->get() != nullptr && !itr->get()->isEnding())

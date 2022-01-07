@@ -9,6 +9,7 @@
 #ifndef ListaEntidades_hpp
 #define ListaEntidades_hpp
 
+#include "../FrameTimer.hpp"
 #include "Lista.hpp"
 #include "../Entidades/Entidade.hpp"
 
