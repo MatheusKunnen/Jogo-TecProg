@@ -57,4 +57,7 @@ using std::vector;
 using std::runtime_error;
 
 static const bool DEBUG_MODE = false;
+#define LOCK_DT 1;
+
+
 #endif /* Base_includes */

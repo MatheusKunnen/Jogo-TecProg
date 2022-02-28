@@ -124,7 +124,11 @@ void Jogo::update(){
     // Atualiza estado se existir algum
     if (!this->states.empty()){
         // Atualiza estado
-        this->states.top()->update(this->dt);
+#if LOCK_DT
+        this->states.top()->update(1/30.f);
+#else
+        this->states.top()->update(this->dt); 
+#endif
         // Verifica se o estado quer finalizar
         if (this->states.top()->isQuitting())
             this->popTopState(); // Remove estado da pila (e é desalocado)
